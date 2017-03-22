@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cws.webapp.bas.dao.CompanyDAO">
+	<select id="findByKey" parameterType="CompanyDomain" resultType="CompanyDomain"
+		useCache="true">
+		select ID,NAME,LINKMAN,PHONE,ADDRESS,REMARK,CREATE_DATE,STATUS from
+		COMPANY_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</select>
+	<select id="findByWhere" parameterType="CompanyDomain"
+		resultType="CompanyDomain" useCache="true">
+		select ID,NAME,LINKMAN,PHONE,ADDRESS,REMARK,CREATE_DATE,STATUS from
+		COMPANY_INFO
+		<where>
+			<if test="id !=null">
+				and ID = #{id}
+			</if>
+			<if test="name !=null">
+				and NAME = #{name}
+			</if>
+			<if test="linkman !=null">
+				and LINKMAN = #{linkman}
+			</if>
+			<if test="phone !=null">
+				and PHONE = #{phone}
+			</if>
+			<if test="address !=null">
+				and ADDRESS = #{address}
+			</if>
+			<if test="remark !=null">
+				and REMARK = #{remark}
+			</if>
+			<if test="createDate !=null">
+				and CREATE_DATE = #{createDate}
+			</if>
+			<if test="status !=null">
+				and STATUS = #{status}
+			</if>
+		</where>
+	</select>
+	<insert id="insert" parameterType="CompanyDomain" flushCache="true">
+		insert into
+		COMPANY_INFO(ID,NAME,LINKMAN,PHONE,ADDRESS,REMARK,CREATE_DATE,STATUS)
+		values
+		(#{id},#{name},#{linkman},#{phone},#{address},#{remark},#{createDate},#{status})
+	</insert>
+	<update id="update" parameterType="CompanyDomain" flushCache="true">
+		update COMPANY_INFO
+		<set>
+			<if test="name !=null">
+				NAME = #{name},
+			</if>
+			<if test="linkman !=null">
+				LINKMAN = #{linkman},
+			</if>
+			<if test="phone !=null">
+				PHONE = #{phone},
+			</if>
+			<if test="address !=null">
+				ADDRESS = #{address},
+			</if>
+			<if test="remark !=null">
+				REMARK = #{remark},
+			</if>
+			<if test="createDate !=null">
+				CREATE_DATE = #{createDate},
+			</if>
+			<if test="status !=null">
+				STATUS = #{status},
+			</if>
+		</set>
+		<where>
+			and ID = #{id}
+
+		</where>
+	</update>
+	<delete id="delete" parameterType="CompanyDomain" flushCache="true">
+		delete from COMPANY_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</delete>
+</mapper>

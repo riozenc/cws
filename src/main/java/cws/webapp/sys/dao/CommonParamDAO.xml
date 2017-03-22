@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cws.webapp.sys.dao.CommonParamDAO">
+	<select id="findByKey" parameterType="CommonParamDomain"
+		resultType="CommonParamDomain" useCache="true">
+		select ID,TYPE,NAME,VALUE,REMARK,CREATE_DATE,UPDATE_DATE,STATUS from
+		COMMON_PARAM_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</select>
+	<select id="findByWhere" parameterType="CommonParamDomain"
+		resultType="CommonParamDomain" useCache="true">
+		select ID,TYPE,NAME,VALUE,REMARK,CREATE_DATE,UPDATE_DATE,STATUS from
+		COMMON_PARAM_INFO
+		<where>
+			<if test="id !=null">
+				and ID = #{id}
+			</if>
+			<if test="type !=null">
+				and TYPE = #{type}
+			</if>
+			<if test="name !=null">
+				and NAME = #{name}
+			</if>
+			<if test="value !=null">
+				and VALUE = #{value}
+			</if>
+			<if test="remark !=null">
+				and REMARK = #{remark}
+			</if>
+			<if test="createDate !=null">
+				and CREATE_DATE = #{createDate}
+			</if>
+			<if test="updateDate !=null">
+				and UPDATE_DATE = #{updateDate}
+			</if>
+			<if test="status !=null">
+				and STATUS = #{status}
+			</if>
+		</where>
+	</select>
+	<insert id="insert" parameterType="CommonParamDomain"
+		flushCache="true">
+		insert into
+		COMMON_PARAM_INFO(ID,TYPE,NAME,VALUE,REMARK,CREATE_DATE,UPDATE_DATE,STATUS)
+		values
+		(#{id},#{type},#{name},#{value},#{remark},#{createDate},#{updateDate},#{status})
+	</insert>
+	<update id="update" parameterType="CommonParamDomain"
+		flushCache="true">
+		update COMMON_PARAM_INFO
+		<set>
+			<if test="type !=null">
+				TYPE = #{type},
+			</if>
+			<if test="name !=null">
+				NAME = #{name},
+			</if>
+			<if test="value !=null">
+				VALUE = #{value},
+			</if>
+			<if test="remark !=null">
+				REMARK = #{remark},
+			</if>
+			<if test="createDate !=null">
+				CREATE_DATE = #{createDate},
+			</if>
+			<if test="updateDate !=null">
+				UPDATE_DATE = #{updateDate},
+			</if>
+			<if test="status !=null">
+				STATUS = #{status},
+			</if>
+		</set>
+		<where>
+			and ID = #{id}
+
+		</where>
+	</update>
+	<delete id="delete" parameterType="CommonParamDomain"
+		flushCache="true">
+		delete from COMMON_PARAM_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</delete>
+</mapper>
