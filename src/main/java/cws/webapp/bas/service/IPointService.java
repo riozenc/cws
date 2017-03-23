@@ -7,6 +7,10 @@
  */
 package cws.webapp.bas.service;
 
-public interface IPointService {
+import com.riozenc.quicktool.springmvc.webapp.service.BaseService;
+
+import cws.webapp.bas.domain.PointDomain;
+
+public interface IPointService extends BaseService<PointDomain>{
 
 }

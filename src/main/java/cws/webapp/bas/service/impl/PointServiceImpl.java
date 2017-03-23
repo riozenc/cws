@@ -7,8 +7,49 @@
  */
 package cws.webapp.bas.service.impl;
 
+import java.util.List;
+
+import com.riozenc.quicktool.annotation.TransactionDAO;
+import com.riozenc.quicktool.annotation.TransactionService;
+
+import cws.webapp.bas.dao.PointDAO;
+import cws.webapp.bas.domain.PointDomain;
 import cws.webapp.bas.service.IPointService;
 
+@TransactionService
 public class PointServiceImpl implements IPointService {
+
+	@TransactionDAO
+	private PointDAO pointDAO;
+	
+	@Override
+	public int insert(PointDomain t) {
+		// TODO Auto-generated method stub
+		return pointDAO.insert(t);
+	}
+
+	@Override
+	public int delete(PointDomain t) {
+		// TODO Auto-generated method stub
+		return pointDAO.delete(t);
+	}
+
+	@Override
+	public int update(PointDomain t) {
+		// TODO Auto-generated method stub
+		return pointDAO.update(t);
+	}
+
+	@Override
+	public PointDomain findByKey(PointDomain t) {
+		// TODO Auto-generated method stub
+		return pointDAO.findByKey(t);
+	}
+
+	@Override
+	public List<PointDomain> findByWhere(PointDomain t) {
+		// TODO Auto-generated method stub
+		return pointDAO.findByWhere(t);
+	}
 
 }

@@ -7,6 +7,10 @@
  */
 package cws.webapp.bas.service;
 
-public interface IHostService {
+import com.riozenc.quicktool.springmvc.webapp.service.BaseService;
+
+import cws.webapp.bas.domain.HostDomain;
+
+public interface IHostService extends BaseService<HostDomain>{
 
 }

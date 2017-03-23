@@ -7,6 +7,10 @@
  */
 package cws.webapp.bas.service;
 
-public interface ICompanyService {
+import com.riozenc.quicktool.springmvc.webapp.service.BaseService;
+
+import cws.webapp.bas.domain.CompanyDomain;
+
+public interface ICompanyService extends BaseService<CompanyDomain>{
 
 }
