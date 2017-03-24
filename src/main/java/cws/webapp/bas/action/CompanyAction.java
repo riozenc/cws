@@ -7,12 +7,15 @@
  */
 package cws.webapp.bas.action;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.riozenc.quicktool.common.util.json.JSONGrid;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
@@ -69,6 +72,13 @@ public class CompanyAction extends BaseAction {
 	@ResponseBody
 	@RequestMapping(params = "type=findCompanyByWhere")
 	public String findCompanyByWhere(CompanyDomain companyDomain) {
+		List<CompanyDomain> list = companyService.findByWhere(companyDomain);
+		return JSONUtil.toJsonString(new JSONGrid(companyDomain, list));
+	}
+
+	public String getCompanyInfo(CompanyDomain companyDomain) {
+		companyDomain = companyService.findByKey(companyDomain);
+
 		return null;
 	}
 }

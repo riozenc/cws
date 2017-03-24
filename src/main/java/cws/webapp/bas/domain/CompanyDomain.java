@@ -10,6 +10,8 @@ package cws.webapp.bas.domain;
 import java.util.Date;
 
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
+import com.riozenc.quicktool.mybatis.MybatisEntity;
+import com.riozenc.quicktool.mybatis.persistence.Page;
 
 /**
  * 企业
@@ -17,7 +19,7 @@ import com.riozenc.quicktool.annotation.TablePrimaryKey;
  * @author rioze
  *
  */
-public class CompanyDomain {
+public class CompanyDomain extends Page<CompanyDomain> implements MybatisEntity {
 	@TablePrimaryKey
 	private Integer id;// ID ID int TRUE FALSE TRUE
 	private String name;// 企业名 NAME varchar(50) 50 FALSE FALSE FALSE
