@@ -1,0 +1,9 @@
+{
+	"jyxPoint" : 1,
+	"fjPoint" : 2,
+	"crkPoint" : 1,
+	"sjPoint" : 2,
+	"hjPoint" : 2,
+	"ttPoint" : 1,
+	"huanjPoint" : 1
+}

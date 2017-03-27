@@ -1,0 +1,29 @@
+{
+	"total":3,
+	"data":[
+		{
+			"id" : 1,
+			"name" : "2017验证报告1",
+			"object" : "保温箱1",
+			"propertyType" : "03",
+			"temperatureType" : "01",
+			"reportStatus" : 0
+		},
+		{
+			"id" : 2,
+			"name" : "2017验证报告2",
+			"object" : "中药饮片库",
+			"propertyType" : "01",
+			"temperatureType" : "02",
+			"reportStatus" : 1
+		},
+		{
+			"id" : 3,
+			"name" : "2017验证报告3",
+			"object" : "冷藏车1",
+			"propertyType" : "02",
+			"temperatureType" : "02",
+			"reportStatus" : 1
+		}
+	]
+}

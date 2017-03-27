@@ -1,0 +1,65 @@
+{
+	"total":10,
+	"data":[
+		{
+			"id" : 1,
+			"position" : 1,
+			"type" : "01",
+			"SN" : "1A"
+		},
+		{
+			"id" : 2,
+			"position" : 2,
+			"type" : "02",
+			"SN" : "2A"
+		},
+		{
+			"id" : 3,
+			"position" : 3,
+			"type" : "02",
+			"SN" : "3A"
+		},
+		{
+			"id" : 4,
+			"position" : 4,
+			"type" : "03",
+			"SN" : "4A"
+		},
+		{
+			"id" : 5,
+			"position" : 5,
+			"type" : "04",
+			"SN" : "5A"
+		},
+		{
+			"id" : 6,
+			"position" : 6,
+			"type" : "04",
+			"SN" : "6A"
+		},
+		{
+			"id" : 7,
+			"position" : 7,
+			"type" : "05",
+			"SN" : "7A"
+		},
+		{
+			"id" : 8,
+			"position" : 8,
+			"type" : "05",
+			"SN" : "8A"
+		},
+		{
+			"id" : 9,
+			"position" : 9,
+			"type" : "06",
+			"SN" : "9A"
+		},
+		{
+			"id" : 10,
+			"position" : 10,
+			"type" : "07",
+			"SN" : "1B"
+		}
+	]
+}
