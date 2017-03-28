@@ -213,10 +213,27 @@ $(document).ready(function(){
 	//配置完成按钮
 	var $configDone=$("#configDone");
 	$configDone.click(function(event) {
-		$("#step4").css('color', '#000');
-		$("#step5").css('color', '#4485E0');		
-		$("#context4").css("display","none");
-		$("#context5").css("display","block");
+		//提交数据
+		var configData = form.getData();
+		form.validate();
+        if (form.isValid() == false) return;
+        var json = mini.encode([configData]);
+        $.ajax({
+            url: "",
+			type: 'post',
+            data: { data: json },
+            cache: false,
+            success: function (text) {
+            	//下一步
+				$("#step4").css('color', '#000');
+				$("#step5").css('color', '#4485E0');		
+				$("#context4").css("display","none");
+				$("#context5").css("display","block");
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText);
+            }
+        });
 	});
 
 	/*----------5-----------*/
