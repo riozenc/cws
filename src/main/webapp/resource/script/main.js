@@ -139,10 +139,6 @@ $(document).ready(function(){
 			welcomePage.css('display', 'none');
 		}
 		var id=e.currentTarget.id;
-		//两次点击同一菜单
-		if(id===preMenu){
-			return;
-		}
 		//取到右侧对应菜单容器的id以及dom对象
 		var menuCanId=id+"_menu_can";
 		var menuCan=document.getElementById(menuCanId);

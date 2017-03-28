@@ -108,6 +108,13 @@ body{
 .listSecond{
 	width: 100%;
 	height: 40px;
+	padding-left: 12px;
+	/*防止padding和margin影响高度*/
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
 }
 .listIcon{
 	width: 40px;
@@ -136,10 +143,15 @@ body{
 	height: 32px;
 	float: left;
 	color: #fff;
-	font-size: 16px;
 	font-family: "微软雅黑";
 	padding-top: 8px;
 	min-width: 70px;
+}
+.listFirst .listTitle{
+	font-size: 16px;
+}
+.listSecond .listTitle{
+	font-size: 15px;
 }
 .listArrow{
 	width: 40px;
