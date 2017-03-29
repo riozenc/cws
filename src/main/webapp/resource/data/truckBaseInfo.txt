@@ -1,0 +1,11 @@
+{
+	"name" : "鲁FY3303",
+	"type" : "50*50*3m³",
+	"volume" : "1000L",
+	"fanNum" : 5,
+	"entranceNum" : 6,
+	"curtain" : "无门帘",
+	"probeNum" : 2,
+	"manufactor" : "杭州泽大仪器有限公司",
+	"disMap" : ""
+}

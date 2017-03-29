@@ -1,0 +1,33 @@
+/*-----------jQuery miniUI 表格样式修改----------*/
+.mini-toolbar{
+	border-bottom:0;
+	padding:0px;
+	background:#FFF;
+	border-color: #BBB;
+}
+.mini-textbox-border{
+	border:1px solid #BBB;
+}
+.mini-button{
+	color: #555;
+	font-family: "微软雅黑";
+}
+.mini-panel-border{
+	border: 1px solid #BBB;
+	height: 99%;
+}
+.mini-grid-headerCell{
+	background: #FFF;
+	border-bottom: 1px solid #BBB;
+	border-right: 1px solid #BBB;
+}
+.mini-grid-pager{
+	background:#FFF;
+}
+.mini-grid-headerCell-inner{
+	font-family: "微软雅黑";
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 16px;
+	padding-top: 5px;
+}

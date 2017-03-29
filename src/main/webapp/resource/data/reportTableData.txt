@@ -1,0 +1,38 @@
+{
+	"total":3,
+	"data":[
+		{
+			"id" : 1,
+			"type" : "测点1",
+			"time1" : 11,
+			"time2" : 12,
+			"time3" : 13,
+			"time4" : 14,
+			"time5" : 15,
+			"time6" : 16,
+			"time7" : 17
+		},
+		{
+			"id" : 2,
+			"type" : "测点2",
+			"time1" : 21,
+			"time2" : 22,
+			"time3" : 23,
+			"time4" : 24,
+			"time5" : 25,
+			"time6" : 26,
+			"time7" : 27
+		},
+		{
+			"id" : 3,
+			"type" : "测点3",
+			"time1" : 31,
+			"time2" : 32,
+			"time3" : 33,
+			"time4" : 34,
+			"time5" : 35,
+			"time6" : 36,
+			"time7" : 37
+		}
+	]
+}

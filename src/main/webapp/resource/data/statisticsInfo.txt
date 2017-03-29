@@ -1,0 +1,5 @@
+{
+	"pointCount" : 30,
+	"verifyCount" : 15,
+	"validationReporCount" : 24
+}

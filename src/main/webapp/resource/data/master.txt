@@ -1,0 +1,40 @@
+{
+	"total":5,
+	"data":[
+		{
+			"id" : 1,
+			"name" : "主机1",
+			"type" : "ZDR-11",
+			"snNo" : "1A",
+			"createDate" : 1289483066763
+		},
+		{
+			"id" : 2,
+			"name" : "主机2",
+			"type" : "ZDR-11",
+			"snNo" : "2A",
+			"createDate" : 1389483066763
+		},
+		{
+			"id" : 3,
+			"name" : "主机3",
+			"type" : "ZDR-11",
+			"snNo" : "3A",
+			"createDate" : 1489483066763
+		},
+		{
+			"id" : 4,
+			"name" : "主机4",
+			"type" : "ZDR-11",
+			"snNo" : "4A",
+			"createDate" : "2015-01-03"
+		},
+		{
+			"id" : 5,
+			"name" : "主机5",
+			"type" : "ZDR-11",
+			"snNo" : "5A",
+			"createDate" : "2015-11-23"
+		}
+	]
+}

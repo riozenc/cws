@@ -1,0 +1,14 @@
+{
+	"name" : "冷库1",
+	"type" : "50*50*3m³",
+	"volume" : "1000L",
+	"area" : "2500m²",
+	"fanNum" : 5,
+	"fanMainNum" : 3,
+	"fanSpareNum" : 2,
+	"entranceNum" : 6,
+	"goodsShelves" : 7,
+	"probeNum" : 2,
+	"manufactor" : "杭州泽大仪器有限公司",
+	"disMap" : "/enterpriseManage/resource/img/lk.png"
+}
