@@ -1,67 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cws.webapp.cmm.dao.PersonnelPostDAO">
-<select id="findByKey" parameterType="PersonnelPostDomain" resultType="PersonnelPostDomain" useCache="true">
-select ID,NAME,POST_ID,COMPANY_ID,REMARK,STATUS from PERSONNEL_POST_INFO<where>
- and ID = #{id}
+	<select id="findByKey" parameterType="PersonnelPostDomain"
+		resultType="PersonnelPostDomain" useCache="true">
+		select ID,NAME,POST_ID,COMPANY_ID,REMARK,STATUS from
+		PERSONNEL_POST_INFO
+		<where>
+			and ID = #{id}
 
-</where>
-</select>
-<select id="findByWhere" parameterType="PersonnelPostDomain" resultType="PersonnelPostDomain" useCache="true">
-select ID,NAME,POST_ID,COMPANY_ID,REMARK,STATUS from PERSONNEL_POST_INFO
-<where>
-<if test="id !=null"> 
- and ID = #{id}
-</if>
-<if test="name !=null"> 
- and NAME = #{name}
-</if>
-<if test="postId !=null"> 
- and POST_ID = #{postId}
-</if>
-<if test="companyId !=null"> 
- and COMPANY_ID = #{companyId}
-</if>
-<if test="remark !=null"> 
- and REMARK = #{remark}
-</if>
-<if test="status !=null"> 
- and STATUS = #{status}
-</if>
-</where>
-</select>
-<insert id="insert" parameterType="PersonnelPostDomain" flushCache="true">
-insert into PERSONNEL_POST_INFO(ID,NAME,POST_ID,COMPANY_ID,REMARK,STATUS) values (#{id},#{name},#{postId},#{companyId},#{remark},#{status})
-</insert>
-<update id="update" parameterType="PersonnelPostDomain" flushCache="true">
-update PERSONNEL_POST_INFO
-<set>
-<if test="name !=null">
-NAME = #{name},
-</if>
-<if test="postId !=null">
-POST_ID = #{postId},
-</if>
-<if test="companyId !=null">
-COMPANY_ID = #{companyId},
-</if>
-<if test="remark !=null">
-REMARK = #{remark},
-</if>
-<if test="status !=null">
-STATUS = #{status},
-</if>
-</set>
-<where>
- and ID = #{id}
+		</where>
+	</select>
+	<select id="findByWhere" parameterType="PersonnelPostDomain"
+		resultType="PersonnelPostDomain" useCache="true">
+		SELECT
+		a.ID,
+		a. NAME,
+		a.POST_ID,
+		a.COMPANY_ID,
+		a.REMARK,
+		a. STATUS,
+		b.`NAME` as COMPANY_NAME,
+		c.`NAME` as POST_NAME
+		FROM
+		PERSONNEL_POST_INFO a
+		LEFT JOIN company_info b ON a.COMPANY_ID = b.ID
+		LEFT JOIN post_info c ON a.POST_ID = c.ID
+		<where>
+			<if test="id !=null">
+				and ID = #{id}
+			</if>
+			<if test="name !=null">
+				and NAME = #{name}
+			</if>
+			<if test="postId !=null">
+				and POST_ID = #{postId}
+			</if>
+			<if test="companyId !=null">
+				and COMPANY_ID = #{companyId}
+			</if>
+			<if test="remark !=null">
+				and REMARK = #{remark}
+			</if>
+			<if test="status !=null">
+				and STATUS = #{status}
+			</if>
+		</where>
+	</select>
+	<insert id="insert" parameterType="PersonnelPostDomain"
+		flushCache="true">
+		insert into
+		PERSONNEL_POST_INFO(ID,NAME,POST_ID,COMPANY_ID,REMARK,STATUS)
+		values
+		(#{id},#{name},#{postId},#{companyId},#{remark},#{status})
+	</insert>
+	<update id="update" parameterType="PersonnelPostDomain"
+		flushCache="true">
+		update PERSONNEL_POST_INFO
+		<set>
+			<if test="name !=null">
+				NAME = #{name},
+			</if>
+			<if test="postId !=null">
+				POST_ID = #{postId},
+			</if>
+			<if test="companyId !=null">
+				COMPANY_ID = #{companyId},
+			</if>
+			<if test="remark !=null">
+				REMARK = #{remark},
+			</if>
+			<if test="status !=null">
+				STATUS = #{status},
+			</if>
+		</set>
+		<where>
+			and ID = #{id}
 
-</where>
-</update>
-<delete id="delete" parameterType="PersonnelPostDomain" flushCache="true">
-delete from PERSONNEL_POST_INFO
-<where>
- and ID = #{id}
+		</where>
+	</update>
+	<delete id="delete" parameterType="PersonnelPostDomain"
+		flushCache="true">
+		delete from PERSONNEL_POST_INFO
+		<where>
+			and ID = #{id}
 
-</where>
-</delete>
+		</where>
+	</delete>
 </mapper>

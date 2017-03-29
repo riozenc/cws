@@ -22,7 +22,6 @@ public class VerifyDomain {
 	private String type;// 类型(不同的验证对象对应不同的表)
 	private String verifyId;// 验证对象数据ID
 	private String verifyName;// 验证对象名称
-	private String url;// 图片地址
 
 	public Integer getId() {
 		return id;
@@ -54,14 +53,6 @@ public class VerifyDomain {
 
 	public void setVerifyName(String verifyName) {
 		this.verifyName = verifyName;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
 	}
 
 }

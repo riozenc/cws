@@ -20,6 +20,9 @@ public class PersonnelPostDomain extends Page<PersonnelPostDomain> implements My
 	private String remark;// 备注 REMARK varchar(100) 100 FALSE FALSE FALSE
 	private Integer status;// 状态 STATUS smallint FALSE FALSE FALSE
 
+	private String companyName;// 企业名字
+	private String postName;// 职务名称
+
 	public Integer getId() {
 		return id;
 	}
@@ -66,6 +69,22 @@ public class PersonnelPostDomain extends Page<PersonnelPostDomain> implements My
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getPostName() {
+		return postName;
+	}
+
+	public void setPostName(String postName) {
+		this.postName = postName;
 	}
 
 }

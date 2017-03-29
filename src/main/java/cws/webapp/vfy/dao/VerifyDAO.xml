@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cws.webapp.vfy.dao.VerifyDAO">
+	<select id="findByKey" parameterType="VerifyDomain" resultType="VerifyDomain"
+		useCache="true">
+		select ID,TYPE,VERIFY_ID,VERIFY_NAME from VERIFY_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</select>
+	<select id="findByWhere" parameterType="VerifyDomain"
+		resultType="VerifyDomain" useCache="true">
+		select ID,TYPE,VERIFY_ID,VERIFY_NAME from VERIFY_INFO
+		<where>
+			<if test="id !=null">
+				and ID = #{id}
+			</if>
+			<if test="type !=null">
+				and TYPE = #{type}
+			</if>
+			<if test="verifyId !=null">
+				and VERIFY_ID = #{verifyId}
+			</if>
+			<if test="verifyName !=null">
+				and VERIFY_NAME = #{verifyName}
+			</if>
+		</where>
+	</select>
+	<insert id="insert" parameterType="VerifyDomain" flushCache="true">
+		insert into VERIFY_INFO(ID,TYPE,VERIFY_ID,VERIFY_NAME) values
+		(#{id},#{type},#{verifyId},#{verifyName})
+	</insert>
+	<update id="update" parameterType="VerifyDomain" flushCache="true">
+		update VERIFY_INFO
+		<set>
+			<if test="type !=null">
+				TYPE = #{type},
+			</if>
+			<if test="verifyId !=null">
+				VERIFY_ID = #{verifyId},
+			</if>
+			<if test="verifyName !=null">
+				VERIFY_NAME = #{verifyName},
+			</if>
+		</set>
+		<where>
+			and ID = #{id}
+
+		</where>
+	</update>
+	<delete id="delete" parameterType="VerifyDomain" flushCache="true">
+		delete from VERIFY_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</delete>
+
+
+	<select id="getVerifyByCompany" parameterType="CompanyDomain"
+		resultType="VerifyDomain" useCache="true">
+		SELECT c.*
+		FROM company_verify_rel a LEFT JOIN company_info b
+		ON
+		a.COMPANY_ID = b.ID
+		LEFT JOIN verify_info c ON a.VERIFY_ID = a.ID
+		<where>
+			a.COMPANY_ID =#{id}
+		</where>
+	</select>
+</mapper>
