@@ -1,4 +1,0 @@
-{
-	"companyNameLeft":"山东丽斯盾集团",
-	"companyNameRight":"山东艾欧特集团"
-}

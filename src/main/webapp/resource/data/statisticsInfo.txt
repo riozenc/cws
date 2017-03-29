@@ -1,5 +1,0 @@
-{
-	"equipmentNum" : 30,
-	"objectNum" : 15,
-	"reportNum" : 24
-}
