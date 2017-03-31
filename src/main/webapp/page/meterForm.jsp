@@ -68,7 +68,7 @@
                 <tr>
                     <td class="colTitle">备注：</td>
 	                <td class="colData">    
-	                    <input name="remarks" class="mini-textarea"/>
+	                    <input name="remark" class="mini-textarea"/>
 	                </td>
                 </tr>          
             </table>
