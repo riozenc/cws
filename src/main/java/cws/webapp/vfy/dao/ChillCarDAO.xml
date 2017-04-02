@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cws.webapp.vfy.dao.ChillCarDAO">
+	<select id="findByKey" parameterType="ChillCarDomain"
+		resultType="ChillCarDomain" useCache="true">
+		select
+		NAME,TYPE,VOLUME,FAN_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP
+		from CHILL_CAR_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</select>
+	<select id="findByWhere" parameterType="ChillCarDomain"
+		resultType="ChillCarDomain" useCache="true">
+		select
+		NAME,TYPE,VOLUME,FAN_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP
+		from CHILL_CAR_INFO
+		<where>
+			<if test="name !=null">
+				and NAME = #{name}
+			</if>
+			<if test="type !=null">
+				and TYPE = #{type}
+			</if>
+			<if test="volume !=null">
+				and VOLUME = #{volume}
+			</if>
+			<if test="fanNum !=null">
+				and FAN_NUM = #{fanNum}
+			</if>
+			<if test="entranceNum !=null">
+				and ENTRANCE_NUM = #{entranceNum}
+			</if>
+			<if test="goodsShelves !=null">
+				and GOODS_SHELVES = #{goodsShelves}
+			</if>
+			<if test="probeNum !=null">
+				and PROBE_NUM = #{probeNum}
+			</if>
+			<if test="manufactor !=null">
+				and MANUFACTOR = #{manufactor}
+			</if>
+			<if test="disMap !=null">
+				and DIS_MAP = #{disMap}
+			</if>
+		</where>
+	</select>
+	<insert id="insert" parameterType="ChillCarDomain" flushCache="true">
+		insert into
+		CHILL_CAR_INFO(NAME,TYPE,VOLUME,FAN_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP)
+		values
+		(#{name},#{type},#{volume},#{fanNum},#{entranceNum},#{goodsShelves},#{probeNum},#{manufactor},#{disMap})
+	</insert>
+	<update id="update" parameterType="ChillCarDomain" flushCache="true">
+		update CHILL_CAR_INFO
+		<set>
+			<if test="name !=null">
+				NAME = #{name},
+			</if>
+			<if test="type !=null">
+				TYPE = #{type},
+			</if>
+			<if test="volume !=null">
+				VOLUME = #{volume},
+			</if>
+			<if test="fanNum !=null">
+				FAN_NUM = #{fanNum},
+			</if>
+			<if test="entranceNum !=null">
+				ENTRANCE_NUM = #{entranceNum},
+			</if>
+			<if test="goodsShelves !=null">
+				GOODS_SHELVES = #{goodsShelves},
+			</if>
+			<if test="probeNum !=null">
+				PROBE_NUM = #{probeNum},
+			</if>
+			<if test="manufactor !=null">
+				MANUFACTOR = #{manufactor},
+			</if>
+			<if test="disMap !=null">
+				DIS_MAP = #{disMap},
+			</if>
+		</set>
+		<where>
+			and ID = #{id}
+
+		</where>
+	</update>
+	<delete id="delete" parameterType="ChillCarDomain" flushCache="true">
+		delete from CHILL_CAR_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</delete>
+</mapper>

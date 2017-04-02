@@ -13,7 +13,11 @@ import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.annotation.TransactionService;
 
 import cws.webapp.cmm.domain.CompanyDomain;
+import cws.webapp.vfy.dao.ChillCarDAO;
+import cws.webapp.vfy.dao.ColdStorageDAO;
 import cws.webapp.vfy.dao.VerifyDAO;
+import cws.webapp.vfy.domain.ChillCarDomain;
+import cws.webapp.vfy.domain.ColdStorageDomain;
 import cws.webapp.vfy.domain.VerifyDomain;
 import cws.webapp.vfy.service.IVerifyService;
 
@@ -22,6 +26,10 @@ public class VerifyServiceImpl implements IVerifyService {
 
 	@TransactionDAO
 	private VerifyDAO verifyDAO;
+	@TransactionDAO
+	private ChillCarDAO chillCarDAO;
+	@TransactionDAO
+	private ColdStorageDAO coldStorageDAO;
 
 	@Override
 	public int insert(VerifyDomain t) {
@@ -57,6 +65,26 @@ public class VerifyServiceImpl implements IVerifyService {
 	public List<VerifyDomain> getVerifyByCompany(CompanyDomain companyDomain) {
 		// TODO Auto-generated method stub
 		return verifyDAO.getVerifyByCompany(companyDomain);
+	}
+
+	@Override
+	public VerifyDomain getVerifyInfo(VerifyDomain verifyDomain) {
+		// TODO Auto-generated method stub
+		switch (verifyDomain.getVerifyType()) {
+		case 1:// 冷库
+			ColdStorageDomain coldStorageDomain = new ColdStorageDomain();
+			coldStorageDomain.setId(verifyDomain.getVerifyId());
+			verifyDomain = coldStorageDAO.findByKey(coldStorageDomain);
+			break;
+		case 2:// 冷藏车
+			ChillCarDomain chillCarDomain = new ChillCarDomain();
+			chillCarDomain.setId(verifyDomain.getVerifyId());
+			verifyDomain = chillCarDAO.findByKey(chillCarDomain);
+			break;
+		case 3:// 保温箱
+			break;
+		}
+		return verifyDomain;
 	}
 
 }

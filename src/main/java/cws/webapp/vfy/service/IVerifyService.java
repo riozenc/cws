@@ -17,4 +17,6 @@ import cws.webapp.vfy.domain.VerifyDomain;
 public interface IVerifyService extends BaseService<VerifyDomain> {
 
 	public List<VerifyDomain> getVerifyByCompany(CompanyDomain companyDomain);
+
+	public VerifyDomain getVerifyInfo(VerifyDomain verifyDomain);
 }

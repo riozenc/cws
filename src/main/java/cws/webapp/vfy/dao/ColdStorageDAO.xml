@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cws.webapp.vfy.dao.ColdStorageDAO">
+	<select id="findByKey" parameterType="ColdStorageDomain"
+		resultType="ColdStorageDomain" useCache="true">
+		select
+		NAME,TYPE,VOLUME,AREA,FAN_NUM,FAN_MAIN_NUM,FAN_SPARE_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP
+		from COLD_STORAGE_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</select>
+	<select id="findByWhere" parameterType="ColdStorageDomain"
+		resultType="ColdStorageDomain" useCache="true">
+		select
+		NAME,TYPE,VOLUME,AREA,FAN_NUM,FAN_MAIN_NUM,FAN_SPARE_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP
+		from COLD_STORAGE_INFO
+		<where>
+			<if test="name !=null">
+				and NAME = #{name}
+			</if>
+			<if test="type !=null">
+				and TYPE = #{type}
+			</if>
+			<if test="volume !=null">
+				and VOLUME = #{volume}
+			</if>
+			<if test="area !=null">
+				and AREA = #{area}
+			</if>
+			<if test="fanNum !=null">
+				and FAN_NUM = #{fanNum}
+			</if>
+			<if test="fanMainNum !=null">
+				and FAN_MAIN_NUM = #{fanMainNum}
+			</if>
+			<if test="fanSpareNum !=null">
+				and FAN_SPARE_NUM = #{fanSpareNum}
+			</if>
+			<if test="entranceNum !=null">
+				and ENTRANCE_NUM = #{entranceNum}
+			</if>
+			<if test="goodsShelves !=null">
+				and GOODS_SHELVES = #{goodsShelves}
+			</if>
+			<if test="probeNum !=null">
+				and PROBE_NUM = #{probeNum}
+			</if>
+			<if test="manufactor !=null">
+				and MANUFACTOR = #{manufactor}
+			</if>
+			<if test="disMap !=null">
+				and DIS_MAP = #{disMap}
+			</if>
+		</where>
+	</select>
+	<insert id="insert" parameterType="ColdStorageDomain"
+		flushCache="true">
+		insert into
+		COLD_STORAGE_INFO(NAME,TYPE,VOLUME,AREA,FAN_NUM,FAN_MAIN_NUM,FAN_SPARE_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP)
+		values
+		(#{name},#{type},#{volume},#{area},#{fanNum},#{fanMainNum},#{fanSpareNum},#{entranceNum},#{goodsShelves},#{probeNum},#{manufactor},#{disMap})
+	</insert>
+	<update id="update" parameterType="ColdStorageDomain"
+		flushCache="true">
+		update COLD_STORAGE_INFO
+		<set>
+			<if test="name !=null">
+				NAME = #{name},
+			</if>
+			<if test="type !=null">
+				TYPE = #{type},
+			</if>
+			<if test="volume !=null">
+				VOLUME = #{volume},
+			</if>
+			<if test="area !=null">
+				AREA = #{area},
+			</if>
+			<if test="fanNum !=null">
+				FAN_NUM = #{fanNum},
+			</if>
+			<if test="fanMainNum !=null">
+				FAN_MAIN_NUM = #{fanMainNum},
+			</if>
+			<if test="fanSpareNum !=null">
+				FAN_SPARE_NUM = #{fanSpareNum},
+			</if>
+			<if test="entranceNum !=null">
+				ENTRANCE_NUM = #{entranceNum},
+			</if>
+			<if test="goodsShelves !=null">
+				GOODS_SHELVES = #{goodsShelves},
+			</if>
+			<if test="probeNum !=null">
+				PROBE_NUM = #{probeNum},
+			</if>
+			<if test="manufactor !=null">
+				MANUFACTOR = #{manufactor},
+			</if>
+			<if test="disMap !=null">
+				DIS_MAP = #{disMap},
+			</if>
+		</set>
+		<where>
+			and ID = #{id}
+
+		</where>
+	</update>
+	<delete id="delete" parameterType="ColdStorageDomain"
+		flushCache="true">
+		delete from COLD_STORAGE_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</delete>
+</mapper>

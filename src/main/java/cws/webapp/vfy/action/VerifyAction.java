@@ -87,7 +87,13 @@ public class VerifyAction {
 	@RequestMapping(params = "type=getVerifyByCompany")
 	public String getVerifyByCompany(CompanyDomain companyDomain) {
 		List<VerifyDomain> list = verifyService.getVerifyByCompany(companyDomain);
-
 		return JSONUtil.toJsonString(new JSONGrid(list));
+	}
+
+	@ResponseBody
+	@RequestMapping(params = "type=getVerifyInfo")
+	public String getVerifyInfo(VerifyDomain verifyDomain) {
+
+		return null;
 	}
 }
