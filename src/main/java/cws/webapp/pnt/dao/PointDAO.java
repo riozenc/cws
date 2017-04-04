@@ -46,4 +46,16 @@ public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<P
 		return getPersistanceManager().find(getNamespace() + ".findByWhere", t);
 	}
 
+	public int insertPointByVerify(PointDomain pointDomain) {
+		return getPersistanceManager().insert(getNamespace() + ".insertPointByVerify", pointDomain);
+	}
+
+	public int updatePointByVerify(PointDomain pointDomain) {
+		return getPersistanceManager().insert(getNamespace() + ".updatePointByVerify", pointDomain);
+	}
+
+	public int deletePointByVerify(PointDomain pointDomain) {
+		return getPersistanceManager().insert(getNamespace() + ".deletePointByVerify", pointDomain);
+	}
+
 }

@@ -93,7 +93,9 @@ public class VerifyAction {
 	@ResponseBody
 	@RequestMapping(params = "type=getVerifyInfo")
 	public String getVerifyInfo(VerifyDomain verifyDomain) {
+		verifyDomain = verifyService.getVerifyInfo(verifyDomain);
 
-		return null;
+		return JSONUtil.toJsonString(verifyDomain);
 	}
+
 }

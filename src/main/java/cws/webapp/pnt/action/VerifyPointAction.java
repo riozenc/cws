@@ -1,12 +1,13 @@
 /**
  * @Project:cws
- * @Title:PointAction.java
+ * @Title:VerifyPointAction.java
  * @Author:Riozenc
- * @Datetime:2017年3月22日 下午10:03:13
+ * @Datetime:2017年4月4日 下午10:00:35
  * 
  */
 package cws.webapp.pnt.action;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,23 +18,26 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.riozenc.quicktool.common.util.json.JSONGrid;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
-import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
-import cws.webapp.pnt.domain.PointDomain;
-import cws.webapp.pnt.service.IPointService;
+import cws.webapp.pnt.domain.VerifyPointDomain;
+import cws.webapp.pnt.service.IVerifyPointService;
 
 @ControllerAdvice
-@RequestMapping("point")
-public class PointAction extends BaseAction {
+@RequestMapping("verifyPoint")
+public class VerifyPointAction {
 
 	@Autowired
-	@Qualifier("pointServiceImpl")
-	private IPointService pointService;
+	@Qualifier("verifyPointServiceImpl")
+	private IVerifyPointService verifyPointService;
 
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
-	public String insert(PointDomain pointDomain) {
-		int i = pointService.insert(pointDomain);
+	public String insert(VerifyPointDomain verifyPointDomain) {
+
+		verifyPointDomain.setCreateDate(new Date());
+		verifyPointDomain.setStatus(1);
+
+		int i = verifyPointService.insert(verifyPointDomain);
 		if (i > 0) {
 			return JSONUtil.writeSuccessMsg("成功");
 		} else {
@@ -43,8 +47,8 @@ public class PointAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=delete")
-	public String delete(PointDomain pointDomain) {
-		int i = pointService.delete(pointDomain);
+	public String delete(VerifyPointDomain verifyPointDomain) {
+		int i = verifyPointService.delete(verifyPointDomain);
 		if (i > 0) {
 			return JSONUtil.writeSuccessMsg("成功");
 		} else {
@@ -54,8 +58,8 @@ public class PointAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=update")
-	public String update(PointDomain pointDomain) {
-		int i = pointService.update(pointDomain);
+	public String update(VerifyPointDomain verifyPointDomain) {
+		int i = verifyPointService.update(verifyPointDomain);
 		if (i > 0) {
 			return JSONUtil.writeSuccessMsg("成功");
 		} else {
@@ -65,16 +69,15 @@ public class PointAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(params = "findPointByKey")
-	public String findPointByKey(PointDomain pointDomain) {
-		pointDomain = pointService.findByKey(pointDomain);
-		return JSONUtil.toJsonString(pointDomain);
+	public String findPointByKey(VerifyPointDomain verifyPointDomain) {
+		verifyPointDomain = verifyPointService.findByKey(verifyPointDomain);
+		return JSONUtil.toJsonString(verifyPointDomain);
 	}
 
 	@ResponseBody
 	@RequestMapping(params = "findPointByWhere")
-	public String findPointByWhere(PointDomain pointDomain) {
-		List<PointDomain> list = pointService.findByWhere(pointDomain);
+	public String findPointByWhere(VerifyPointDomain verifyPointDomain) {
+		List<VerifyPointDomain> list = verifyPointService.findByWhere(verifyPointDomain);
 		return JSONUtil.toJsonString(new JSONGrid(list));
 	}
-
 }

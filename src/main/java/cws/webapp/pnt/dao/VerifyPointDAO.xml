@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cws.webapp.pnt.dao.VerifyPointDAO">
+	<select id="findByKey" parameterType="VerifyPointDomain"
+		resultType="VerifyPointDomain" useCache="true">
+		select
+		ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_NO,CREATE_DATE,REMARK,STATUS
+		from VERIFY_POINT_REL
+		<where>
+			and ID = #{id}
+
+		</where>
+	</select>
+	<select id="findByWhere" parameterType="VerifyPointDomain"
+		resultType="VerifyPointDomain" useCache="true">
+		select
+		ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_NO,CREATE_DATE,REMARK,STATUS
+		from VERIFY_POINT_REL
+		<where>
+			<if test="id !=null">
+				and ID = #{id}
+			</if>
+			<if test="verifyId !=null">
+				and VERIFY_ID = #{verifyId}
+			</if>
+			<if test="verifyType !=null">
+				and VERIFY_TYPE = #{verifyType}
+			</if>
+			<if test="pointId !=null">
+				and POINT_ID = #{pointId}
+			</if>
+			<if test="pointNo !=null">
+				and POINT_NO = #{pointNo}
+			</if>
+			<if test="createDate !=null">
+				and CREATE_DATE = #{createDate}
+			</if>
+			<if test="remark !=null">
+				and REMARK = #{remark}
+			</if>
+			<if test="status !=null">
+				and STATUS = #{status}
+			</if>
+		</where>
+	</select>
+	<insert id="insert" parameterType="VerifyPointDomain"
+		flushCache="true">
+		insert into
+		VERIFY_POINT_REL(ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_NO,CREATE_DATE,REMARK,STATUS)
+		values
+		(#{id},#{verifyId},#{verifyType},#{pointId},#{pointNo},#{createDate},#{remark},#{status})
+	</insert>
+	<update id="update" parameterType="VerifyPointDomain"
+		flushCache="true">
+		update VERIFY_POINT_REL
+		<set>
+			<if test="verifyId !=null">
+				VERIFY_ID = #{verifyId},
+			</if>
+			<if test="verifyType !=null">
+				VERIFY_TYPE = #{verifyType},
+			</if>
+			<if test="pointId !=null">
+				POINT_ID = #{pointId},
+			</if>
+			<if test="pointNo !=null">
+				POINT_NO = #{pointNo},
+			</if>
+			<if test="createDate !=null">
+				CREATE_DATE = #{createDate},
+			</if>
+			<if test="remark !=null">
+				REMARK = #{remark},
+			</if>
+			<if test="status !=null">
+				STATUS = #{status},
+			</if>
+		</set>
+		<where>
+			and ID = #{id}
+
+		</where>
+	</update>
+	<delete id="delete" parameterType="VerifyPointDomain"
+		flushCache="true">
+		delete from VERIFY_POINT_REL
+		<where>
+			and ID = #{id}
+
+		</where>
+	</delete>
+</mapper>

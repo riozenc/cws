@@ -21,7 +21,7 @@ public class PointServiceImpl implements IPointService {
 
 	@TransactionDAO
 	private PointDAO pointDAO;
-	
+
 	@Override
 	public int insert(PointDomain t) {
 		// TODO Auto-generated method stub

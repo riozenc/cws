@@ -11,6 +11,6 @@ import com.riozenc.quicktool.springmvc.webapp.service.BaseService;
 
 import cws.webapp.pnt.domain.PointDomain;
 
-public interface IPointService extends BaseService<PointDomain>{
+public interface IPointService extends BaseService<PointDomain> {
 
 }
