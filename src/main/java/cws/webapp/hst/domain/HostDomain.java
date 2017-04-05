@@ -12,6 +12,7 @@ package cws.webapp.hst.domain;
 import java.util.Date;
 
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
+import com.riozenc.quicktool.mybatis.MybatisEntity;
 
 /**
  * 主机
@@ -19,7 +20,7 @@ import com.riozenc.quicktool.annotation.TablePrimaryKey;
  * @author rioze
  *
  */
-public class HostDomain {
+public class HostDomain implements MybatisEntity{
 	@TablePrimaryKey
 	private Integer ID;// ID int TRUE FALSE TRUE
 	private String name;// 名称 NAME varchar(30) 30 FALSE FALSE FALSE

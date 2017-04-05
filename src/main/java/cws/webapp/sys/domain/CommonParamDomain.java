@@ -10,6 +10,7 @@ package cws.webapp.sys.domain;
 import java.util.Date;
 
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
+import com.riozenc.quicktool.mybatis.MybatisEntity;
 
 /**
  * 公共参数
@@ -17,7 +18,7 @@ import com.riozenc.quicktool.annotation.TablePrimaryKey;
  * @author rioze
  *
  */
-public class CommonParamDomain {
+public class CommonParamDomain implements MybatisEntity{
 	@TablePrimaryKey
 	private Integer id;// ID ID bigint TRUE FALSE TRUE
 	private String type;// 类型 TYPE varchar(20) 20 FALSE FALSE FALSE

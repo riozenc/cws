@@ -9,11 +9,13 @@ package cws.webapp.pnt.dao;
 
 import java.util.List;
 
+import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.mybatis.dao.AbstractTransactionDAOSupport;
 import com.riozenc.quicktool.mybatis.dao.BaseDAO;
 
 import cws.webapp.pnt.domain.PointDomain;
 
+@TransactionDAO
 public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<PointDomain> {
 
 	@Override

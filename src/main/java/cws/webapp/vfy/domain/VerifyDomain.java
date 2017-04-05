@@ -11,6 +11,7 @@ import java.util.Date;
 
 import com.riozenc.quicktool.annotation.ReflectionIgnore;
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
+import com.riozenc.quicktool.mybatis.MybatisEntity;
 
 /**
  * 验证对象(特殊对象)
@@ -18,7 +19,7 @@ import com.riozenc.quicktool.annotation.TablePrimaryKey;
  * @author rioze
  *
  */
-public class VerifyDomain {
+public class VerifyDomain implements MybatisEntity {
 
 	@TablePrimaryKey
 	protected Integer id;// ID ID int TRUE FALSE TRUE

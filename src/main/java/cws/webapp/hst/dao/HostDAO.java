@@ -9,11 +9,13 @@ package cws.webapp.hst.dao;
 
 import java.util.List;
 
+import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.mybatis.dao.AbstractTransactionDAOSupport;
 import com.riozenc.quicktool.mybatis.dao.BaseDAO;
 
 import cws.webapp.hst.domain.HostDomain;
 
+@TransactionDAO
 public class HostDAO extends AbstractTransactionDAOSupport implements BaseDAO<HostDomain> {
 
 	@Override

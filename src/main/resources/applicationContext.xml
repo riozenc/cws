@@ -22,7 +22,7 @@
 	<aop:aspectj-autoproxy />
 
 	<!-- 自动扫描的包名 -->
-	<context:component-scan base-package="${namespace}"></context:component-scan>
+	<context:component-scan base-package="cws"></context:component-scan>
 
 
 	<!-- 默认的注解映射的支持 --><!-- 解决@ResponseBody中文乱码 --><!-- 启动spring内置json转换(注释) -->

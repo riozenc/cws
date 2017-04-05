@@ -10,6 +10,7 @@ package cws.webapp.pnt.domain;
 import java.util.Date;
 
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
+import com.riozenc.quicktool.mybatis.MybatisEntity;
 
 /**
  * 测点
@@ -17,7 +18,7 @@ import com.riozenc.quicktool.annotation.TablePrimaryKey;
  * @author rioze
  *
  */
-public class PointDomain {
+public class PointDomain implements MybatisEntity{
 
 	@TablePrimaryKey
 	private Integer id;// ID ID int TRUE FALSE TRUE
