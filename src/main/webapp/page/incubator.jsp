@@ -288,7 +288,7 @@
 		//企业列表点击查看时传过来的id
 		var enterpriseId=${param.enterpriseId};
 		//验证对象及布点方案点击查看时传过来的id
-		var schemeId=${param.schemeId};
+		var verifyId=${param.schemeId};
 	</script>
 	<script type="text/javascript" src="../resource/script/incubator.js"></script>
 </body>

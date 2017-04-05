@@ -11,7 +11,7 @@ $(document).ready(function(){
 	//查询基本信息
 	$.ajax({
 		url : "../resource/data/incubatorBaseInfo.txt",
-		data : {enterpriseId:enterpriseId,schemeId:schemeId},
+		data : {enterpriseId:enterpriseId,verifyId:verifyId},
 		dataType : "json",
 		type : "post",
 		success : function(data){
@@ -76,7 +76,7 @@ $(document).ready(function(){
 		var formData = new FormData();
 		formData.append("img", event.currentTarget.files[0]);
 		formData.append("enterpriseId",enterpriseId);
-		formData.append("schemeId",schemeId);
+		formData.append("verifyId",verifyId);
 		//上传
 		$.ajax({
             url: "",
@@ -187,7 +187,7 @@ $(document).ready(function(){
 			schemeDrop=data;
 			//加载表格数据
 			var pointType=mini.get("pointType").getValue();
-			grid.load({enterpriseId:enterpriseId,schemeId:schemeId,pointType:pointType});
+			grid.load({enterpriseId:enterpriseId,verifyId:verifyId,pointType:pointType});
 		},
 		error : function(e) {
 			alert("请求数据失败！status："+e.status);
@@ -210,7 +210,7 @@ $(document).ready(function(){
 function seekCollect(){
 	$.ajax({
 		url : "../resource/data/schemeCollect.txt",
-		data : {enterpriseId:enterpriseId,schemeId:schemeId},
+		data : {enterpriseId:enterpriseId,verifyId:verifyId},
 		dataType : "json",
 		type : "post",
 		success : function(e){
@@ -230,7 +230,7 @@ function seekCollect(){
 
 //布点下拉改变事件
 function schemeChange(e){
-	grid.load({enterpriseId:enterpriseId,schemeId:schemeId,pointType:e.value});
+	grid.load({enterpriseId:enterpriseId,verifyId:verifyId,pointType:e.value});
 }
 //添加验证对象及布点方案
 function addRow(){
@@ -244,14 +244,14 @@ function addRow(){
 	    	var iframe = this.getIFrameEl();
 	        var data = { 
 	        	enterpriseId: enterpriseId,
-	        	schemeId:schemeId
+	        	verifyId:verifyId
 	        };
 	        iframe.contentWindow.setData(data);
 	    },
 	    ondestroy: function (action) {
 	    	if(action===true){
 	    		var pointType=mini.get("pointType").getValue();
-				grid.load({enterpriseId:enterpriseId,schemeId:schemeId,pointType:pointType});
+				grid.load({enterpriseId:enterpriseId,verifyId:verifyId,pointType:pointType});
 	    		seekCollect();
 	    	}  
 	    }
@@ -269,14 +269,14 @@ function edit(recodeID){
 	    onload: function () {
 	    	//向表单传参
 	    	recode.enterpriseId=enterpriseId;
-	    	recode.schemeId=schemeId;
+	    	recode.verifyId=verifyId;
 	    	var iframe = this.getIFrameEl();
 	        iframe.contentWindow.setData(recode);
 	    },
 	    ondestroy: function (action) {
 	        if(action===true){
 	    		var pointType=mini.get("pointType").getValue();
-				grid.load({enterpriseId:enterpriseId,schemeId:schemeId,pointType:pointType});
+				grid.load({enterpriseId:enterpriseId,verifyId:verifyId,pointType:pointType});
 	    		seekCollect();
 	    	} 
 	    }
@@ -307,7 +307,7 @@ function del(recode){
             		data: { id: recode },
                     success: function (text) {
                         var pointType=mini.get("pointType").getValue();
-						grid.load({enterpriseId:enterpriseId,schemeId:schemeId,pointType:pointType});
+						grid.load({enterpriseId:enterpriseId,verifyId:verifyId,pointType:pointType});
                         seekCollect();
                     },
                     error: function () {
