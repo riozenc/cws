@@ -4,73 +4,73 @@
 		{
 			"id":1,
 			"name":"胡宗祥",
-			"postId":"01",
+			"postName":"01",
 			"companyName":"山东丽斯盾有限公司"
 		},
 		{
 			"id":2,
 			"name":"宗盛",
-			"postId":"02",
+			"postName":"02",
 			"companyName":"山东丽斯盾有限公司"
 		},
 		{
 			"id":3,
 			"name":"刘玉莲",
-			"postId":"03",
+			"postName":"03",
 			"companyName":"山东丽斯盾有限公司"
 		},
 		{
 			"id":4,
 			"name":"李文",
-			"postId":"01",
+			"postName":"01",
 			"companyName":"山东丽斯盾有限公司"
 		},
 		{
 			"id":5,
 			"name":"李善兰",
-			"postId":"02",
+			"postName":"02",
 			"companyName":"山东丽斯盾有限公司"
 		},
 		{
 			"id":6,
 			"name":"滕浩",
-			"postId":"03",
+			"postName":"03",
 			"companyName":"山东丽斯盾有限公司"
 		},
 		{
 			"id":7,
 			"name":"闫玉宝",
-			"postId":"01",
+			"postName":"01",
 			"companyName":"山东丽斯盾有限公司"
 		},
 		{
 			"id":8,
 			"name":"冯敏",
-			"postId":"02",
+			"postName":"02",
 			"companyName":"山东丽斯盾有限公司"
 		},
 		{
 			"id":9,
 			"name":"刘海华",
-			"postId":"03",
+			"postName":"03",
 			"companyName":"山东丽斯盾有限公司"
 		},
 		{
 			"id":10,
 			"name":"刘志豪",
-			"postId":"01",
+			"postName":"01",
 			"companyName":"山东丽斯盾有限公司"
 		},
 		{
 			"id":11,
 			"name":"王壮壮",
-			"postId":"02",
+			"postName":"02",
 			"companyName":"山东丽斯盾有限公司"
 		},
 		{
 			"id":12,
 			"name":"隋斌",
-			"postId":"03",
+			"postName":"03",
 			"companyName":"山东丽斯盾有限公司"
 		}
 	]
