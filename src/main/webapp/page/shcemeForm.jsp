@@ -40,7 +40,7 @@
 <body>
 	<form id="form1" method="post">
         <input name="id" class="mini-hidden" /><!--编辑的该记录主键-->
-        <input name="schemeId" class="mini-hidden" /><!--编辑的该记录所在的验证对象及布点方案主键-->
+        <input name="verifyId" class="mini-hidden" /><!--编辑的该记录所在的验证对象及布点方案主键-->
         <input name="enterpriseId" class="mini-hidden" /><!--编辑的该记录所在的企业主键-->
         <div style="padding-left:6px;padding-top:10px;">
             <table cellspacing="0" cellpadding="5px">
