@@ -62,7 +62,7 @@ public class BaseInterceptor extends HandlerInterceptorAdapter {
 
 		LogUtil.getLogger(LOG_TYPE.OTHER)
 				.info("[" + DateUtil.formatDateTime(new Date()) + "]{" + httpServletRequest.getRemoteAddr() + "} 执行"
-						+ getClassMethod(object) + "[" + httpServletRequest.getMethod() + "]");
+						+ getClassMethod(object) + "[" + httpServletRequest.getMethod() + "]"+"---("+JSONUtil.toJsonString(httpServletRequest.getParameterMap())+")");
 
 		return true;
 

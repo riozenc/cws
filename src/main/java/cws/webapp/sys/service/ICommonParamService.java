@@ -7,6 +7,10 @@
  */
 package cws.webapp.sys.service;
 
-public interface ICommonParamService {
+import com.riozenc.quicktool.springmvc.webapp.service.BaseService;
+
+import cws.webapp.sys.domain.CommonParamDomain;
+
+public interface ICommonParamService extends BaseService<CommonParamDomain>{
 
 }

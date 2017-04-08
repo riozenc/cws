@@ -9,11 +9,12 @@ package cws.webapp.sys.dao;
 
 import java.util.List;
 
+import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.mybatis.dao.AbstractTransactionDAOSupport;
 import com.riozenc.quicktool.mybatis.dao.BaseDAO;
 
 import cws.webapp.sys.domain.CommonParamDomain;
-
+@TransactionDAO
 public class CommonParamDAO extends AbstractTransactionDAOSupport implements BaseDAO<CommonParamDomain> {
 
 	@Override

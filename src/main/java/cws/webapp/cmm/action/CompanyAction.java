@@ -8,6 +8,7 @@
 package cws.webapp.cmm.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,6 +40,8 @@ public class CompanyAction extends BaseAction {
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
 	public String insert(CompanyDomain companyDomain) {
+		companyDomain.setCreateDate(new Date());
+		companyDomain.setStatus(1);
 		if (companyService.insert(companyDomain) > 0) {
 			return JSONUtil.writeSuccessMsg("成功");
 		} else {
