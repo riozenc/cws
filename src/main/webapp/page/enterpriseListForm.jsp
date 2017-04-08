@@ -48,7 +48,7 @@
                 <tr>
                     <td class="colTitle">联系人：</td>
                     <td class="colData">    
-                        <input name="linknman" class="mini-textbox" />
+                        <input name="linkman" class="mini-textbox" />
                     </td>
                 </tr>
                 <tr>
@@ -97,13 +97,15 @@
             form.validate();
             if (form.isValid() == false) return;
             var json = mini.encode([o]);
+            
+            alert(json);
             $.ajax({
-                url: "",
+                url: "../company.do?type=insert",
 				type: 'post',
-                data: { data: json },
+                data: o,
                 cache: false,
                 success: function (text) {
-                	alert("请指定后台地址");
+                	alert(text.msg);
                     CloseWindow(true);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

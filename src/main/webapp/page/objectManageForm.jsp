@@ -42,7 +42,7 @@
                 <tr>
                     <td class="colTitle">编号：</td>
                     <td class="colData">    
-                        <input name="number" class="mini-textbox"/>
+                        <input name="value" class="mini-textbox"/>
                     </td>
                 </tr>
                 <tr>
@@ -86,12 +86,12 @@
             if (form.isValid() == false) return;
             var json = mini.encode([o]);
             $.ajax({
-                url: "",
+                url: "../commonParam.do?type=insert&paramType=VERIFY_TYPE",
 				type: 'post',
-                data: { data: json },
+                data: o,
                 cache: false,
                 success: function (text) {
-                	alert("请指定后台地址");
+                	alert(text);
                     CloseWindow(true);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

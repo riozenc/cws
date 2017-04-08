@@ -37,7 +37,7 @@
 			        </div>
 			    </div>
 			    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:92%;min-height:359px;" 
-			    	url="../resource/data/enterpriseList.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" multiSelect="false" >
+			    	url="../company.do?type=findCompanyByWhere" pageSize="20" allowCellEdit="false" allowCellSelect="true" multiSelect="false" >
 			        <div property="columns">
 			            <div field="id" headerAlign="center" allowSort="true" width="80">编号
 			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="80" />
