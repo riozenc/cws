@@ -52,4 +52,26 @@ public class CommonParamAction extends BaseAction {
 		List<CommonParamDomain> list = commonParamService.findByWhere(commonParamDomain);
 		return JSONUtil.toJsonString(list);
 	}
+
+	@ResponseBody
+	@RequestMapping(params = "type=delete")
+	public String delete(CommonParamDomain commonParamDomain, @RequestParam(name = "paramType") String type) {
+		commonParamDomain.setType(type);
+		if (commonParamService.delete(commonParamDomain) > 0) {
+			return JSONUtil.writeSuccessMsg("成功");
+		} else {
+			return JSONUtil.writeSuccessMsg("失败");
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping(params = "type=update")
+	public String update(CommonParamDomain commonParamDomain, @RequestParam(name = "paramType") String type) {
+		commonParamDomain.setType(type);
+		if (commonParamService.update(commonParamDomain) > 0) {
+			return JSONUtil.writeSuccessMsg("成功");
+		} else {
+			return JSONUtil.writeSuccessMsg("失败");
+		}
+	}
 }
