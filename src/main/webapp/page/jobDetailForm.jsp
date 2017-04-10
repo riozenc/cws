@@ -92,17 +92,23 @@
         }
         //保存数据
         function SaveData() {
-            var o = form.getData(); 
+        	var o = form.getData();
+            //根据id是否存在判断是修改还是新增操作。
+            var url;
+            if(o.id){
+                url="update";
+            }else{
+                url="insert";
+            }
             form.validate();
             if (form.isValid() == false) return;
-            var json = mini.encode([o]);
             $.ajax({
-                url: "",
+                url: url,
 				type: 'post',
-                data: { data: json },
+                data: o,
                 cache: false,
                 success: function (text) {
-                	alert("请指定后台地址");
+                	alert(text.msg);
                     CloseWindow(true);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

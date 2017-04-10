@@ -93,14 +93,21 @@
         }
         //保存数据
         function SaveData() {
-            var o = form.getData(); 
+            var o = form.getData();
+            //根据id是否存在判断是修改还是新增操作。
+            var url;
+            if(o.id){
+                url="../company.do?type=update";
+            }else{
+                url="../company.do?type=insert";
+            }
             form.validate();
             if (form.isValid() == false) return;
             var json = mini.encode([o]);
             
             alert(json);
             $.ajax({
-                url: "../company.do?type=insert",
+                url: url,
 				type: 'post',
                 data: o,
                 cache: false,
