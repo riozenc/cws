@@ -12,8 +12,8 @@ var dutyDrop;
 $(document).ready(function(){
 	//读取全部统计信息
 	$.ajax({
-		url : "../resource/data/statisticsInfo.txt",
-		data : {enterpriseId:enterpriseId},
+		url : "../company.do?type=getCompanyInfo",
+		data : {id:enterpriseId},
 		dataType : "json",
 		type : "get",
 		success : function(e){
@@ -30,8 +30,8 @@ $(document).ready(function(){
 	});
 	//读取企业详情
 	$.ajax({
-		url : "../resource/data/enterpriseDetail.txt",
-		data : {enterpriseId:enterpriseId},
+		url : "../company.do?type=findCompanyByKey",
+		data : {id:enterpriseId},
 		dataType : "json",
 		type : "get",
 		success : function(e){
@@ -40,7 +40,7 @@ $(document).ready(function(){
 			var $telephone=$("#telephone");
 			var $address=$("#address");
 			$tableHeader.text(e.name);
-			$cantact.text(e.linknman);
+			$cantact.text(e.linkman);
 			$telephone.text(e.phone);
 			$address.text(e.address);
 		},

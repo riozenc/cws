@@ -68,6 +68,7 @@ public class CommonParamAction extends BaseAction {
 	@RequestMapping(params = "type=update")
 	public String update(CommonParamDomain commonParamDomain, @RequestParam(name = "paramType") String type) {
 		commonParamDomain.setType(type);
+		commonParamDomain.setUpdateDate(new Date());
 		if (commonParamService.update(commonParamDomain) > 0) {
 			return JSONUtil.writeSuccessMsg("成功");
 		} else {

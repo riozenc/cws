@@ -88,6 +88,7 @@ public class CompanyAction extends BaseAction {
 	@ResponseBody
 	@RequestMapping(params = "type=getCompanyInfo")
 	public String getCompanyInfo(CompanyDomain companyDomain) {
+
 		companyDomain = companyService.findByKey(companyDomain);
 
 		// 获取企业相关设备总数
@@ -100,6 +101,7 @@ public class CompanyAction extends BaseAction {
 		List<ValidationReportDomain> validationReportDomains = new ArrayList<ValidationReportDomain>();
 
 		Map<String, Object> map = new HashMap<String, Object>();
+
 		map.put("company", companyDomain);
 		map.put("pointCount", pointdomaians.size());
 		map.put("verifyCount", verifyDomains.size());
