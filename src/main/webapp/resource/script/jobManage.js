@@ -79,7 +79,7 @@ function del(recode){
 	    	if (action===true) {
 	    		grid.loading("操作中，请稍后......");
                 $.ajax({
-                    url: "",
+                    url: "../commonParam.do?type=delete&paramType=POST_TYPE",
                     type: 'post',
             		data: { id: recode },
                     success: function (text) {

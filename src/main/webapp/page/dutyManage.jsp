@@ -37,10 +37,10 @@
 			        </div>
 			    </div>
 			    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:92%;min-height:359px;" pageIndexField="pageCurrent"
-			    	url="../resource/data/dutyManage.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
+			    	url="../commonParam.do?type=findCommonParamByType&paramType=DUTIES_TYPE" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
 			    		multiSelect="false" idField="id">
 			        <div property="columns">
-			            <div name="No" field="number" headerAlign="center" allowSort="true" width="80">编号
+			            <div name="No" field="value" headerAlign="center" allowSort="true" width="80">编号
 			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="80" />
 			            </div>           
 			            <div field="name" width="300" headerAlign="center" allowSort="false">职责名称

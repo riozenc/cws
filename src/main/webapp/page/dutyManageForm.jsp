@@ -42,7 +42,7 @@
                 <tr>
                     <td class="colTitle">编号：</td>
                     <td class="colData">    
-                        <input name="number" class="mini-textbox"/>
+                        <input name="value" class="mini-textbox"/>
                     </td>
                 </tr>
                 <tr>
@@ -85,9 +85,9 @@
             //根据id是否存在判断是修改还是新增操作。
             var url;
             if(o.id){
-                url="update";
+                url="../commonParam.do?type=update&paramType=DUTIES_TYPE";
             }else{
-                url="insert";
+                url="../commonParam.do?type=insert&paramType=DUTIES_TYPE";
             }
             form.validate();
             if (form.isValid() == false) return;
