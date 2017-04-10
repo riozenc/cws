@@ -188,9 +188,9 @@
 					            </table>           
 					        </div>
 					    </div>
-					    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:216px;" 
+					    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:216px;" pageIndexField="pageCurrent"
 					    	url="../resource/data/layoutSchemeDetail.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
-					    		multiSelect="false" idField="id">
+					    	multiSelect="false" idField="id">
 					        <div property="columns">
 					        	<div field="position" headerAlign="center" align="center" allowSort="true" width="80">位置
 					                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="60" />

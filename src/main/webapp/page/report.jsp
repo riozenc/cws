@@ -38,7 +38,7 @@
 			    </div>
 			    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:92%;min-height:359px;" 
 			    	url="../resource/data/report.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
-			    		multiSelect="false" idField="id">
+			    	multiSelect="false" idField="id" pageIndexField="pageCurrent">
 			        <div property="columns">
 			        	<div field="name" headerAlign="center" allowSort="false" width="160">报告名称
 			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="100" />

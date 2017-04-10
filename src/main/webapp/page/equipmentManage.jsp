@@ -38,7 +38,7 @@
 			    </div>
 			    <div id="datagridMaster" class="mini-datagrid" style="width:100%;height:81%;min-height:148px;" 
 			    	url="../resource/data/master.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
-			    		multiSelect="false" idField="id">
+			    	multiSelect="false" idField="id" pageIndexField="pageCurrent">
 			        <div property="columns">
 			            <div field="name" headerAlign="center" allowSort="false" width="100">名称
 			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="80" />
@@ -89,7 +89,7 @@
 			    </div>
 			    <div id="datagridPoint" class="mini-datagrid" style="width:100%;height:83%;min-height:148px;" 
 			    	url="../resource/data/point.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
-			    		multiSelect="false" idField="id">
+			    	multiSelect="false" idField="id" pageIndexField="pageCurrent">
 			        <div property="columns">
 			        	<div field="no" headerAlign="center" allowSort="false" width="80">编号
 			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="80" />

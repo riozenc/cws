@@ -38,7 +38,7 @@
 			    </div>
 			    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:92%;min-height:359px;" 
 			    	url="../resource/data/layoutScheme.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
-			    		multiSelect="false" idField="verifyId">
+			    	multiSelect="false" idField="verifyId" pageIndexField="pageCurrent">
 			        <div property="columns">
 			        	<div type="comboboxcolumn" name="schemeType" field="verifyType" width="150" headerAlign="center" 
 			        		autoShowPopup="true" allowSort="false">验证对象类型

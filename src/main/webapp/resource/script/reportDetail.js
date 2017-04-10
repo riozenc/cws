@@ -267,6 +267,7 @@ function loadTable(){
 			grid.set({
 			    url: "../resource/data/reportTableData.txt",
 			    style: "height:100%;",
+			    pageIndexField: "pageCurrent",
 			    pageSize: 20,
 			    allowCellEdit: false,
 			    idField:"id",

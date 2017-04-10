@@ -91,7 +91,7 @@
 			            </table>           
 			        </div>
 			    </div>
-			    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:216px;" 
+			    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:216px;" pageIndexField="pageCurrent"
 			    	url="../resource/data/staffJob.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" multiSelect="false" idField="id">
 			        <div property="columns">          
 			            <div field="name" width="100" headerAlign="center" allowSort="false">姓名
@@ -142,7 +142,7 @@
 					            </table>           
 					        </div>
 					    </div>
-					    <div id="datagrid2" class="mini-datagrid" style="width:100%;height:218px;" 
+					    <div id="datagrid2" class="mini-datagrid" style="width:100%;height:218px;" pageIndexField="pageCurrent"
 					    	url="../resource/data/staffDutyLeft.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" multiSelect="false" idField="id">
 					        <div property="columns">          
 					            <div field="name" width="80" headerAlign="center" allowSort="false">姓名
@@ -189,7 +189,7 @@
 					            </table>           
 					        </div>
 					    </div>
-					    <div id="datagrid3" class="mini-datagrid" style="width:100%;height:218px;" 
+					    <div id="datagrid3" class="mini-datagrid" style="width:100%;height:218px;" pageIndexField="pageCurrent"
 					    	url="../resource/data/staffDutyRight.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" multiSelect="false" idField="id">
 					        <div property="columns">          
 					            <div field="name" width="80" headerAlign="center" allowSort="false">姓名

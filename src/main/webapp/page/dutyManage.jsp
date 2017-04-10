@@ -36,7 +36,7 @@
 			            </table>           
 			        </div>
 			    </div>
-			    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:92%;min-height:359px;" 
+			    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:92%;min-height:359px;" pageIndexField="pageCurrent"
 			    	url="../resource/data/dutyManage.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
 			    		multiSelect="false" idField="id">
 			        <div property="columns">
