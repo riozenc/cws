@@ -101,9 +101,9 @@
             //根据id是否存在判断是修改还是新增操作。
             var url;
             if(o.id){
-                url="update";
+                url = "../host.do?type=update";
             }else{
-                url="insert";
+                url = "../host.do?type=insert";
             }
             form.validate();
             if (form.isValid() == false) return;

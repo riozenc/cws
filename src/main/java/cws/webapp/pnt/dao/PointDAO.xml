@@ -98,4 +98,31 @@
 
 		</where>
 	</delete>
+
+
+	<select id="findPointByCompany" parameterType="PointDomain"
+		resultType="PointDomain" useCache="true">
+		SELECT b.* FROM company_point_rel a LEFT JOIN point_info b ON
+		a.POINT_ID = b.ID
+		<where>
+			a.COMPANY_ID = #{companyId}
+		</where>
+	</select>
+
+	<insert id="insertCompanyPointRel" parameterType="CompanyPointDomain"
+		flushCache="true">
+		insert into
+		company_point_rel(ID,COMPANY_ID,POINT_ID,CREATE_DATE,REMARK,STATUS)
+		values
+		(#{id},#{companyId},#{pointId},#{createDate},#{remark},#{status})
+	</insert>
+
+	<delete id="deleteCompanyPointRel" parameterType="CompanyPointDomain"
+		flushCache="true">
+		delete from company_point_rel
+		<where>
+			and COMPANY_ID = #{companyId}
+			and POINT_ID = #{pointId}
+		</where>
+	</delete>
 </mapper>

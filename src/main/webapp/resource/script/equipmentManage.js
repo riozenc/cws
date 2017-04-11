@@ -112,7 +112,7 @@ function delMaster(recode){
 	    	//点击确认时返回action=true
 	    	if (action===true) {
                 $.ajax({
-                    url: "",
+                    url: "../host.do?type=delete",
                     type: 'post',
             		data: { id: recode },
                     success: function (text) {

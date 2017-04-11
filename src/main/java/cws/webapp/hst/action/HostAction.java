@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.riozenc.quicktool.common.util.json.JSONGrid;
@@ -32,7 +33,8 @@ public class HostAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
-	public String insert(HostDomain hostDomain) {
+	public String insert(HostDomain hostDomain, @RequestParam(name = "enterpriseId") int companyId) {
+		hostDomain.setCompanyId(companyId);
 		int i = hostService.insert(hostDomain);
 		if (i > 0) {
 			return JSONUtil.writeSuccessMsg("成功");
@@ -43,7 +45,8 @@ public class HostAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=delete")
-	public String delete(HostDomain hostDomain) {
+	public String delete(HostDomain hostDomain, @RequestParam(name = "enterpriseId") int companyId) {
+		hostDomain.setCompanyId(companyId);
 		int i = hostService.delete(hostDomain);
 		if (i > 0) {
 			return JSONUtil.writeSuccessMsg("成功");
@@ -74,6 +77,14 @@ public class HostAction extends BaseAction {
 	@RequestMapping(params = "type=findHostByWhere")
 	public String findHostByWhere(HostDomain hostDomain) {
 		List<HostDomain> list = hostService.findByWhere(hostDomain);
+		return JSONUtil.toJsonString(new JSONGrid(list));
+	}
+
+	@ResponseBody
+	@RequestMapping(params = "type=findHostByCompany")
+	public String findHostByCompany(HostDomain hostDomain, @RequestParam(name = "enterpriseId") int companyId) {
+		hostDomain.setCompanyId(companyId);
+		List<HostDomain> list = hostService.findHostByCompany(hostDomain);
 		return JSONUtil.toJsonString(new JSONGrid(list));
 	}
 

@@ -18,13 +18,13 @@ import com.riozenc.quicktool.mybatis.MybatisEntity;
  * @author rioze
  *
  */
-public class PointDomain implements MybatisEntity{
+public class PointDomain implements MybatisEntity {
 
 	@TablePrimaryKey
 	private Integer id;// ID ID int TRUE FALSE TRUE
 	private String no;// 编号 NO varchar(4) 4 FALSE FALSE FALSE
 	private String snNo;// SN号 SN_NO varchar(30) 30 FALSE FALSE FALSE
-	private String type;// 型号 TYPE varchar(30) 30 FALSE FALSE FALSE
+	private String types;// 型号 TYPE varchar(30) 30 FALSE FALSE FALSE
 	private String checkUnit;// 校验单位 CHECK_UNIT varchar(30) 30 FALSE FALSE FALSE
 	private String certificateNo;// 证书编号 CERTIFICATE_NO varchar(30) 30 FALSE
 									// FALSE FALSE
@@ -32,6 +32,8 @@ public class PointDomain implements MybatisEntity{
 	private Date validDate;// 有效期 VALID_DATE datetime FALSE FALSE FALSE
 	private String remark;// 备注 REMARK varchar(100) 100 FALSE FALSE FALSE
 	private Integer status;// 状态 STATUS smallint FALSE FALSE FALSE
+
+	private Integer companyId;
 
 	public Integer getId() {
 		return id;
@@ -57,12 +59,12 @@ public class PointDomain implements MybatisEntity{
 		this.snNo = snNo;
 	}
 
-	public String getType() {
-		return type;
+	public String getTypes() {
+		return types;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setTypes(String types) {
+		this.types = types;
 	}
 
 	public String getCheckUnit() {
@@ -111,6 +113,14 @@ public class PointDomain implements MybatisEntity{
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public Integer getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
 	}
 
 }

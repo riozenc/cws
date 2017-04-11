@@ -52,4 +52,10 @@ public class PointServiceImpl implements IPointService {
 		return pointDAO.findByWhere(t);
 	}
 
+	@Override
+	public List<PointDomain> findPointByCompany(PointDomain pointDomain) {
+		// TODO Auto-generated method stub
+		return pointDAO.findPointByCompany(pointDomain);
+	}
+
 }

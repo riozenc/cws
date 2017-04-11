@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.riozenc.quicktool.common.util.json.JSONGrid;
@@ -77,4 +78,11 @@ public class PointAction extends BaseAction {
 		return JSONUtil.toJsonString(new JSONGrid(list));
 	}
 
+	@ResponseBody
+	@RequestMapping(params = "findPointByCompany")
+	public String findPointByCompany(PointDomain pointDomain, @RequestParam(name = "enterpriseId") int companyId) {
+		pointDomain.setCompanyId(companyId);
+		List<PointDomain> list = pointService.findPointByCompany(pointDomain);
+		return JSONUtil.toJsonString(new JSONGrid(list));
+	}
 }

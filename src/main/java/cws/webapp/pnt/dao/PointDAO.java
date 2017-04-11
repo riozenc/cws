@@ -13,6 +13,7 @@ import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.mybatis.dao.AbstractTransactionDAOSupport;
 import com.riozenc.quicktool.mybatis.dao.BaseDAO;
 
+import cws.webapp.pnt.domain.CompanyPointDomain;
 import cws.webapp.pnt.domain.PointDomain;
 
 @TransactionDAO
@@ -58,6 +59,18 @@ public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<P
 
 	public int deletePointByVerify(PointDomain pointDomain) {
 		return getPersistanceManager().insert(getNamespace() + ".deletePointByVerify", pointDomain);
+	}
+
+	public List<PointDomain> findPointByCompany(PointDomain pointDomain) {
+		return getPersistanceManager().find(getNamespace() + ".findPointByCompany", pointDomain);
+	}
+	
+	public int insertCompanyPointRel(CompanyPointDomain companyPointDomain) {
+		return getPersistanceManager().insert(getNamespace() + ".insertCompanyPointRel", companyPointDomain);
+	}
+	
+	public int deleteCompanyPointRel(CompanyPointDomain companyPointDomain){
+		return getPersistanceManager().delete(getNamespace() + ".deleteCompanyPointRel", companyPointDomain);
 	}
 
 }
