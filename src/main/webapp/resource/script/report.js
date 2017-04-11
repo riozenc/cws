@@ -134,17 +134,18 @@ function del(recodeID){
 	    ondestroy: function (action) {
 	    	//点击确认时返回action=true
 	    	if (action===true) {
-	    		grid.loading("操作中，请稍后......");
                 $.ajax({
                     url: "",
                     type: 'post',
             		data: { id: recodeID },
                     success: function (text) {
+                    	alert(text.msg);
                     	var reportStatus=mini.get("reportType").getValue();
 						var reportName = mini.get("key").getValue();
                         grid.load({enterpriseId:enterpriseId,reportName:reportName,reportStatus:reportStatus});
                     },
-                    error: function () {
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    	alert(jqXHR.responseText);
                     }
                 });
 	    	} 

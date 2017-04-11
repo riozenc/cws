@@ -287,17 +287,18 @@ function del(recode){
 	    ondestroy: function (action) {
 	    	//点击确认时返回action=true
 	    	if (action===true) {
-	    		grid.loading("操作中，请稍后......");
                 $.ajax({
                     url: "",
                     type: 'post',
             		data: { id: recode },
                     success: function (text) {
+                    	alert(text.msg);
                         var pointType=mini.get("pointType").getValue();
 						grid.load({enterpriseId:enterpriseId,verifyId:verifyId,pointType:pointType});
                         seekCollect();
                     },
-                    error: function () {
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    	alert(jqXHR.responseText);
                     }
                 });
 	    	} 

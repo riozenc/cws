@@ -206,15 +206,16 @@ function del(recode){
 	    ondestroy: function (action) {
 	    	//点击确认时返回action=true
 	    	if (action===true) {
-	    		grid1.loading("操作中，请稍后......");
                 $.ajax({
                     url: "",
                     type: 'post',
             		data: { id: recode },
                     success: function (text) {
+                    	alert(text.msg);
                         grid1.load({enterpriseId:enterpriseId});
                     },
-                    error: function () {
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    	alert(jqXHR.responseText);
                     }
                 });
 	    	} 
@@ -300,15 +301,16 @@ function delDutyLeft(recode){
 	    ondestroy: function (action) {
 	    	//点击确认时返回action=true
 	    	if (action===true) {
-	    		grid2.loading("操作中，请稍后......");
                 $.ajax({
                     url: "",
                     type: 'post',
             		data: { id: recode, dutyFlag: 1 },
                     success: function (text) {
+                    	alert(text.msg);
                         grid2.load({enterpriseId:enterpriseId});
                     },
-                    error: function () {
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    	alert(jqXHR.responseText);
                     }
                 });
 	    	} 
@@ -394,15 +396,16 @@ function delDutyRight(recode){
 	    ondestroy: function (action) {
 	    	//点击确认时返回action=true
 	    	if (action===true) {
-	    		grid3.loading("操作中，请稍后......");
                 $.ajax({
                     url: "",
                     type: 'post',
             		data: { id: recode, dutyFlag: 2 },
                     success: function (text) {
+                    	alert(text.msg);
                         grid3.load({enterpriseId:enterpriseId});
                     },
-                    error: function () {
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    	alert(jqXHR.responseText);
                     }
                 });
 	    	} 
