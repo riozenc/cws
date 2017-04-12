@@ -215,13 +215,14 @@ $(document).ready(function(){
 	$configDone.click(function(event) {
 		//提交数据
 		var configData = form.getData();
+		//将日期对象转化为字符串
+		configData.verifyTime=mini.formatDate(configData.verifyTime,"yyyy-MM-dd");
 		form.validate();
         if (form.isValid() == false) return;
-        var json = mini.encode([configData]);
         $.ajax({
             url: "",
 			type: 'post',
-            data: { data: json },
+            data: configData,
             cache: false,
             success: function (text) {
             	//下一步
