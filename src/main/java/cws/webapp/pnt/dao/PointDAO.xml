@@ -4,7 +4,7 @@
 	<select id="findByKey" parameterType="PointDomain" resultType="PointDomain"
 		useCache="true">
 		select
-		ID,NO,SN_NO,TYPE,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,VALID_DATE,REMARK,STATUS
+		ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,VALID_DATE,REMARK,STATUS
 		from POINT_INFO
 		<where>
 			and ID = #{id}
@@ -14,7 +14,7 @@
 	<select id="findByWhere" parameterType="PointDomain" resultType="PointDomain"
 		useCache="true">
 		select
-		ID,NO,SN_NO,TYPE,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,VALID_DATE,REMARK,STATUS
+		ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,VALID_DATE,REMARK,STATUS
 		from POINT_INFO
 		<where>
 			<if test="id !=null">
@@ -26,8 +26,8 @@
 			<if test="snNo !=null">
 				and SN_NO = #{snNo}
 			</if>
-			<if test="type !=null">
-				and TYPE = #{type}
+			<if test="types !=null">
+				and TYPES = #{types}
 			</if>
 			<if test="checkUnit !=null">
 				and CHECK_UNIT = #{checkUnit}
@@ -49,11 +49,11 @@
 			</if>
 		</where>
 	</select>
-	<insert id="insert" parameterType="PointDomain" flushCache="true">
+	<insert id="insert" parameterType="PointDomain" flushCache="true" useGeneratedKeys="true" keyProperty="id">
 		insert into
-		POINT_INFO(ID,NO,SN_NO,TYPE,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,VALID_DATE,REMARK,STATUS)
+		POINT_INFO(ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,VALID_DATE,REMARK,STATUS)
 		values
-		(#{id},#{no},#{snNo},#{type},#{checkUnit},#{certificateNo},#{createDate},#{validDate},#{remark},#{status})
+		(#{id},#{no},#{snNo},#{types},#{checkUnit},#{certificateNo},#{createDate},#{validDate},#{remark},#{status})
 	</insert>
 	<update id="update" parameterType="PointDomain" flushCache="true">
 		update POINT_INFO
@@ -64,8 +64,8 @@
 			<if test="snNo !=null">
 				SN_NO = #{snNo},
 			</if>
-			<if test="type !=null">
-				TYPE = #{type},
+			<if test="types !=null">
+				TYPES = #{types},
 			</if>
 			<if test="checkUnit !=null">
 				CHECK_UNIT = #{checkUnit},

@@ -7,12 +7,14 @@
  */
 package cws.webapp.pnt.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.annotation.TransactionService;
 
 import cws.webapp.pnt.dao.PointDAO;
+import cws.webapp.pnt.domain.CompanyPointDomain;
 import cws.webapp.pnt.domain.PointDomain;
 import cws.webapp.pnt.service.IPointService;
 
@@ -25,12 +27,23 @@ public class PointServiceImpl implements IPointService {
 	@Override
 	public int insert(PointDomain t) {
 		// TODO Auto-generated method stub
-		return pointDAO.insert(t);
+		pointDAO.insert(t);
+		CompanyPointDomain companyPointDomain = new CompanyPointDomain();
+		companyPointDomain.setCompanyId(t.getCompanyId());
+		companyPointDomain.setPointId(t.getId());
+		companyPointDomain.setCreateDate(new Date());
+		companyPointDomain.setStatus(1);
+
+		return pointDAO.insertCompanyPointRel(companyPointDomain);
 	}
 
 	@Override
 	public int delete(PointDomain t) {
 		// TODO Auto-generated method stub
+		CompanyPointDomain companyPointDomain = new CompanyPointDomain();
+		companyPointDomain.setCompanyId(t.getCompanyId());
+		companyPointDomain.setPointId(t.getId());
+		pointDAO.deleteCompanyPointRel(companyPointDomain);
 		return pointDAO.delete(t);
 	}
 

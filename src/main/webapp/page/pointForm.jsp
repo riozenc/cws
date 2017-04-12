@@ -61,7 +61,7 @@
                 <tr>
                     <td class="colTitle">型号：</td>
                     <td class="colData">    
-                        <input name="type" class="mini-textbox" />
+                        <input name="types" class="mini-textbox" />
                     </td>
                 </tr>
                 <tr>
@@ -118,9 +118,9 @@
             //根据id是否存在判断是修改还是新增操作。
             var url;
             if(o.id){
-                url="update";
+                url="../point.do?type=update";
             }else{
-                url="insert";
+                url="../point.do?type=insert";
             }
             form.validate();
             if (form.isValid() == false) return;

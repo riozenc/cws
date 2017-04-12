@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.riozenc.quicktool.common.util.json.JSONGrid;
@@ -85,7 +86,8 @@ public class VerifyAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=getVerifyByCompany")
-	public String getVerifyByCompany(CompanyDomain companyDomain) {
+	public String getVerifyByCompany(CompanyDomain companyDomain,@RequestParam(name = "enterpriseId") int companyId) {
+		companyDomain.setId(companyId);
 		List<VerifyDomain> list = verifyService.getVerifyByCompany(companyDomain);
 		return JSONUtil.toJsonString(new JSONGrid(list));
 	}

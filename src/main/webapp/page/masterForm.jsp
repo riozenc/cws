@@ -52,7 +52,7 @@
                 <tr>
                     <td class="colTitle">型号：</td>
                     <td class="colData">    
-                        <input name="type" class="mini-textbox" />
+                        <input name="types" class="mini-textbox" />
                     </td>
                 </tr>
                 <tr>
