@@ -49,6 +49,7 @@
         </div> 
 	</div>
 	<script type="text/javascript">
+		mini.parse();
 		function setData(data){
 			if(data.tip!=undefined){
 				document.getElementById("tipInfo").innerText=data.tip;
