@@ -142,13 +142,12 @@ $(document).ready(function(){
 		    	if (action===true) {
 		    		$.ajax({
 						url : "",
-						data : JSON.stringify(formData),
+						data : formData,
 						dataType : "json",
 						type : "post",
-						contentType : "application/json",
 						success : function(e){
 							baseInfoData=formData;
-							mini.alert("保存成功！");
+							alert(e.msg);
 						},
 						error : function(e){
 							alert("请求数据失败！status："+e.status);
