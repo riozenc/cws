@@ -7,10 +7,12 @@
  */
 package cws.webapp.pnt.service;
 
+import java.util.List;
+
 import com.riozenc.quicktool.springmvc.webapp.service.BaseService;
 
 import cws.webapp.pnt.domain.PointDomain;
 
 public interface IPointService extends BaseService<PointDomain> {
-
+	public List<PointDomain> findPointByCompany(PointDomain pointDomain);
 }

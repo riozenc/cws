@@ -149,13 +149,12 @@ $(document).ready(function(){
 		    	if (action===true) {
 		    		$.ajax({
 						url : "",
-						data : JSON.stringify(formData),
+						data : formData,
 						dataType : "json",
 						type : "post",
-						contentType : "application/json",
 						success : function(e){
 							baseInfoData=formData;
-							mini.alert("保存成功！");
+							alert(e.msg);
 						},
 						error : function(e){
 							alert("请求数据失败！status："+e.status);
@@ -300,17 +299,18 @@ function del(recode){
 	    ondestroy: function (action) {
 	    	//点击确认时返回action=true
 	    	if (action===true) {
-	    		grid.loading("操作中，请稍后......");
                 $.ajax({
                     url: "",
                     type: 'post',
             		data: { id: recode },
                     success: function (text) {
+                    	alert(text.msg);
                         var pointType=mini.get("pointType").getValue();
 						grid.load({enterpriseId:enterpriseId,verifyId:verifyId,pointType:pointType});
                         seekCollect();
                     },
-                    error: function () {
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    	alert(jqXHR.responseText);
                     }
                 });
 	    	} 

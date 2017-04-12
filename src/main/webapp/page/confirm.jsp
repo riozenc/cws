@@ -56,6 +56,7 @@
 		}
 		//确定
 		function onOk(e) {
+			alert("点确定后直接关闭window");
             return window.CloseOwnerWindow(true);
         }
         //取消

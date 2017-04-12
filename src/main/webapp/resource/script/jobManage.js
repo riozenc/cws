@@ -77,15 +77,16 @@ function del(recode){
 	    ondestroy: function (action) {
 	    	//点击确认时返回action=true
 	    	if (action===true) {
-	    		grid.loading("操作中，请稍后......");
                 $.ajax({
                     url: "../commonParam.do?type=delete&paramType=POST_TYPE",
                     type: 'post',
             		data: { id: recode },
-                    success: function (text) {
+            		success: function (text) {
+                    	alert(text.msg);
                         grid.reload();
                     },
-                    error: function () {
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    	alert(jqXHR.responseText);
                     }
                 });
 	    	} 

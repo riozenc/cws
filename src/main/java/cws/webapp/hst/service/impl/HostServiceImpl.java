@@ -7,12 +7,14 @@
  */
 package cws.webapp.hst.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.annotation.TransactionService;
 
 import cws.webapp.hst.dao.HostDAO;
+import cws.webapp.hst.domain.CompanyHostDomain;
 import cws.webapp.hst.domain.HostDomain;
 import cws.webapp.hst.service.IHostService;
 
@@ -25,12 +27,24 @@ public class HostServiceImpl implements IHostService {
 	@Override
 	public int insert(HostDomain t) {
 		// TODO Auto-generated method stub
+
+		// 添加主机与企业关系
+		CompanyHostDomain hostCompanyDomain = new CompanyHostDomain();
+		hostCompanyDomain.setCompanyId(t.getCompanyId());
+		hostCompanyDomain.setHostId(t.getId());
+		hostCompanyDomain.setCreateDate(new Date());
+		hostCompanyDomain.setStatus(1);
+		hostDAO.insertHostCompanyRel(hostCompanyDomain);
 		return hostDAO.insert(t);
 	}
 
 	@Override
 	public int delete(HostDomain t) {
 		// TODO Auto-generated method stub
+		CompanyHostDomain hostCompanyDomain = new CompanyHostDomain();
+		hostCompanyDomain.setCompanyId(t.getCompanyId());
+		hostCompanyDomain.setHostId(t.getId());
+		hostDAO.deleteHostCompanyRel(hostCompanyDomain);
 		return hostDAO.delete(t);
 	}
 
@@ -50,6 +64,12 @@ public class HostServiceImpl implements IHostService {
 	public List<HostDomain> findByWhere(HostDomain t) {
 		// TODO Auto-generated method stub
 		return hostDAO.findByWhere(t);
+	}
+
+	@Override
+	public List<HostDomain> findHostByCompany(HostDomain hostDomain) {
+		// TODO Auto-generated method stub
+		return hostDAO.findHostByCompany(hostDomain);
 	}
 
 }

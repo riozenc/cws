@@ -7,10 +7,13 @@
  */
 package cws.webapp.hst.service;
 
+import java.util.List;
+
 import com.riozenc.quicktool.springmvc.webapp.service.BaseService;
 
 import cws.webapp.hst.domain.HostDomain;
 
 public interface IHostService extends BaseService<HostDomain>{
 
+	public List<HostDomain> findHostByCompany(HostDomain hostDomain);
 }

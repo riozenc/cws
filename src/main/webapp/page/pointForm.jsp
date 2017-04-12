@@ -113,6 +113,8 @@
         //保存数据
         function SaveData() {
         	var o = form.getData();
+            //将日期对象转化为字符串
+            o.validDate=mini.formatDate(o.validDate,"yyyy-MM-dd");
             //根据id是否存在判断是修改还是新增操作。
             var url;
             if(o.id){

@@ -126,15 +126,16 @@ function del(recode){
 	    ondestroy: function (action) {
 	    	//点击确认时返回action=true
 	    	if (action===true) {
-	    		grid.loading("操作中，请稍后......");
                 $.ajax({
                     url: "",
                     type: 'post',
             		data: {enterpriseId:enterpriseId,verifyId:recode},
                     success: function (text) {
+                    	alert(text.msg);
                         grid.load({enterpriseId:enterpriseId});
                     },
-                    error: function () {
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    	alert(jqXHR.responseText);
                     }
                 });
 	    	} 

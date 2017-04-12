@@ -3,24 +3,24 @@
 <mapper namespace="cws.webapp.hst.dao.HostDAO">
 	<select id="findByKey" parameterType="HostDomain" resultType="HostDomain"
 		useCache="true">
-		select _I_D,NAME,TYPE,SN_NO,CREATE_DATE,REMARK,STATUS from HOST_INFO
+		select ID,NAME,TYPES,SN_NO,CREATE_DATE,REMARK,STATUS from HOST_INFO
 		<where>
-			and _I_D = #{ID}
+			and ID = #{id}
 
 		</where>
 	</select>
 	<select id="findByWhere" parameterType="HostDomain" resultType="HostDomain"
 		useCache="true">
-		select _I_D,NAME,TYPE,SN_NO,CREATE_DATE,REMARK,STATUS from HOST_INFO
+		select ID,NAME,TYPES,SN_NO,CREATE_DATE,REMARK,STATUS from HOST_INFO
 		<where>
-			<if test="ID !=null">
-				and _I_D = #{ID}
+			<if test="id !=null">
+				and ID = #{id}
 			</if>
 			<if test="name !=null">
 				and NAME = #{name}
 			</if>
-			<if test="type !=null">
-				and TYPE = #{type}
+			<if test="types !=null">
+				and TYPES = #{types}
 			</if>
 			<if test="snNo !=null">
 				and SN_NO = #{snNo}
@@ -37,9 +37,9 @@
 		</where>
 	</select>
 	<insert id="insert" parameterType="HostDomain" flushCache="true">
-		insert into HOST_INFO(_I_D,NAME,TYPE,SN_NO,CREATE_DATE,REMARK,STATUS)
+		insert into HOST_INFO(ID,NAME,TYPES,SN_NO,CREATE_DATE,REMARK,STATUS)
 		values
-		(#{ID},#{name},#{type},#{snNo},#{createDate},#{remark},#{status})
+		(#{id},#{name},#{types},#{snNo},#{createDate},#{remark},#{status})
 	</insert>
 	<update id="update" parameterType="HostDomain" flushCache="true">
 		update HOST_INFO
@@ -47,8 +47,8 @@
 			<if test="name !=null">
 				NAME = #{name},
 			</if>
-			<if test="type !=null">
-				TYPE = #{type},
+			<if test="types !=null">
+				TYPES = #{types},
 			</if>
 			<if test="snNo !=null">
 				SN_NO = #{snNo},
@@ -64,15 +64,42 @@
 			</if>
 		</set>
 		<where>
-			and _I_D = #{ID}
+			and ID = #{id}
 
 		</where>
 	</update>
 	<delete id="delete" parameterType="HostDomain" flushCache="true">
 		delete from HOST_INFO
 		<where>
-			and _I_D = #{ID}
+			and ID = #{id}
 
+		</where>
+	</delete>
+
+	<select id="findHostByCompany" parameterType="HostDomain"
+		resultType="HostDomain" useCache="true">
+		SELECT b.* FROM company_host_rel a LEFT JOIN host_info b ON a.HOST_ID
+		= b.ID
+		<where>
+			a.COMPANY_ID = #{companyId}
+		</where>
+	</select>
+
+
+	<insert id="insertHostCompanyRel" parameterType="CompanyHostDomain"
+		flushCache="true">
+		insert into
+		company_host_rel(ID,COMPANY_ID,HOST_ID,CREATE_DATE,REMARK,STAUTS)
+		values
+		(#{id},#{companyId},#{hostId},#{createDate},#{remark},#{status})
+	</insert>
+
+	<delete id="deleteHostCompanyRel" parameterType="CompanyHostDomain"
+		flushCache="true">
+		delete from company_host_rel
+		<where>
+			COMPANY_ID = #{companyId}
+			and HOST_ID = #{hostId}
 		</where>
 	</delete>
 </mapper>

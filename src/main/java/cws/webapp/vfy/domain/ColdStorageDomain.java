@@ -13,7 +13,7 @@ import com.riozenc.quicktool.mybatis.MybatisEntity;
 public class ColdStorageDomain extends VerifyDomain implements MybatisEntity {
 
 	private String name;// NAME varchar(30),
-	private String type;// TYPE varchar(30),
+	private String types;// TYPE varchar(30),
 	private String volume;// VOLUME varchar(30),
 	private String area;// AREA varchar(30),
 	private Integer fanNum;// FAN_NUM int,
@@ -33,12 +33,12 @@ public class ColdStorageDomain extends VerifyDomain implements MybatisEntity {
 		this.name = name;
 	}
 
-	public String getType() {
-		return type;
+	public String getTypes() {
+		return types;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setTypes(String types) {
+		this.types = types;
 	}
 
 	public String getVolume() {

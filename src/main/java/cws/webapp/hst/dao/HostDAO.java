@@ -13,6 +13,7 @@ import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.mybatis.dao.AbstractTransactionDAOSupport;
 import com.riozenc.quicktool.mybatis.dao.BaseDAO;
 
+import cws.webapp.hst.domain.CompanyHostDomain;
 import cws.webapp.hst.domain.HostDomain;
 
 @TransactionDAO
@@ -46,6 +47,19 @@ public class HostDAO extends AbstractTransactionDAOSupport implements BaseDAO<Ho
 	public List<HostDomain> findByWhere(HostDomain t) {
 		// TODO Auto-generated method stub
 		return getPersistanceManager().find(getNamespace() + ".findByWhere", t);
+	}
+
+	public int insertHostCompanyRel(CompanyHostDomain hostCompanyDomain) {
+		return getPersistanceManager().insert(getNamespace() + ".insertHostCompanyRel", hostCompanyDomain);
+	}
+	
+	public int deleteHostCompanyRel(CompanyHostDomain hostCompanyDomain){
+		return getPersistanceManager().delete(getNamespace() + ".deleteHostCompanyRel", hostCompanyDomain);
+	}
+
+	public List<HostDomain> findHostByCompany(HostDomain t) {
+		// TODO Auto-generated method stub
+		return getPersistanceManager().find(getNamespace() + ".findHostByCompany", t);
 	}
 
 }

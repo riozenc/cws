@@ -7,8 +7,6 @@
  */
 package cws.webapp.hst.domain;
 
-
-
 import java.util.Date;
 
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
@@ -20,22 +18,24 @@ import com.riozenc.quicktool.mybatis.MybatisEntity;
  * @author rioze
  *
  */
-public class HostDomain implements MybatisEntity{
+public class HostDomain implements MybatisEntity {
 	@TablePrimaryKey
-	private Integer ID;// ID int TRUE FALSE TRUE
+	private Integer id;// ID int TRUE FALSE TRUE
 	private String name;// 名称 NAME varchar(30) 30 FALSE FALSE FALSE
-	private String type;// 型号 TYPE varchar(30) 30 FALSE FALSE FALSE
+	private String types;// 型号 TYPE varchar(30) 30 FALSE FALSE FALSE
 	private String snNo;// SN号 SN_NO varchar(30) 30 FALSE FALSE FALSE
 	private Date createDate;// 创建日期 CREATE_DATE datetime FALSE FALSE FALSE
 	private String remark;// 备注 REMARK varchar(100) 100 FALSE FALSE FALSE
 	private String status;// 状态 STATUS smallint FALSE FALSE FALSE
 
-	public Integer getID() {
-		return ID;
+	private Integer companyId;// 企业ID
+
+	public Integer getId() {
+		return id;
 	}
 
-	public void setID(Integer iD) {
-		ID = iD;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -46,12 +46,12 @@ public class HostDomain implements MybatisEntity{
 		this.name = name;
 	}
 
-	public String getType() {
-		return type;
+	public String getTypes() {
+		return types;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setTypes(String types) {
+		this.types = types;
 	}
 
 	public String getSnNo() {
@@ -84,6 +84,14 @@ public class HostDomain implements MybatisEntity{
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public Integer getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
 	}
 
 }

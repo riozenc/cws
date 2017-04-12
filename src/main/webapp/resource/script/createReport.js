@@ -215,13 +215,14 @@ $(document).ready(function(){
 	$configDone.click(function(event) {
 		//提交数据
 		var configData = form.getData();
+		//将日期对象转化为字符串
+		configData.verifyTime=mini.formatDate(configData.verifyTime,"yyyy-MM-dd");
 		form.validate();
         if (form.isValid() == false) return;
-        var json = mini.encode([configData]);
         $.ajax({
             url: "",
 			type: 'post',
-            data: { data: json },
+            data: configData,
             cache: false,
             success: function (text) {
             	//下一步
@@ -440,17 +441,18 @@ function del(recodeID){
 	    ondestroy: function (action) {
 	    	//点击确认时返回action=true
 	    	if (action===true) {
-	    		grid.loading("操作中，请稍后......");
                 $.ajax({
                     url: "",
                     type: 'post',
             		data: { id: recodeID },
                     success: function (text) {
+                    	alert(text.msg);
                         grid.load({enterpriseId:enterpriseId,recordId:recordId},function(success){
 							$("#meterNum").text("仪表数量："+success.data.length);
 						});
                     },
-                    error: function () {
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    	alert(jqXHR.responseText);
                     }
                 });
 	    	} 

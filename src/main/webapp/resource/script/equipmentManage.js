@@ -111,15 +111,16 @@ function delMaster(recode){
 	    ondestroy: function (action) {
 	    	//点击确认时返回action=true
 	    	if (action===true) {
-	    		gridMaster.loading("操作中，请稍后......");
                 $.ajax({
-                    url: "",
+                    url: "../host.do?type=delete",
                     type: 'post',
-            		data: { id: recode },
+            		data: { id: recode,enterpriseId:enterpriseId },
                     success: function (text) {
+                    	alert(text.msg);
                         gridMaster.load({enterpriseId:enterpriseId});
                     },
-                    error: function () {
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    	alert(jqXHR.responseText);
                     }
                 });
 	    	} 
@@ -204,15 +205,16 @@ function delPoint(recode){
 	    ondestroy: function (action) {
 	    	//点击确认时返回action=true
 	    	if (action===true) {
-	    		gridPoint.loading("操作中，请稍后......");
                 $.ajax({
                     url: "",
                     type: 'post',
-            		data: { id: recode },
+            		data: { id: recode,enterpriseId:enterpriseId },
                     success: function (text) {
+                    	alert(text.msg);
                         gridPoint.load({enterpriseId:enterpriseId});
                     },
-                    error: function () {
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    	alert(jqXHR.responseText);
                     }
                 });
 	    	} 

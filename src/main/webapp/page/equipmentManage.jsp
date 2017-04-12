@@ -37,7 +37,7 @@
 			        </div>
 			    </div>
 			    <div id="datagridMaster" class="mini-datagrid" style="width:100%;height:81%;min-height:148px;" 
-			    	url="../resource/data/master.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
+			    	url="../host.do?type=findHostByCompany" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
 			    	multiSelect="false" idField="id" pageIndexField="pageCurrent">
 			        <div property="columns">
 			            <div field="name" headerAlign="center" allowSort="false" width="100">名称
