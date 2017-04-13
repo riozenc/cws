@@ -19,10 +19,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.riozenc.quicktool.common.util.json.JSONGrid;
+
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
+import cws.common.json.JsonGrid;
 import cws.webapp.cmm.domain.CompanyDomain;
 import cws.webapp.cmm.service.ICompanyService;
 import cws.webapp.pnt.domain.PointDomain;
@@ -82,7 +83,7 @@ public class CompanyAction extends BaseAction {
 	@RequestMapping(params = "type=findCompanyByWhere")
 	public String findCompanyByWhere(CompanyDomain companyDomain) {
 		List<CompanyDomain> list = companyService.findByWhere(companyDomain);
-		return JSONUtil.toJsonString(new JSONGrid(companyDomain, list));
+		return JSONUtil.toJsonString(new JsonGrid(companyDomain, list));
 	}
 
 	@ResponseBody

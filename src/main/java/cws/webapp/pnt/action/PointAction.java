@@ -17,10 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.riozenc.quicktool.common.util.json.JSONGrid;
+
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
+import cws.common.json.JsonGrid;
 import cws.webapp.pnt.domain.PointDomain;
 import cws.webapp.pnt.service.IPointService;
 
@@ -80,7 +81,7 @@ public class PointAction extends BaseAction {
 	@RequestMapping(params = "type=findPointByWhere")
 	public String findPointByWhere(PointDomain pointDomain) {
 		List<PointDomain> list = pointService.findByWhere(pointDomain);
-		return JSONUtil.toJsonString(new JSONGrid(list));
+		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
 
 	@ResponseBody
@@ -88,6 +89,6 @@ public class PointAction extends BaseAction {
 	public String findPointByCompany(PointDomain pointDomain, @RequestParam(name = "enterpriseId") int companyId) {
 		pointDomain.setCompanyId(companyId);
 		List<PointDomain> list = pointService.findPointByCompany(pointDomain);
-		return JSONUtil.toJsonString(new JSONGrid(list));
+		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
 }

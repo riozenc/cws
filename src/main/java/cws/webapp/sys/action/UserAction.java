@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.riozenc.quicktool.common.util.json.JSONGrid;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
+import cws.common.json.JsonGrid;
 import cws.common.json.JsonResult;
 import cws.webapp.sys.domain.UserDomain;
 import cws.webapp.sys.service.IUserService;
@@ -73,6 +73,6 @@ public class UserAction extends BaseAction {
 	@RequestMapping(params = "type=findUserByWhere")
 	public String findUserByWhere(UserDomain userDomain) {
 		List<UserDomain> list = userService.findByWhere(userDomain);
-		return JSONUtil.toJsonString(new JSONGrid(list));
+		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
 }

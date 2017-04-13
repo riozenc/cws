@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.riozenc.quicktool.common.util.json.JSONGrid;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
+import cws.common.json.JsonGrid;
 import cws.webapp.hst.domain.HostDomain;
 import cws.webapp.hst.service.IHostService;
 
@@ -78,7 +78,7 @@ public class HostAction extends BaseAction {
 	@RequestMapping(params = "type=findHostByWhere")
 	public String findHostByWhere(HostDomain hostDomain) {
 		List<HostDomain> list = hostService.findByWhere(hostDomain);
-		return JSONUtil.toJsonString(new JSONGrid(list));
+		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
 
 	@ResponseBody
@@ -86,7 +86,7 @@ public class HostAction extends BaseAction {
 	public String findHostByCompany(HostDomain hostDomain, @RequestParam(name = "enterpriseId") int companyId) {
 		hostDomain.setCompanyId(companyId);
 		List<HostDomain> list = hostService.findHostByCompany(hostDomain);
-		return JSONUtil.toJsonString(new JSONGrid(list));
+		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
 
 }

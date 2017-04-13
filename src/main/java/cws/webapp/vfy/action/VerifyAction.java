@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.riozenc.quicktool.common.util.json.JSONGrid;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 
+import cws.common.json.JsonGrid;
 import cws.webapp.cmm.domain.CompanyDomain;
 import cws.webapp.vfy.domain.VerifyDomain;
 import cws.webapp.vfy.service.IVerifyService;
@@ -81,7 +81,7 @@ public class VerifyAction {
 	@RequestMapping(params = "type=findVerifyByWhere")
 	public String findVerifyByWhere(VerifyDomain verifyDomain) {
 		List<VerifyDomain> list = verifyService.findByWhere(verifyDomain);
-		return JSONUtil.toJsonString(new JSONGrid(list));
+		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
 
 	@ResponseBody
@@ -89,7 +89,7 @@ public class VerifyAction {
 	public String getVerifyByCompany(CompanyDomain companyDomain,@RequestParam(name = "enterpriseId") int companyId) {
 		companyDomain.setId(companyId);
 		List<VerifyDomain> list = verifyService.getVerifyByCompany(companyDomain);
-		return JSONUtil.toJsonString(new JSONGrid(list));
+		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
 
 	@ResponseBody

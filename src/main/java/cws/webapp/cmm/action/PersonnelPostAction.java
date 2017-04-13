@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.riozenc.quicktool.common.util.json.JSONGrid;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
+import cws.common.json.JsonGrid;
 import cws.webapp.cmm.domain.PersonnelPostDomain;
 import cws.webapp.cmm.service.IPersonnelPostService;
 
@@ -73,7 +73,7 @@ public class PersonnelPostAction extends BaseAction {
 	@RequestMapping(params = "type=findPersonnelPostByWhere")
 	public String findPersonnelPostByWhere(PersonnelPostDomain personnelPostDomain) {
 		List<PersonnelPostDomain> list = personnelPostService.findByWhere(personnelPostDomain);
-		return JSONUtil.toJsonString(new JSONGrid(personnelPostDomain, list));
+		return JSONUtil.toJsonString(new JsonGrid(personnelPostDomain, list));
 	}
 
 }
