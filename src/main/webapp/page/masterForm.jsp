@@ -116,10 +116,10 @@
                 dataType : 'json',
                 cache: false,
                 success: function (success) {
-                	if(success==200){
+                	if(success.status==200){
                         CloseWindow(true);
-                        alert(text.msg);
-                    }else if(success==300){
+                        alert(success.msg);
+                    }else if(success.status==300){
                         mini.alert("SN号已经存在！");
                     }
                 },
