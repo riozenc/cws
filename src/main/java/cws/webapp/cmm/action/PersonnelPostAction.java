@@ -19,6 +19,7 @@ import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
 import cws.common.json.JsonGrid;
+import cws.common.json.JsonResult;
 import cws.webapp.cmm.domain.PersonnelPostDomain;
 import cws.webapp.cmm.service.IPersonnelPostService;
 
@@ -34,9 +35,9 @@ public class PersonnelPostAction extends BaseAction {
 	@RequestMapping(params = "type=insert")
 	public String insert(PersonnelPostDomain personnelPostDomain) {
 		if (personnelPostService.insert(personnelPostDomain) > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -45,9 +46,9 @@ public class PersonnelPostAction extends BaseAction {
 	public String delete(PersonnelPostDomain personnelPostDomain) {
 		int i = personnelPostService.delete(personnelPostDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -56,9 +57,9 @@ public class PersonnelPostAction extends BaseAction {
 	public String update(PersonnelPostDomain personnelPostDomain) {
 		int i = personnelPostService.update(personnelPostDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 

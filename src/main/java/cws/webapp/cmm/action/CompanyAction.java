@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
 import cws.common.json.JsonGrid;
+import cws.common.json.JsonResult;
 import cws.webapp.cmm.domain.CompanyDomain;
 import cws.webapp.cmm.service.ICompanyService;
 import cws.webapp.pnt.domain.PointDomain;
@@ -44,9 +44,9 @@ public class CompanyAction extends BaseAction {
 		companyDomain.setCreateDate(new Date());
 		companyDomain.setStatus(1);
 		if (companyService.insert(companyDomain) > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -55,9 +55,9 @@ public class CompanyAction extends BaseAction {
 	public String delete(CompanyDomain companyDomain) {
 		int i = companyService.delete(companyDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -66,9 +66,9 @@ public class CompanyAction extends BaseAction {
 	public String update(CompanyDomain companyDomain) {
 		int i = companyService.update(companyDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
