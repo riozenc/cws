@@ -18,7 +18,7 @@ import com.riozenc.quicktool.mybatis.MybatisEntity;
  * @author rioze
  *
  */
-public class VerifyPointDomain implements MybatisEntity{
+public class VerifyPointDomain implements MybatisEntity {
 
 	@TablePrimaryKey
 	private Integer id;// ID ID int TRUE FALSE TRUE
@@ -26,7 +26,8 @@ public class VerifyPointDomain implements MybatisEntity{
 	private Integer verifyType;// 验证对象类型 VERIFY_TYPE int FALSE FALSE FALSE
 	private Integer pointId;// 测点ID POINT_ID int FALSE FALSE FALSE
 	private String pointNo;// 测试编号 POINT_NO varchar(4) 4 FALSE FALSE FALSE
-	private Integer pointPosition;// 点的位置
+	private Integer pointPosition;// 位置 POINT_POSITION int FALSE FALSE FALSE
+	private String pointType;// 测点布点类型 POINT_TYPE varchar(4) 4 FALSE FALSE FALSE
 	private Date createDate;// 创建日期 CREATE_DATE datetime FALSE FALSE FALSE
 	private String remark;// 备注 REMARK varchar(100) 100 FALSE FALSE FALSE
 	private Integer status;// 状态 STATUS smallint FALSE FALSE FALSE
@@ -71,6 +72,22 @@ public class VerifyPointDomain implements MybatisEntity{
 		this.pointNo = pointNo;
 	}
 
+	public Integer getPointPosition() {
+		return pointPosition;
+	}
+
+	public void setPointPosition(Integer pointPosition) {
+		this.pointPosition = pointPosition;
+	}
+
+	public String getPointType() {
+		return pointType;
+	}
+
+	public void setPointType(String pointType) {
+		this.pointType = pointType;
+	}
+
 	public Date getCreateDate() {
 		return createDate;
 	}
@@ -93,14 +110,6 @@ public class VerifyPointDomain implements MybatisEntity{
 
 	public void setStatus(Integer status) {
 		this.status = status;
-	}
-
-	public Integer getPointPosition() {
-		return pointPosition;
-	}
-
-	public void setPointPosition(Integer pointPosition) {
-		this.pointPosition = pointPosition;
 	}
 
 }

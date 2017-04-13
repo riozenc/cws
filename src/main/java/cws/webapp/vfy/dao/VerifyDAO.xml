@@ -3,7 +3,8 @@
 <mapper namespace="cws.webapp.vfy.dao.VerifyDAO">
 	<select id="findByKey" parameterType="VerifyDomain" resultType="VerifyDomain"
 		useCache="true">
-		select ID,TYPE,VERIFY_ID,VERIFY_NAME from VERIFY_INFO
+		select ID,VERIFY_ID,VERIFY_NAME,VERIFY_TYPE,CREATE_DATE,REMARK,STATUS
+		from VERIFY_INFO
 		<where>
 			and ID = #{id}
 
@@ -11,13 +12,11 @@
 	</select>
 	<select id="findByWhere" parameterType="VerifyDomain"
 		resultType="VerifyDomain" useCache="true">
-		select ID,TYPE,VERIFY_ID,VERIFY_NAME from VERIFY_INFO
+		select ID,VERIFY_ID,VERIFY_NAME,VERIFY_TYPE,CREATE_DATE,REMARK,STATUS
+		from VERIFY_INFO
 		<where>
 			<if test="id !=null">
 				and ID = #{id}
-			</if>
-			<if test="type !=null">
-				and TYPE = #{type}
 			</if>
 			<if test="verifyId !=null">
 				and VERIFY_ID = #{verifyId}
@@ -25,28 +24,47 @@
 			<if test="verifyName !=null">
 				and VERIFY_NAME = #{verifyName}
 			</if>
+			<if test="verifyType !=null">
+				and VERIFY_TYPE = #{verifyType}
+			</if>
+			<if test="createDate !=null">
+				and CREATE_DATE = #{createDate}
+			</if>
+			<if test="remark !=null">
+				and REMARK = #{remark}
+			</if>
+			<if test="status !=null">
+				and STATUS = #{status}
+			</if>
 		</where>
 	</select>
 	<insert id="insert" parameterType="VerifyDomain" flushCache="true">
-		insert into VERIFY_INFO(ID,TYPE,VERIFY_ID,VERIFY_NAME) values
-		(#{id},#{type},#{verifyId},#{verifyName})
+		insert into
+		VERIFY_INFO(ID,VERIFY_ID,VERIFY_NAME,VERIFY_TYPE,CREATE_DATE,REMARK,STATUS)
+		values
+		(#{id},#{verifyId},#{verifyName},#{verifyType},#{createDate},#{remark},#{status})
 	</insert>
 	<update id="update" parameterType="VerifyDomain" flushCache="true">
 		update VERIFY_INFO
 		<set>
-			<if test="type !=null">
-				TYPE = #{type},
-			</if>
-			<if test="verifyId !=null">
-				VERIFY_ID = #{verifyId},
-			</if>
+
 			<if test="verifyName !=null">
 				VERIFY_NAME = #{verifyName},
 			</if>
+
+			<if test="createDate !=null">
+				CREATE_DATE = #{createDate},
+			</if>
+			<if test="remark !=null">
+				REMARK = #{remark},
+			</if>
+			<if test="status !=null">
+				STATUS = #{status},
+			</if>
 		</set>
 		<where>
-			and ID = #{id}
-
+			and VERIFY_ID = #{verifyId}
+			and VERIFY_TYPE = #{verifyType}
 		</where>
 	</update>
 	<delete id="delete" parameterType="VerifyDomain" flushCache="true">
@@ -56,7 +74,6 @@
 
 		</where>
 	</delete>
-
 
 	<select id="getVerifyByCompany" parameterType="CompanyDomain"
 		resultType="VerifyDomain" useCache="true">

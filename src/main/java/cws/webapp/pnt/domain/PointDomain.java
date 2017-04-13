@@ -34,6 +34,8 @@ public class PointDomain implements MybatisEntity {
 	private Integer status;// 状态 STATUS smallint FALSE FALSE FALSE
 
 	private Integer companyId;
+	private Integer verifyId;
+	private Integer verifyType;
 
 	public Integer getId() {
 		return id;
@@ -121,6 +123,22 @@ public class PointDomain implements MybatisEntity {
 
 	public void setCompanyId(Integer companyId) {
 		this.companyId = companyId;
+	}
+
+	public Integer getVerifyId() {
+		return verifyId;
+	}
+
+	public void setVerifyId(Integer verifyId) {
+		this.verifyId = verifyId;
+	}
+
+	public Integer getVerifyType() {
+		return verifyType;
+	}
+
+	public void setVerifyType(Integer verifyType) {
+		this.verifyType = verifyType;
 	}
 
 }

@@ -4,7 +4,7 @@
 	<select id="findByKey" parameterType="ColdStorageDomain"
 		resultType="ColdStorageDomain" useCache="true">
 		select
-		NAME,TYPES,VOLUME,AREA,FAN_NUM,FAN_MAIN_NUM,FAN_SPARE_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP
+		NAME,TYPES,VOLUME,AREA,FAN_NUM,FAN_MAIN_NUM,FAN_SPARE_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP,REMARK,STATUS
 		from COLD_STORAGE_INFO
 		<where>
 			and ID = #{id}
@@ -14,7 +14,7 @@
 	<select id="findByWhere" parameterType="ColdStorageDomain"
 		resultType="ColdStorageDomain" useCache="true">
 		select
-		NAME,TYPES,VOLUME,AREA,FAN_NUM,FAN_MAIN_NUM,FAN_SPARE_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP
+		NAME,TYPES,VOLUME,AREA,FAN_NUM,FAN_MAIN_NUM,FAN_SPARE_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP,REMARK,STATUS
 		from COLD_STORAGE_INFO
 		<where>
 			<if test="name !=null">
@@ -53,14 +53,17 @@
 			<if test="disMap !=null">
 				and DIS_MAP = #{disMap}
 			</if>
+			<if test="status !=null">
+				and STATUS = #{status}
+			</if>
 		</where>
 	</select>
 	<insert id="insert" parameterType="ColdStorageDomain"
-		flushCache="true">
-		insert into
-		COLD_STORAGE_INFO(NAME,TYPES,VOLUME,AREA,FAN_NUM,FAN_MAIN_NUM,FAN_SPARE_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP)
-		values
-		(#{name},#{types},#{volume},#{area},#{fanNum},#{fanMainNum},#{fanSpareNum},#{entranceNum},#{goodsShelves},#{probeNum},#{manufactor},#{disMap})
+	flushCache="true" useGeneratedKeys="true" keyProperty="id">
+	insert into
+	COLD_STORAGE_INFO(NAME,TYPES,VOLUME,AREA,FAN_NUM,FAN_MAIN_NUM,FAN_SPARE_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP,REMARK,STATUS)
+	values
+	(#{name},#{types},#{volume},#{area},#{fanNum},#{fanMainNum},#{fanSpareNum},#{entranceNum},#{goodsShelves},#{probeNum},#{manufactor},#{disMap},#{remark},#{status})
 	</insert>
 	<update id="update" parameterType="ColdStorageDomain"
 		flushCache="true">
@@ -101,6 +104,12 @@
 			</if>
 			<if test="disMap !=null">
 				DIS_MAP = #{disMap},
+			</if>
+			<if test="remark !=null">
+				REMARK = #{remark},
+			</if>
+			<if test="status !=null">
+				STATUS = #{status},
 			</if>
 		</set>
 		<where>

@@ -49,28 +49,38 @@ public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<P
 		return getPersistanceManager().find(getNamespace() + ".findByWhere", t);
 	}
 
-	public int insertPointByVerify(PointDomain pointDomain) {
-		return getPersistanceManager().insert(getNamespace() + ".insertPointByVerify", pointDomain);
-	}
-
-	public int updatePointByVerify(PointDomain pointDomain) {
-		return getPersistanceManager().insert(getNamespace() + ".updatePointByVerify", pointDomain);
-	}
-
-	public int deletePointByVerify(PointDomain pointDomain) {
-		return getPersistanceManager().insert(getNamespace() + ".deletePointByVerify", pointDomain);
-	}
+	// public int insertPointByVerify(PointDomain pointDomain) {
+	// return getPersistanceManager().insert(getNamespace() +
+	// ".insertPointByVerify", pointDomain);
+	// }
+	//
+	// public int updatePointByVerify(PointDomain pointDomain) {
+	// return getPersistanceManager().insert(getNamespace() +
+	// ".updatePointByVerify", pointDomain);
+	// }
+	//
+	// public int deletePointByVerify(PointDomain pointDomain) {
+	// return getPersistanceManager().insert(getNamespace() +
+	// ".deletePointByVerify", pointDomain);
+	// }
 
 	public List<PointDomain> findPointByCompany(PointDomain pointDomain) {
 		return getPersistanceManager().find(getNamespace() + ".findPointByCompany", pointDomain);
 	}
-	
+
 	public int insertCompanyPointRel(CompanyPointDomain companyPointDomain) {
 		return getPersistanceManager().insert(getNamespace() + ".insertCompanyPointRel", companyPointDomain);
 	}
-	
-	public int deleteCompanyPointRel(CompanyPointDomain companyPointDomain){
+
+	public int deleteCompanyPointRel(CompanyPointDomain companyPointDomain) {
 		return getPersistanceManager().delete(getNamespace() + ".deleteCompanyPointRel", companyPointDomain);
 	}
 
+	public List<PointDomain> findPointByVerify(PointDomain pointDomain) {
+		return getPersistanceManager().find(getNamespace() + ".findPointByVerify", pointDomain);
+	}
+
+	public int insertVerifyPointRel(PointDomain pointDomain) {
+		return getPersistanceManager().insert(getNamespace() + ".insertVerifyPointRel", pointDomain);
+	}
 }

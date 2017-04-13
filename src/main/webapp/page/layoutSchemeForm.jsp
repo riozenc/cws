@@ -48,7 +48,7 @@
                     <td class="colData">    
                         <input id="schemeType" name="verifyType" class="mini-combobox" showNullItem="false" required="true" 
                         popupHeight="146" emptyText="验证对象类型不能为空" valueField="value" textField="name" 
-                        url="../resource/data/objectTypeDrop.txt" />
+                        url="../commonParam.do?type=findCommonParamByType&paramType=VERIFY_TYPE" />
                     </td>
                 </tr>
                 <tr>
@@ -91,9 +91,9 @@
             //根据id是否存在判断是修改还是新增操作。
             var url;
             if(o.verifyId){
-                url="update";
+                url="../verify.do?type=update";
             }else{
-                url="insert";
+                url="../verify.do?type=insert";
             }
             form.validate();
             if (form.isValid() == false) return;

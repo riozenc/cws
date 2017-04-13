@@ -7,6 +7,7 @@
  */
 package cws.webapp.vfy.action;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,8 @@ public class VerifyAction {
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
 	public String insert(VerifyDomain verifyDomain) {
+		verifyDomain.setCreateDate(new Date());
+		verifyDomain.setStatus(1);
 		int i = verifyService.insert(verifyDomain);
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));

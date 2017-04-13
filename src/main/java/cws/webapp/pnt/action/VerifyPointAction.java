@@ -33,7 +33,7 @@ public class VerifyPointAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
-	public String insert(VerifyPointDomain verifyPointDomain) {
+	public String insert(VerifyPointDomain verifyPointDomain, String snNo) {
 
 		verifyPointDomain.setCreateDate(new Date());
 		verifyPointDomain.setStatus(1);
@@ -59,7 +59,7 @@ public class VerifyPointAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=update")
-	public String update(VerifyPointDomain verifyPointDomain) {
+	public String update(VerifyPointDomain verifyPointDomain, String snNo) {
 		int i = verifyPointService.update(verifyPointDomain);
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));

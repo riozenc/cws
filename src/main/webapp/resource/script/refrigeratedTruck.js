@@ -10,13 +10,13 @@ $(document).ready(function(){
 	var $refreshImg=$("#refreshImg");
 	//查询基本信息
 	$.ajax({
-		url : "../resource/data/truckBaseInfo.txt",
-		data : {enterpriseId:enterpriseId,verifyId:verifyId},
+		url : "../verify.do?type=getVerifyInfo",
+		data : {enterpriseId:enterpriseId,verifyId:verifyId,verifyType:verifyType},
 		dataType : "json",
 		type : "post",
 		success : function(e){
 			$("input[name='name']").val(e.name);
-			$("input[name='type']").val(e.type);
+			$("input[name='types']").val(e.types);
 			$("input[name='volume']").val(e.volume);
 			$("input[name='fanNum']").val(e.fanNum);
 			$("input[name='entranceNum']").val(e.entranceNum);

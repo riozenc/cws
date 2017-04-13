@@ -32,21 +32,70 @@ public class VerifyServiceImpl implements IVerifyService {
 	private ColdStorageDAO coldStorageDAO;
 
 	@Override
-	public int insert(VerifyDomain t) {
+	public int insert(VerifyDomain verifyDomain) {
 		// TODO Auto-generated method stub
-		return verifyDAO.insert(t);
+		switch (verifyDomain.getVerifyType()) {
+		case 1:// 冷库
+			ColdStorageDomain coldStorageDomain = new ColdStorageDomain();
+			coldStorageDomain.setName(verifyDomain.getVerifyName());
+			coldStorageDomain.setStatus(1);
+			coldStorageDAO.insert(coldStorageDomain);
+			verifyDomain.setVerifyId(coldStorageDomain.getId());
+			break;
+		case 2:// 冷藏车
+			ChillCarDomain chillCarDomain = new ChillCarDomain();
+			chillCarDomain.setName(verifyDomain.getVerifyName());
+			chillCarDomain.setStatus(1);
+			chillCarDAO.insert(chillCarDomain);
+			verifyDomain.setVerifyId(chillCarDomain.getId());
+			break;
+		case 3:// 保温箱
+			break;
+		}
+
+		return verifyDAO.insert(verifyDomain);
 	}
 
 	@Override
-	public int delete(VerifyDomain t) {
+	public int delete(VerifyDomain verifyDomain) {
 		// TODO Auto-generated method stub
-		return verifyDAO.delete(t);
+		switch (verifyDomain.getVerifyType()) {
+		case 1:// 冷库
+			ColdStorageDomain coldStorageDomain = new ColdStorageDomain();
+			coldStorageDomain.setId(verifyDomain.getVerifyId());
+			coldStorageDAO.delete(coldStorageDomain);
+			break;
+		case 2:// 冷藏车
+			ChillCarDomain chillCarDomain = new ChillCarDomain();
+			chillCarDomain.setId(verifyDomain.getVerifyId());
+			chillCarDAO.delete(chillCarDomain);
+			break;
+		case 3:// 保温箱
+			break;
+		}
+		return verifyDAO.delete(verifyDomain);
 	}
 
 	@Override
-	public int update(VerifyDomain t) {
+	public int update(VerifyDomain verifyDomain) {
 		// TODO Auto-generated method stub
-		return verifyDAO.update(t);
+		switch (verifyDomain.getVerifyType()) {
+		case 1:// 冷库
+			ColdStorageDomain coldStorageDomain = new ColdStorageDomain();
+			coldStorageDomain.setId(verifyDomain.getVerifyId());
+			coldStorageDomain.setName(verifyDomain.getVerifyName());
+			coldStorageDAO.update(coldStorageDomain);
+			break;
+		case 2:// 冷藏车
+			ChillCarDomain chillCarDomain = new ChillCarDomain();
+			chillCarDomain.setId(verifyDomain.getVerifyId());
+			chillCarDomain.setName(verifyDomain.getVerifyName());
+			chillCarDAO.update(chillCarDomain);
+			break;
+		case 3:// 保温箱
+			break;
+		}
+		return verifyDAO.update(verifyDomain);
 	}
 
 	@Override

@@ -71,4 +71,10 @@ public class PointServiceImpl implements IPointService {
 		return pointDAO.findPointByCompany(pointDomain);
 	}
 
+	@Override
+	public List<PointDomain> findPointByVerify(PointDomain pointDomain) {
+		// TODO Auto-generated method stub
+		return pointDAO.findPointByVerify(pointDomain);
+	}
+
 }

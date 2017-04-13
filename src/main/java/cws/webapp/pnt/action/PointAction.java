@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
@@ -36,7 +35,7 @@ public class PointAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
-	public String insert(PointDomain pointDomain,@RequestParam(name = "enterpriseId") int companyId) {
+	public String insert(PointDomain pointDomain, @RequestParam(name = "enterpriseId") int companyId) {
 		pointDomain.setCompanyId(companyId);
 		pointDomain.setCreateDate(new Date());
 		pointDomain.setStatus(1);
@@ -50,7 +49,7 @@ public class PointAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=delete")
-	public String delete(PointDomain pointDomain,@RequestParam(name = "enterpriseId") int companyId) {
+	public String delete(PointDomain pointDomain, @RequestParam(name = "enterpriseId") int companyId) {
 		pointDomain.setCompanyId(companyId);
 		int i = pointService.delete(pointDomain);
 		if (i > 0) {
@@ -90,6 +89,13 @@ public class PointAction extends BaseAction {
 	public String findPointByCompany(PointDomain pointDomain, @RequestParam(name = "enterpriseId") int companyId) {
 		pointDomain.setCompanyId(companyId);
 		List<PointDomain> list = pointService.findPointByCompany(pointDomain);
+		return JSONUtil.toJsonString(new JsonGrid(list));
+	}
+
+	@ResponseBody
+	@RequestMapping(params = "type=findPointByVerify")
+	public String findPointByVerify(PointDomain pointDomain) {
+		List<PointDomain> list = pointService.findPointByVerify(pointDomain);
 		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
 }

@@ -51,7 +51,7 @@
 										<td class="baseInfo_cellValue" colspan="3">
 											<span class="baseInfoSpan1">
 												<span class="baseInfoSpan2">
-													<input class="baseInfoInput" type="text" name="type" />
+													<input class="baseInfoInput" type="text" name="types" />
 												</span>
 											</span>
 										</td>
@@ -219,6 +219,7 @@
 		var enterpriseId=${param.enterpriseId};
 		//验证对象及布点方案点击查看时传过来的id
 		var verifyId=${param.schemeId};
+		var verifyType=${param.verifyType};
 	</script>
 	<script type="text/javascript" src="../resource/script/refrigeratedTruck.js"></script>
 </body>

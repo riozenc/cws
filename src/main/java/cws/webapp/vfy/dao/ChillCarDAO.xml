@@ -4,7 +4,7 @@
 	<select id="findByKey" parameterType="ChillCarDomain"
 		resultType="ChillCarDomain" useCache="true">
 		select
-		NAME,TYPES,VOLUME,FAN_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP
+		NAME,TYPES,VOLUME,FAN_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP,REMARK,STATUS
 		from CHILL_CAR_INFO
 		<where>
 			and ID = #{id}
@@ -14,7 +14,7 @@
 	<select id="findByWhere" parameterType="ChillCarDomain"
 		resultType="ChillCarDomain" useCache="true">
 		select
-		NAME,TYPES,VOLUME,FAN_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP
+		NAME,TYPES,VOLUME,FAN_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP,REMARK,STATUS
 		from CHILL_CAR_INFO
 		<where>
 			<if test="name !=null">
@@ -44,13 +44,17 @@
 			<if test="disMap !=null">
 				and DIS_MAP = #{disMap}
 			</if>
+			<if test="status !=null">
+				and STATUS = #{status}
+			</if>
 		</where>
 	</select>
-	<insert id="insert" parameterType="ChillCarDomain" flushCache="true">
+	<insert id="insert" parameterType="ChillCarDomain" flushCache="true"
+		useGeneratedKeys="true" keyProperty="id">
 		insert into
-		CHILL_CAR_INFO(NAME,TYPES,VOLUME,FAN_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP)
+		CHILL_CAR_INFO(NAME,TYPES,VOLUME,FAN_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP,REMARK,STATUS)
 		values
-		(#{name},#{types},#{volume},#{fanNum},#{entranceNum},#{goodsShelves},#{probeNum},#{manufactor},#{disMap})
+		(#{name},#{types},#{volume},#{fanNum},#{entranceNum},#{goodsShelves},#{probeNum},#{manufactor},#{disMap},#{remark},#{status})
 	</insert>
 	<update id="update" parameterType="ChillCarDomain" flushCache="true">
 		update CHILL_CAR_INFO
@@ -81,6 +85,12 @@
 			</if>
 			<if test="disMap !=null">
 				DIS_MAP = #{disMap},
+			</if>
+			<if test="remark !=null">
+				REMARK = #{remark},
+			</if>
+			<if test="status !=null">
+				STATUS = #{status},
 			</if>
 		</set>
 		<where>

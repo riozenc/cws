@@ -4,7 +4,7 @@
 	<select id="findByKey" parameterType="VerifyPointDomain"
 		resultType="VerifyPointDomain" useCache="true">
 		select
-		ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_NO,CREATE_DATE,REMARK,STATUS
+		ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_NO,POINT_POSITION,POINT_TYPE,CREATE_DATE,REMARK,STATUS
 		from VERIFY_POINT_REL
 		<where>
 			and ID = #{id}
@@ -14,7 +14,7 @@
 	<select id="findByWhere" parameterType="VerifyPointDomain"
 		resultType="VerifyPointDomain" useCache="true">
 		select
-		ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_NO,CREATE_DATE,REMARK,STATUS
+		ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_NO,POINT_POSITION,POINT_TYPE,CREATE_DATE,REMARK,STATUS
 		from VERIFY_POINT_REL
 		<where>
 			<if test="id !=null">
@@ -32,6 +32,12 @@
 			<if test="pointNo !=null">
 				and POINT_NO = #{pointNo}
 			</if>
+			<if test="pointPosition !=null">
+				and POINT_POSITION = #{pointPosition}
+			</if>
+			<if test="pointType !=null">
+				and POINT_TYPE = #{pointType}
+			</if>
 			<if test="createDate !=null">
 				and CREATE_DATE = #{createDate}
 			</if>
@@ -46,9 +52,9 @@
 	<insert id="insert" parameterType="VerifyPointDomain"
 		flushCache="true">
 		insert into
-		VERIFY_POINT_REL(ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_NO,CREATE_DATE,REMARK,STATUS)
+		VERIFY_POINT_REL(ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_NO,POINT_POSITION,POINT_TYPE,CREATE_DATE,REMARK,STATUS)
 		values
-		(#{id},#{verifyId},#{verifyType},#{pointId},#{pointNo},#{createDate},#{remark},#{status})
+		(#{id},#{verifyId},#{verifyType},#{pointId},#{pointNo},#{pointPosition},#{pointType},#{createDate},#{remark},#{status})
 	</insert>
 	<update id="update" parameterType="VerifyPointDomain"
 		flushCache="true">
@@ -65,6 +71,12 @@
 			</if>
 			<if test="pointNo !=null">
 				POINT_NO = #{pointNo},
+			</if>
+			<if test="pointPosition !=null">
+				POINT_POSITION = #{pointPosition},
+			</if>
+			<if test="pointType !=null">
+				POINT_TYPE = #{pointType},
 			</if>
 			<if test="createDate !=null">
 				CREATE_DATE = #{createDate},
