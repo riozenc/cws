@@ -243,9 +243,10 @@
 								<td class="formRowName">验证对象温度控制范围：</td>
 								<td class="context3Value">
 									<input id="duty" name="temperatureRange" class="mini-combobox context3_input" showNullItem="true"
-                        				data='[{"id": "01", "text": "保温箱：2-8℃"},{"id": "02", "text": "冷库：2-8℃"},
-                        					{"id": "03", "text": "阴凉库：0-20℃"},{"id": "04", "text": "常温库：常温"},
-                        					{"id": "05", "text": "冷藏车：2-8℃"}]' />
+										textField="name" valueField="value" 
+                        				data='[{"value": "01", "name": "保温箱：2-8℃"},{"value": "02", "name": "冷库：2-8℃"},
+                        					{"value": "03", "name": "阴凉库：0-20℃"},{"value": "04", "name": "常温库：常温"},
+                        					{"value": "05", "name": "冷藏车：2-8℃"}]' />
 								</td>
 							</tr>
 						</table>
@@ -296,7 +297,8 @@
 				    			<td class="formRowName">温度监测系统箱体外部探头：</td>
 				    			<td>
 				    				<div name="outsideProbe" class="mini-radiobuttonlist" repeatLayout="table"
-										data='[{"id": 1, "text": "有"},{"id": 0, "text": "无"}]'>
+				    					textField="name" valueField="value"
+										data='[{"value": 1, "name": "有"},{"value": 0, "name": "无"}]'>
 									</div>
 				    			</td>
 				    		</tr>
@@ -304,7 +306,8 @@
 				    			<td class="formRowName">温度监测系统箱体内部探头：</td>
 				    			<td>
 				    				<div name="insideProbe" class="mini-radiobuttonlist" repeatLayout="table"
-										data='[{"id": 1, "text": "有"},{"id": 0, "text": "无"}]'>
+				    					textField="name" valueField="value"
+										data='[{"value": 1, "name": "有"},{"value": 0, "name": "无"}]'>
 									</div>
 				    			</td>
 				    		</tr>
@@ -368,7 +371,8 @@
 							<div class="context5Right">
 								<div class="context5Right_top">
 									<input id="chartTop" class="mini-combobox" showNullItem="false" value="1" onvaluechanged="chartChangeTop"
-                        				data='[{"id": 1, "text": "环境温度曲线图1"},{"id": 2, "text": "环境温度曲线图2"}]'/>
+										textField="name" valueField="value"
+                        				data='[{"value": 1, "name": "环境温度曲线图1"},{"value": 2, "name": "环境温度曲线图2"}]'/>
                         			<div id="delIconTop" class="delIcon"></div>
 								</div>
 								<div id="imgCanvansTop" class="imgCanvans">
@@ -386,7 +390,8 @@
 							<div class="context5Right">
 								<div class="context5Right_top">
 									<input id="chartMid" class="mini-combobox" showNullItem="false" value="1" onvaluechanged="chartChangeMiddle"
-                        				data='[{"id": 1, "text": "环境温度曲线图3"}]'/>
+										textField="name" valueField="value"
+                        				data='[{"value": 1, "name": "环境温度曲线图3"}]'/>
                         			<div id="delIconMid" class="delIcon"></div>
 								</div>
 								<div id="imgCanvansMiddle" class="imgCanvans">
@@ -404,7 +409,8 @@
 							<div class="context5Right">
 								<div class="context5Right_top">
 									<input id="chartBot" class="mini-combobox" showNullItem="false" value="1" onvaluechanged="chartChangeBottom"
-                        				data='[{"id": 1, "text": "环境温度曲线图4"},{"id": 2, "text": "环境温度曲线图5"}]'/>
+										textField="name" valueField="value"
+                        				data='[{"value": 1, "name": "环境温度曲线图4"},{"value": 2, "name": "环境温度曲线图5"}]'/>
                         			<div id="delIconBot" class="delIcon"></div>
 								</div>
 								<div id="imgCanvansBottom" class="imgCanvans">

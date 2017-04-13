@@ -3,9 +3,9 @@ var grid = mini.get("datagrid1");
 //验证对象类型下拉
 var objectTypeDrop;
 //温度下拉
-var temperatureDrop=[{"id": "01", "text": "极高温验证"},{"id": "02", "text": "极低温验证"}];
+var temperatureDrop=[{"value": "01", "name": "极高温验证"},{"value": "02", "name": "极低温验证"}];
 //是否完成下拉
-var reportStatusDrop=[{"id": 0, "text": "未完成"},{"id": 1, "text": "已完成"}];
+var reportStatusDrop=[{"value": 0, "name": "未完成"},{"value": 1, "name": "已完成"}];
 $(document).ready(function(){
 	//渲染单元格
 	grid.on("drawcell", function (e) {	
@@ -33,10 +33,9 @@ $(document).ready(function(){
 	});
 	$.ajax({
 		url : '../resource/data/objectTypeDrop.txt',
-		data : JSON.stringify({}),
+		data : {},
 		dataType : "json",
 		type : "get",
-		contentType : "application/json",
 		success : function(data) {
 			objectTypeDrop=data;
 			//加载表格数据

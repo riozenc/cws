@@ -30,7 +30,8 @@
 			                    </td>
 			                    <td style="white-space:nowrap;">
 			                    	<input id="reportType" name="reportType" class="mini-combobox" showNullItem="false" 
-					                    value="2" data='[{"id": 2, "text": "全部报告"},{"id": 0, "text": "未完成"},{"id": 1, "text": "已完成"}]' onvaluechanged="reportChange"/>
+					                    value="2" onvaluechanged="reportChange" valueField="value" textField="name" 
+					                    data='[{"value": 2, "name": "全部报告"},{"value": 0, "name": "未完成"},{"value": 1, "name": "已完成"}]'/>
 					                <input id="key" class="mini-textbox" emptyText="请输入报告名称" style="width:250px;" onenter="onKeyEnter"/>   
 			                        <a class="mini-button" onclick="search()" style="background:#FFF;border-color: #BBB;">
 			                        	查询
@@ -53,17 +54,17 @@
 						<div type="comboboxcolumn" name="propertyType" field="propertyType" width="100" headerAlign="center" 
 			        		autoShowPopup="true" allowSort="false">属性
 							<input property="editor" class="mini-combobox" style="width:100%;" minWidth="80" 
-								data="objectTypeDrop"/>
+								valueField="value" textField="name" data="objectTypeDrop"/>
 						</div>
 						<div type="comboboxcolumn" name="temperatureType" field="temperatureType" width="100" headerAlign="center" 
 			        		autoShowPopup="true" allowSort="false" align="center">温度
 							<input property="editor" class="mini-combobox" style="width:100%;" minWidth="80" 
-								data="temperatureDrop"/>
+								valueField="value" textField="name" data="temperatureDrop"/>
 						</div>
 						<div type="comboboxcolumn" name="reportStatus" field="reportStatus" width="60" headerAlign="center" 
 			        		autoShowPopup="true" allowSort="false" align="center">报告状态
 							<input property="editor" class="mini-combobox" style="width:100%;" minWidth="60" 
-								data="reportStatusDrop"/>
+								valueField="value" textField="name" data="reportStatusDrop"/>
 						</div>
 			            <div name="operate" headerAlign="center" allowSort="false" width="135">操作
 			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="135" />

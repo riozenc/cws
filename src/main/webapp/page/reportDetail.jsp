@@ -25,11 +25,12 @@
 			<div id="panelContent">
 				<div id="dropContent">
 					<input id="dropData" class="mini-combobox" showNullItem="false" value="1" onvaluechanged="dropChanged"
-                        data='[{"id": 1, "text": "断电数据"},{"id": 2, "text": "开门数据"},{"id": 3, "text": "环境数据"}]'/>
+						textField="name" valueField="value"
+                        data='[{"value": 1, "name": "断电数据"},{"value": 2, "name": "开门数据"},{"value": 3, "name": "环境数据"}]'/>
 				</div>
 				<div id="measurePointContent">
 					<div id="pointCheckBox" class="mini-checkboxlist"  repeatLayout="flow"
-					    textField="text" valueField="id" onvaluechanged="checkBoxChanged">
+					    textField="name" valueField="value" onvaluechanged="checkBoxChanged">
 					</div>
 				</div>
 				<div id="switchContent">

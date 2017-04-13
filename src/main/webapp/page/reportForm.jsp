@@ -62,14 +62,16 @@
                     <td class="colTitle">验证对象属性：</td>
                     <td class="colData">    
                         <input id="propertyType" name="propertyType" class="mini-combobox" showNullItem="false"
-                        popupHeight="138" url="../resource/data/objectTypeDrop.txt" />
+                        popupHeight="138" valueField="value" textField="name" 
+                        url="../resource/data/objectTypeDrop.txt" />
                     </td>
                 </tr>
                 <tr>
                     <td class="colTitle">温度：</td>
                     <td class="colData">    
                         <input id="temperatureType" name="temperatureType" class="mini-combobox" showNullItem="false"
-                         data='[{"id": "01", "text": "极高温验证"},{"id": "02", "text": "极低温验证"}]' />
+                        valueField="value" textField="name" 
+                        data='[{"value": "01", "name": "极高温验证"},{"value": "02", "name": "极低温验证"}]' />
                     </td>
                 </tr>
                 <tr>

@@ -13,10 +13,9 @@ $(document).ready(function(){
 	/*--------------初始化数据-------------*/
 	$.ajax({
 		url : '../resource/data/createReport.txt',
-		data : JSON.stringify({enterpriseId:enterpriseId,recordId:recordId}),
+		data : {enterpriseId:enterpriseId,recordId:recordId},
 		dataType : "json",
 		type : "post",
-		contentType : "application/json",
 		success : function(data) {
 			//格式化日期
 			if(!isNaN(data.verifyTime)){
@@ -128,15 +127,14 @@ $(document).ready(function(){
 	//验证对象动态名称
 	$.ajax({
 		url : '../resource/data/objectTypeDrop.txt',
-		data : JSON.stringify({}),
+		data : {},
 		dataType : "json",
 		type : "get",
-		contentType : "application/json",
 		success : function(data) {
 			for(var i=0;i<data.length;i++){
-				if(propertyType==data[i].id){
-					$("#incubatorNameTitle").text(data[i].text+"名称型号：");
-					$("#incubatorParamsTitle").text(data[i].text+"参数：");
+				if(propertyType==data[i].value){
+					$("#incubatorNameTitle").text(data[i].name+"名称型号：");
+					$("#incubatorParamsTitle").text(data[i].name+"参数：");
 					break;
 				}
 			}
@@ -223,6 +221,7 @@ $(document).ready(function(){
             url: "",
 			type: 'post',
             data: configData,
+            dataType : "json",
             cache: false,
             success: function (text) {
             	//下一步
@@ -295,6 +294,7 @@ $(document).ready(function(){
             url: "",
             type: "POST",
             data: formData,
+            dataType : "json",
             /**
             *必须false才会自动加上正确的Content-Type
             */
@@ -523,6 +523,7 @@ function delImg(site,dropValue){
                     url: "",
                     type: 'post',
             		data: {enterpriseId:enterpriseId,recordId:recordId,imgSite:imgSite},
+            		dataType : "json",
                     success: function (data) {
                         if (data.status == true) {
                         	 mini.alert("图片删除成功！","提示");
