@@ -3,6 +3,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript">
+		//屏蔽浏览器控制台报错（防止tab切换太快控制台显示错误信息）。
+		window.onerror=function(){return true;}
+	</script> 
 	<script src="../miniUI/scripts/boot.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="../resource/css/objectManage.css">
 	<link rel="stylesheet" type="text/css" href="../resource/css/miniUI_dataGrid.css">
