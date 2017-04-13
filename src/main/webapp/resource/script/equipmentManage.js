@@ -115,6 +115,7 @@ function delMaster(recode){
                     url: "../host.do?type=delete",
                     type: 'post',
             		data: { id: recode,enterpriseId:enterpriseId },
+            		dataType : 'json',
                     success: function (text) {
                     	alert(text.msg);
                         gridMaster.load({enterpriseId:enterpriseId});
@@ -209,6 +210,7 @@ function delPoint(recode){
                     url: "../point.do?type=delete",
                     type: 'post',
             		data: { id: recode,enterpriseId:enterpriseId },
+            		dataType : 'json',
                     success: function (text) {
                     	alert(text.msg);
                         gridPoint.load({enterpriseId:enterpriseId});

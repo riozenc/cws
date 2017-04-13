@@ -130,6 +130,7 @@ function del(recode){
                     url: "",
                     type: 'post',
             		data: {enterpriseId:enterpriseId,verifyId:recode},
+            		dataType : 'json',
                     success: function (text) {
                     	alert(text.msg);
                         grid.load({enterpriseId:enterpriseId});

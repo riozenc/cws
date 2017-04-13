@@ -138,6 +138,7 @@ function del(recodeID){
                     url: "",
                     type: 'post',
             		data: { id: recodeID },
+            		dataType : 'json',
                     success: function (text) {
                     	alert(text.msg);
                     	var reportStatus=mini.get("reportType").getValue();

@@ -81,6 +81,7 @@ function del(recode){
                     url: "../commonParam.do?type=delete&paramType=POST_TYPE",
                     type: 'post',
             		data: { id: recode },
+            		dataType : 'json',
             		success: function (text) {
                     	alert(text.msg);
                         grid.reload();

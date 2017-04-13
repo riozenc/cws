@@ -128,6 +128,7 @@
                 url: url,
 				type: 'post',
                 data: o,
+                dataType : 'json',
                 cache: false,
                 success: function (success) {
                 	if(success==200){

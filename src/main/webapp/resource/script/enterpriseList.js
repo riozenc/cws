@@ -124,6 +124,7 @@ function del(recode){
                     url: "",
                     type: 'post',
             		data: { id: recode },
+            		dataType : 'json',
                     success: function (text) {
                     	alert(text.msg);
                         grid.reload();

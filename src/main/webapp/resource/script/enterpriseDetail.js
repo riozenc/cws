@@ -210,6 +210,7 @@ function del(recode){
                     url: "",
                     type: 'post',
             		data: { id: recode },
+            		dataType : 'json',
                     success: function (text) {
                     	alert(text.msg);
                         grid1.load({enterpriseId:enterpriseId});
@@ -305,6 +306,7 @@ function delDutyLeft(recode){
                     url: "",
                     type: 'post',
             		data: { id: recode, dutyFlag: 1 },
+            		dataType : 'json',
                     success: function (text) {
                     	alert(text.msg);
                         grid2.load({enterpriseId:enterpriseId});
@@ -400,6 +402,7 @@ function delDutyRight(recode){
                     url: "",
                     type: 'post',
             		data: { id: recode, dutyFlag: 2 },
+            		dataType : 'json',
                     success: function (text) {
                     	alert(text.msg);
                         grid3.load({enterpriseId:enterpriseId});
