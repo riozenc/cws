@@ -29,13 +29,13 @@ public class HostServiceImpl implements IHostService {
 		// TODO Auto-generated method stub
 
 		// 添加主机与企业关系
+		hostDAO.insert(t);
 		CompanyHostDomain hostCompanyDomain = new CompanyHostDomain();
 		hostCompanyDomain.setCompanyId(t.getCompanyId());
 		hostCompanyDomain.setHostId(t.getId());
 		hostCompanyDomain.setCreateDate(new Date());
 		hostCompanyDomain.setStatus(1);
-		hostDAO.insertHostCompanyRel(hostCompanyDomain);
-		return hostDAO.insert(t);
+		return hostDAO.insertHostCompanyRel(hostCompanyDomain);
 	}
 
 	@Override

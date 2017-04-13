@@ -7,6 +7,7 @@
  */
 package cws.webapp.pnt.action;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,10 @@ public class PointAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
-	public String insert(PointDomain pointDomain) {
+	public String insert(PointDomain pointDomain,@RequestParam(name = "enterpriseId") int companyId) {
+		pointDomain.setCompanyId(companyId);
+		pointDomain.setCreateDate(new Date());
+		pointDomain.setStatus(1);
 		int i = pointService.insert(pointDomain);
 		if (i > 0) {
 			return JSONUtil.writeSuccessMsg("成功");
@@ -44,7 +48,8 @@ public class PointAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=delete")
-	public String delete(PointDomain pointDomain) {
+	public String delete(PointDomain pointDomain,@RequestParam(name = "enterpriseId") int companyId) {
+		pointDomain.setCompanyId(companyId);
 		int i = pointService.delete(pointDomain);
 		if (i > 0) {
 			return JSONUtil.writeSuccessMsg("成功");
@@ -65,21 +70,21 @@ public class PointAction extends BaseAction {
 	}
 
 	@ResponseBody
-	@RequestMapping(params = "findPointByKey")
+	@RequestMapping(params = "type=findPointByKey")
 	public String findPointByKey(PointDomain pointDomain) {
 		pointDomain = pointService.findByKey(pointDomain);
 		return JSONUtil.toJsonString(pointDomain);
 	}
 
 	@ResponseBody
-	@RequestMapping(params = "findPointByWhere")
+	@RequestMapping(params = "type=findPointByWhere")
 	public String findPointByWhere(PointDomain pointDomain) {
 		List<PointDomain> list = pointService.findByWhere(pointDomain);
 		return JSONUtil.toJsonString(new JSONGrid(list));
 	}
 
 	@ResponseBody
-	@RequestMapping(params = "findPointByCompany")
+	@RequestMapping(params = "type=findPointByCompany")
 	public String findPointByCompany(PointDomain pointDomain, @RequestParam(name = "enterpriseId") int companyId) {
 		pointDomain.setCompanyId(companyId);
 		List<PointDomain> list = pointService.findPointByCompany(pointDomain);

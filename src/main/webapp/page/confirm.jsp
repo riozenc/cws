@@ -49,6 +49,7 @@
         </div> 
 	</div>
 	<script type="text/javascript">
+		mini.parse();
 		function setData(data){
 			if(data.tip!=undefined){
 				document.getElementById("tipInfo").innerText=data.tip;
@@ -56,12 +57,14 @@
 		}
 		//确定
 		function onOk(e) {
-			alert("点确定后直接关闭window");
-            return window.CloseOwnerWindow(true);
+            CloseWindow(true);
         }
         //取消
         function onCancel(e) {
-            return window.CloseOwnerWindow(false);
+            CloseWindow(false);
+        }
+        function CloseWindow(action) {
+        	return window.CloseOwnerWindow(action);        
         }
 	</script>
 </body>

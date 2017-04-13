@@ -18,7 +18,7 @@ $(document).ready(function(){
 		grid.mergeColumns(["schemeType"]);
 	});
 	$.ajax({
-		url : '../resource/data/objectTypeDrop.txt',
+		url : '../commonParam.do?type=findCommonParamByType&paramType=VERIFY_TYPE',
 		data : JSON.stringify({}),
 		dataType : "json",
 		type : "get",
@@ -72,17 +72,17 @@ function seek(recodeID,recodeType){
 	$childCanvans.empty();
 	$mainCanvans.css("display", "none");
 	$childCanvans.css("display", "block");
-	if(recodeType==="01"){
+	if(recodeType==="1"){
 		//冷库
-		$childCanvans.append("<iframe name='childCanvansIframe' src='freezer.jsp?enterpriseId="+enterpriseId+"&schemeId="+recodeID+"' "
+		$childCanvans.append("<iframe name='childCanvansIframe' src='freezer.jsp?enterpriseId="+enterpriseId+"&schemeId="+recodeID+"&verifyType="+recodeType+"' "
 			+"width='100%' height='100%' style='border-width: 0'>");
-	}else if(recodeType==="02"){
+	}else if(recodeType==="2"){
 		//冷藏车
-		$childCanvans.append("<iframe name='childCanvansIframe' src='refrigeratedTruck.jsp?enterpriseId="+enterpriseId+"&schemeId="+recodeID+"' "
+		$childCanvans.append("<iframe name='childCanvansIframe' src='refrigeratedTruck.jsp?enterpriseId="+enterpriseId+"&schemeId="+recodeID+"&verifyType="+recodeType+"' "
 			+"width='100%' height='100%' style='border-width: 0'>");
-	}else if(recodeType==="03"){
+	}else if(recodeType==="3"){
 		//保温箱
-		$childCanvans.append("<iframe name='childCanvansIframe' src='incubator.jsp?enterpriseId="+enterpriseId+"&schemeId="+recodeID+"' "
+		$childCanvans.append("<iframe name='childCanvansIframe' src='incubator.jsp?enterpriseId="+enterpriseId+"&schemeId="+recodeID+"&verifyType="+recodeType+"' "
 			+"width='100%' height='100%' style='border-width: 0'>");
 	}
 }

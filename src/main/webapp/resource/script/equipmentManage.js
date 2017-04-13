@@ -206,7 +206,7 @@ function delPoint(recode){
 	    	//点击确认时返回action=true
 	    	if (action===true) {
                 $.ajax({
-                    url: "",
+                    url: "../point.do?type=delete",
                     type: 'post',
             		data: { id: recode,enterpriseId:enterpriseId },
                     success: function (text) {

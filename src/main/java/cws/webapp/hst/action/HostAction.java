@@ -35,6 +35,7 @@ public class HostAction extends BaseAction {
 	@RequestMapping(params = "type=insert")
 	public String insert(HostDomain hostDomain, @RequestParam(name = "enterpriseId") int companyId) {
 		hostDomain.setCompanyId(companyId);
+		hostDomain.setStatus(1);
 		int i = hostService.insert(hostDomain);
 		if (i > 0) {
 			return JSONUtil.writeSuccessMsg("成功");

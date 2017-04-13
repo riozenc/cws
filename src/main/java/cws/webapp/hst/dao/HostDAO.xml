@@ -36,7 +36,7 @@
 			</if>
 		</where>
 	</select>
-	<insert id="insert" parameterType="HostDomain" flushCache="true">
+	<insert id="insert" parameterType="HostDomain" flushCache="true" useGeneratedKeys="true" keyProperty="id">
 		insert into HOST_INFO(ID,NAME,TYPES,SN_NO,CREATE_DATE,REMARK,STATUS)
 		values
 		(#{id},#{name},#{types},#{snNo},#{createDate},#{remark},#{status})

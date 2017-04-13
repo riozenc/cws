@@ -26,7 +26,7 @@ public class HostDomain implements MybatisEntity {
 	private String snNo;// SN号 SN_NO varchar(30) 30 FALSE FALSE FALSE
 	private Date createDate;// 创建日期 CREATE_DATE datetime FALSE FALSE FALSE
 	private String remark;// 备注 REMARK varchar(100) 100 FALSE FALSE FALSE
-	private String status;// 状态 STATUS smallint FALSE FALSE FALSE
+	private Integer status;// 状态 STATUS smallint FALSE FALSE FALSE
 
 	private Integer companyId;// 企业ID
 
@@ -78,11 +78,11 @@ public class HostDomain implements MybatisEntity {
 		this.remark = remark;
 	}
 
-	public String getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 
