@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.riozenc.quicktool.common.util.json.JSONGrid;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 
+import cws.common.json.JsonResult;
 import cws.webapp.pnt.domain.VerifyPointDomain;
 import cws.webapp.pnt.service.IVerifyPointService;
 
@@ -39,9 +40,9 @@ public class VerifyPointAction {
 
 		int i = verifyPointService.insert(verifyPointDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -50,9 +51,9 @@ public class VerifyPointAction {
 	public String delete(VerifyPointDomain verifyPointDomain) {
 		int i = verifyPointService.delete(verifyPointDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -61,9 +62,9 @@ public class VerifyPointAction {
 	public String update(VerifyPointDomain verifyPointDomain) {
 		int i = verifyPointService.update(verifyPointDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 

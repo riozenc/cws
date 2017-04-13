@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 
 import cws.common.json.JsonGrid;
+import cws.common.json.JsonResult;
 import cws.webapp.cmm.domain.CompanyDomain;
 import cws.webapp.vfy.domain.VerifyDomain;
 import cws.webapp.vfy.service.IVerifyService;
@@ -42,9 +43,9 @@ public class VerifyAction {
 	public String insert(VerifyDomain verifyDomain) {
 		int i = verifyService.insert(verifyDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -53,9 +54,9 @@ public class VerifyAction {
 	public String delete(VerifyDomain verifyDomain) {
 		int i = verifyService.delete(verifyDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -64,9 +65,9 @@ public class VerifyAction {
 	public String update(VerifyDomain verifyDomain) {
 		int i = verifyService.update(verifyDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 

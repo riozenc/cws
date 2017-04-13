@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
+import cws.common.json.JsonResult;
 import cws.webapp.sys.domain.CommonParamDomain;
 import cws.webapp.sys.service.ICommonParamService;
 
@@ -38,9 +39,9 @@ public class CommonParamAction extends BaseAction {
 		commonParamDomain.setCreateDate(new Date());
 		commonParamDomain.setStatus(1);
 		if (commonParamService.insert(commonParamDomain) > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeSuccessMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -58,9 +59,9 @@ public class CommonParamAction extends BaseAction {
 	public String delete(CommonParamDomain commonParamDomain, @RequestParam(name = "paramType") String type) {
 		commonParamDomain.setType(type);
 		if (commonParamService.delete(commonParamDomain) > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeSuccessMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 	
@@ -70,9 +71,9 @@ public class CommonParamAction extends BaseAction {
 		commonParamDomain.setType(type);
 		commonParamDomain.setUpdateDate(new Date());
 		if (commonParamService.update(commonParamDomain) > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeSuccessMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 }

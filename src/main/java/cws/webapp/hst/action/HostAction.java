@@ -20,6 +20,7 @@ import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
 import cws.common.json.JsonGrid;
+import cws.common.json.JsonResult;
 import cws.webapp.hst.domain.HostDomain;
 import cws.webapp.hst.service.IHostService;
 
@@ -38,9 +39,9 @@ public class HostAction extends BaseAction {
 		hostDomain.setStatus(1);
 		int i = hostService.insert(hostDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -50,9 +51,9 @@ public class HostAction extends BaseAction {
 		hostDomain.setCompanyId(companyId);
 		int i = hostService.delete(hostDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -61,9 +62,9 @@ public class HostAction extends BaseAction {
 	public String update(HostDomain hostDomain) {
 		int i = hostService.update(hostDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 

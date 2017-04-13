@@ -22,6 +22,7 @@ import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
 import cws.common.json.JsonGrid;
+import cws.common.json.JsonResult;
 import cws.webapp.pnt.domain.PointDomain;
 import cws.webapp.pnt.service.IPointService;
 
@@ -41,9 +42,9 @@ public class PointAction extends BaseAction {
 		pointDomain.setStatus(1);
 		int i = pointService.insert(pointDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -53,9 +54,9 @@ public class PointAction extends BaseAction {
 		pointDomain.setCompanyId(companyId);
 		int i = pointService.delete(pointDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -64,9 +65,9 @@ public class PointAction extends BaseAction {
 	public String update(PointDomain pointDomain) {
 		int i = pointService.update(pointDomain);
 		if (i > 0) {
-			return JSONUtil.writeSuccessMsg("成功");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.writeErrorMsg("失败");
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
