@@ -290,6 +290,7 @@ function del(recode){
                     url: "",
                     type: 'post',
             		data: { id: recode },
+            		dataType : 'json',
                     success: function (text) {
                     	alert(text.msg);
                         var pointType=mini.get("pointType").getValue();

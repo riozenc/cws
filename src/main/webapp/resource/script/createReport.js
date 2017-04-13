@@ -445,6 +445,7 @@ function del(recodeID){
                     url: "",
                     type: 'post',
             		data: { id: recodeID },
+            		dataType : 'json',
                     success: function (text) {
                     	alert(text.msg);
                         grid.load({enterpriseId:enterpriseId,recordId:recordId},function(success){

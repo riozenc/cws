@@ -103,13 +103,11 @@
             }
             form.validate();
             if (form.isValid() == false) return;
-            var json = mini.encode([o]);
-            
-            alert(json);
             $.ajax({
                 url: url,
 				type: 'post',
                 data: o,
+                dataType : 'json',
                 cache: false,
                 success: function (text) {
                 	alert(text.msg);

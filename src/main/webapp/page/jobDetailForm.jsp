@@ -106,6 +106,7 @@
                 url: url,
 				type: 'post',
                 data: o,
+                dataType : 'json',
                 cache: false,
                 success: function (text) {
                 	alert(text.msg);
