@@ -62,10 +62,9 @@ $(document).ready(function(){
 	//获取职务下拉
 	$.ajax({
 		url : '../resource/data/jobDrop.txt',
-		data : JSON.stringify({}),
+		data : {},
 		dataType : "json",
 		type : "get",
-		contentType : "application/json",
 		success : function(data) {
 			jobDrop=data;
 			//加载表格数据
@@ -113,10 +112,9 @@ $(document).ready(function(){
 	//获取职责下拉
 	$.ajax({
 		url : '../resource/data/dutyDrop.txt',
-		data : JSON.stringify({}),
+		data : {},
 		dataType : "json",
 		type : "get",
-		contentType : "application/json",
 		success : function(data) {
 			dutyDrop=data;
 			//加载表格数据

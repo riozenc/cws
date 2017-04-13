@@ -19,10 +19,9 @@ $(document).ready(function(){
 	});
 	$.ajax({
 		url : '../commonParam.do?type=findCommonParamByType&paramType=VERIFY_TYPE',
-		data : JSON.stringify({}),
+		data : {},
 		dataType : "json",
 		type : "get",
-		contentType : "application/json",
 		success : function(data) {
 			objectTypeDrop=data;
 			//加载表格数据

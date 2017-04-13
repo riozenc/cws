@@ -103,7 +103,8 @@
 			            </div>
 			            <div type="comboboxcolumn" name="job" field="postName" width="100" headerAlign="center" autoShowPopup="true">
 							职务
-							<input property="editor" class="mini-combobox" style="width:100%;" data="jobDrop"/>
+							<input property="editor" class="mini-combobox" style="width:100%;" valueField="value" 
+								textField="name" data="jobDrop"/>
 						</div>
 			            <div field="companyName" width="300" headerAlign="center" allowSort="false">公司名称
 			                <input property="editor" class="mini-textarea" style="width:200px;" minWidth="200" 
@@ -154,7 +155,8 @@
 					            </div>
 					            <div type="comboboxcolumn" name="duty" field="dutiesId" width="150" headerAlign="center" 
 					            	autoShowPopup="true">验证职责
-									<input property="editor" class="mini-combobox" style="width:100%;" data="dutyDrop"/>
+									<input property="editor" class="mini-combobox" style="width:100%;" 
+										valueField="value" textField="name" data="dutyDrop"/>
 								</div>
 					            <div name="operate" headerAlign="center" allowSort="false" width="60">操作
 					                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="60" />
@@ -201,7 +203,8 @@
 					            </div>
 					            <div type="comboboxcolumn" name="duty" field="dutiesId" width="150" headerAlign="center" 
 					            	autoShowPopup="true">验证职责
-									<input property="editor" class="mini-combobox" style="width:100%;" data="dutyDrop"/>
+									<input property="editor" class="mini-combobox" style="width:100%;" valueField="value" 
+										textField="name" data="dutyDrop"/>
 								</div>
 					            <div name="operate" headerAlign="center" allowSort="false" width="60">操作
 					                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="60" />

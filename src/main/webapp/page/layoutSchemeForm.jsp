@@ -47,7 +47,8 @@
                     <td class="colTitle">验证对象类型：</td>
                     <td class="colData">    
                         <input id="schemeType" name="verifyType" class="mini-combobox" showNullItem="false" required="true" 
-                        popupHeight="146" emptyText="验证对象类型不能为空" url="../commonParam.do?type=findCommonParamByType&paramType=VERIFY_TYPE" />
+                        popupHeight="146" emptyText="验证对象类型不能为空" valueField="value" textField="name" 
+                        url="../resource/data/objectTypeDrop.txt" />
                     </td>
                 </tr>
                 <tr>

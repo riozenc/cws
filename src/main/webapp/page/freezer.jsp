@@ -210,7 +210,8 @@
 					                    </td>
 					                    <td style="white-space:nowrap;">  
 					                        <input id="pointType" name="pointType" class="mini-combobox" showNullItem="false" 
-					                        	value="00" url="../resource/data/schemeDropAll.txt" onvaluechanged="schemeChange"/>
+					                        	value="00" valueField="value" textField="name" onvaluechanged="schemeChange" 
+					                        	url="../resource/data/schemeDropAll.txt"/>
 					                        <a class="mini-button" iconCls="icon-add" onclick="addRow()" plain="true" 
 					                        	tooltip="添加验证对象及布点方案">
 					                        	添加
@@ -230,7 +231,7 @@
 					        	<div type="comboboxcolumn" name="schemeType" field="type" width="200" headerAlign="center" 
 					        		autoShowPopup="true" allowSort="false">布点
 									<input property="editor" class="mini-combobox" style="width:100%;" minWidth="100" 
-										data="schemeDrop"/>
+										valueField="value" textField="name" data="schemeDrop"/>
 								</div>
 					            <div field="SN" headerAlign="center" align="center" allowSort="false" width="200">SN
 					                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="100" />

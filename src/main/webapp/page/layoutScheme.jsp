@@ -47,7 +47,7 @@
 			        	<div type="comboboxcolumn" name="schemeType" field="verifyType" width="150" headerAlign="center" 
 			        		autoShowPopup="true" allowSort="false">验证对象类型
 							<input property="editor" class="mini-combobox" style="width:100%;" minWidth="100" 
-								data="objectTypeDrop"/>
+								valueField="value" textField="name" data="objectTypeDrop"/>
 						</div>
 			            <div field="verifyName" headerAlign="center" allowSort="false" width="300">验证对象名称
 			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="150" />

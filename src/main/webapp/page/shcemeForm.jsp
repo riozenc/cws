@@ -54,7 +54,8 @@
                     <td class="colTitle">布点：</td>
                     <td class="colData">    
                         <input id="schemeType" name="type" class="mini-combobox" showNullItem="false" required="true" 
-                        popupHeight="146" emptyText="布点不能为空" url="../resource/data/schemeDrop.txt" />
+                        popupHeight="146" emptyText="布点不能为空" valueField="value" textField="name" 
+                        url="../resource/data/schemeDrop.txt" />
                     </td>
                 </tr>
                 <tr>

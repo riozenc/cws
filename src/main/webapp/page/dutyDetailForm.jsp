@@ -54,7 +54,8 @@
                     <td class="colTitle">验证职责：</td>
                     <td class="colData">    
                         <input id="duty" name="dutiesId" class="mini-combobox" showNullItem="false" required="true" 
-                        popupHeight="115" emptyText="验证职责不能为空" url="../resource/data/dutyDrop.txt" />
+                        popupHeight="115" emptyText="验证职责不能为空" valueField="value" textField="name" 
+                        url="../resource/data/dutyDrop.txt" />
                     </td>
                 </tr>
                 <tr>
