@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.riozenc.quicktool.common.util.file.FileUtil;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
@@ -75,5 +77,12 @@ public class CommonParamAction extends BaseAction {
 		} else {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
+	}
+	
+	public String uploadFile(MultipartFile file){
+		
+//		FileUtil.upload(file, fileName);
+		
+		return null;
 	}
 }
