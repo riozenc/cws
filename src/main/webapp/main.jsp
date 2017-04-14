@@ -181,7 +181,7 @@
 			        		Copyright©2014-2017
 			        	</div>
 			        	<div id="companyInfo">
-			        		&nbsp;烟台惠通网络技术有限公司
+			        		&nbsp;山东贝格新能源技术有限公司
 			        	</div>
 			        	<div id="descriptionInfo">
 			        		. All rights reserved
