@@ -42,18 +42,19 @@
         <input name="id" class="mini-hidden" /><!--编辑的该记录主键-->
         <input name="verifyId" class="mini-hidden" /><!--编辑的该记录所在的验证对象及布点方案主键-->
         <input name="enterpriseId" class="mini-hidden" /><!--编辑的该记录所在的企业主键-->
+        <input name="verifyType" class="mini-hidden" /><!--编辑的该记录所在的对象类型-->
         <div style="padding-left:6px;padding-top:10px;">
             <table cellspacing="0" cellpadding="5px">
                 <tr>
                     <td class="colTitle">位置：</td>
                     <td class="colData">    
-                        <input name="pointPosition" class="mini-textbox" />
+                        <input name="no" class="mini-textbox" />
                     </td>
                 </tr>
                 <tr>
                     <td class="colTitle">布点：</td>
                     <td class="colData">    
-                        <input id="schemeType" name="pointType" class="mini-combobox" showNullItem="false" required="true" 
+                        <input id="schemeType" name="types" class="mini-combobox" showNullItem="false" required="true" 
                         popupHeight="146" emptyText="布点不能为空" valueField="value" textField="name" 
                         url="../resource/data/schemeDrop.txt" />
                     </td>
@@ -111,10 +112,10 @@
                 dataType : 'json',
                 cache: false,
                 success: function (success) {
-                    if(success==200){
+                	if(success.statusCode==200){
                         CloseWindow(true);
-                        alert(text.msg);
-                    }else if(success==300){
+                        alert(success.message);
+                    }else if(success.statusCode==300){
                         mini.alert("SN号已经存在！");
                     }
                 },

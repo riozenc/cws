@@ -264,15 +264,15 @@
 					    	url="../resource/data/layoutSchemeDetail.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
 					    	multiSelect="false" idField="id">
 					        <div property="columns">
-					        	<div field="position" headerAlign="center" align="center" allowSort="true" width="80">位置
+					        	<div field="no" headerAlign="center" align="center" allowSort="true" width="80">位置
 					                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="60" />
 					            </div> 
-					        	<div type="comboboxcolumn" name="schemeType" field="type" width="200" headerAlign="center" 
+					        	<div type="comboboxcolumn" name="schemeType" field="types" width="200" headerAlign="center" 
 					        		autoShowPopup="true" allowSort="false">布点
 									<input property="editor" class="mini-combobox" style="width:100%;" minWidth="100" 
 										valueField="value" textField="name" data="schemeDrop"/>
 								</div>
-					            <div field="SN" headerAlign="center" align="center" allowSort="false" width="200">SN
+					            <div field="snNo" headerAlign="center" align="center" allowSort="false" width="200">SN
 					                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="100" />
 					            </div> 
 					            <div name="operate" headerAlign="center" allowSort="false" width="80">操作
@@ -290,6 +290,7 @@
 		var enterpriseId=${param.enterpriseId};
 		//验证对象及布点方案点击查看时传过来的id
 		var verifyId=${param.schemeId};
+		var verifyType=${param.verifyType};
 	</script>
 	<script type="text/javascript" src="../resource/script/incubator.js"></script>
 </body>
