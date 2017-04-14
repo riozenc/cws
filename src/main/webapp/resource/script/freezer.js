@@ -2,6 +2,8 @@ mini.parse();
 var grid = mini.get("datagrid1");
 //布点下拉
 var schemeDrop;
+//SN下拉
+var SNDrop;
 //记录基本信息数据，用于比较
 var baseInfoData;
 $(document).ready(function(){
@@ -178,9 +180,21 @@ $(document).ready(function(){
 		type : "get",
 		success : function(data) {
 			schemeDrop=data;
-			//加载表格数据
-			var pointType=mini.get("pointType").getValue();
-			grid.load({enterpriseId:enterpriseId,verifyId:verifyId,verifyType:verifyType,pointType:pointType});
+			$.ajax({
+				url : '../resource/data/SNDrop.txt',
+				data : {},
+				dataType : "json",
+				type : "get",
+				success : function(data) {
+					SNDrop=data;
+					//加载表格数据
+					var pointType=mini.get("pointType").getValue();
+					grid.load({enterpriseId:enterpriseId,verifyId:verifyId,verifyType:verifyType,pointType:pointType});
+				},
+				error : function(e) {
+					alert("请求数据失败！status："+e.status);
+				}
+			});
 		},
 		error : function(e) {
 			alert("请求数据失败！status："+e.status);

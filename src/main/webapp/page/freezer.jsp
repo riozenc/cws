@@ -233,9 +233,11 @@
 									<input property="editor" class="mini-combobox" style="width:100%;" minWidth="100" 
 										valueField="value" textField="name" data="schemeDrop"/>
 								</div>
-					            <div field="snNo" headerAlign="center" align="center" allowSort="false" width="200">SN
-					                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="100" />
-					            </div> 
+					            <div type="comboboxcolumn" name="SNType" field="snNo" width="200" headerAlign="center" 
+					        		autoShowPopup="true" allowSort="false" align="center">SN
+									<input property="editor" class="mini-combobox" style="width:100%;" minWidth="100" 
+										valueField="value" textField="name" data="SNDrop"/>
+								</div> 
 					            <div name="operate" headerAlign="center" allowSort="false" width="80">操作
 					                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="80" />
 					            </div> 

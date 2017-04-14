@@ -32,7 +32,7 @@
 		.mini-textarea{
 			width: 100%;
 		}
-        #schemeType{
+        #schemeType,#SNType{
             width: 100%;
         }
 	</style>
@@ -62,7 +62,9 @@
                 <tr>
                     <td class="colTitle">SN号：</td>
                     <td class="colData">    
-                        <input name="snNo" class="mini-textbox" />
+                        <input id="SNType" name="snNo" class="mini-combobox" showNullItem="false" required="true" 
+                        popupHeight="112" emptyText="SN不能为空" valueField="value" textField="name" 
+                        url="../resource/data/SNDrop.txt" /> 
                     </td>
                 </tr>
                 <tr>
