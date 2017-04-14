@@ -249,7 +249,7 @@
 					                    </td>
 					                    <td style="white-space:nowrap;">
 					                    	<input id="pointType" name="pointType" class="mini-combobox" showNullItem="false" 
-					                        	value="00" valueField="value" textField="name" onvaluechanged="schemeChange" 
+					                        	value="0" valueField="value" textField="name" onvaluechanged="schemeChange" 
 					                        	url="../resource/data/schemeDropAll.txt"/>
 					                        <a class="mini-button" iconCls="icon-add" onclick="addRow()" plain="true" 
 					                        	tooltip="添加验证对象及布点方案">

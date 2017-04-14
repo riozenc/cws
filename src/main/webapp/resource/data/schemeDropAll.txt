@@ -1,34 +1,34 @@
 [
 	{
-		"value":"00",
+		"value":0,
 		"name":"全部测量点"
 	},
 	{
-		"value":"01",
+		"value":1,
 		"name":"均匀性测量点"
 	},
 	{
-		"value":"02",
+		"value":2,
 		"name":"风机测量点"
 	},
 	{
-		"value":"03",
+		"value":3,
 		"name":"出入口测量点"
 	},
 	{
-		"value":"04",
+		"value":4,
 		"name":"死角测量点"
 	},
 	{
-		"value":"05",
+		"value":5,
 		"name":"货架测量点"
 	},
 	{
-		"value":"06",
+		"value":6,
 		"name":"温湿度监控系统探头测点"
 	},
 	{
-		"value":"07",
+		"value":7,
 		"name":"环境测点"
 	}
 ]
