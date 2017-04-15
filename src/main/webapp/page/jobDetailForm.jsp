@@ -54,7 +54,7 @@
                     <td class="colData">    
                         <input id="job" name="postName" class="mini-combobox" showNullItem="false" required="true" 
                         popupHeight="150" emptyText="职务不能为空" valueField="value" textField="name"
-                        url="../resource/data/jobDrop.txt" />
+                        url="../commonParam.do?type=findCommonParamByType&paramType=POST_TYPE" />
                     </td>
                 </tr>
                 <tr>
@@ -97,9 +97,9 @@
             //根据id是否存在判断是修改还是新增操作。
             var url;
             if(o.id){
-                url="update";
+                url="../personnelPost.do?type=update";
             }else{
-                url="insert";
+                url="../personnelPost.do?type=insert";
             }
             form.validate();
             if (form.isValid() == false) return;

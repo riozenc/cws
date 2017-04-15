@@ -11,6 +11,7 @@ import java.util.Date;
 
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
 import com.riozenc.quicktool.mybatis.MybatisEntity;
+import com.riozenc.quicktool.mybatis.persistence.Page;
 
 /**
  * 主机
@@ -18,7 +19,7 @@ import com.riozenc.quicktool.mybatis.MybatisEntity;
  * @author rioze
  *
  */
-public class HostDomain implements MybatisEntity {
+public class HostDomain extends Page<HostDomain> implements MybatisEntity {
 	@TablePrimaryKey
 	private Integer id;// ID int TRUE FALSE TRUE
 	private String name;// 名称 NAME varchar(30) 30 FALSE FALSE FALSE
