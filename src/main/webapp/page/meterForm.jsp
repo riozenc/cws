@@ -116,7 +116,7 @@
                         CloseWindow(true);
                         alert(text.msg);
                     }else if(success==300){
-                        mini.alert("SN号已经存在！");
+                        mini.alert(success.message);
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
