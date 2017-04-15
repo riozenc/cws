@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.riozenc.quicktool.common.util.json.JSONUtil;
@@ -34,6 +35,8 @@ public class PersonnelPostAction extends BaseAction {
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
 	public String insert(PersonnelPostDomain personnelPostDomain) {
+		personnelPostDomain.setPostId(Integer.parseInt(personnelPostDomain.getPostName()));
+		personnelPostDomain.setStatus(1);
 		if (personnelPostService.insert(personnelPostDomain) > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
@@ -73,6 +76,15 @@ public class PersonnelPostAction extends BaseAction {
 	@ResponseBody
 	@RequestMapping(params = "type=findPersonnelPostByWhere")
 	public String findPersonnelPostByWhere(PersonnelPostDomain personnelPostDomain) {
+		List<PersonnelPostDomain> list = personnelPostService.findByWhere(personnelPostDomain);
+		return JSONUtil.toJsonString(new JsonGrid(personnelPostDomain, list));
+	}
+
+	@ResponseBody
+	@RequestMapping(params = "type=findPersonnelPostByCompany")
+	public String findPersonnelPostByCompany(PersonnelPostDomain personnelPostDomain,
+			@RequestParam(name = "enterpriseId") int companyId) {
+		personnelPostDomain.setCompanyId(companyId);
 		List<PersonnelPostDomain> list = personnelPostService.findByWhere(personnelPostDomain);
 		return JSONUtil.toJsonString(new JsonGrid(personnelPostDomain, list));
 	}

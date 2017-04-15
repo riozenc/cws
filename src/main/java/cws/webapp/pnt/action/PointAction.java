@@ -8,7 +8,9 @@
 package cws.webapp.pnt.action;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -90,6 +92,20 @@ public class PointAction extends BaseAction {
 		pointDomain.setCompanyId(companyId);
 		List<PointDomain> list = pointService.findPointByCompany(pointDomain);
 		return JSONUtil.toJsonString(new JsonGrid(list));
+	}
+
+	@ResponseBody
+	@RequestMapping(params = "type=findPointByCompanyToDrop")
+	public String findPointByCompanyToDrop(PointDomain pointDomain,
+			@RequestParam(name = "enterpriseId") int companyId) {
+		pointDomain.setCompanyId(companyId);
+		List<PointDomain> list = pointService.findPointByCompany(pointDomain);
+		Map<String, String> map = new HashMap<String, String>();
+		for (PointDomain domain : list) {
+			map.put("name", domain.getSnNo());
+			map.put("value", domain.getSnNo());
+		}
+		return JSONUtil.toJsonString(map);
 	}
 
 	@ResponseBody

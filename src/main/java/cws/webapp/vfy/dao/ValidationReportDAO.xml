@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cws.webapp.vfy.dao.ValidationReportDAO">
+	<select id="findByKey" parameterType="ValidationReportDomain"
+		resultType="ValidationReportDomain" useCache="true">
+		select
+		ID,NAME,COMPANY_ID,VERIFY_ID,VERIFY_TYPE,CREATE_DATE,REMKAR,STATUS
+		from VALIDATION_REPORT_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</select>
+	<select id="findByWhere" parameterType="ValidationReportDomain"
+		resultType="ValidationReportDomain" useCache="true">
+		select
+		ID,NAME,COMPANY_ID,VERIFY_ID,VERIFY_TYPE,CREATE_DATE,REMKAR,STATUS
+		from VALIDATION_REPORT_INFO
+		<where>
+			<if test="id !=null">
+				and ID = #{id}
+			</if>
+			<if test="name !=null">
+				and NAME = #{name}
+			</if>
+			<if test="companyId !=null">
+				and COMPANY_ID = #{companyId}
+			</if>
+			<if test="verifyId !=null">
+				and VERIFY_ID = #{verifyId}
+			</if>
+			<if test="verifyType !=null">
+				and VERIFY_TYPE = #{verifyType}
+			</if>
+			<if test="createDate !=null">
+				and CREATE_DATE = #{createDate}
+			</if>
+			<if test="remkar !=null">
+				and REMKAR = #{remkar}
+			</if>
+			<if test="status !=null">
+				and STATUS = #{status}
+			</if>
+		</where>
+	</select>
+	<insert id="insert" parameterType="ValidationReportDomain"
+		flushCache="true">
+		insert into
+		VALIDATION_REPORT_INFO(ID,NAME,COMPANY_ID,VERIFY_ID,VERIFY_TYPE,CREATE_DATE,REMKAR,STATUS)
+		values
+		(#{id},#{name},#{companyId},#{verifyId},#{verifyType},#{createDate},#{remkar},#{status})
+	</insert>
+	<update id="update" parameterType="ValidationReportDomain"
+		flushCache="true">
+		update VALIDATION_REPORT_INFO
+		<set>
+			<if test="name !=null">
+				NAME = #{name},
+			</if>
+			<if test="companyId !=null">
+				COMPANY_ID = #{companyId},
+			</if>
+			<if test="verifyId !=null">
+				VERIFY_ID = #{verifyId},
+			</if>
+			<if test="verifyType !=null">
+				VERIFY_TYPE = #{verifyType},
+			</if>
+			<if test="createDate !=null">
+				CREATE_DATE = #{createDate},
+			</if>
+			<if test="remkar !=null">
+				REMKAR = #{remkar},
+			</if>
+			<if test="status !=null">
+				STATUS = #{status},
+			</if>
+		</set>
+		<where>
+			and ID = #{id}
+
+		</where>
+	</update>
+	<delete id="delete" parameterType="ValidationReportDomain"
+		flushCache="true">
+		delete from VALIDATION_REPORT_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</delete>
+</mapper>
