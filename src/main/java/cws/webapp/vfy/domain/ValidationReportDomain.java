@@ -8,6 +8,7 @@ package cws.webapp.vfy.domain;
 import java.util.Date;
 
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
+import com.riozenc.quicktool.mybatis.MybatisEntity;
 
 /**
  * 验证报告
@@ -15,7 +16,7 @@ import com.riozenc.quicktool.annotation.TablePrimaryKey;
  * @author riozenc
  *
  */
-public class ValidationReportDomain {
+public class ValidationReportDomain implements MybatisEntity {
 	@TablePrimaryKey
 	private Integer id;// ID ID int TRUE FALSE TRUE
 	private String name;// NAME NAME varchar(30) 30 FALSE FALSE FALSE
