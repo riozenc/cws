@@ -64,7 +64,7 @@
                     <td class="colData">    
                         <input id="SNType" name="snNo" class="mini-combobox" showNullItem="false" required="true" 
                         popupHeight="112" emptyText="SN不能为空" valueField="value" textField="name" 
-                        url="../resource/data/SNDrop.txt" /> 
+                        url="../point.do?type=findPointByCompanyToDrop" /> 
                     </td>
                 </tr>
                 <tr>
