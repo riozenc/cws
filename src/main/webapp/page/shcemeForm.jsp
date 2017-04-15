@@ -63,8 +63,7 @@
                     <td class="colTitle">SN号：</td>
                     <td class="colData">    
                         <input id="SNType" name="snNo" class="mini-combobox" showNullItem="false" required="true" 
-                        popupHeight="112" emptyText="SN不能为空" valueField="value" textField="name" 
-                        url="../point.do?type=findPointByCompanyToDrop" /> 
+                        popupHeight="112" emptyText="SN不能为空" valueField="value" textField="name"/> 
                     </td>
                 </tr>
                 <tr>
@@ -86,6 +85,12 @@
         //载入数据
         function setData(data){
             form.setData(data);
+          	//加载sn下拉
+            var enterpriseId=$("input[name='enterpriseId']").val();
+            var verifyType=$("input[name='verifyType']").val();
+            var verifyId=$("input[name='verifyId']").val();
+            var snDrop = mini.get("SNType");
+            snDrop.load("../resource/data/SNDrop.txt?enterpriseId="+enterpriseId+"&verifyType="+verifyType+"&verifyId="+verifyId);
         }
 		//确定
 		function onOk(e) {

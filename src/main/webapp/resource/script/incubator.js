@@ -192,7 +192,7 @@ $(document).ready(function(){
 			schemeDrop=data;
 			$.ajax({
 				url : '../resource/data/SNDrop.txt',
-				data : {},
+				data : {enterpriseId:enterpriseId,verifyId:verifyId,verifyType:verifyType},
 				dataType : "json",
 				type : "get",
 				success : function(data) {
