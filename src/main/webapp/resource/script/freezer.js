@@ -37,6 +37,8 @@ $(document).ready(function(){
 				//显示重新上传图片按钮
 				$refreshImg.css('display', 'block');
 				$baseInfoImg.css('cursor', 'default');
+				//记录图片url
+				$("input[name='disMap']").val(e.disMap);
 			}
 			baseInfoData=e;
 		},
@@ -79,6 +81,7 @@ $(document).ready(function(){
             url: "",
             type: "POST",
             data: formData,
+            dataType : "json",
             /**
             *必须false才会自动加上正确的Content-Type
             */
@@ -89,7 +92,6 @@ $(document).ready(function(){
             */
             processData: false,
             success: function (data) {
-            	alert("请指定后台地址");
                 if (data.status == true) {
                     mini.alert("上传成功！","提示");
                     $baseInfoImg.unbind("click");
@@ -97,6 +99,7 @@ $(document).ready(function(){
                     $baseInfoImg.css('background-image', 'url('+data.disMap+')');
                     $refreshImg.css('display', 'block');
                     $baseInfoImg.css('cursor', 'default');
+                    $("input[name='disMap']").val(data.disMap);
                 }
             },
             error: function (XMLHttpRequest, textStatus) {

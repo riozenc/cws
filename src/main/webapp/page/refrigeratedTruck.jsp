@@ -112,6 +112,7 @@
 											</span>
 										</td>
 									</tr>
+									<input type="hidden" name="disMap" />
 								</form>
 							</tbody>
 						</table>
