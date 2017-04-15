@@ -87,14 +87,11 @@
 
 	<select id="getPointByCompany" parameterType="PointDomain"
 		resultType="CompanyDomain" useCache="true">
-		SELECT
-		c.*
-		FROM
-		verify_point_rel a
-		LEFT JOIN company_verify_rel b ON a.VERIFY_ID = b.VERIFY_ID
-		LEFT JOIN point_info c ON c.ID = a.POINT_ID
+		SELECT b.* FROM company_point_rel a LEFT JOIN point_info b ON
+		a.POINT_ID
+		= b.ID
 		<where>
-			b.COMPANY_ID = #{id}
+			a.COMPANY_ID = #{id}
 		</where>
 	</select>
 

@@ -35,6 +35,8 @@ public class PersonnelPostAction extends BaseAction {
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
 	public String insert(PersonnelPostDomain personnelPostDomain) {
+		personnelPostDomain.setPostId(Integer.parseInt(personnelPostDomain.getPostName()));
+		personnelPostDomain.setStatus(1);
 		if (personnelPostService.insert(personnelPostDomain) > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
