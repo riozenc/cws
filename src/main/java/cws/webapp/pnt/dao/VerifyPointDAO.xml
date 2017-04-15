@@ -4,7 +4,7 @@
 	<select id="findByKey" parameterType="VerifyPointDomain"
 		resultType="VerifyPointDomain" useCache="true">
 		select
-		ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_NO,POINT_POSITION,POINT_TYPE,CREATE_DATE,REMARK,STATUS
+		ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_SN,POINT_POSITION,POINT_TYPE,CREATE_DATE,REMARK,STATUS
 		from VERIFY_POINT_REL
 		<where>
 			and ID = #{id}
@@ -14,7 +14,7 @@
 	<select id="findByWhere" parameterType="VerifyPointDomain"
 		resultType="VerifyPointDomain" useCache="true">
 		select
-		ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_NO,POINT_POSITION,POINT_TYPE,CREATE_DATE,REMARK,STATUS
+		ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_SN,POINT_POSITION,POINT_TYPE,CREATE_DATE,REMARK,STATUS
 		from VERIFY_POINT_REL
 		<where>
 			<if test="id !=null">
@@ -29,8 +29,8 @@
 			<if test="pointId !=null">
 				and POINT_ID = #{pointId}
 			</if>
-			<if test="pointNo !=null">
-				and POINT_NO = #{pointNo}
+			<if test="pointSn !=null">
+				and POINT_SN = #{pointSn}
 			</if>
 			<if test="pointPosition !=null">
 				and POINT_POSITION = #{pointPosition}
@@ -52,9 +52,9 @@
 	<insert id="insert" parameterType="VerifyPointDomain"
 		flushCache="true">
 		insert into
-		VERIFY_POINT_REL(ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_NO,POINT_POSITION,POINT_TYPE,CREATE_DATE,REMARK,STATUS)
+		VERIFY_POINT_REL(ID,VERIFY_ID,VERIFY_TYPE,POINT_ID,POINT_SN,POINT_POSITION,POINT_TYPE,CREATE_DATE,REMARK,STATUS)
 		values
-		(#{id},#{verifyId},#{verifyType},#{pointId},#{pointNo},#{pointPosition},#{pointType},#{createDate},#{remark},#{status})
+		(#{id},#{verifyId},#{verifyType},#{pointId},#{pointSn},#{pointPosition},#{pointType},#{createDate},#{remark},#{status})
 	</insert>
 	<update id="update" parameterType="VerifyPointDomain"
 		flushCache="true">
@@ -69,8 +69,8 @@
 			<if test="pointId !=null">
 				POINT_ID = #{pointId},
 			</if>
-			<if test="pointNo !=null">
-				POINT_NO = #{pointNo},
+			<if test="pointSn !=null">
+				POINT_SN = #{pointSn},
 			</if>
 			<if test="pointPosition !=null">
 				POINT_POSITION = #{pointPosition},
@@ -101,4 +101,23 @@
 
 		</where>
 	</delete>
+
+
+	<select id="findVerifyPointByVerify" parameterType="VerifyPointDomain"
+		resultType="VerifyPointDomain" useCache="true">
+		SELECT
+		a.*, b.SN_NO
+		FROM
+		verify_point_rel a
+		LEFT JOIN point_info b ON
+		a.POINT_ID = b.ID
+		<where>
+			a.VERIFY_ID = #{verifyId}
+			AND
+			a.VERIFY_TYPE = #{verifyType}
+			<if test="pointType !=null">
+				AND a.POINT_TYPE = #{pointType}
+			</if>
+		</where>
+	</select>
 </mapper>

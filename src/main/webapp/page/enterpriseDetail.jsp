@@ -106,6 +106,10 @@
 							<input property="editor" class="mini-combobox" style="width:100%;" valueField="value" 
 								textField="name" data="jobDrop"/>
 						</div>
+<!-- 						 <div field="postName" width="300" headerAlign="center" allowSort="false">职务 -->
+<!-- 			                <input property="editor" class="mini-textarea" style="width:200px;" minWidth="200"  -->
+<!-- 			                	minHeight="50"/> -->
+<!-- 			            </div> -->
 			            <div field="companyName" width="300" headerAlign="center" allowSort="false">公司名称
 			                <input property="editor" class="mini-textarea" style="width:200px;" minWidth="200" 
 			                	minHeight="50"/>

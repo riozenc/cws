@@ -34,7 +34,8 @@ public class PersonnelPostAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
-	public String insert(PersonnelPostDomain personnelPostDomain) {
+	public String insert(PersonnelPostDomain personnelPostDomain, @RequestParam(name = "enterpriseId") int companyId) {
+		personnelPostDomain.setCompanyId(companyId);
 		personnelPostDomain.setPostId(Integer.parseInt(personnelPostDomain.getPostName()));
 		personnelPostDomain.setStatus(1);
 		if (personnelPostService.insert(personnelPostDomain) > 0) {

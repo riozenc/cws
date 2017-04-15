@@ -11,7 +11,7 @@ import java.util.Date;
 
 import com.riozenc.quicktool.mybatis.MybatisEntity;
 
-public class CompanyPointDomain implements MybatisEntity{
+public class CompanyPointDomain implements MybatisEntity {
 
 	private Integer id;// ID ID int TRUE FALSE TRUE
 	private Integer companyId;// COMPANY_ID COMPANY_ID int FALSE FALSE FALSE
@@ -19,7 +19,7 @@ public class CompanyPointDomain implements MybatisEntity{
 	private Date createDate;// CREATE_DATE CREATE_DATE datetime FALSE FALSE
 							// FALSE
 	private String remark;// REMARK REMARK varchar(100) 100 FALSE FALSE FALSE
-	private Integer status;// STATUS STATUS smallint FALSE FALSE FALSE
+	private Integer status;// 0失效,1可用,2占用
 
 	public Integer getId() {
 		return id;

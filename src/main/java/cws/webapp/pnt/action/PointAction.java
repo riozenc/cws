@@ -7,10 +7,9 @@
  */
 package cws.webapp.pnt.action;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -26,6 +25,7 @@ import cws.common.json.JsonGrid;
 import cws.common.json.JsonResult;
 import cws.webapp.pnt.domain.PointDomain;
 import cws.webapp.pnt.service.IPointService;
+import cws.webapp.sys.domain.CommonParamDomain;
 
 @ControllerAdvice
 @RequestMapping("point")
@@ -91,7 +91,7 @@ public class PointAction extends BaseAction {
 	public String findPointByCompany(PointDomain pointDomain, @RequestParam(name = "enterpriseId") int companyId) {
 		pointDomain.setCompanyId(companyId);
 		List<PointDomain> list = pointService.findPointByCompany(pointDomain);
-		return JSONUtil.toJsonString(new JsonGrid(list));
+		return JSONUtil.toJsonString(new JsonGrid(pointDomain, list));
 	}
 
 	@ResponseBody
@@ -99,13 +99,15 @@ public class PointAction extends BaseAction {
 	public String findPointByCompanyToDrop(PointDomain pointDomain,
 			@RequestParam(name = "enterpriseId") int companyId) {
 		pointDomain.setCompanyId(companyId);
-		List<PointDomain> list = pointService.findPointByCompany(pointDomain);
-		Map<String, String> map = new HashMap<String, String>();
-		for (PointDomain domain : list) {
-			map.put("name", domain.getSnNo());
-			map.put("value", domain.getSnNo());
+		List<PointDomain> pointDomains = pointService.findPointByCompanyToDrop(pointDomain);
+		List<CommonParamDomain> list = new ArrayList<CommonParamDomain>();
+		for (PointDomain domain : pointDomains) {
+			CommonParamDomain commonParamDomain = new CommonParamDomain();
+			commonParamDomain.setName(domain.getSnNo());
+			commonParamDomain.setValue(domain.getSnNo());
+			list.add(commonParamDomain);
 		}
-		return JSONUtil.toJsonString(map);
+		return JSONUtil.toJsonString(list);
 	}
 
 	@ResponseBody

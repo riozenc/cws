@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50027
 File Encoding         : 65001
 
-Date: 2017-04-11 22:57:04
+Date: 2017-04-15 22:17:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -38,6 +38,7 @@ CREATE TABLE `chill_car_info` (
 -- ----------------------------
 -- Records of chill_car_info
 -- ----------------------------
+INSERT INTO `chill_car_info` VALUES ('1', '大汽车', null, null, null, null, null, null, null, null, null, '1');
 
 -- ----------------------------
 -- Table structure for cold_storage_info
@@ -65,6 +66,8 @@ CREATE TABLE `cold_storage_info` (
 -- ----------------------------
 -- Records of cold_storage_info
 -- ----------------------------
+INSERT INTO `cold_storage_info` VALUES ('1', '小测试2', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1');
+INSERT INTO `cold_storage_info` VALUES ('3', '冷酷', null, null, null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for common_param_info
@@ -91,9 +94,7 @@ INSERT INTO `common_param_info` VALUES ('3', 'POST_TYPE', '验证实施人员', 
 INSERT INTO `common_param_info` VALUES ('4', 'DUTIES_TYPE', '协助组织实施', '1', null, '2017-04-10 22:55:00', '2017-04-10 22:55:02', '1');
 INSERT INTO `common_param_info` VALUES ('5', 'POST_TYPE', '验证组负责人', '3', null, '2017-04-10 23:04:33', '2017-04-10 23:09:33', '1');
 INSERT INTO `common_param_info` VALUES ('6', 'VERIFY_TYPE', '冷藏车', '2', null, '2017-04-10 23:07:06', '2017-04-10 23:07:21', '1');
-INSERT INTO `common_param_info` VALUES ('7', 'POST_TYPE', '123', '4', '123', '2017-04-10 23:21:53', null, '1');
-INSERT INTO `common_param_info` VALUES ('8', 'POST_TYPE', '2132', '5', '13', '2017-04-10 23:22:50', null, '1');
-INSERT INTO `common_param_info` VALUES ('9', 'DUTIES_TYPE', '23', '2', null, '2017-04-10 23:25:50', '2017-04-10 23:26:26', '1');
+INSERT INTO `common_param_info` VALUES ('8', 'POST_TYPE', '21322', '5', '13', '2017-04-10 23:22:50', '2017-04-12 21:46:53', '1');
 INSERT INTO `common_param_info` VALUES ('10', 'DUTIES_TYPE', '组织协调、监督实施、复核关键数据', '3', null, '2017-04-10 23:26:14', null, '1');
 
 -- ----------------------------
@@ -113,6 +114,7 @@ CREATE TABLE `company_host_rel` (
 -- ----------------------------
 -- Records of company_host_rel
 -- ----------------------------
+INSERT INTO `company_host_rel` VALUES ('1', '1', '1', '2017-04-15 20:31:23', null, '1');
 
 -- ----------------------------
 -- Table structure for company_info
@@ -153,6 +155,8 @@ CREATE TABLE `company_point_rel` (
 -- ----------------------------
 -- Records of company_point_rel
 -- ----------------------------
+INSERT INTO `company_point_rel` VALUES ('1', '1', '5', '2017-04-15 20:29:14', null, '1');
+INSERT INTO `company_point_rel` VALUES ('2', '1', '6', '2017-04-15 20:30:20', null, '2');
 
 -- ----------------------------
 -- Table structure for company_verify_rel
@@ -191,6 +195,7 @@ CREATE TABLE `host_info` (
 -- ----------------------------
 -- Records of host_info
 -- ----------------------------
+INSERT INTO `host_info` VALUES ('1', '真的主机', 'TEST.HOST.1', 'SN-HOST-1', '2017-04-15 00:00:00', '.', '1');
 
 -- ----------------------------
 -- Table structure for personnel_duties_info
@@ -230,6 +235,7 @@ CREATE TABLE `personnel_post_info` (
 INSERT INTO `personnel_post_info` VALUES ('1', '黑海', '1', '1', '1', '1');
 INSERT INTO `personnel_post_info` VALUES ('2', '红海', '2', '1', '1', '1');
 INSERT INTO `personnel_post_info` VALUES ('3', '率还', '3', '1', '1', '1');
+INSERT INTO `personnel_post_info` VALUES ('5', 'dddd', '3', '1', 'a', '1');
 
 -- ----------------------------
 -- Table structure for point_info
@@ -252,29 +258,28 @@ CREATE TABLE `point_info` (
 -- ----------------------------
 -- Records of point_info
 -- ----------------------------
-INSERT INTO `point_info` VALUES ('1', '1', '1', '1', '1', '1', '2017-03-28 22:44:03', '2017-03-28 22:44:06', '1', '1');
-INSERT INTO `point_info` VALUES ('2', '2', '2', '2', '2', '2', '2017-03-28 22:44:14', '2017-03-28 22:44:17', '2', '1');
-INSERT INTO `point_info` VALUES ('3', '3', '3', '3', '3', '3', '2017-03-28 22:44:34', '2017-03-28 22:44:36', '3', '1');
-INSERT INTO `point_info` VALUES ('4', '4', '4', '4', '4', '4', '2017-03-28 22:44:42', '2017-03-28 22:44:44', '4', '1');
+INSERT INTO `point_info` VALUES ('5', '1001', 'SN-01', 'TEST.1', '自测', '911', '2017-04-15 20:29:14', '2017-05-06 00:00:00', '1001', '1');
+INSERT INTO `point_info` VALUES ('6', '1002', 'SN-02', 'TEST.1', '自测', '911', '2017-04-15 20:30:20', '2017-05-06 00:00:00', '1002', '1');
 
 -- ----------------------------
--- Table structure for post_info
+-- Table structure for validation_report_info
 -- ----------------------------
-DROP TABLE IF EXISTS `post_info`;
-CREATE TABLE `post_info` (
+DROP TABLE IF EXISTS `validation_report_info`;
+CREATE TABLE `validation_report_info` (
   `ID` int(11) NOT NULL auto_increment,
   `NAME` varchar(30) default NULL,
+  `COMPANY_ID` int(11) default NULL,
+  `VERIFY_ID` int(11) default NULL,
+  `VERIFY_TYPE` int(11) default NULL,
+  `CREATE_DATE` datetime default NULL,
   `REMARK` varchar(100) default NULL,
   `STATUS` smallint(6) default NULL,
   PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='职责表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ValidationReport';
 
 -- ----------------------------
--- Records of post_info
+-- Records of validation_report_info
 -- ----------------------------
-INSERT INTO `post_info` VALUES ('1', '董事长', '老大', '1');
-INSERT INTO `post_info` VALUES ('2', '副董事', '老二', '2');
-INSERT INTO `post_info` VALUES ('3', '总经理', '打工的', '3');
 
 -- ----------------------------
 -- Table structure for verify_info
@@ -294,7 +299,9 @@ CREATE TABLE `verify_info` (
 -- ----------------------------
 -- Records of verify_info
 -- ----------------------------
-INSERT INTO `verify_info` VALUES ('1', '1', '小测试', '1', '2017-03-29 23:00:38', '测试一个', '1');
+INSERT INTO `verify_info` VALUES ('99', '1', '小测试2', '1', '2017-03-29 23:00:38', '测试2个', '1');
+INSERT INTO `verify_info` VALUES ('100', '3', '冷酷', '1', '2017-04-13 21:30:10', '之尊', '1');
+INSERT INTO `verify_info` VALUES ('101', '1', '大汽车', '2', '2017-04-13 21:56:56', '奔驰', '1');
 
 -- ----------------------------
 -- Table structure for verify_point_rel
@@ -305,17 +312,16 @@ CREATE TABLE `verify_point_rel` (
   `VERIFY_ID` int(11) default NULL,
   `VERIFY_TYPE` int(11) default NULL,
   `POINT_ID` int(11) default NULL,
-  `POINT_NO` varchar(4) default NULL,
+  `POINT_SN` varchar(30) default NULL,
+  `POINT_POSITION` int(11) default NULL,
+  `POINT_TYPE` varchar(4) default NULL,
   `CREATE_DATE` datetime default NULL,
   `REMARK` varchar(100) default NULL,
   `STATUS` smallint(6) default NULL,
   PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='VERIFY�Ƿ���������';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='VERIFY是方涛起名的';
 
 -- ----------------------------
 -- Records of verify_point_rel
 -- ----------------------------
-INSERT INTO `verify_point_rel` VALUES ('1', '1', '1', '1', '1', '2017-03-28 22:43:16', '1', '1');
-INSERT INTO `verify_point_rel` VALUES ('2', '1', '1', '2', '2', '2017-03-28 22:43:25', '1', '1');
-INSERT INTO `verify_point_rel` VALUES ('3', '1', '2', '3', '1', '2017-03-28 22:43:39', '1', '1');
-INSERT INTO `verify_point_rel` VALUES ('4', '1', '3', '4', '1', '2017-03-28 22:43:48', '1', '1');
+INSERT INTO `verify_point_rel` VALUES ('3', '1', '1', '6', 'SN-02', '2', '2', '2017-04-15 22:16:30', '3', '1');

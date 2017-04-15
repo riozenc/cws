@@ -9,6 +9,7 @@ package cws.webapp.hst.dao;
 
 import java.util.List;
 
+import com.riozenc.quicktool.annotation.PaginationSupport;
 import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.mybatis.dao.AbstractTransactionDAOSupport;
 import com.riozenc.quicktool.mybatis.dao.BaseDAO;
@@ -57,6 +58,7 @@ public class HostDAO extends AbstractTransactionDAOSupport implements BaseDAO<Ho
 		return getPersistanceManager().delete(getNamespace() + ".deleteHostCompanyRel", hostCompanyDomain);
 	}
 
+	@PaginationSupport
 	public List<HostDomain> findHostByCompany(HostDomain t) {
 		// TODO Auto-generated method stub
 		return getPersistanceManager().find(getNamespace() + ".findHostByCompany", t);

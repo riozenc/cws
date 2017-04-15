@@ -11,6 +11,7 @@ import java.util.Date;
 
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
 import com.riozenc.quicktool.mybatis.MybatisEntity;
+import com.riozenc.quicktool.mybatis.persistence.Page;
 
 /**
  * 验证对象与测点关系表
@@ -18,14 +19,14 @@ import com.riozenc.quicktool.mybatis.MybatisEntity;
  * @author rioze
  *
  */
-public class VerifyPointDomain implements MybatisEntity {
+public class VerifyPointDomain extends Page<VerifyPointDomain> implements MybatisEntity {
 
 	@TablePrimaryKey
 	private Integer id;// ID ID int TRUE FALSE TRUE
 	private Integer verifyId;// 验证对象ID VERIFY_ID int FALSE FALSE FALSE
 	private Integer verifyType;// 验证对象类型 VERIFY_TYPE int FALSE FALSE FALSE
 	private Integer pointId;// 测点ID POINT_ID int FALSE FALSE FALSE
-	private String pointNo;// 测试编号 POINT_NO varchar(4) 4 FALSE FALSE FALSE
+	private String pointSn;// 测试编号 POINT_NO varchar(4) 4 FALSE FALSE FALSE
 	private Integer pointPosition;// 位置 POINT_POSITION int FALSE FALSE FALSE
 	private String pointType;// 测点布点类型 POINT_TYPE varchar(4) 4 FALSE FALSE FALSE
 	private Date createDate;// 创建日期 CREATE_DATE datetime FALSE FALSE FALSE
@@ -64,12 +65,12 @@ public class VerifyPointDomain implements MybatisEntity {
 		this.pointId = pointId;
 	}
 
-	public String getPointNo() {
-		return pointNo;
+	public String getPointSn() {
+		return pointSn;
 	}
 
-	public void setPointNo(String pointNo) {
-		this.pointNo = pointNo;
+	public void setPointSn(String pointSn) {
+		this.pointSn = pointSn;
 	}
 
 	public Integer getPointPosition() {

@@ -100,6 +100,26 @@
 		</where>
 	</delete>
 
+	<select id="findPointBySn" parameterType="PointDomain" resultType="PointDomain"
+		useCache="true">
+		select
+		ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,VALID_DATE,REMARK,STATUS
+		from POINT_INFO
+		<where>
+			and SN_NO = #{snNo}
+		</where>
+	</select>
+
+	<select id="findPointByCompanyToDrop" parameterType="PointDomain"
+		resultType="PointDomain" useCache="true">
+		SELECT b.* FROM company_point_rel a LEFT JOIN point_info b ON
+		a.POINT_ID = b.ID
+		<where>
+			a.COMPANY_ID = #{companyId}
+			and
+			a.STATUS = 1
+		</where>
+	</select>
 
 	<select id="findPointByCompany" parameterType="PointDomain"
 		resultType="PointDomain" useCache="true">
@@ -127,6 +147,17 @@
 		</where>
 	</delete>
 
+	<update id="updateCompanyPointRel" parameterType="PointDomain"
+		flushCache="true">
+		update company_point_rel
+		<set>
+			STATUS = #{status}
+		</set>
+		<where>
+			POINT_ID = #{pointId}
+		</where>
+	</update>
+
 
 	<insert id="insertVerifyPointRel" parameterType="PointDomain"
 		flushCache="true">
@@ -137,7 +168,8 @@
 	</insert>
 	<select id="findPointByVerify" parameterType="PointDomain"
 		resultType="PointDomain" useCache="true">
-		SELECT b.* FROM verify_point_rel a LEFT JOIN point_info b ON a.POINT_ID
+		SELECT b.* FROM verify_point_rel a LEFT JOIN point_info b ON
+		a.POINT_ID
 		=b.ID
 		<where>
 			a.VERIFY_ID = #{verifyId}

@@ -48,13 +48,13 @@
                 <tr>
                     <td class="colTitle">位置：</td>
                     <td class="colData">    
-                        <input name="no" class="mini-textbox" />
+                        <input name="pointPosition" class="mini-textbox" />
                     </td>
                 </tr>
                 <tr>
                     <td class="colTitle">布点：</td>
                     <td class="colData">    
-                        <input id="schemeType" name="types" class="mini-combobox" showNullItem="false" required="true" 
+                        <input id="schemeType" name="pointType" class="mini-combobox" showNullItem="false" required="true" 
                         popupHeight="146" emptyText="布点不能为空" valueField="value" textField="name" 
                         url="../resource/data/schemeDrop.txt" />
                     </td>
@@ -62,7 +62,7 @@
                 <tr>
                     <td class="colTitle">SN号：</td>
                     <td class="colData">    
-                        <input id="SNType" name="snNo" class="mini-combobox" showNullItem="false" required="true" 
+                        <input id="SNType" name="pointSn" class="mini-combobox" showNullItem="false" required="true" 
                         popupHeight="112" emptyText="SN不能为空" valueField="value" textField="name"/> 
                     </td>
                 </tr>
@@ -90,7 +90,8 @@
             var verifyType=$("input[name='verifyType']").val();
             var verifyId=$("input[name='verifyId']").val();
             var snDrop = mini.get("SNType");
-            snDrop.load("../resource/data/SNDrop.txt?enterpriseId="+enterpriseId+"&verifyType="+verifyType+"&verifyId="+verifyId);
+            snDrop.load("../point.do?type=findPointByCompanyToDrop&enterpriseId="+enterpriseId+"&verifyType="+verifyType+"&verifyId="+verifyId);
+            //snDrop.load("../resource/data/SNDrop.txt?enterpriseId="+enterpriseId+"&verifyType="+verifyType+"&verifyId="+verifyId);
         }
 		//确定
 		function onOk(e) {

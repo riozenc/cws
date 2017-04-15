@@ -79,7 +79,7 @@ public class HostAction extends BaseAction {
 	@RequestMapping(params = "type=findHostByWhere")
 	public String findHostByWhere(HostDomain hostDomain) {
 		List<HostDomain> list = hostService.findByWhere(hostDomain);
-		return JSONUtil.toJsonString(new JsonGrid(list));
+		return JSONUtil.toJsonString(new JsonGrid(hostDomain, list));
 	}
 
 	@ResponseBody
@@ -87,7 +87,7 @@ public class HostAction extends BaseAction {
 	public String findHostByCompany(HostDomain hostDomain, @RequestParam(name = "enterpriseId") int companyId) {
 		hostDomain.setCompanyId(companyId);
 		List<HostDomain> list = hostService.findHostByCompany(hostDomain);
-		return JSONUtil.toJsonString(new JsonGrid(list));
+		return JSONUtil.toJsonString(new JsonGrid(hostDomain, list));
 	}
 
 }

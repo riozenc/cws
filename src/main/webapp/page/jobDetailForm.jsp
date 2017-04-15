@@ -84,7 +84,7 @@
           	//加载职务下拉
             var enterpriseId=$("input[name='enterpriseId']").val();
             var jobDrop = mini.get("job");
-            jobDrop.load("../commonParam.do?type=findCommonParamByType&paramType=POST_TYPE?enterpriseId="+enterpriseId);
+            jobDrop.load("../commonParam.do?type=findCommonParamByType&paramType=POST_TYPE&enterpriseId="+enterpriseId);
         }
 		//确定
 		function onOk(e) {

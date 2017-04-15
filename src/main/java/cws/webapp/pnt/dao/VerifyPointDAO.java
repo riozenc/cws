@@ -9,6 +9,7 @@ package cws.webapp.pnt.dao;
 
 import java.util.List;
 
+import com.riozenc.quicktool.annotation.PaginationSupport;
 import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.mybatis.dao.AbstractTransactionDAOSupport;
 import com.riozenc.quicktool.mybatis.dao.BaseDAO;
@@ -46,6 +47,11 @@ public class VerifyPointDAO extends AbstractTransactionDAOSupport implements Bas
 	public List<VerifyPointDomain> findByWhere(VerifyPointDomain t) {
 		// TODO Auto-generated method stub
 		return getPersistanceManager().find(getNamespace() + ".findByWhere", t);
+	}
+
+	@PaginationSupport
+	public List<VerifyPointDomain> findVerifyPointByVerify(VerifyPointDomain verifyPointDomain) {
+		return getPersistanceManager().find(getNamespace() + ".findVerifyPointByVerify", verifyPointDomain);
 	}
 
 }

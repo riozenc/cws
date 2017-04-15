@@ -17,4 +17,6 @@ public interface IPointService extends BaseService<PointDomain> {
 	public List<PointDomain> findPointByCompany(PointDomain pointDomain);
 
 	public List<PointDomain> findPointByVerify(PointDomain pointDomain);
+
+	public List<PointDomain> findPointByCompanyToDrop(PointDomain pointDomain);
 }

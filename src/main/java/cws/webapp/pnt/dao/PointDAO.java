@@ -9,6 +9,7 @@ package cws.webapp.pnt.dao;
 
 import java.util.List;
 
+import com.riozenc.quicktool.annotation.PaginationSupport;
 import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.mybatis.dao.AbstractTransactionDAOSupport;
 import com.riozenc.quicktool.mybatis.dao.BaseDAO;
@@ -48,6 +49,10 @@ public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<P
 		// TODO Auto-generated method stub
 		return getPersistanceManager().find(getNamespace() + ".findByWhere", t);
 	}
+	
+	public PointDomain findPointBySn(PointDomain t){
+		return getPersistanceManager().load(getNamespace() + ".findPointBySn", t);
+	}
 
 	// public int insertPointByVerify(PointDomain pointDomain) {
 	// return getPersistanceManager().insert(getNamespace() +
@@ -64,6 +69,17 @@ public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<P
 	// ".deletePointByVerify", pointDomain);
 	// }
 
+	/**
+	 * 等同findPointByCompany。区别在于不分页且判断status
+	 * 
+	 * @param pointDomain
+	 * @return
+	 */
+	public List<PointDomain> findPointByCompanyToDrop(PointDomain pointDomain) {
+		return getPersistanceManager().find(getNamespace() + ".findPointByCompanyToDrop", pointDomain);
+	}
+
+	@PaginationSupport
 	public List<PointDomain> findPointByCompany(PointDomain pointDomain) {
 		return getPersistanceManager().find(getNamespace() + ".findPointByCompany", pointDomain);
 	}
@@ -74,6 +90,10 @@ public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<P
 
 	public int deleteCompanyPointRel(CompanyPointDomain companyPointDomain) {
 		return getPersistanceManager().delete(getNamespace() + ".deleteCompanyPointRel", companyPointDomain);
+	}
+	
+	public int updateCompanyPointRel(CompanyPointDomain companyPointDomain) {
+		return getPersistanceManager().delete(getNamespace() + ".updateCompanyPointRel", companyPointDomain);
 	}
 
 	public List<PointDomain> findPointByVerify(PointDomain pointDomain) {

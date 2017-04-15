@@ -12,7 +12,10 @@ import java.util.List;
 import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.annotation.TransactionService;
 
+import cws.webapp.pnt.dao.PointDAO;
 import cws.webapp.pnt.dao.VerifyPointDAO;
+import cws.webapp.pnt.domain.CompanyPointDomain;
+import cws.webapp.pnt.domain.PointDomain;
 import cws.webapp.pnt.domain.VerifyPointDomain;
 import cws.webapp.pnt.service.IVerifyPointService;
 
@@ -21,16 +24,40 @@ public class VerifyPointServiceImpl implements IVerifyPointService {
 
 	@TransactionDAO
 	private VerifyPointDAO verifyPointDAO;
+	@TransactionDAO
+	private PointDAO pointDAO;
 
 	@Override
 	public int insert(VerifyPointDomain t) {
 		// TODO Auto-generated method stub
+
+		// 通过sn获取pointId
+		PointDomain pointDomain = new PointDomain();
+		pointDomain.setSnNo(t.getPointSn());
+		pointDomain = pointDAO.findPointBySn(pointDomain);
+
+		// 更新companyPoint的状态,标记为占用
+		CompanyPointDomain companyPointDomain = new CompanyPointDomain();
+		companyPointDomain.setPointId(pointDomain.getId());
+		companyPointDomain.setStatus(2);// 2占用
+		pointDAO.updateCompanyPointRel(companyPointDomain);
+
+		t.setPointId(pointDomain.getId());
 		return verifyPointDAO.insert(t);
 	}
 
 	@Override
 	public int delete(VerifyPointDomain t) {
 		// TODO Auto-generated method stub
+
+		t = verifyPointDAO.findByKey(t);
+		
+		// 更新companyPoint的状态,标记为占用
+		CompanyPointDomain companyPointDomain = new CompanyPointDomain();
+		companyPointDomain.setPointId(t.getPointId());
+		companyPointDomain.setStatus(1);// 1有效
+		pointDAO.updateCompanyPointRel(companyPointDomain);
+
 		return verifyPointDAO.delete(t);
 	}
 
@@ -50,6 +77,12 @@ public class VerifyPointServiceImpl implements IVerifyPointService {
 	public List<VerifyPointDomain> findByWhere(VerifyPointDomain t) {
 		// TODO Auto-generated method stub
 		return verifyPointDAO.findByWhere(t);
+	}
+
+	@Override
+	public List<VerifyPointDomain> findVerifyPointByVerify(VerifyPointDomain verifyPointDomain) {
+		// TODO Auto-generated method stub
+		return verifyPointDAO.findVerifyPointByVerify(verifyPointDomain);
 	}
 
 }
