@@ -54,8 +54,7 @@
                     <td class="colTitle">验证职责：</td>
                     <td class="colData">    
                         <input id="duty" name="dutiesId" class="mini-combobox" showNullItem="false" required="true" 
-                        popupHeight="115" emptyText="验证职责不能为空" valueField="value" textField="name" 
-                        url="../resource/data/dutyDrop.txt" />
+                        popupHeight="115" emptyText="验证职责不能为空" valueField="value" textField="name"/>
                     </td>
                 </tr>
                 <tr>
@@ -77,6 +76,10 @@
         //载入数据
         function setData(data){
             form.setData(data);
+          	//加载职责下拉
+            var enterpriseId=$("input[name='enterpriseId']").val();
+            var dutyDrop = mini.get("duty");
+            dutyDrop.load("../resource/data/dutyDrop.txt?enterpriseId="+enterpriseId);
         }
 		//确定
 		function onOk(e) {

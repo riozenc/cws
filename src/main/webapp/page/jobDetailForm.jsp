@@ -53,8 +53,7 @@
                     <td class="colTitle">职务：</td>
                     <td class="colData">    
                         <input id="job" name="postName" class="mini-combobox" showNullItem="false" required="true" 
-                        popupHeight="150" emptyText="职务不能为空" valueField="value" textField="name"
-                        url="../commonParam.do?type=findCommonParamByType&paramType=POST_TYPE" />
+                        popupHeight="150" emptyText="职务不能为空" valueField="value" textField="name"/>
                     </td>
                 </tr>
                 <tr>
@@ -82,6 +81,10 @@
         //载入数据
         function setData(data){
             form.setData(data);
+          	//加载职务下拉
+            var enterpriseId=$("input[name='enterpriseId']").val();
+            var jobDrop = mini.get("job");
+            jobDrop.load("../commonParam.do?type=findCommonParamByType&paramType=POST_TYPE?enterpriseId="+enterpriseId);
         }
 		//确定
 		function onOk(e) {

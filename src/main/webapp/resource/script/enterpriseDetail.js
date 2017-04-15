@@ -62,7 +62,7 @@ $(document).ready(function(){
 	//获取职务下拉
 	$.ajax({
 		url : '../resource/data/jobDrop.txt',
-		data : {},
+		data : {id:enterpriseId},
 		dataType : "json",
 		type : "get",
 		success : function(data) {
@@ -112,7 +112,7 @@ $(document).ready(function(){
 	//获取职责下拉
 	$.ajax({
 		url : '../resource/data/dutyDrop.txt',
-		data : {},
+		data : {id:enterpriseId},
 		dataType : "json",
 		type : "get",
 		success : function(data) {
