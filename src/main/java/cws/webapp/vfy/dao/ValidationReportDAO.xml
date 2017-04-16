@@ -4,7 +4,7 @@
 	<select id="findByKey" parameterType="ValidationReportDomain"
 		resultType="ValidationReportDomain" useCache="true">
 		select
-		ID,NAME,COMPANY_ID,VERIFY_ID,VERIFY_TYPE,CREATE_DATE,REMKAR,STATUS
+		ID,NAME,COMPANY_ID,VERIFY_ID,VERIFY_TYPE,CREATE_DATE,REMARK,STATUS
 		from VALIDATION_REPORT_INFO
 		<where>
 			and ID = #{id}
@@ -14,7 +14,7 @@
 	<select id="findByWhere" parameterType="ValidationReportDomain"
 		resultType="ValidationReportDomain" useCache="true">
 		select
-		ID,NAME,COMPANY_ID,VERIFY_ID,VERIFY_TYPE,CREATE_DATE,REMKAR,STATUS
+		ID,NAME,COMPANY_ID,VERIFY_ID,VERIFY_TYPE,CREATE_DATE,REMARK,STATUS
 		from VALIDATION_REPORT_INFO
 		<where>
 			<if test="id !=null">
@@ -35,8 +35,8 @@
 			<if test="createDate !=null">
 				and CREATE_DATE = #{createDate}
 			</if>
-			<if test="remkar !=null">
-				and REMKAR = #{remkar}
+			<if test="remark !=null">
+				and REMARK = #{remark}
 			</if>
 			<if test="status !=null">
 				and STATUS = #{status}
@@ -46,9 +46,9 @@
 	<insert id="insert" parameterType="ValidationReportDomain"
 		flushCache="true">
 		insert into
-		VALIDATION_REPORT_INFO(ID,NAME,COMPANY_ID,VERIFY_ID,VERIFY_TYPE,CREATE_DATE,REMKAR,STATUS)
+		VALIDATION_REPORT_INFO(ID,NAME,COMPANY_ID,VERIFY_ID,VERIFY_TYPE,CREATE_DATE,REMARK,STATUS)
 		values
-		(#{id},#{name},#{companyId},#{verifyId},#{verifyType},#{createDate},#{remkar},#{status})
+		(#{id},#{name},#{companyId},#{verifyId},#{verifyType},#{createDate},#{remark},#{status})
 	</insert>
 	<update id="update" parameterType="ValidationReportDomain"
 		flushCache="true">
@@ -69,8 +69,8 @@
 			<if test="createDate !=null">
 				CREATE_DATE = #{createDate},
 			</if>
-			<if test="remkar !=null">
-				REMKAR = #{remkar},
+			<if test="remark !=null">
+				REMARK = #{remark},
 			</if>
 			<if test="status !=null">
 				STATUS = #{status},

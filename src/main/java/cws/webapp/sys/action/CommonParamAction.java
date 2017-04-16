@@ -7,8 +7,14 @@
  */
 package cws.webapp.sys.action;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,10 +22,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import com.riozenc.quicktool.common.util.file.FileUtil;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
+import com.riozenc.quicktool.config.Global;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
 import cws.common.json.JsonResult;
@@ -66,7 +72,7 @@ public class CommonParamAction extends BaseAction {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(params = "type=update")
 	public String update(CommonParamDomain commonParamDomain, @RequestParam(name = "paramType") String type) {
@@ -78,11 +84,35 @@ public class CommonParamAction extends BaseAction {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
-	
-	public String uploadFile(MultipartFile file){
-		
-//		FileUtil.upload(file, fileName);
-		
-		return null;
+
+	@ResponseBody
+	@RequestMapping(params = "type=uploadFile")
+	public String uploadFile(@RequestParam("img") CommonsMultipartFile file, HttpServletRequest httpServletRequest) {
+
+		File dic = new File(Global.getConfig("project.path") + Global.getConfig("file.doc.path"));
+		if (!dic.exists()) {
+			dic.mkdirs();
+		}
+
+		File dest = new File(Global.getConfig("project.path") + Global.getConfig("file.doc.path") + File.separator
+				+ file.getOriginalFilename());
+		Map<String, String> map = new HashMap<>();
+		try {
+			if (!dest.exists()) {
+				dest.createNewFile();
+			}
+			file.transferTo(dest);
+			System.out.println(dest.getPath());
+
+			map.put("path", dest.getPath());
+
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return JSONUtil.toJsonString(map);
 	}
 }

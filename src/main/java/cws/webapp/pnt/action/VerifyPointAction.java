@@ -8,7 +8,9 @@
 package cws.webapp.pnt.action;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -87,11 +89,60 @@ public class VerifyPointAction {
 	@ResponseBody
 	@RequestMapping(params = "type=findVerifyPointByVerify")
 	public String findVerifyPointByVerify(VerifyPointDomain verifyPointDomain) {
-		if("0".equals(verifyPointDomain.getPointType()))verifyPointDomain.setPointType(null);
+		if ("0".equals(verifyPointDomain.getPointType()))
+			verifyPointDomain.setPointType(null);
 		List<VerifyPointDomain> list = verifyPointService.findVerifyPointByVerify(verifyPointDomain);
-		
-		//{"totalRow":null,"pageCurrent":null,"list":[{"id":1,"verifyId":1,"verifyType":1,"pointId":5,"pointSn":"SN-01","pointPosition":1,"pointType":"3","createDate":"2017-04-15 21:38:35","remark":"阿苏德萨达到","status":1}]}
-		
-		return JSONUtil.toJsonString(new JsonGrid(verifyPointDomain,list));
+
+		// {"totalRow":null,"pageCurrent":null,"list":[{"id":1,"verifyId":1,"verifyType":1,"pointId":5,"pointSn":"SN-01","pointPosition":1,"pointType":"3","createDate":"2017-04-15
+		// 21:38:35","remark":"阿苏德萨达到","status":1}]}
+
+		return JSONUtil.toJsonString(new JsonGrid(verifyPointDomain, list));
 	}
+
+	@ResponseBody
+	@RequestMapping(params = "type=findVerifyPointCountByWhere")
+	public String findVerifyPointCountByWhere(VerifyPointDomain verifyPointDomain) {
+		verifyPointDomain.setPageSize(999);
+		verifyPointDomain.setPointType(null);
+		List<VerifyPointDomain> list = verifyPointService.findVerifyPointByVerify(verifyPointDomain);
+		Map<String, Integer> map = new HashMap<>();
+		map.put("jyxPoint", 0);
+		map.put("fjPoint", 0);
+		map.put("crkPoint", 0);
+		map.put("sjPoint", 0);
+		map.put("hjPoint", 0);
+		map.put("ttPoint", 0);
+		map.put("huanjPoint", 0);
+		/**
+		 * "jyxPoint" : 1, "fjPoint" : 2, "crkPoint" : 1, "sjPoint" : 2,
+		 * "hjPoint" : 2, "ttPoint" : 1, "huanjPoint" : 1
+		 */
+		for (VerifyPointDomain temp : list) {
+			switch (temp.getPointType()) {
+			case "1":
+				map.put("jyxPoint", map.get("jyxPoint")+ 1);
+				break;
+			case "2":
+				map.put("fjPoint", map.get("fjPoint") + 1);
+				break;
+			case "3":
+				map.put("crkPoint", map.get("crkPoint") + 1);
+				break;
+			case "4":
+				map.put("sjPoint", map.get("sjPoint") + 1);
+				break;
+			case "5":
+				map.put("hjPoint", map.get("hjPoint") + 1);
+				break;
+			case "6":
+				map.put("ttPoint", map.get("ttPoint") + 1);
+				break;
+			case "7":
+				map.put("huanjPoint", map.get("huanjPoint") + 1);
+				break;
+			}
+		}
+		return JSONUtil.toJsonString(map);
+	}
+
 }

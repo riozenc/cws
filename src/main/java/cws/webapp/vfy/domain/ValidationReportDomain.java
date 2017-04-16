@@ -25,7 +25,7 @@ public class ValidationReportDomain implements MybatisEntity {
 	private Integer verifyType;// VERIFY_TYPE VERIFY_TYPE int FALSE FALSE FALSE
 	private Date createDate;// CREATE_DATE CREATE_DATE datetime FALSE FALSE
 							// FALSE
-	private String remkar;// REMARK REMARK varchar(100) 100 FALSE FALSE FALSE
+	private String remark;// REMARK REMARK varchar(100) 100 FALSE FALSE FALSE
 	private Integer status;// STATUS STATUS smallint FALSE FALSE FALSE
 
 	public Integer getId() {
@@ -76,12 +76,12 @@ public class ValidationReportDomain implements MybatisEntity {
 		this.createDate = createDate;
 	}
 
-	public String getRemkar() {
-		return remkar;
+	public String getRemark() {
+		return remark;
 	}
 
-	public void setRemkar(String remkar) {
-		this.remkar = remkar;
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 
 	public Integer getStatus() {

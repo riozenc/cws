@@ -76,4 +76,5 @@ public class ValidationReportAction {
 		List<ValidationReportDomain> list = validationReportService.findByWhere(validationReportDomain);
 		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
+
 }

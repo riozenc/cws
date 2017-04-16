@@ -78,7 +78,7 @@ $(document).ready(function(){
 		formData.append("verifyType",verifyType);
 		//上传
 		$.ajax({
-            url: "",
+            url: "../commonParam.do?type=uploadFile",
             type: "POST",
             data: formData,
             dataType : "json",
@@ -219,7 +219,8 @@ $(document).ready(function(){
 */
 function seekCollect(){
 	$.ajax({
-		url : "../resource/data/schemeCollect.txt",
+//		url : "../resource/data/schemeCollect.txt",
+		url : "../verifyPoint.do?type=findVerifyPointCountByWhere",
 		data : {enterpriseId:enterpriseId,verifyId:verifyId,verifyType:verifyType},
 		dataType : "json",
 		type : "post",
