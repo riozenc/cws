@@ -61,7 +61,7 @@ $(document).ready(function(){
 	});
 	//获取职务下拉
 	$.ajax({
-		url : "../commonParam.do?type=findCommonParamByType&paramType=POST_TYPE&enterpriseId="+enterpriseId,
+		url : "../commonParam.do?type=findCommonParamByType&paramType=GET_TYPE",
 		data : {id:enterpriseId},
 		dataType : "json",
 		type : "get",
