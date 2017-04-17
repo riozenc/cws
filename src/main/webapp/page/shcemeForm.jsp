@@ -90,7 +90,7 @@
             var verifyType=$("input[name='verifyType']").val();
             var verifyId=$("input[name='verifyId']").val();
             var snDrop = mini.get("SNType");
-            snDrop.load("../point.do?type=findPointByCompanyToDrop&enterpriseId="+enterpriseId+"&verifyType="+verifyType+"&verifyId="+verifyId);
+            snDrop.load("../point.do?type=findPointByCompanyToDrop&enterpriseId="+enterpriseId+"&verifyType="+verifyType+"&verifyId="+verifyId+"&status=1");
             //snDrop.load("../resource/data/SNDrop.txt?enterpriseId="+enterpriseId+"&verifyType="+verifyType+"&verifyId="+verifyId);
         }
 		//确定

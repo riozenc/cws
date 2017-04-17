@@ -116,8 +116,9 @@
 		a.POINT_ID = b.ID
 		<where>
 			a.COMPANY_ID = #{companyId}
-			and
-			a.STATUS = 1
+			<if test="status !=null">
+				and a.STATUS = #{status}
+			</if>
 		</where>
 	</select>
 

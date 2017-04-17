@@ -184,7 +184,7 @@ $(document).ready(function(){
 		success : function(data) {
 			schemeDrop=data;
 			$.ajax({
-				url : '../resource/data/SNDrop.txt',
+				url : '../point.do?type=findPointByCompanyToDrop',
 				data : {enterpriseId:enterpriseId,verifyId:verifyId,verifyType:verifyType},
 				dataType : "json",
 				type : "get",
