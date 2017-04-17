@@ -92,15 +92,13 @@ $(document).ready(function(){
             */
             processData: false,
             success: function (data) {
-                if (data.status == true) {
-                    mini.alert("上传成功！","提示");
-                    $baseInfoImg.unbind("click");
-					$("#uploadImg").css('display', 'none');
-                    $baseInfoImg.css('background-image', 'url('+data.disMap+')');
-                    $refreshImg.css('display', 'block');
-                    $baseInfoImg.css('cursor', 'default');
-                    $("input[name='disMap']").val(data.disMap);
-                }
+                alert("上传成功！");
+                $baseInfoImg.unbind("click");
+				$("#uploadImg").css('display', 'none');
+                $baseInfoImg.css('background-image', 'url('+data.path+')');
+                $refreshImg.css('display', 'block');
+                $baseInfoImg.css('cursor', 'default');
+                $("input[name='disMap']").val(data.path);
             },
             error: function (XMLHttpRequest, textStatus) {
                 mini.alert("上传失败！"+textStatus);

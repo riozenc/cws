@@ -15,5 +15,5 @@
 	"coldQuantity" : 4,
 	"monitor" : 2,
 	"manufacturer" : "杭州泽大仪器有限公司",
-	"imageUrl" : ""
+	"disMap" : ""
 }
