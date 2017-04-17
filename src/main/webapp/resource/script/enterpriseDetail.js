@@ -61,7 +61,7 @@ $(document).ready(function(){
 	});
 	//获取职务下拉
 	$.ajax({
-		url : '../resource/data/jobDrop.txt',
+		url : "../commonParam.do?type=findCommonParamByType&paramType=POST_TYPE&enterpriseId="+enterpriseId,
 		data : {id:enterpriseId},
 		dataType : "json",
 		type : "get",
