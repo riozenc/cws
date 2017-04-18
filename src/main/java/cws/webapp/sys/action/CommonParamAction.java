@@ -103,7 +103,7 @@ public class CommonParamAction extends BaseAction {
 			file.transferTo(dest);
 			// map.put("path", Global.getConfig("file.doc.path") + "/" +
 			// file.getOriginalFilename());
-			return "{\"path\":" + file.getOriginalFilename() + "}";
+			return "{\"path\":\"" + file.getOriginalFilename() + "\"}";
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -112,6 +112,6 @@ public class CommonParamAction extends BaseAction {
 			e.printStackTrace();
 		}
 		// return JSONUtil.toJsonString(map);
-		return "{\"path\":" + null + "}";
+		return "{\"path\":\"" + null + "\"}";
 	}
 }
