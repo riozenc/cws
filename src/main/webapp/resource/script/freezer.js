@@ -157,13 +157,17 @@ $(document).ready(function(){
 						dataType : "json",
 						type : "post",
 						success : function(e){
-							baseInfoData=formData;
-							baseInfoData.imgChanged=0;
-							$("input[name='imgChanged']").val(0);
-							alert(e.msg);
+							if(e.statusCode==200){
+								baseInfoData=formData;
+								baseInfoData.imgChanged=0;
+								$("input[name='imgChanged']").val(0);
+								alert(e.message);
+							}else{
+			            		alert(e.message);
+			            	}
 						},
 						error : function(e){
-							alert("请求数据失败！status："+e.status);
+							mini.alert("请求数据失败！status："+e.status);
 						}
 					});
 		    	} 
