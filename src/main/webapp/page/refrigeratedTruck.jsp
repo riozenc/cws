@@ -113,6 +113,7 @@
 										</td>
 									</tr>
 									<input type="hidden" name="disMap" />
+									<input type="hidden" name="imgChanged" value="0" />
 								</form>
 							</tbody>
 						</table>
@@ -223,6 +224,8 @@
 		//验证对象及布点方案点击查看时传过来的id
 		var verifyId=${param.schemeId};
 		var verifyType=${param.verifyType};
+		//获得项目路径
+		var contextPath="${pageContext.request.contextPath}";
 	</script>
 	<script type="text/javascript" src="../resource/script/refrigeratedTruck.js"></script>
 </body>

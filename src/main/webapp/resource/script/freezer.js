@@ -41,6 +41,7 @@ $(document).ready(function(){
 				$("input[name='disMap']").val(e.disMap);
 			}
 			baseInfoData=e;
+			baseInfoData.imgChanged=0;
 		},
 		error : function(e){
 			alert("请求数据失败！status："+e.status);
@@ -92,14 +93,19 @@ $(document).ready(function(){
             */
             processData: false,
             success: function (data) {
-                alert("上传成功！");
-                var imgPath="../"+data.message+"/"+data.path;
-                $baseInfoImg.unbind("click");
-				$("#uploadImg").css('display', 'none');
-                $baseInfoImg.css('background-image', 'url('+imgPath+')');
-                $refreshImg.css('display', 'block');
-                $baseInfoImg.css('cursor', 'default');
-                $("input[name='disMap']").val(imgPath);
+            	if(data.statusCode==200){
+	                alert("上传成功！");
+	                var imgPath=contextPath+data.message;
+	                $baseInfoImg.unbind("click");
+					$("#uploadImg").css('display', 'none');
+	                $baseInfoImg.css('background-image', 'url('+imgPath+')');
+	                $refreshImg.css('display', 'block');
+	                $baseInfoImg.css('cursor', 'default');
+	                $("input[name='disMap']").val(imgPath.slice(contextPath.length));
+	                $("input[name='imgChanged']").val(1);
+            	}else{
+            		alert("上传失败！");
+            	}
             },
             error: function (XMLHttpRequest, textStatus) {
                 mini.alert("上传失败！"+textStatus);
@@ -152,6 +158,8 @@ $(document).ready(function(){
 						type : "post",
 						success : function(e){
 							baseInfoData=formData;
+							baseInfoData.imgChanged=0;
+							$("input[name='imgChanged']").val(0);
 							alert(e.msg);
 						},
 						error : function(e){
