@@ -99,12 +99,13 @@ $(document).ready(function(){
             processData: false,
             success: function (data) {
                 alert("上传成功！");
+                var imgPath="../"+data.message+"/"+data.path;
                 $baseInfoImg.unbind("click");
 				$("#uploadImg").css('display', 'none');
-                $baseInfoImg.css('background-image', 'url('+data.path+')');
+                $baseInfoImg.css('background-image', 'url('+imgPath+')');
                 $refreshImg.css('display', 'block');
 				$baseInfoImg.css('cursor', 'default');
-				$("input[name='disMap']").val(data.path);
+				$("input[name='disMap']").val(imgPath);
             },
             error: function (XMLHttpRequest, textStatus) {
                 mini.alert("上传失败！"+textStatus);
