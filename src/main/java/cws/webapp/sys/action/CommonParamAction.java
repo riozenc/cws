@@ -10,9 +10,7 @@ package cws.webapp.sys.action;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -88,24 +86,24 @@ public class CommonParamAction extends BaseAction {
 	@ResponseBody
 	@RequestMapping(params = "type=uploadFile")
 	public String uploadFile(@RequestParam("img") CommonsMultipartFile file, HttpServletRequest httpServletRequest) {
+		// 项目部署的路径
+		String path = httpServletRequest.getSession().getServletContext().getRealPath("/");
 
-		File dic = new File(Global.getConfig("project.path") + Global.getConfig("file.doc.path"));
+		File dic = new File(path + Global.getConfig("file.doc.path"));
 		if (!dic.exists()) {
 			dic.mkdirs();
 		}
 
-		File dest = new File(Global.getConfig("project.path") + Global.getConfig("file.doc.path") + File.separator
-				+ file.getOriginalFilename());
-		Map<String, String> map = new HashMap<>();
+		File dest = new File(path + Global.getConfig("file.doc.path") + File.separator + file.getOriginalFilename());
+		// Map<String, String> map = new HashMap<>();
 		try {
 			if (!dest.exists()) {
 				dest.createNewFile();
 			}
 			file.transferTo(dest);
-			System.out.println(dest.getPath());
-
-			map.put("path", dest.getPath());
-
+			// map.put("path", Global.getConfig("file.doc.path") + "/" +
+			// file.getOriginalFilename());
+			return "{\"path\":" + file.getOriginalFilename() + "}";
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -113,6 +111,7 @@ public class CommonParamAction extends BaseAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return JSONUtil.toJsonString(map);
+		// return JSONUtil.toJsonString(map);
+		return "{\"path\":" + null + "}";
 	}
 }
