@@ -152,7 +152,7 @@ $(document).ready(function(){
 		    	//点击确认时返回action=true
 		    	if (action===true) {
 		    		$.ajax({
-						url : "../coldStorage.do?type=update",
+						url : "../coldStorage.do?type=update&id="+schemeId,
 						data : formData,
 						dataType : "json",
 						type : "post",

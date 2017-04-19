@@ -256,6 +256,7 @@
 		//验证对象及布点方案点击查看时传过来的id
 		var verifyId=${param.schemeId};
 		var verifyType=${param.verifyType};
+		var schemeId = ${param.schemeId};
 		//获得项目路径
 		var contextPath="${pageContext.request.contextPath}";
 	</script>
