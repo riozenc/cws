@@ -44,6 +44,9 @@ public class CommonParamAction extends BaseAction {
 		commonParamDomain.setType(type);
 		commonParamDomain.setCreateDate(new Date());
 		commonParamDomain.setStatus(1);
+		if (commonParamService.findByKey(commonParamDomain) != null) {
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "编号重复."));
+		}
 		if (commonParamService.insert(commonParamDomain) > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
@@ -102,7 +105,8 @@ public class CommonParamAction extends BaseAction {
 			}
 			file.transferTo(dest);
 
-			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, Global.getConfig("file.doc.path")+"/"+file.getOriginalFilename()));
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS,
+					Global.getConfig("file.doc.path") + "/" + file.getOriginalFilename()));
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

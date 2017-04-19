@@ -102,4 +102,13 @@
 			COMPANY_ID = #{id}
 		</where>
 	</select>
+	
+	
+	<select id="getHostByCompany" parameterType="VerifyDomain"
+		resultType="CompanyDomain" useCache="true">
+		SELECT * FROM company_host_rel
+		<where>
+			COMPANY_ID = #{id}
+		</where>
+	</select>
 </mapper>

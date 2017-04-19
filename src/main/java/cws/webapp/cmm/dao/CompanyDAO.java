@@ -14,6 +14,7 @@ import com.riozenc.quicktool.mybatis.dao.AbstractTransactionDAOSupport;
 import com.riozenc.quicktool.mybatis.dao.BaseDAO;
 
 import cws.webapp.cmm.domain.CompanyDomain;
+import cws.webapp.hst.domain.HostDomain;
 import cws.webapp.pnt.domain.PointDomain;
 import cws.webapp.vfy.domain.VerifyDomain;
 
@@ -56,6 +57,10 @@ public class CompanyDAO extends AbstractTransactionDAOSupport implements BaseDAO
 
 	public List<VerifyDomain> getVerifyByCompany(CompanyDomain companyDomain) {
 		return getPersistanceManager().find(getNamespace() + ".getVerifyByCompany", companyDomain);
+	}
+	
+	public List<HostDomain> getHostByCompany(CompanyDomain companyDomain){
+		return getPersistanceManager().find(getNamespace() + ".getHostByCompany", companyDomain);
 	}
 
 }
