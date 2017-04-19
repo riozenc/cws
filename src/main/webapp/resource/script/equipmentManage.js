@@ -117,7 +117,7 @@ function delMaster(recode){
             		data: { id: recode,enterpriseId:enterpriseId },
             		dataType : 'json',
                     success: function (text) {
-                    	alert(text.msg);
+                    	alert(text.message);
                         gridMaster.load({enterpriseId:enterpriseId});
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
@@ -212,7 +212,7 @@ function delPoint(recode){
             		data: { id: recode,enterpriseId:enterpriseId },
             		dataType : 'json',
                     success: function (text) {
-                    	alert(text.msg);
+                    	alert(text.message);
                         gridPoint.load({enterpriseId:enterpriseId});
                     },
                     error: function (jqXHR, textStatus, errorThrown) {

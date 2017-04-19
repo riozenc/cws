@@ -131,7 +131,7 @@ function del(recode){
             		data: {enterpriseId:enterpriseId,verifyId:recode},
             		dataType : 'json',
                     success: function (text) {
-                    	alert(text.msg);
+                    	alert(text.message);
                         grid.load({enterpriseId:enterpriseId});
                     },
                     error: function (jqXHR, textStatus, errorThrown) {

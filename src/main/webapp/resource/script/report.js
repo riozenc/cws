@@ -139,7 +139,7 @@ function del(recodeID){
             		data: { id: recodeID },
             		dataType : 'json',
                     success: function (text) {
-                    	alert(text.msg);
+                    	alert(text.message);
                     	var reportStatus=mini.get("reportType").getValue();
 						var reportName = mini.get("key").getValue();
                         grid.load({enterpriseId:enterpriseId,reportName:reportName,reportStatus:reportStatus});

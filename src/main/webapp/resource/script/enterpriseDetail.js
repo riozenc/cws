@@ -225,7 +225,7 @@ function del(recode){
             		data: { id: recode },
             		dataType : 'json',
                     success: function (text) {
-                    	alert(text.msg);
+                    	alert(text.message);
                         grid1.load({enterpriseId:enterpriseId});
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
@@ -323,7 +323,7 @@ function delDutyLeft(recode){
             		},
             		dataType : 'json',
                     success: function (text) {
-                    	alert(text.msg);
+                    	alert(text.message);
                         grid2.load({enterpriseId:enterpriseId});
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
@@ -421,7 +421,7 @@ function delDutyRight(recode){
             		},
             		dataType : 'json',
                     success: function (text) {
-                    	alert(text.msg);
+                    	alert(text.message);
                         grid3.load({enterpriseId:enterpriseId});
                     },
                     error: function (jqXHR, textStatus, errorThrown) {

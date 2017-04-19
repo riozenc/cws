@@ -330,7 +330,7 @@ function del(recode){
             		data: { id: recode },
             		dataType : 'json',
                     success: function (text) {
-                    	alert(text.msg);
+                    	alert(text.message);
                         var pointType=mini.get("pointType").getValue();
 						grid.load({enterpriseId:enterpriseId,verifyId:verifyId,verifyType:verifyType,pointType:pointType});
                         seekCollect();

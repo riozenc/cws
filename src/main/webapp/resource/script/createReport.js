@@ -447,7 +447,7 @@ function del(recodeID){
             		data: { id: recodeID },
             		dataType : 'json',
                     success: function (text) {
-                    	alert(text.msg);
+                    	alert(text.message);
                         grid.load({enterpriseId:enterpriseId,recordId:recordId},function(success){
 							$("#meterNum").text("仪表数量："+success.data.length);
 						});

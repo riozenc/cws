@@ -83,7 +83,7 @@ function del(recode){
             		data: { id: recode },
             		dataType : 'json',
                     success: function (text) {
-                    	alert(text.msg);
+                    	alert(text.message);
                         grid.reload();
                     },
                     error: function (jqXHR, textStatus, errorThrown) {

@@ -104,7 +104,7 @@
                 dataType : 'json',
                 cache: false,
                 success: function (text) {
-                	alert(text.msg);
+                	alert(text.message);
                     CloseWindow(true);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

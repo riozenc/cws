@@ -114,7 +114,7 @@
                 success: function (success) {
                 	if(success==200){
                         CloseWindow(true);
-                        alert(text.msg);
+                        alert(text.message);
                     }else if(success==300){
                         mini.alert(success.message);
                     }
