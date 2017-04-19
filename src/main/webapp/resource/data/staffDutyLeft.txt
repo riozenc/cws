@@ -3,32 +3,32 @@
 	"data":[
 		{
 			"id":1,
-			"name":"李一",
+			"name":"1",
 			"dutiesId":"01"
 		},
 		{
 			"id":2,
-			"name":"吴毅龙",
+			"name":"2",
 			"dutiesId":"02"			
 		},
 		{
 			"id":3,
-			"name":"樊震",
+			"name":"3",
 			"dutiesId":"03"
 		},
 		{
 			"id":4,
-			"name":"郭子航",
+			"name":"4",
 			"dutiesId":"04"
 		},
 		{
 			"id":5,
-			"name":"陆皓东",
+			"name":"5",
 			"dutiesId":"05"
 		},
 		{
 			"id":6,
-			"name":"葛丽丽",
+			"name":"6",
 			"dutiesId":"06"
 		}
 	]

@@ -9,6 +9,8 @@ var grid3 = mini.get("datagrid3");
 var jobDrop;
 //职责下拉
 var dutyDrop;
+//客户公司职责表人名下拉
+var dutyNameDrop;
 $(document).ready(function(){
 	//读取全部统计信息
 	$.ajax({
@@ -118,8 +120,21 @@ $(document).ready(function(){
 		success : function(data) {
 			dutyDrop=data;
 			//加载表格数据
-			grid2.load({enterpriseId:enterpriseId});
 			grid3.load({enterpriseId:enterpriseId});
+			$.ajax({
+				url : '../resource/data/dutyNameDrop.txt',
+				data : {enterpriseId:enterpriseId},
+				dataType : "json",
+				type : "get",
+				success : function(data) {
+					dutyNameDrop=data;
+					//加载表格数据
+					grid2.load({enterpriseId:enterpriseId});
+				},
+				error : function(e) {
+					alert("请求数据失败！status："+e.status);
+				}
+			});
 		},
 		error : function(e) {
 			alert("请求数据失败！status："+e.status);
@@ -238,7 +253,7 @@ function searchDutyLeft(){
 //添加验证人员
 function addRowDutyLeft(){
 	mini.open({
-	    url: "page/dutyDetailForm.jsp",
+	    url: "page/dutyConsDetailForm.jsp",
 	    title: "添加验证人员", 
 	    width: 350, 
 	    height: 220,
@@ -247,8 +262,8 @@ function addRowDutyLeft(){
 	    	var iframe = this.getIFrameEl();
 	    	//1表明添加的是客户公司
 	        var data = { 
-	        	enterpriseId: enterpriseId,
-	        	dutyFlag: 1
+	        	enterpriseId: enterpriseId
+	        	//dutyFlag: 1
 	        };
 	        iframe.contentWindow.setData(data);
 	    },
@@ -263,14 +278,14 @@ function addRowDutyLeft(){
 function editDutyLeft(recodeID){
 	var recode=grid2.getSelected();
 	mini.open({
-	    url: "page/dutyDetailForm.jsp",
+	    url: "page/dutyConsDetailForm.jsp",
 	    title: "编辑验证人员信息", 
 	    width: 350, 
 	    height: 220,
 	    allowResize: true,
 	    onload: function () {
 	    	//向表单传参
-	    	recode.dutyFlag=1;
+	    	//recode.dutyFlag=1;
 	    	recode.enterpriseId=enterpriseId;
 	    	var iframe = this.getIFrameEl();
 	        iframe.contentWindow.setData(recode);
@@ -303,7 +318,9 @@ function delDutyLeft(recode){
                 $.ajax({
                     url: "",
                     type: 'post',
-            		data: { id: recode, dutyFlag: 1 },
+            		data: { id: recode 
+            			//dutyFlag: 1 
+            		},
             		dataType : 'json',
                     success: function (text) {
                     	alert(text.msg);
@@ -343,8 +360,8 @@ function addRowDutyRight(){
 	    	var iframe = this.getIFrameEl();
 	    	//2表明添加的是验证公司
 	        var data = {
-	        	enterpriseId: enterpriseId, 
-	        	dutyFlag: 2
+	        	enterpriseId: enterpriseId 
+	        	//dutyFlag: 2
 	        };
 	        iframe.contentWindow.setData(data);
 	    },
@@ -366,7 +383,7 @@ function editDutyRight(recodeID){
 	    allowResize: true,
 	    onload: function () {
 	    	//向表单传参
-	    	recode.dutyFlag=2;
+	    	//recode.dutyFlag=2;
 	    	recode.enterpriseId=enterpriseId;
 	    	var iframe = this.getIFrameEl();
 	        iframe.contentWindow.setData(recode);
@@ -399,7 +416,9 @@ function delDutyRight(recode){
                 $.ajax({
                     url: "",
                     type: 'post',
-            		data: { id: recode, dutyFlag: 2 },
+            		data: { id: recode 
+            			//dutyFlag: 2 
+            		},
             		dataType : 'json',
                     success: function (text) {
                     	alert(text.msg);

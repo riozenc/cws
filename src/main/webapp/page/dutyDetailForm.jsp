@@ -41,7 +41,7 @@
 	<form id="form1" method="post">
         <input name="id" class="mini-hidden" /><!--编辑的该记录主键-->
         <input name="enterpriseId" class="mini-hidden" /><!--编辑的该记录所在的企业主键-->
-        <input name="dutyFlag" class="mini-hidden" /><!--用于判断是客户公司还是验证公司 1：客户，2：验证-->
+        <!--<input name="dutyFlag" class="mini-hidden" />用于判断是客户公司还是验证公司 1：客户，2：验证-->
         <div style="padding-left:6px;padding-top:10px;">
             <table cellspacing="0" cellpadding="5px">
                 <tr>
