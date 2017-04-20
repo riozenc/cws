@@ -107,7 +107,7 @@ $(document).ready(function(){
 	                $baseInfoImg.css('background-image', 'url('+imgPath+')');
 	                $refreshImg.css('display', 'block');
 					$baseInfoImg.css('cursor', 'default');
-					$("input[name='disMap']").val(imgPath.slice(contextPath.length));
+					$("input[name='disMap']").val(imgPath);
 					$("input[name='imgChanged']").val(1);
             	}else{
             		alert("上传失败！");
@@ -159,7 +159,7 @@ $(document).ready(function(){
 		    	//点击确认时返回action=true
 		    	if (action===true) {
 		    		$.ajax({
-						url : "",
+						url : "save?type=update&id="+verifyId,
 						data : formData,
 						dataType : "json",
 						type : "post",
