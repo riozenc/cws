@@ -7,10 +7,12 @@
  */
 package cws.webapp.cmm.service;
 
+import java.util.List;
+
 import com.riozenc.quicktool.springmvc.webapp.service.BaseService;
 
 import cws.webapp.cmm.domain.PersonnelPostDomain;
 
-public interface IPersonnelPostService extends BaseService<PersonnelPostDomain>{
-
+public interface IPersonnelPostService extends BaseService<PersonnelPostDomain> {
+	public List<PersonnelPostDomain> findPersonnelPostByCompanyToDrop(PersonnelPostDomain personnelPostDomain);
 }

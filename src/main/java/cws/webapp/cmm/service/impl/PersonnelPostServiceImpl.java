@@ -52,4 +52,10 @@ public class PersonnelPostServiceImpl implements IPersonnelPostService {
 		return personnelPostDAO.findByWhere(t);
 	}
 
+	@Override
+	public List<PersonnelPostDomain> findPersonnelPostByCompanyToDrop(PersonnelPostDomain personnelPostDomain) {
+		// TODO Auto-generated method stub
+		return personnelPostDAO.findPersonnelPostByCompanyToDrop(personnelPostDomain);
+	}
+
 }

@@ -152,7 +152,7 @@
 					        </div>
 					    </div>
 					    <div id="datagrid2" class="mini-datagrid" style="width:100%;height:218px;" pageIndexField="pageCurrent"
-					    	url="../resource/data/staffDutyLeft.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" multiSelect="false" idField="id">
+					    	url="../personnelDuties.do?type=findPersonnelDutiesByCompany" pageSize="20" allowCellEdit="false" allowCellSelect="true" multiSelect="false" idField="id">
 					        <div property="columns">          
 					            <div type="comboboxcolumn" name="name" field="name" width="80" headerAlign="center" 
 					            	autoShowPopup="true">姓名
