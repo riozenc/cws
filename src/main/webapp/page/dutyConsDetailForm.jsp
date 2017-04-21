@@ -114,7 +114,7 @@
                 data: o,
                 cache: false,
                 success: function (text) {
-                	alert("请指定后台地址");
+                	alert(text.message);
                     CloseWindow(true);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
