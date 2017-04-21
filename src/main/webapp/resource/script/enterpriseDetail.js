@@ -122,7 +122,7 @@ $(document).ready(function(){
 			//加载表格数据
 			grid3.load({enterpriseId:enterpriseId});
 			$.ajax({
-				url : '../resource/data/dutyNameDrop.txt',
+				url : "../personnelPost.do?type=findPersonnelPostByCompanyToDrop",
 				data : {enterpriseId:enterpriseId},
 				dataType : "json",
 				type : "get",
