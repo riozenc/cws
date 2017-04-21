@@ -83,7 +83,8 @@
             //加载职责和姓名下拉
             var enterpriseId=$("input[name='enterpriseId']").val();
             var dutyDrop = mini.get("duty");
-            dutyDrop.load("../resource/data/dutyDrop.txt?enterpriseId="+enterpriseId);
+//             dutyDrop.load("../resource/data/dutyDrop.txt?enterpriseId="+enterpriseId);
+			dutyDrop.load("../commonParam.do?type=findCommonParamByType&paramType=DUTIES_TYPE&enterpriseId="+enterpriseId);
             var nameDrop = mini.get("name");
 //             nameDrop.load("../resource/data/dutyNameDrop.txt?enterpriseId="+enterpriseId);
             nameDrop.load("../personnelPost.do?type=findPersonnelPostByCompanyToDrop&enterpriseId="+enterpriseId);

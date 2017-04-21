@@ -113,7 +113,7 @@ $(document).ready(function(){
 	});
 	//获取职责下拉
 	$.ajax({
-		url : '../resource/data/dutyDrop.txt',
+		url : '../commonParam.do?type=findCommonParamByType&paramType=DUTIES_TYPE',
 		data : {id:enterpriseId},
 		dataType : "json",
 		type : "get",
