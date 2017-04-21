@@ -119,5 +119,6 @@
 				AND a.POINT_TYPE = #{pointType}
 			</if>
 		</where>
+		ORDER BY a.POINT_POSITION
 	</select>
 </mapper>

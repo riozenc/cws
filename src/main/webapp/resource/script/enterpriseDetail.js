@@ -220,7 +220,7 @@ function del(recode){
 	    	//点击确认时返回action=true
 	    	if (action===true) {
                 $.ajax({
-                    url: "",
+                    url: "../personnelPost.do?type=delete",
                     type: 'post',
             		data: { id: recode },
             		dataType : 'json',
@@ -262,7 +262,7 @@ function addRowDutyLeft(){
 	    	var iframe = this.getIFrameEl();
 	    	//1表明添加的是客户公司
 	        var data = { 
-	        	enterpriseId: enterpriseId
+	        	enterpriseId: 0
 	        	//dutyFlag: 1
 	        };
 	        iframe.contentWindow.setData(data);
@@ -316,7 +316,7 @@ function delDutyLeft(recode){
 	    	//点击确认时返回action=true
 	    	if (action===true) {
                 $.ajax({
-                    url: "",
+                    url: "../personnelDuties.do?type=delete",
                     type: 'post',
             		data: { id: recode 
             			//dutyFlag: 1 
@@ -360,7 +360,7 @@ function addRowDutyRight(){
 	    	var iframe = this.getIFrameEl();
 	    	//2表明添加的是验证公司
 	        var data = {
-	        	enterpriseId: enterpriseId 
+	        	enterpriseId: 0 
 	        	//dutyFlag: 2
 	        };
 	        iframe.contentWindow.setData(data);

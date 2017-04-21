@@ -83,6 +83,7 @@ public class CompanyAction extends BaseAction {
 	@ResponseBody
 	@RequestMapping(params = "type=findCompanyByWhere")
 	public String findCompanyByWhere(CompanyDomain companyDomain) {
+		companyDomain.setStatus(1);
 		List<CompanyDomain> list = companyService.findByWhere(companyDomain);
 		return JSONUtil.toJsonString(new JsonGrid(companyDomain, list));
 	}

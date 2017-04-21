@@ -202,7 +202,7 @@
 					        </div>
 					    </div>
 					    <div id="datagrid3" class="mini-datagrid" style="width:100%;height:218px;" pageIndexField="pageCurrent"
-					    	url="../resource/data/staffDutyRight.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" multiSelect="false" idField="id">
+					    	url="../personnelDuties.do?type=findPersonnelDutiesByCompany&enterpriseId=0" pageSize="20" allowCellEdit="false" allowCellSelect="true" multiSelect="false" idField="id">
 					        <div property="columns">          
 					            <div field="name" width="80" headerAlign="center" allowSort="false">姓名
 					                <input property="editor" class="mini-textbox" style="width:200px;" minWidth="80" />

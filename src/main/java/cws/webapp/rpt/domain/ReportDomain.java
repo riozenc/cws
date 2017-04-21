@@ -1,0 +1,113 @@
+/**
+ * @Project:cws
+ * @Title:ReportDomain.java
+ * @Author:Riozenc
+ * @Datetime:2017年4月21日 下午11:03:34
+ * 
+ */
+package cws.webapp.rpt.domain;
+
+public class ReportDomain {
+	private String reportNo;// `REPORT_NO` varchar(64) NOT NULL default '',
+	private String reportVersion;// `REPORT_VERSION` varchar(16) default NULL,
+	private String reportTitle;// `REPORT_TITLE` varchar(64) character set ascii
+								// default NULL,
+	private String verifyPlace;// `VERIFY_PLACE` varchar(64) default NULL,
+	private String verifyObject;// `VERIFY_OBJECT` varchar(64) default NULL,
+	private String verifyTime;// `VERIFY_TIME` varchar(64) default NULL,
+	private String vereifyAttr;// `VERIFY_ATTR` varchar(32) default NULL,
+
+	private String reportName;// `REPORT_NAME` varchar(64) default NULL,
+	private String reportType;// `REPORT_TYPE` varchar(64) default NULL,
+	private String remperature;// `TEMPERATURE` varchar(64) default NULL,
+	private Integer reportStatus;// `REPORT_STATUS` int(1) default NULL,
+
+	public String getReportNo() {
+		return reportNo;
+	}
+
+	public void setReportNo(String reportNo) {
+		this.reportNo = reportNo;
+	}
+
+	public String getReportVersion() {
+		return reportVersion;
+	}
+
+	public void setReportVersion(String reportVersion) {
+		this.reportVersion = reportVersion;
+	}
+
+	public String getReportTitle() {
+		return reportTitle;
+	}
+
+	public void setReportTitle(String reportTitle) {
+		this.reportTitle = reportTitle;
+	}
+
+	public String getVerifyPlace() {
+		return verifyPlace;
+	}
+
+	public void setVerifyPlace(String verifyPlace) {
+		this.verifyPlace = verifyPlace;
+	}
+
+	public String getVerifyObject() {
+		return verifyObject;
+	}
+
+	public void setVerifyObject(String verifyObject) {
+		this.verifyObject = verifyObject;
+	}
+
+	public String getVerifyTime() {
+		return verifyTime;
+	}
+
+	public void setVerifyTime(String verifyTime) {
+		this.verifyTime = verifyTime;
+	}
+
+	public String getVereifyAttr() {
+		return vereifyAttr;
+	}
+
+	public void setVereifyAttr(String vereifyAttr) {
+		this.vereifyAttr = vereifyAttr;
+	}
+
+	public String getReportName() {
+		return reportName;
+	}
+
+	public void setReportName(String reportName) {
+		this.reportName = reportName;
+	}
+
+	public String getReportType() {
+		return reportType;
+	}
+
+	public void setReportType(String reportType) {
+		this.reportType = reportType;
+	}
+
+	public String getRemperature() {
+		return remperature;
+	}
+
+	public void setRemperature(String remperature) {
+		this.remperature = remperature;
+	}
+
+	public Integer getReportStatus() {
+		return reportStatus;
+	}
+
+	public void setReportStatus(Integer reportStatus) {
+		this.reportStatus = reportStatus;
+	}
+
+}

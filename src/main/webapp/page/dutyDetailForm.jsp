@@ -77,9 +77,11 @@
         function setData(data){
             form.setData(data);
           	//加载职责下拉
-            var enterpriseId=$("input[name='enterpriseId']").val();
+//             var enterpriseId=$("input[name='enterpriseId']").val();
+          	var enterpriseId=0;
             var dutyDrop = mini.get("duty");
-            dutyDrop.load("../resource/data/dutyDrop.txt?enterpriseId="+enterpriseId);
+//             dutyDrop.load("../resource/data/dutyDrop.txt?enterpriseId="+enterpriseId);
+            dutyDrop.load("../commonParam.do?type=findCommonParamByType&paramType=DUTIES_TYPE&enterpriseId="+enterpriseId);
         }
 		//确定
 		function onOk(e) {
@@ -95,9 +97,9 @@
             //根据id是否存在判断是修改还是新增操作。
             var url;
             if(o.id){
-                url="update";
+                url = "../personnelDuties.do?type=update";
             }else{
-                url="insert";
+                url = "../personnelDuties.do?type=insert";
             } 
             form.validate();
             if (form.isValid() == false) return;
