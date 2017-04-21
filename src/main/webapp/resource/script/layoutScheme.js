@@ -9,7 +9,7 @@ $(document).ready(function(){
 	        e.cellStyle = "text-align:center";
 	        e.cellHtml = '<a href="javascript:seek(\'' + e.record.verifyId + '\',\''+e.record.verifyType+'\')">查看</a>&nbsp; '
 	        			+ '<a href="javascript:edit(\'' + e.record.verifyId + '\')">编辑</a>&nbsp; '
-	                    + '<a href="javascript:del(\'' + e.record.verifyId + '\')">删除</a>&nbsp; ';
+	                    + '<a href="javascript:del(\'' + e.record.id + '\',\''+e.record.verifyId+ '\',\''+e.record.verifyType+'\')">删除</a>&nbsp; ';
 	    }
 	});
 	//合并列相同行单元格
@@ -108,7 +108,7 @@ function edit(recodeID){
 	});
 }
 //删除
-function del(recode){
+function del(id,verifyId,verifyType){
 	mini.open({
 	    url: "page/confirm.jsp",
 	    title: "提示", 
@@ -126,9 +126,9 @@ function del(recode){
 	    	//点击确认时返回action=true
 	    	if (action===true) {
                 $.ajax({
-                    url: "",
+                    url: "../verify.do?type=delete",
                     type: 'post',
-            		data: {enterpriseId:enterpriseId,verifyId:recode},
+            		data: {enterpriseId:enterpriseId,id:id,verifyId:verifyId,verifyType:verifyType},
             		dataType : 'json',
                     success: function (text) {
                     	alert(text.message);

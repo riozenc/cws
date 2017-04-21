@@ -94,7 +94,7 @@
 								<th>姓名</th>
 								<th>职务</th>
 								<th>姓名</th>
-								<th>职务</th>
+								<th>职责</th>
 							</tr>
 							<tr>
 								<td>

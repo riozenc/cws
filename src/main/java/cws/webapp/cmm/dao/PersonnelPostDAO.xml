@@ -69,4 +69,24 @@
 
 		</where>
 	</delete>
+	
+	<select id="findPersonnelPostByCompanyToDrop" parameterType="PersonnelPostDomain"
+		resultType="PersonnelPostDomain" useCache="true">
+		SELECT
+		a.*, b.NAME as COMPANY_NAME,
+		c.NAME AS POST_NAME
+		FROM
+		personnel_post_info a
+		LEFT JOIN company_info b ON a.COMPANY_ID = b.ID
+		LEFT JOIN common_param_info c ON a.POST_ID = c.VALUE
+		<where>
+			c.TYPE = 'POST_TYPE'
+
+			and a.COMPANY_ID = #{companyId}
+
+			<if test="status !=null">
+				and STATUS = #{status}
+			</if>
+		</where>
+	</select>
 </mapper>

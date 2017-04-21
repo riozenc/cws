@@ -6,8 +6,8 @@
 		select ID,TYPE,NAME,VALUE,REMARK,CREATE_DATE,UPDATE_DATE,STATUS from
 		COMMON_PARAM_INFO
 		<where>
-			and ID = #{id}
-
+			and VALUE = #{value}
+			and TYPE = #{type}
 		</where>
 	</select>
 	<select id="findByWhere" parameterType="CommonParamDomain"

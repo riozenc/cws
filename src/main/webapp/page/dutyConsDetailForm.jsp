@@ -85,7 +85,8 @@
             var dutyDrop = mini.get("duty");
             dutyDrop.load("../resource/data/dutyDrop.txt?enterpriseId="+enterpriseId);
             var nameDrop = mini.get("name");
-            nameDrop.load("../resource/data/dutyNameDrop.txt?enterpriseId="+enterpriseId);
+//             nameDrop.load("../resource/data/dutyNameDrop.txt?enterpriseId="+enterpriseId);
+            nameDrop.load("../personnelPost.do?type=findPersonnelPostByCompanyToDrop&enterpriseId="+enterpriseId);
         }
 		//确定
 		function onOk(e) {
@@ -101,9 +102,9 @@
             //根据id是否存在判断是修改还是新增操作。
             var url;
             if(o.id){
-                url="update";
+                url = "../personnelDuties.do?type=update";
             }else{
-                url="insert";
+                url = "../personnelDuties.do?type=insert";
             }
             form.validate();
             if (form.isValid() == false) return;

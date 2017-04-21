@@ -7,6 +7,7 @@
  */
 package cws.webapp.cmm.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ import cws.common.json.JsonGrid;
 import cws.common.json.JsonResult;
 import cws.webapp.cmm.domain.PersonnelPostDomain;
 import cws.webapp.cmm.service.IPersonnelPostService;
+import cws.webapp.sys.domain.CommonParamDomain;
 
 @ControllerAdvice
 @RequestMapping("personnelPost")
@@ -88,6 +90,22 @@ public class PersonnelPostAction extends BaseAction {
 		personnelPostDomain.setCompanyId(companyId);
 		List<PersonnelPostDomain> list = personnelPostService.findByWhere(personnelPostDomain);
 		return JSONUtil.toJsonString(new JsonGrid(personnelPostDomain, list));
+	}
+
+	@ResponseBody
+	@RequestMapping(params = "type=findPersonnelPostByCompanyToDrop")
+	public String findPersonnelPostByCompanyToDrop(PersonnelPostDomain personnelPostDomain,
+			@RequestParam(name = "enterpriseId") int companyId) {
+		personnelPostDomain.setCompanyId(companyId);
+		List<PersonnelPostDomain> personnelPostDomains = personnelPostService.findPersonnelPostByCompanyToDrop(personnelPostDomain);
+		List<CommonParamDomain> list = new ArrayList<CommonParamDomain>();
+		for (PersonnelPostDomain domain : personnelPostDomains) {
+			CommonParamDomain commonParamDomain = new CommonParamDomain();
+			commonParamDomain.setName(domain.getName());
+			commonParamDomain.setValue(domain.getName());
+			list.add(commonParamDomain);
+		}
+		return JSONUtil.toJsonString(list);
 	}
 
 }

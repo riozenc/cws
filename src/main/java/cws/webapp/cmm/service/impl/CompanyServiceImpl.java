@@ -15,6 +15,7 @@ import com.riozenc.quicktool.annotation.TransactionService;
 import cws.webapp.cmm.dao.CompanyDAO;
 import cws.webapp.cmm.domain.CompanyDomain;
 import cws.webapp.cmm.service.ICompanyService;
+import cws.webapp.hst.domain.HostDomain;
 import cws.webapp.pnt.domain.PointDomain;
 import cws.webapp.vfy.domain.VerifyDomain;
 
@@ -65,6 +66,12 @@ public class CompanyServiceImpl implements ICompanyService {
 	public List<PointDomain> getPointByCompany(CompanyDomain companyDomain) {
 		// TODO Auto-generated method stub
 		return companyDAO.getPointByCompany(companyDomain);
+	}
+
+	@Override
+	public List<HostDomain> getHostByCompany(CompanyDomain companyDomain) {
+		// TODO Auto-generated method stub
+		return companyDAO.getHostByCompany(companyDomain);
 	}
 
 }

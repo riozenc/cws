@@ -26,6 +26,7 @@ import cws.common.json.JsonGrid;
 import cws.common.json.JsonResult;
 import cws.webapp.cmm.domain.CompanyDomain;
 import cws.webapp.cmm.service.ICompanyService;
+import cws.webapp.hst.domain.HostDomain;
 import cws.webapp.pnt.domain.PointDomain;
 import cws.webapp.vfy.domain.ValidationReportDomain;
 import cws.webapp.vfy.domain.VerifyDomain;
@@ -92,8 +93,11 @@ public class CompanyAction extends BaseAction {
 
 		companyDomain = companyService.findByKey(companyDomain);
 
-		// 获取企业相关设备总数
+		// 获取企业相关测点总数
 		List<PointDomain> pointdomaians = companyService.getPointByCompany(companyDomain);
+
+		// 获取企业相关主机总数
+		List<HostDomain> hostDomains = companyService.getHostByCompany(companyDomain);
 
 		// 获取企业相关验证对象
 		List<VerifyDomain> verifyDomains = companyService.getVerifyByCompany(companyDomain);
@@ -104,7 +108,7 @@ public class CompanyAction extends BaseAction {
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		map.put("company", companyDomain);
-		map.put("pointCount", pointdomaians.size());
+		map.put("pointCount", pointdomaians.size()+hostDomains.size());
 		map.put("verifyCount", verifyDomains.size());
 		map.put("validationReporCount", validationReportDomains.size());
 
