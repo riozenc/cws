@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50027
 File Encoding         : 65001
 
-Date: 2017-04-15 22:17:59
+Date: 2017-04-23 23:28:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -66,8 +66,7 @@ CREATE TABLE `cold_storage_info` (
 -- ----------------------------
 -- Records of cold_storage_info
 -- ----------------------------
-INSERT INTO `cold_storage_info` VALUES ('1', '小测试2', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1');
-INSERT INTO `cold_storage_info` VALUES ('3', '冷酷', null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `cold_storage_info` VALUES ('1', '小测试224', '15', '1', '1', '1', '1', '1', '1', '1', '1', '1', '/cws/sds_file/0-1-企业列表.jpg', '1', '1');
 
 -- ----------------------------
 -- Table structure for common_param_info
@@ -94,7 +93,6 @@ INSERT INTO `common_param_info` VALUES ('3', 'POST_TYPE', '验证实施人员', 
 INSERT INTO `common_param_info` VALUES ('4', 'DUTIES_TYPE', '协助组织实施', '1', null, '2017-04-10 22:55:00', '2017-04-10 22:55:02', '1');
 INSERT INTO `common_param_info` VALUES ('5', 'POST_TYPE', '验证组负责人', '3', null, '2017-04-10 23:04:33', '2017-04-10 23:09:33', '1');
 INSERT INTO `common_param_info` VALUES ('6', 'VERIFY_TYPE', '冷藏车', '2', null, '2017-04-10 23:07:06', '2017-04-10 23:07:21', '1');
-INSERT INTO `common_param_info` VALUES ('8', 'POST_TYPE', '21322', '5', '13', '2017-04-10 23:22:50', '2017-04-12 21:46:53', '1');
 INSERT INTO `common_param_info` VALUES ('10', 'DUTIES_TYPE', '组织协调、监督实施、复核关键数据', '3', null, '2017-04-10 23:26:14', null, '1');
 
 -- ----------------------------
@@ -135,6 +133,7 @@ CREATE TABLE `company_info` (
 -- ----------------------------
 -- Records of company_info
 -- ----------------------------
+INSERT INTO `company_info` VALUES ('0', '山东艾欧特集团', null, null, null, null, null, '0');
 INSERT INTO `company_info` VALUES ('1', '总测试公司', '策', '110', '天安门广场', '真的利害', '2017-03-28 22:39:36', '1');
 INSERT INTO `company_info` VALUES ('2', '测试添加公司', '崔兴海', '119', '鲁东宿舍', '只会剑圣', '2017-04-08 21:54:29', '1');
 
@@ -155,8 +154,27 @@ CREATE TABLE `company_point_rel` (
 -- ----------------------------
 -- Records of company_point_rel
 -- ----------------------------
-INSERT INTO `company_point_rel` VALUES ('1', '1', '5', '2017-04-15 20:29:14', null, '1');
+INSERT INTO `company_point_rel` VALUES ('1', '1', '5', '2017-04-15 20:29:14', null, '2');
 INSERT INTO `company_point_rel` VALUES ('2', '1', '6', '2017-04-15 20:30:20', null, '2');
+
+-- ----------------------------
+-- Table structure for company_report_rel
+-- ----------------------------
+DROP TABLE IF EXISTS `company_report_rel`;
+CREATE TABLE `company_report_rel` (
+  `ID` int(11) NOT NULL auto_increment,
+  `COMPANY_ID` int(11) default NULL,
+  `REPORT_NO` varchar(64) default NULL,
+  `CREATE_DATE` datetime default NULL,
+  `REMARK` varchar(100) default NULL,
+  `STATUS` smallint(6) default NULL COMMENT '1未完成\r\n            2已完成',
+  PRIMARY KEY  (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='企业与验证报告关系表';
+
+-- ----------------------------
+-- Records of company_report_rel
+-- ----------------------------
+INSERT INTO `company_report_rel` VALUES ('2', '1', '1492956799698', '2017-04-23 22:13:23', '3', '1');
 
 -- ----------------------------
 -- Table structure for company_verify_rel
@@ -214,6 +232,8 @@ CREATE TABLE `personnel_duties_info` (
 -- ----------------------------
 -- Records of personnel_duties_info
 -- ----------------------------
+INSERT INTO `personnel_duties_info` VALUES ('1', '黑海', '3', '1', null, '1');
+INSERT INTO `personnel_duties_info` VALUES ('6', 'dd', '3', '0', null, '1');
 
 -- ----------------------------
 -- Table structure for personnel_post_info
@@ -262,6 +282,86 @@ INSERT INTO `point_info` VALUES ('5', '1001', 'SN-01', 'TEST.1', '自测', '911'
 INSERT INTO `point_info` VALUES ('6', '1002', 'SN-02', 'TEST.1', '自测', '911', '2017-04-15 20:30:20', '2017-05-06 00:00:00', '1002', '1');
 
 -- ----------------------------
+-- Table structure for report_describe
+-- ----------------------------
+DROP TABLE IF EXISTS `report_describe`;
+CREATE TABLE `report_describe` (
+  `REPORT_NO` varchar(64) NOT NULL default '',
+  `VERIFY_MODEL_NAME` varchar(64) default NULL,
+  `LENGTH` varchar(8) default NULL,
+  `WIDTH` varchar(8) default NULL,
+  `HEIGHT` varchar(8) default NULL,
+  `VOLUME` varchar(8) default NULL,
+  `EXT` varchar(8) default NULL,
+  `MONITOR` varchar(8) default NULL,
+  `MANUFACTOR` varchar(8) default NULL,
+  `TEMPERATURE` varchar(8) default NULL,
+  `VERIFY_ID` int(11) NOT NULL,
+  `VERIFY_TYPE` int(11) NOT NULL,
+  `MACHINE_Z` varchar(8) default NULL,
+  `MACHINE_M` varchar(8) default NULL,
+  `MACHINE_B` varchar(8) default NULL,
+  `SHELF` varchar(8) default NULL,
+  PRIMARY KEY  (`REPORT_NO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of report_describe
+-- ----------------------------
+INSERT INTO `report_describe` VALUES ('jjkk123', '牛逼的东西', '21', '22', '33', '4555', '3', '2', '大公司', '20°C', '1', '1', '76', '11', '11', '112');
+
+-- ----------------------------
+-- Table structure for report_info
+-- ----------------------------
+DROP TABLE IF EXISTS `report_info`;
+CREATE TABLE `report_info` (
+  `REPORT_NO` varchar(64) NOT NULL default '',
+  `REPORT_VERSION` varchar(16) default NULL,
+  `REPORT_TITLE` varchar(64) character set ascii default NULL,
+  `VERIFY_PLACE` varchar(64) default NULL,
+  `VERIFY_OBJECT` varchar(64) default NULL,
+  `VERIFY_TIME` varchar(64) default NULL,
+  `VERIFY_ATTR` varchar(32) default NULL,
+  `REPORT_NAME` varchar(64) default NULL,
+  `REPORT_TYPE` varchar(64) default NULL,
+  `TEMPERATURE` varchar(64) default NULL,
+  `REPORT_STATUS` int(1) default NULL,
+  PRIMARY KEY  (`REPORT_NO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of report_info
+-- ----------------------------
+INSERT INTO `report_info` VALUES ('1492956799698', '1.0', null, null, '1', null, null, '测试', null, '极高温验证', null);
+
+-- ----------------------------
+-- Table structure for report_worker
+-- ----------------------------
+DROP TABLE IF EXISTS `report_worker`;
+CREATE TABLE `report_worker` (
+  `REPORT_NO` varchar(64) NOT NULL default '',
+  `NAME` varchar(32) default NULL,
+  `TYPE` varchar(8) default NULL,
+  `WORK_P` varchar(32) default NULL,
+  `WORK_D` varchar(32) default NULL,
+  `SUP` varchar(32) default NULL,
+  `ID` varchar(32) NOT NULL default '',
+  PRIMARY KEY  (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of report_worker
+-- ----------------------------
+INSERT INTO `report_worker` VALUES ('jjkk123', '奶子公司', '2', '0', '0', '0', '1');
+INSERT INTO `report_worker` VALUES ('jjkk123', '吕马三', '1', '射鸡师', '设计，还是设计，还能干什么', '1', '2');
+INSERT INTO `report_worker` VALUES ('jjkk123', '迟永四', '1', '爪哇师', '爪哇，专业爪哇', '4', '3');
+INSERT INTO `report_worker` VALUES ('jjkk123', '鸡子公司', '3', '0', '0', '0', '4');
+INSERT INTO `report_worker` VALUES ('jjkk123', '张二嘎', '1', '射鸡师', '设计，还是设计，还能干什么', '1', '5');
+INSERT INTO `report_worker` VALUES ('jjkk123', '张桑啊', '1', '射鸡师', '设计，还是设计，还能干什么', '1', '6');
+INSERT INTO `report_worker` VALUES ('jjkk123', '吕步三', '1', '爪哇师', '爪哇，专业爪哇', '4', '7');
+INSERT INTO `report_worker` VALUES ('jjkk123', '吕步思', '1', '爪哇师', '爪哇，专业爪哇', '4', '8');
+
+-- ----------------------------
 -- Table structure for validation_report_info
 -- ----------------------------
 DROP TABLE IF EXISTS `validation_report_info`;
@@ -299,8 +399,7 @@ CREATE TABLE `verify_info` (
 -- ----------------------------
 -- Records of verify_info
 -- ----------------------------
-INSERT INTO `verify_info` VALUES ('99', '1', '小测试2', '1', '2017-03-29 23:00:38', '测试2个', '1');
-INSERT INTO `verify_info` VALUES ('100', '3', '冷酷', '1', '2017-04-13 21:30:10', '之尊', '1');
+INSERT INTO `verify_info` VALUES ('99', '1', '小测试224', '1', '2017-03-29 23:00:38', '测试2个', '1');
 INSERT INTO `verify_info` VALUES ('101', '1', '大汽车', '2', '2017-04-13 21:56:56', '奔驰', '1');
 
 -- ----------------------------
@@ -325,3 +424,4 @@ CREATE TABLE `verify_point_rel` (
 -- Records of verify_point_rel
 -- ----------------------------
 INSERT INTO `verify_point_rel` VALUES ('3', '1', '1', '6', 'SN-02', '2', '2', '2017-04-15 22:16:30', '3', '1');
+INSERT INTO `verify_point_rel` VALUES ('4', '1', '1', '5', 'SN-01', '1', '3', '2017-04-21 22:59:24', null, '1');
