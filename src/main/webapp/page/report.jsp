@@ -31,7 +31,7 @@
 			                    <td style="white-space:nowrap;">
 			                    	<input id="reportType" name="reportType" class="mini-combobox" showNullItem="false" 
 					                    value="2" onvaluechanged="reportChange" valueField="value" textField="name" 
-					                    data='[{"value": 2, "name": "全部报告"},{"value": 0, "name": "未完成"},{"value": 1, "name": "已完成"}]'/>
+					                    data='[{"value": 0, "name": "全部报告"},{"value": 1, "name": "未完成"},{"value": 2, "name": "已完成"}]'/>
 					                <input id="key" class="mini-textbox" emptyText="请输入报告名称" style="width:250px;" onenter="onKeyEnter"/>   
 			                        <a class="mini-button" onclick="search()" style="background:#FFF;border-color: #BBB;">
 			                        	查询
@@ -42,7 +42,7 @@
 			        </div>
 			    </div>
 			    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:92%;min-height:359px;" 
-			    	url="../resource/data/report.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
+			    	url="../report.do?type=findReportByCompany" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
 			    	multiSelect="false" idField="id" pageIndexField="pageCurrent">
 			        <div property="columns">
 			        	<div field="name" headerAlign="center" allowSort="false" width="160">报告名称

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cws.webapp.rpt.dao.ReportDAO">
+	<select id="findByKey" parameterType="ReportDomain" resultType="ReportDomain"
+		useCache="true">
+		select
+		REPORT_NO,REPORT_VERSION,REPORT_TITLE,VERIFY_PLACE,VERIFY_OBJECT,VERIFY_TIME,VERIFY_ATTR,REPORT_NAME,REPORT_TYPE,TEMPERATURE,REPORT_STATUS
+		from report_info
+		<where>
+			and REPORT_NO = #{reportNo}
+
+		</where>
+	</select>
+	<select id="findByWhere" parameterType="ReportDomain"
+		resultType="ReportDomain" useCache="true">
+		select
+		REPORT_NO,REPORT_VERSION,REPORT_TITLE,VERIFY_PLACE,VERIFY_OBJECT,VERIFY_TIME,VERIFY_ATTR,REPORT_NAME,REPORT_TYPE,TEMPERATURE,REPORT_STATUS
+		from report_info
+		<where>
+			<if test="reportNo !=null">
+				and REPORT_NO = #{reportNo}
+			</if>
+			<if test="reportVersion !=null">
+				and REPORT_VERSION = #{reportVersion}
+			</if>
+			<if test="reportTitle !=null">
+				and REPORT_TITLE = #{reportTitle}
+			</if>
+			<if test="verifyPlace !=null">
+				and VERIFY_PLACE = #{verifyPlace}
+			</if>
+			<if test="verifyObject !=null">
+				and VERIFY_OBJECT = #{verifyObject}
+			</if>
+			<if test="verifyTime !=null">
+				and VERIFY_TIME = #{verifyTime}
+			</if>
+			<if test="verifyAttr !=null">
+				and VERIFY_ATTR = #{verifyAttr}
+			</if>
+			<if test="reportName !=null">
+				and REPORT_NAME = #{reportName}
+			</if>
+			<if test="reportType !=null">
+				and REPORT_TYPE = #{reportType}
+			</if>
+			<if test="temperature !=null">
+				and TEMPERATURE = #{temperature}
+			</if>
+			<if test="reportStatus !=null">
+				and REPORT_STATUS = #{reportStatus}
+			</if>
+		</where>
+	</select>
+	<insert id="insert" parameterType="ReportDomain" flushCache="true">
+		insert into
+		report_info(REPORT_NO,REPORT_VERSION,REPORT_TITLE,VERIFY_PLACE,VERIFY_OBJECT,VERIFY_TIME,VERIFY_ATTR,REPORT_NAME,REPORT_TYPE,TEMPERATURE,REPORT_STATUS)
+		values
+		(#{reportNo},#{reportVersion},#{reportTitle},#{verifyPlace},#{verifyObject},#{verifyTime},#{verifyAttr},#{reportName},#{reportType},#{temperature},#{reportStatus})
+	</insert>
+	<update id="update" parameterType="ReportDomain" flushCache="true">
+		update report_info
+		<set>
+			<if test="reportVersion !=null">
+				REPORT_VERSION = #{reportVersion},
+			</if>
+			<if test="reportTitle !=null">
+				REPORT_TITLE = #{reportTitle},
+			</if>
+			<if test="verifyPlace !=null">
+				VERIFY_PLACE = #{verifyPlace},
+			</if>
+			<if test="verifyObject !=null">
+				VERIFY_OBJECT = #{verifyObject},
+			</if>
+			<if test="verifyTime !=null">
+				VERIFY_TIME = #{verifyTime},
+			</if>
+			<if test="verifyAttr !=null">
+				VERIFY_ATTR = #{verifyAttr},
+			</if>
+			<if test="reportName !=null">
+				REPORT_NAME = #{reportName},
+			</if>
+			<if test="reportType !=null">
+				REPORT_TYPE = #{reportType},
+			</if>
+			<if test="temperature !=null">
+				TEMPERATURE = #{temperature},
+			</if>
+			<if test="reportStatus !=null">
+				REPORT_STATUS = #{reportStatus},
+			</if>
+		</set>
+		<where>
+			and REPORT_NO = #{reportNo}
+
+		</where>
+	</update>
+	<delete id="delete" parameterType="ReportDomain" flushCache="true">
+		delete from report_info
+		<where>
+			and REPORT_NO = #{reportNo}
+
+		</where>
+	</delete>
+	
+	
+	<select id="findReportByCompany" parameterType="ReportDomain"
+		resultType="ReportDomain" useCache="true">
+		SELECT b.* FROM company_report_rel a LEFT JOIN report_info b ON a.REPORT_NO = b.REPORT_NO  
+		<where>
+			a.COMPANY_ID = #{companyId}
+			<if test="reportStatus !=null">
+				AND b.REPORT_STATUS = #{reportStatus}
+			</if>
+		</where>
+	</select>
+	
+	
+	<insert id="insertCompanyReportRel" parameterType="ReportDomain" flushCache="true">
+		insert into
+		company_report_rel(COMPANY_ID,REPORT_NO,CREATE_DATE,REMARK,STATUS)
+		values
+		(#{companyId},#{reportNo},#{createDate,},#{remark},1)
+	</insert>
+	
+	<delete id="deleteCompanyReportRel" parameterType="ReportDomain" flushCache="true">
+		delete from company_report_rel
+		<where>
+			and COMPANY_ID = #{companyId}
+			and REPORT_NO = #{reportNo}
+		</where>
+	</delete>
+</mapper>

@@ -49,19 +49,21 @@
                 <tr>
                     <td class="colTitle">报告名称：</td>
                     <td class="colData">    
-                        <input name="name" class="mini-textbox" />
+                        <input name="reportName" class="mini-textbox" />
                     </td>
                 </tr>
                 <tr>
                     <td class="colTitle">验证对象：</td>
                     <td class="colData">    
-                        <input name="object" class="mini-textbox" />
+                        <input id="verifyObject" name="verifyObject" class="mini-combobox" showNullItem="false"
+                        popupHeight="138" valueField="value" textField="name" 
+                        url="../verify.do?type=getVerifyByCompanyToDrop" />
                     </td>
                 </tr>
                 <tr>
                     <td class="colTitle">验证对象属性：</td>
                     <td class="colData">    
-                        <input id="propertyType" name="propertyType" class="mini-combobox" showNullItem="false"
+                        <input id="reportType" name="reportType" class="mini-combobox" showNullItem="false"
                         popupHeight="138" valueField="value" textField="name" 
                         url="../resource/data/objectTypeDrop.txt" />
                     </td>
@@ -69,9 +71,9 @@
                 <tr>
                     <td class="colTitle">温度：</td>
                     <td class="colData">    
-                        <input id="temperatureType" name="temperatureType" class="mini-combobox" showNullItem="false"
+                        <input id="temperature" name="temperature" class="mini-combobox" showNullItem="false"
                         valueField="value" textField="name" 
-                        data='[{"value": "01", "name": "极高温验证"},{"value": "02", "name": "极低温验证"}]' />
+                        data='[{"value": "极高温验证", "name": "极高温验证"},{"value": "极低温验证", "name": "极低温验证"}]' />
                     </td>
                 </tr>
                 <tr>
@@ -108,9 +110,9 @@
             //根据id是否存在判断是修改还是新增操作。
             var url;
             if(o.id){
-                url="update";
+                url="../report.do?type=update";
             }else{
-                url="insert";
+                url="../report.do?type=insert";
             }
             form.validate();
             if (form.isValid() == false) return;

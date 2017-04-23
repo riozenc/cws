@@ -136,4 +136,10 @@ public class VerifyServiceImpl implements IVerifyService {
 		return verifyDomain;
 	}
 
+	@Override
+	public List<VerifyDomain> getVerifyByCompanyToDrop(CompanyDomain companyDomain) {
+		// TODO Auto-generated method stub
+		return verifyDAO.getVerifyByCompanyToDrop(companyDomain);
+	}
+
 }

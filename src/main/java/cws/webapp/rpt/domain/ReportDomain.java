@@ -7,7 +7,13 @@
  */
 package cws.webapp.rpt.domain;
 
-public class ReportDomain {
+import java.util.Date;
+
+import com.riozenc.quicktool.annotation.TablePrimaryKey;
+import com.riozenc.quicktool.mybatis.MybatisEntity;
+
+public class ReportDomain implements MybatisEntity {
+	@TablePrimaryKey
 	private String reportNo;// `REPORT_NO` varchar(64) NOT NULL default '',
 	private String reportVersion;// `REPORT_VERSION` varchar(16) default NULL,
 	private String reportTitle;// `REPORT_TITLE` varchar(64) character set ascii
@@ -15,12 +21,16 @@ public class ReportDomain {
 	private String verifyPlace;// `VERIFY_PLACE` varchar(64) default NULL,
 	private String verifyObject;// `VERIFY_OBJECT` varchar(64) default NULL,
 	private String verifyTime;// `VERIFY_TIME` varchar(64) default NULL,
-	private String vereifyAttr;// `VERIFY_ATTR` varchar(32) default NULL,
+	private String verifyAttr;// `VERIFY_ATTR` varchar(32) default NULL,
 
 	private String reportName;// `REPORT_NAME` varchar(64) default NULL,
 	private String reportType;// `REPORT_TYPE` varchar(64) default NULL,
-	private String remperature;// `TEMPERATURE` varchar(64) default NULL,
+	private String temperature;// `TEMPERATURE` varchar(64) default NULL,
 	private Integer reportStatus;// `REPORT_STATUS` int(1) default NULL,
+
+	private Integer companyId;//
+	private Date createDate;
+	private String remark;
 
 	public String getReportNo() {
 		return reportNo;
@@ -70,12 +80,12 @@ public class ReportDomain {
 		this.verifyTime = verifyTime;
 	}
 
-	public String getVereifyAttr() {
-		return vereifyAttr;
+	public String getVerifyAttr() {
+		return verifyAttr;
 	}
 
-	public void setVereifyAttr(String vereifyAttr) {
-		this.vereifyAttr = vereifyAttr;
+	public void setVerifyAttr(String verifyAttr) {
+		this.verifyAttr = verifyAttr;
 	}
 
 	public String getReportName() {
@@ -94,12 +104,12 @@ public class ReportDomain {
 		this.reportType = reportType;
 	}
 
-	public String getRemperature() {
-		return remperature;
+	public String getTemperature() {
+		return temperature;
 	}
 
-	public void setRemperature(String remperature) {
-		this.remperature = remperature;
+	public void setTemperature(String temperature) {
+		this.temperature = temperature;
 	}
 
 	public Integer getReportStatus() {
@@ -108,6 +118,30 @@ public class ReportDomain {
 
 	public void setReportStatus(Integer reportStatus) {
 		this.reportStatus = reportStatus;
+	}
+
+	public Integer getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 
 }

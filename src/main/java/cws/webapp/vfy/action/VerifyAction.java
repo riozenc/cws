@@ -7,6 +7,7 @@
  */
 package cws.webapp.vfy.action;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +23,7 @@ import com.riozenc.quicktool.common.util.json.JSONUtil;
 import cws.common.json.JsonGrid;
 import cws.common.json.JsonResult;
 import cws.webapp.cmm.domain.CompanyDomain;
+import cws.webapp.sys.domain.CommonParamDomain;
 import cws.webapp.vfy.domain.VerifyDomain;
 import cws.webapp.vfy.service.IVerifyService;
 
@@ -93,6 +95,21 @@ public class VerifyAction {
 	public String getVerifyByCompany(CompanyDomain companyDomain,@RequestParam(name = "enterpriseId") int companyId) {
 		companyDomain.setId(companyId);
 		List<VerifyDomain> list = verifyService.getVerifyByCompany(companyDomain);
+		return JSONUtil.toJsonString(new JsonGrid(list));
+	}
+	
+	@ResponseBody
+	@RequestMapping(params = "type=getVerifyByCompanyToDrop")
+	public String getVerifyByCompanyToDrop(CompanyDomain companyDomain,@RequestParam(name = "enterpriseId") int companyId) {
+		companyDomain.setId(companyId);
+		List<VerifyDomain> verifyDomains = verifyService.getVerifyByCompanyToDrop(companyDomain);
+		List<CommonParamDomain> list = new ArrayList<CommonParamDomain>();
+		for (VerifyDomain domain : verifyDomains) {
+			CommonParamDomain commonParamDomain = new CommonParamDomain();
+			commonParamDomain.setName(domain.getVerifyName());
+			commonParamDomain.setValue(domain.getVerifyId()+"");
+			list.add(commonParamDomain);
+		}
 		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
 
