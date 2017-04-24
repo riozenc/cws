@@ -32,8 +32,8 @@ table{
 	width: 100%;
 	height: 100%;
 	padding: 1%;
-	font-family: "å¾®è½¯é›…é»‘";
-	/*é˜²æ­¢paddingå’Œmarginå½±å“é«˜åº¦*/
+	font-family: "Î¢ÈíÑÅºÚ";
+	/*·ÀÖ¹paddingºÍmarginÓ°Ïì¸ß¶È*/
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-o-box-sizing: border-box;
@@ -49,14 +49,14 @@ table{
 	background-color: #FFF;
 	margin-bottom: 10px;
 	min-width: 770px;
-	/*é˜²æ­¢paddingå’Œmarginå½±å“é«˜åº¦*/
+	/*·ÀÖ¹paddingºÍmarginÓ°Ïì¸ß¶È*/
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-o-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
-/*é¢æ¿æ ‡é¢˜ä¸è¿”å›æŒ‰é’®*/
+/*Ãæ°å±êÌâÓë·µ»Ø°´Å¥*/
 #panelTop{
 	width: 100%;
 	height: 25px;
@@ -68,7 +68,7 @@ table{
 	float: left;
 	font-size: 14px;
 	font-weight: bold;
-	font-family: "å¾®è½¯é›…é»‘";
+	font-family: "Î¢ÈíÑÅºÚ";
 }
 #returnButton{
 	float: right;
@@ -87,9 +87,9 @@ table{
 }
 #returnButtonInfo{
 	float: left;
-	font-family: "å¾®è½¯é›…é»‘";
+	font-family: "Î¢ÈíÑÅºÚ";
 }
-/*é¡µé¢æµç¨‹ä¿¡æ¯*/
+/*Ò³ÃæÁ÷³ÌĞÅÏ¢*/
 #flowList{
 	width: 100%;
 	height: 34px;
@@ -104,7 +104,7 @@ table{
 	box-sizing: border-box;
 }
 .flowStep{
-	font-family: "å¾®è½¯é›…é»‘";
+	font-family: "Î¢ÈíÑÅºÚ";
 	font-size: 13px;
 }
 #step1,#step2,#step3,#step4,#step5{
@@ -113,7 +113,7 @@ table{
 #step1{
 	color:#4485E0; 
 }
-/*é¡µé¢å†…å®¹*/
+/*Ò³ÃæÄÚÈİ*/
 #pageContext{
 	width: 100%;
 	padding: 5px 0;
@@ -121,7 +121,7 @@ table{
 	padding-top: 20px;
 	font-size: 14px;
 }
-#context1 td,#context1 th,#context3 td,#context3 th,#context4_bottomTable td{
+#context1 td,#context1 th,#context4_bottomTable td{
 	text-align: right;
 	vertical-align: middle;
 }
@@ -136,7 +136,33 @@ table{
 #context2{
 	display: none;
 }
-#context2_table{
+.context2_canvas{
+	float: left;
+	width: 50%;
+	padding: 0 10px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.companyName{
+	width: 100%;
+	height: 25px;
+	padding-left: 5px;
+	border-left: 1px solid #BBB;
+	border-top: 1px solid #BBB;
+	border-right: 1px solid #BBB;
+	font-size: 12px;
+	font-weight: bold;
+	/*·ÀÖ¹borderÓ°Ïì¸ß¶ÈºÍ¿í¶È*/
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+/*#context2_table{
 	border-collapse:collapse;
 }
 #context2_table td,#context2_table th{
@@ -152,12 +178,12 @@ table{
 .context2_input .mini-textbox-input{
 	text-align: center;
 	font-size: 14px;
-	font-family: "å¾®è½¯é›…é»‘";
+	font-family: "Î¢ÈíÑÅºÚ";
 }
 .context2_input .mini-textbox-border{
 	border-width: 0;
 	background-color: #FFF;
-}
+}*/
 #context2_pre{
 	margin-right: 10px;
 }
@@ -165,7 +191,54 @@ table{
 #context3{
 	display: none;
 }
-.context3Value{
+#context3_lkCanvas{
+	display: none;
+}
+#context3_lccCanvas{
+	display: none;
+}
+#context3_bwxCanvas{
+	display: none;
+}
+.schemeTable{
+	border-collapse:collapse;
+	width: 70%;
+}
+.schemeTh{
+	border:1px solid #BBB;
+	text-align: center;
+	vertical-align: middle;
+	font-family: "Î¢ÈíÑÅºÚ";
+}
+.baseInfo_cellTitle,.baseInfo_cellValue,.baseInfo_cellValue_d{
+	border:1px solid #BBB;
+	padding-left: 6px;
+	text-align: left;
+	vertical-align: middle;
+	font-family: "Î¢ÈíÑÅºÚ";
+}
+.baseInfo_cellValue_d{
+	width: 120px;
+}
+.context3_input{
+	width: 100%;
+}
+#context3 .mini-textbox-border{
+	border-width: 0;
+}
+#context3_verifyObjectCanvas{
+	display: inline-block;
+	margin-top: 10px;
+}
+#context3_verifyObjectName{
+	float: left;
+	font-weight: bold;
+}
+#context3_verifyObjectValue{
+	float: left;
+	width: 270px;
+}
+/*.context3Value{
 	width: 270px;
 }
 .context3_input{
@@ -191,7 +264,7 @@ table{
 #incubatorParams .mini-textbox-input{
 	text-align: center;
 	font-size: 14px;
-	font-family: "å¾®è½¯é›…é»‘";
+	font-family: "Î¢ÈíÑÅºÚ";
 }
 #incubatorParams .mini-textbox-border{
 	border-width: 0;
@@ -215,7 +288,7 @@ table{
 #monitorManu{
 	width: 159px;
 	margin-left: 5px;
-}
+}*/
 #context3_pre{
 	margin-right: 10px;
 }
@@ -350,7 +423,7 @@ table{
 	background-size: 100% 100%;
 	cursor: pointer;
 	background-image: none;
-	/*é˜²æ­¢paddingå’Œmarginå½±å“é«˜åº¦*/
+	/*·ÀÖ¹paddingºÍmarginÓ°Ïì¸ß¶È*/
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-o-box-sizing: border-box;

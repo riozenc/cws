@@ -8,11 +8,16 @@ var $uploadImgMiddle=$("#uploadImgMiddle");
 var $uploadImgBottom=$("#uploadImgBottom");
 //存储背景图片url
 var imgUrlObj={};
+//职务下拉
+var jobDrop;
+//职责下拉
+var dutyDrop;
 $(document).ready(function(){
-	var form = new mini.Form("reportDataForm");
 	/*--------------初始化数据-------------*/
+	//第一步加载数据
+	var form1 = new mini.Form("reportDataForm1");
 	$.ajax({
-		url : '../resource/data/createReport.txt',
+		url : '../resource/data/createReport1.txt',
 		data : {enterpriseId:enterpriseId,recordId:recordId},
 		dataType : "json",
 		type : "post",
@@ -22,9 +27,9 @@ $(document).ready(function(){
 				var value = new Date(Number(data.verifyTime));
 		        data.verifyTime=mini.formatDate(value, 'yyyy-MM-dd');
 			}
-			form.setData(data);
+			form1.setData(data);
 			//显示图片
-			if(data.imageUrl_Top1){
+			/*if(data.imageUrl_Top1){
 				//加载图片
 				$uploadImgTop.css('display', 'none');
 				$imgCanvansTop.css('background-image', 'url('+data.imageUrl_Top1+')');
@@ -46,7 +51,7 @@ $(document).ready(function(){
 				if(propName.indexOf("imageUrl")>-1){	
 					imgUrlObj[propName]=data[propName];
 				}
-			}
+			}*/
 		},
 		error : function(e) {
 			alert("请求数据失败！status："+e.status);
@@ -67,6 +72,53 @@ $(document).ready(function(){
 	//下一步按钮
 	var $next1=$("#context1_next");
 	$next1.click(function(event) {
+		//获取第二步公司名称
+		$.ajax({
+			url : "../resource/data/companyName.txt",
+			data : {enterpriseId:enterpriseId,recordId:recordId},
+			dataType : "json",
+			type : "get",
+			success : function(e){
+				var $companyNameLeft=$("#companyNameLeft");
+				var $companyNameRight=$("#companyNameRight");
+				$companyNameLeft.text(e.companyNameLeft);
+				$companyNameRight.text(e.companyNameRight);
+			},
+			error : function(e){
+				alert("请求数据失败！status："+e.status);
+			}
+		});
+		//加载职责和职务下拉
+		var datagridJob = mini.get("datagridJob");
+		var datagridDuty = mini.get("datagridDuty");
+		$.ajax({
+			url : '../resource/data/jobDrop.txt',
+			data : {enterpriseId:enterpriseId,recordId:recordId},
+			dataType : "json",
+			type : "get",
+			success : function(data) {
+				jobDrop=data;
+				//加载表格数据
+				datagridJob.load({enterpriseId:enterpriseId,recordId:recordId});
+				$.ajax({
+					url : '../resource/data/dutyDrop.txt',
+					data : {enterpriseId:enterpriseId,recordId:recordId},
+					dataType : "json",
+					type : "get",
+					success : function(data) {
+						dutyDrop=data;
+						//加载表格数据
+						datagridDuty.load({enterpriseId:enterpriseId,recordId:recordId});
+					},
+					error : function(e) {
+						alert("请求数据失败！status："+e.status);
+					}
+				});
+			},
+			error : function(e) {
+				alert("请求数据失败！status："+e.status);
+			}
+		});
 		$("#step1").css('color', '#000');
 		$("#step2").css('color', '#4485E0');
 		$("#context1").css("display","none");
@@ -85,37 +137,60 @@ $(document).ready(function(){
 	//下一步按钮
 	var $next2=$("#context2_next");
 	$next2.click(function(event) {
-		if(!$("input[name='companyNameLeft']").val().trim()){
-			mini.alert("公司名称不能为空！");
-			return;
-		}
-		if(!$("input[name='companyNameRight']").val().trim()){
-			mini.alert("公司名称不能为空！");
-			return;
-		}
-		if(!$("input[name='qualityMan']").val().trim()){
-			mini.alert("质量管理员姓名不能为空！");
-			return;
-		}
-		if(!$("input[name='verifyMan']").val().trim()){
-			mini.alert("验证专员姓名不能为空！");
-			return;
-		}
-		if(!$("input[name='storeMan']").val().trim()){
-			mini.alert("保管员姓名不能为空！");
-			return;
-		}
-		if(!$("input[name='shippingManager']").val().trim()){
-			mini.alert("储运部经理姓名不能为空！");
-			return;
-		}
-		if(!$("input[name='qualityManager']").val().trim()){
-			mini.alert("质管部经理姓名不能为空！");
-			return;
-		}
-		if(!$("input[name='qualityVP']").val().trim()){
-			mini.alert("质量副总姓名不能为空！");
-			return;
+		if(propertyType=="01"){
+			//第三步加载冷库基本数据
+			var form2 = new mini.Form("reportDataForm2");
+			$.ajax({
+				url : '../resource/data/freezerBaseInfo.txt',
+				data : {enterpriseId:enterpriseId,recordId:recordId},
+				dataType : "json",
+				type : "post",
+				success : function(data) {
+					form2.setData(data);
+				},
+				error : function(e) {
+					alert("请求数据失败！status："+e.status);
+				}
+			});
+			$("#context3_lccCanvas").css("display","none");
+			$("#context3_bwxCanvas").css("display","none");
+			$("#context3_lkCanvas").css("display","block");
+		}else if(propertyType=="02"){
+			//第三步加载冷藏车基本数据
+			var form3 = new mini.Form("reportDataForm3");
+			$.ajax({
+				url : '../resource/data/truckBaseInfo.txt',
+				data : {enterpriseId:enterpriseId,recordId:recordId},
+				dataType : "json",
+				type : "post",
+				success : function(data) {
+					form3.setData(data);
+				},
+				error : function(e) {
+					alert("请求数据失败！status："+e.status);
+				}
+			});
+			$("#context3_lkCanvas").css("display","none");
+			$("#context3_bwxCanvas").css("display","none");
+			$("#context3_lccCanvas").css("display","block");
+		}else if(propertyType=="03"){
+			//第三步加载保温箱基本数据
+			var form4 = new mini.Form("reportDataForm4");
+			$.ajax({
+				url : '../resource/data/incubatorBaseInfo.txt',
+				data : {enterpriseId:enterpriseId,recordId:recordId},
+				dataType : "json",
+				type : "post",
+				success : function(data) {
+					form4.setData(data);
+				},
+				error : function(e) {
+					alert("请求数据失败！status："+e.status);
+				}
+			});
+			$("#context3_bwxCanvas").css("display","block");
+			$("#context3_lkCanvas").css("display","none");
+			$("#context3_lccCanvas").css("display","none");
 		}
 		$("#step2").css('color', '#000');
 		$("#step3").css('color', '#4485E0');
@@ -125,7 +200,7 @@ $(document).ready(function(){
 
 	/*---------3--------*/
 	//验证对象动态名称
-	$.ajax({
+	/*$.ajax({
 		url : '../resource/data/objectTypeDrop.txt',
 		data : {},
 		dataType : "json",
@@ -142,7 +217,7 @@ $(document).ready(function(){
 		error : function(e) {
 			alert("请求数据失败！status："+e.status);
 		}
-	});
+	});*/
 	//上一步按钮
 	var $pre3=$("#context3_pre");
 	$pre3.click(function(event) {
@@ -154,34 +229,18 @@ $(document).ready(function(){
 	//下一步按钮
 	var $next3=$("#context3_next");
 	$next3.click(function(event) {
-		if(!$("input[name='incubatorBrand']").val().trim()){
-			mini.alert("保温箱品牌及型号不能为空！");
-			return;
-		}
-		if(!$("input[name='incubatorOutside']").val().trim()){
-			mini.alert("保温箱外部尺寸不能为空！");
-			return;
-		}
-		if(!$("input[name='incubatorInside']").val().trim()){
-			mini.alert("保温箱内部尺寸不能为空！");
-			return;
-		}
-		if(!$("input[name='incubatorWeight']").val().trim()){
-			mini.alert("保温箱重量不能为空！");
-			return;
-		}
-		if(!$("input[name='incubatorWallThickness']").val().trim()){
-			mini.alert("保温箱壁厚不能为空！");
-			return;
-		}
-		if(!$("input[name='incubatorOutMaterial']").val().trim()){
-			mini.alert("保温箱外部材料不能为空！");
-			return;
-		}
-		if(!$("input[name='incubatorInMaterial']").val().trim()){
-			mini.alert("保温箱内部材料不能为空！");
-			return;
-		}
+		//第四步表格加载
+		grid.on("drawcell", function (e) {
+			//operate列，超连接操作按钮
+		    if (e.column.name == "operate") {
+		        e.cellStyle = "text-align:center";
+		        e.cellHtml = '<a href="javascript:edit(\'' + e.record.id + '\')">编辑</a>&nbsp; '
+		                    + '<a href="javascript:del(\'' + e.record.id + '\')">删除</a>&nbsp; ';
+		    }
+		});
+		grid.load({enterpriseId:enterpriseId,recordId:recordId},function(success){
+			$("#meterNum").text("仪表数量："+success.data.length);
+		});
 		$("#step3").css('color', '#000');
 		$("#step4").css('color', '#4485E0');
 		$("#context3").css("display","none");
@@ -189,17 +248,6 @@ $(document).ready(function(){
 	});
 
 	/*----------4-----------*/
-	grid.on("drawcell", function (e) {
-		//operate列，超连接操作按钮
-	    if (e.column.name == "operate") {
-	        e.cellStyle = "text-align:center";
-	        e.cellHtml = '<a href="javascript:edit(\'' + e.record.id + '\')">编辑</a>&nbsp; '
-	                    + '<a href="javascript:del(\'' + e.record.id + '\')">删除</a>&nbsp; ';
-	    }
-	});
-	grid.load({enterpriseId:enterpriseId,recordId:recordId},function(success){
-		$("#meterNum").text("仪表数量："+success.data.length);
-	});
 	//上一步按钮
 	var $pre4=$("#context4_pre");
 	$pre4.click(function(event) {
@@ -221,7 +269,6 @@ $(document).ready(function(){
             url: "",
 			type: 'post',
             data: configData,
-            dataType : "json",
             cache: false,
             success: function (text) {
             	//下一步
@@ -294,7 +341,6 @@ $(document).ready(function(){
             url: "",
             type: "POST",
             data: formData,
-            dataType : "json",
             /**
             *必须false才会自动加上正确的Content-Type
             */
@@ -445,9 +491,8 @@ function del(recodeID){
                     url: "",
                     type: 'post',
             		data: { id: recodeID },
-            		dataType : 'json',
                     success: function (text) {
-                    	alert(text.message);
+                    	alert(text.msg);
                         grid.load({enterpriseId:enterpriseId,recordId:recordId},function(success){
 							$("#meterNum").text("仪表数量："+success.data.length);
 						});
@@ -523,7 +568,6 @@ function delImg(site,dropValue){
                     url: "",
                     type: 'post',
             		data: {enterpriseId:enterpriseId,recordId:recordId,imgSite:imgSite},
-            		dataType : "json",
                     success: function (data) {
                         if (data.status == true) {
                         	 mini.alert("图片删除成功！","提示");
