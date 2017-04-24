@@ -35,10 +35,10 @@ public class ReportAction {
 	@RequestMapping(params = "type=insert")
 	public String insert(ReportDomain reportDomain,@RequestParam(name = "enterpriseId") int companyId) {
 		reportDomain.setCompanyId(companyId);
-		
+		reportDomain.setReportStatus(0);
 		//初始化
-		reportDomain.setReportNo(System.currentTimeMillis()+"");
-		reportDomain.setReportVersion("1.0");
+		reportDomain.setReportNo(reportDomain.getReportType()+"_"+System.currentTimeMillis());
+//		reportDomain.setReportVersion("1.0");
 		
 		//({"type":["insert"],"id":[""],"enterpriseId":["1"],"name":["123"],"object":["55"],"propertyType":["01"],"temperatureType":["01"],"remark":["000"]})
 		

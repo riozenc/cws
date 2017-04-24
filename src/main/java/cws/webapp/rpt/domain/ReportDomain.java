@@ -25,6 +25,7 @@ public class ReportDomain implements MybatisEntity {
 
 	private String reportName;// `REPORT_NAME` varchar(64) default NULL,
 	private String reportType;// `REPORT_TYPE` varchar(64) default NULL,
+	private String verifyName;// 验证对象名字
 	private String temperature;// `TEMPERATURE` varchar(64) default NULL,
 	private Integer reportStatus;// `REPORT_STATUS` int(1) default NULL,
 
@@ -142,6 +143,14 @@ public class ReportDomain implements MybatisEntity {
 
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+
+	public String getVerifyName() {
+		return verifyName;
+	}
+
+	public void setVerifyName(String verifyName) {
+		this.verifyName = verifyName;
 	}
 
 }

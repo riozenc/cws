@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50027
 File Encoding         : 65001
 
-Date: 2017-04-23 23:28:01
+Date: 2017-04-24 23:08:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -66,7 +66,7 @@ CREATE TABLE `cold_storage_info` (
 -- ----------------------------
 -- Records of cold_storage_info
 -- ----------------------------
-INSERT INTO `cold_storage_info` VALUES ('1', '小测试224', '15', '1', '1', '1', '1', '1', '1', '1', '1', '1', '/cws/sds_file/0-1-企业列表.jpg', '1', '1');
+INSERT INTO `cold_storage_info` VALUES ('1', '冷库名称', '15', '1', '1', '1', '1', '1', '1', '1', '1', '1', '/cws/sds_file/0-1-企业列表.jpg', '1', '1');
 
 -- ----------------------------
 -- Table structure for common_param_info
@@ -174,7 +174,7 @@ CREATE TABLE `company_report_rel` (
 -- ----------------------------
 -- Records of company_report_rel
 -- ----------------------------
-INSERT INTO `company_report_rel` VALUES ('2', '1', '1492956799698', '2017-04-23 22:13:23', '3', '1');
+INSERT INTO `company_report_rel` VALUES ('4', '1', '1_1493045541961', '2017-04-24 22:52:59', '55', '1');
 
 -- ----------------------------
 -- Table structure for company_verify_rel
@@ -323,6 +323,7 @@ CREATE TABLE `report_info` (
   `VERIFY_TIME` varchar(64) default NULL,
   `VERIFY_ATTR` varchar(32) default NULL,
   `REPORT_NAME` varchar(64) default NULL,
+  `IS_FULL` int(1) default NULL COMMENT '是否满载.0:空载 , 1:满载',
   `REPORT_TYPE` varchar(64) default NULL,
   `TEMPERATURE` varchar(64) default NULL,
   `REPORT_STATUS` int(1) default NULL,
@@ -332,7 +333,7 @@ CREATE TABLE `report_info` (
 -- ----------------------------
 -- Records of report_info
 -- ----------------------------
-INSERT INTO `report_info` VALUES ('1492956799698', '1.0', null, null, '1', null, null, '测试', null, '极高温验证', null);
+INSERT INTO `report_info` VALUES ('1_1493045541961', null, null, null, '1', null, null, '测试报告', null, '1', '极高温验证', '0');
 
 -- ----------------------------
 -- Table structure for report_worker
@@ -399,7 +400,7 @@ CREATE TABLE `verify_info` (
 -- ----------------------------
 -- Records of verify_info
 -- ----------------------------
-INSERT INTO `verify_info` VALUES ('99', '1', '小测试224', '1', '2017-03-29 23:00:38', '测试2个', '1');
+INSERT INTO `verify_info` VALUES ('99', '1', '冷库名称', '1', '2017-03-29 23:00:38', '测试2个', '1');
 INSERT INTO `verify_info` VALUES ('101', '1', '大汽车', '2', '2017-04-13 21:56:56', '奔驰', '1');
 
 -- ----------------------------

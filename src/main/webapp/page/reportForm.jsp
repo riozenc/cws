@@ -96,12 +96,13 @@
         //载入数据
         function setData(data){
             form.setData(data);
-          	//加载职责下拉
+          	//加载下拉
         	var enterpriseId=$("input[name='enterpriseId']").val();
          	var verifyObject = mini.get("verifyObject");
          	verifyObject.load("../verify.do?type=getVerifyByCompanyToDrop&enterpriseId="+enterpriseId);
          	var reportType = mini.get("reportType");
-         	reportType.load("../resource/data/objectTypeDrop.txt?enterpriseId="+enterpriseId);
+//          	reportType.load("../resource/data/objectTypeDrop.txt?enterpriseId="+enterpriseId);
+         	reportType.load("../commonParam.do?type=findCommonParamByType&paramType=VERIFY_TYPE");
         }
 		//确定
 		function onOk(e) {

@@ -34,7 +34,7 @@ $(document).ready(function(){
 	    }
 	});
 	$.ajax({
-		url : '../resource/data/objectTypeDrop.txt',
+		url : '../commonParam.do?type=findCommonParamByType&paramType=VERIFY_TYPE',
 		data : {enterpriseId:enterpriseId},
 		dataType : "json",
 		type : "get",
