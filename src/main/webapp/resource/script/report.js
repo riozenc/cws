@@ -2,6 +2,8 @@ mini.parse();
 var grid = mini.get("datagrid1");
 //验证对象类型下拉
 var objectTypeDrop;
+//对象下拉
+var objectDrop;
 //温度下拉
 var temperatureDrop=[{"value": "01", "name": "极高温验证"},{"value": "02", "name": "极低温验证"}];
 //是否完成下拉
@@ -33,15 +35,27 @@ $(document).ready(function(){
 	});
 	$.ajax({
 		url : '../resource/data/objectTypeDrop.txt',
-		data : {},
+		data : {enterpriseId:enterpriseId},
 		dataType : "json",
 		type : "get",
 		success : function(data) {
 			objectTypeDrop=data;
-			//加载表格数据
-			var reportStatus=mini.get("reportType").getValue();
-			var reportName = mini.get("key").getValue();
-			grid.load({enterpriseId:enterpriseId,reportName:reportName,reportStatus:reportStatus});
+			$.ajax({
+				url : '../verify.do?type=getVerifyByCompanyToDrop',
+				data : {enterpriseId:enterpriseId},
+				dataType : "json",
+				type : "get",
+				success : function(data) {
+					objectDrop=data;
+					//加载表格数据
+					var reportStatus=mini.get("reportType").getValue();
+					var reportName = mini.get("key").getValue();
+					grid.load({enterpriseId:enterpriseId,reportName:reportName,reportStatus:reportStatus});
+				},
+				error : function(e) {
+					alert("请求数据失败！status："+e.status);
+				}
+			});
 		},
 		error : function(e) {
 			alert("请求数据失败！status："+e.status);

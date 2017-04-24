@@ -32,10 +32,10 @@
 		.mini-textarea{
 			width: 100%;
 		}
-        #propertyType{
+        #verifyObject{
             width: 100%;
         }
-        #temperatureType{
+        #reportType{
             width: 100%;
         }
 	</style>
@@ -56,16 +56,14 @@
                     <td class="colTitle">验证对象：</td>
                     <td class="colData">    
                         <input id="verifyObject" name="verifyObject" class="mini-combobox" showNullItem="false"
-                        popupHeight="138" valueField="value" textField="name" 
-                        url="../verify.do?type=getVerifyByCompanyToDrop" />
+                        popupHeight="138" valueField="value" textField="name" />
                     </td>
                 </tr>
                 <tr>
                     <td class="colTitle">验证对象属性：</td>
                     <td class="colData">    
                         <input id="reportType" name="reportType" class="mini-combobox" showNullItem="false"
-                        popupHeight="138" valueField="value" textField="name" 
-                        url="../resource/data/objectTypeDrop.txt" />
+                        popupHeight="138" valueField="value" textField="name" />
                     </td>
                 </tr>
                 <tr>
@@ -95,6 +93,12 @@
         //载入数据
         function setData(data){
             form.setData(data);
+          	//加载职责下拉
+        	var enterpriseId=$("input[name='enterpriseId']").val();
+         	var verifyObject = mini.get("verifyObject");
+         	verifyObject.load("../verify.do?type=getVerifyByCompanyToDrop&enterpriseId="+enterpriseId);
+         	var reportType = mini.get("reportType");
+         	reportType.load("../resource/data/objectTypeDrop.txt?enterpriseId="+enterpriseId);
         }
 		//确定
 		function onOk(e) {

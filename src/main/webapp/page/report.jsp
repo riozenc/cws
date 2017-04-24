@@ -48,9 +48,11 @@
 			        	<div field="name" headerAlign="center" allowSort="false" width="160">报告名称
 			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="100" />
 			            </div> 
-			        	<div field="object" headerAlign="center" allowSort="false" width="120">对象
-			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="100" />
-			            </div> 
+			            <div type="comboboxcolumn" name="object" field="object" width="120" headerAlign="center" 
+			        		autoShowPopup="true" allowSort="false">对象
+							<input property="editor" class="mini-combobox" style="width:100%;" minWidth="100" 
+								valueField="value" textField="name" data="objectDrop"/>
+						</div> 
 						<div type="comboboxcolumn" name="propertyType" field="propertyType" width="100" headerAlign="center" 
 			        		autoShowPopup="true" allowSort="false">属性
 							<input property="editor" class="mini-combobox" style="width:100%;" minWidth="80" 
