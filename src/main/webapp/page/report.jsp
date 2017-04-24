@@ -30,7 +30,7 @@
 			                    </td>
 			                    <td style="white-space:nowrap;">
 			                    	<input id="reportType" name="reportType" class="mini-combobox" showNullItem="false" 
-					                    value="2" onvaluechanged="reportChange" valueField="value" textField="name" 
+					                    value="0" onvaluechanged="reportChange" valueField="value" textField="name" 
 					                    data='[{"value": 0, "name": "全部报告"},{"value": 1, "name": "未完成"},{"value": 2, "name": "已完成"}]'/>
 					                <input id="key" class="mini-textbox" emptyText="请输入报告名称" style="width:250px;" onenter="onKeyEnter"/>   
 			                        <a class="mini-button" onclick="search()" style="background:#FFF;border-color: #BBB;">

@@ -38,6 +38,9 @@
         #reportType{
             width: 100%;
         }
+        #temperature{
+        	width: 100%;
+        }
 	</style>
 </head>
 <body>
