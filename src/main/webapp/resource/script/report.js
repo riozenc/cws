@@ -22,14 +22,13 @@ $(document).ready(function(){
 			//operate列，超连接操作按钮
 	    	e.cellStyle = "text-align:center";
 	    	if(e.row.reportStatus==0){
-		        e.cellHtml = '<a href="javascript:createReport(\'' + e.record.id + '\',\''+e.record.propertyType+'\')">生成报告</a>&nbsp; '
-		                    + '<a href="javascript:del(\'' + e.record.id + '\')">删除</a>&nbsp; ';
+		        e.cellHtml = '<a href="javascript:createReport(\'' + e.record.reportNo+"\',\'" + enterpriseId +'\')">生成报告</a>&nbsp; '
+		                    + '<a href="javascript:del(\'' + e.record.reportNo + '\')">删除</a>&nbsp; ';
 	    	}else if (e.row.reportStatus==1) {
-	    		e.cellHtml = '<a href="javascript:seek(\'' + e.record.id + '\',\''+e.record.object+'\',\''+
-	    					e.record.temperatureType+'\')">查看</a>&nbsp; '
-	    					+ '<a href="javascript:edit(\'' + e.record.id + '\')">编辑</a>&nbsp; '
-	    					+ '<a href="javascript:download(\'' + e.record.id + '\')">下载</a>&nbsp; '
-		                    + '<a href="javascript:del(\'' + e.record.id + '\')">删除</a>&nbsp; ';
+	    		e.cellHtml = '<a href="javascript:seek(\'' + e.record.reportNo +'\')">查看</a>&nbsp; '
+	    					+ '<a href="javascript:edit(\'' + e.record.reportNo + '\')">编辑</a>&nbsp; '
+	    					+ '<a href="javascript:download(\'' + e.record.reportNo + '\')">下载</a>&nbsp; '
+		                    + '<a href="javascript:del(\'' + e.record.reportNo + '\')">删除</a>&nbsp; ';
 	    	}
 	    }
 	});
@@ -194,12 +193,11 @@ function seek(recordId,object,temperature){
 		+"&object=\""+object+"\"&temp=\""+temperature+"\"' width='100%' height='100%' style='border-width: 0'>");
 }
 //生成报告
-function createReport(recordId,propertyType){
+function createReport(reportNo,enterpriseId){
 	var $mainCanvans=$("#mainCanvans");
 	var $childCanvans=$("#childCanvans");
 	$childCanvans.empty();
 	$mainCanvans.css("display", "none");
 	$childCanvans.css("display", "block");
-	$childCanvans.append("<iframe name='childCanvansIframe' src='createReport.jsp?enterpriseId="+enterpriseId+"&recordId="+recordId
-		+"&propertyType=\""+propertyType+"\"' width='100%' height='100%' style='border-width: 0'>");
+	$childCanvans.append("<iframe name='childCanvansIframe' src='createReport.jsp?enterpriseId="+enterpriseId + "&reportNo=\""+reportNo +"\"' width='100%' height='100%' style='border-width: 0'>");
 }

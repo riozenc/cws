@@ -33,8 +33,9 @@ $(document).ready(function(){
 	//第一步加载数据
 	var form1 = new mini.Form("reportDataForm1");
 	$.ajax({
-		url : '../resource/data/createReport1.txt',
-		data : {enterpriseId:enterpriseId,recordId:recordId},
+//		url : '../resource/data/createReport1.txt',
+		url : '../report.do?type=findReportByKey',
+		data : {reportNo:recordId},
 		dataType : "json",
 		type : "post",
 		success : function(data) {

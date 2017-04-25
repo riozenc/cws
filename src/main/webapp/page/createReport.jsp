@@ -85,7 +85,7 @@
 						<div class="companyName" id="companyNameLeft"></div>
 						<div id="dataGridCan">
 						    <div id="datagridJob" class="mini-datagrid" style="width:100%;height:300px;" pageIndexField="pageCurrent"
-						    	url="../resource/data/staffJob.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
+						    	url="../personnelPost.do?type=findPersonnelPostByCompany" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
 						    	multiSelect="false" idField="id">
 						        <div property="columns">          
 						            <div field="name" width="80" headerAlign="center" allowSort="false">姓名
@@ -104,7 +104,7 @@
 						<div class="companyName" id="companyNameRight"></div>
 						<div id="dataGridCan">
 						    <div id="datagridDuty" class="mini-datagrid" style="width:100%;height:300px;" pageIndexField="pageCurrent"
-						    	url="../resource/data/staffDutyRight.txt" pageSize="20" allowCellEdit="false" allowCellSelect="true" multiSelect="false" idField="id">
+						    	url="../personnelDuties.do?type=findPersonnelDutiesByCompany&enterpriseId=0" pageSize="20" allowCellEdit="false" allowCellSelect="true" multiSelect="false" idField="id">
 						        <div property="columns">          
 						            <div field="name" width="80" headerAlign="center" allowSort="false">姓名
 						                <input property="editor" class="mini-textbox" style="width:200px;" minWidth="80" />
@@ -797,9 +797,9 @@
 		//企业列表点击查看时传过来的id
 		var enterpriseId=${param.enterpriseId};
 		//验证报告管理点击查看时传过来的该条记录id
-		var recordId=${param.recordId};
+		var recordId=${param.reportNo};
 		//该条记录的属性
-		var propertyType=${param.propertyType};
+// 		var propertyType=${param.propertyType};
 		//获得项目路径
 		var contextPath="${pageContext.request.contextPath}";
 	</script>
