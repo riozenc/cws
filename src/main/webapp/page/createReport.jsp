@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<script src="../miniUI/scripts/boot.js" type="text/javascript"></script>
+	<script src="../echarts/echarts.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="../resource/css/createReport.css">
 	<link rel="stylesheet" type="text/css" href="../resource/css/miniUI_dataGrid.css">
 </head>
@@ -595,23 +596,105 @@
 			    		<tr>
 			    			<td class="formRowName">温度测量点：</td>
 			    			<td>
-			    				<input name="temperaturePoint" class="mini-textbox measurePoint"/>
+			    				<input name="temperaturePoint" class="mini-textbox measurePoint" allowInput="false"/>
 			    				<span>处</span>
 			    			</td>
 			    		</tr>
 			    		<tr>
 			    			<td class="formRowName">环境测点：</td>
 			    			<td>
-			    				<input name="environmentPoint" class="mini-textbox measurePoint"/>
+			    				<input name="environmentPoint" class="mini-textbox measurePoint" allowInput="false"/>
 			    				<span>处</span>
 			    			</td>
 			    		</tr>
 				    </table>
 					<div class="stepButton" id="context4_pre">上一步</div>
-					<div class="stepButton" id="configDone">配置完成</div>
+					<div class="stepButton" id="context4_next">下一步</div>
 				</div>
 				<div id="context5">
-					<div class="context5Can" id="context5_top">
+					<div id="dropContent">
+						<input id="pDropData" class="mini-combobox" showNullItem="false" value="1" onvaluechanged="dropChanged"
+							textField="name" valueField="value" name="pointType" 
+							url="../resource/data/schemeDrop.txt" />
+						<input id="mDropData" class="mini-combobox" showNullItem="false" value="1" onvaluechanged="dropChanged"
+							textField="name" valueField="value" name="measureType" 
+	                        data='[{"value": 1, "name": "断电数据"},{"value": 2, "name": "开门数据"},{"value": 3, "name": "环境数据"}]'/>
+	                    <div id="deleteImg">从缓存中删除上一张图片</div>
+	                    <div id="saveImg">保存截图到缓存</div>
+					</div>
+					<div id="context5_canvas">
+						<div class="context5_imgCanvas" id="lkImgCanvas">
+							<div class="echartsImgCanvans" id="lkImg1">
+								<input type="text" name="lkImg1" />
+								<input type="text" name="measureType1" />
+								<input type="text" name="pointType1" />
+							</div>
+							<div class="echartsImgCanvans" id="lkImg2">
+								<input type="text" name="lkImg2" />
+								<input type="text" name="measureType2" />
+								<input type="text" name="pointType2" />
+							</div>
+							<div class="echartsImgCanvans" id="lkImg3">
+								<input type="text" name="lkImg3" />
+								<input type="text" name="measureType3" />
+								<input type="text" name="pointType3" />
+							</div>
+							<div class="echartsImgCanvans" id="lkImg4">
+								<input type="text" name="lkImg4" />
+								<input type="text" name="measureType4" />
+								<input type="text" name="pointType4" />
+							</div>
+						</div>
+						<div class="context5_imgCanvas" id="lccImgCanvas">
+							<div class="echartsImgCanvans" id="lccImg1">
+								<input type="text" name="lccImg1" />
+								<input type="text" name="measureType1" />
+								<input type="text" name="pointType1" />
+							</div>
+							<div class="echartsImgCanvans" id="lccImg2">
+								<input type="text" name="lccImg2" />
+								<input type="text" name="measureType2" />
+								<input type="text" name="pointType2" />
+							</div>
+							<div class="echartsImgCanvans" id="lccImg3">
+								<input type="text" name="lccImg3" />
+								<input type="text" name="measureType3" />
+								<input type="text" name="pointType3" />
+							</div>
+						</div>
+						<div class="context5_imgCanvas" id="bwxImgCanvas">
+							<div class="echartsImgCanvans" id="bwxImg1">
+								<input type="text" name="bwxImg1" />
+								<input type="text" name="measureType1" />
+								<input type="text" name="pointType1" />
+							</div>
+							<div class="echartsImgCanvans" id="bwxImg2">
+								<input type="text" name="bwxImg2" />
+								<input type="text" name="measureType2" />
+								<input type="text" name="pointType2" />
+							</div>
+							<div class="echartsImgCanvans" id="bwxImg3">
+								<input type="text" name="bwxImg3" />
+								<input type="text" name="measureType3" />
+								<input type="text" name="pointType3" />
+							</div>
+							<div class="echartsImgCanvans" id="bwxImg4">
+								<input type="text" name="bwxImg4" />
+								<input type="text" name="measureType4" />
+								<input type="text" name="pointType4" />
+							</div>
+							<div class="echartsImgCanvans" id="bwxImg5">
+								<input type="text" name="bwxImg5" />
+								<input type="text" name="measureType5" />
+								<input type="text" name="pointType5" />
+							</div>
+						</div>
+						<div id="echartCanvas">
+							<div id="chartData"></div>
+						</div>
+					</div>
+					<br/>
+					<!--<div class="context5Can" id="context5_top">
 						<div class="context5Left">
 							<div id="context5Left1_top">
 								<div id="context5Left1_envir">外部环境：</div>
@@ -699,14 +782,14 @@
 							</div>
 						</div>
 					</div>
-					<div></div>
+					<div></div>-->
 					<div class="stepButton" id="context5_pre">上一步</div>
 					<div class="stepButton" id="download">预览并下载</div>
 				</div>
 				<!--上传图片-->
-				<form id="imgForm" method="post" enctype="multipart/form-data" >
+				<!--<form id="imgForm" method="post" enctype="multipart/form-data" >
 					<input id="uploadButton" type="file" name="Fdata" accept="image/*" />
-				</form>
+				</form>-->
 			</div>
 		</div>
 	</div>
@@ -717,6 +800,8 @@
 		var recordId=${param.recordId};
 		//该条记录的属性
 		var propertyType=${param.propertyType};
+		//获得项目路径
+		var contextPath="${pageContext.request.contextPath}";
 	</script>
 	<script type="text/javascript" src="../resource/script/createReport.js"></script>
 </body>

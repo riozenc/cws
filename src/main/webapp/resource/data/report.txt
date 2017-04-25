@@ -15,12 +15,20 @@
 			"object" : "中药饮片库",
 			"propertyType" : "01",
 			"temperatureType" : "02",
-			"reportStatus" : 1
+			"reportStatus" : 0
 		},
 		{
 			"id" : 3,
 			"name" : "2017验证报告3",
 			"object" : "冷藏车1",
+			"propertyType" : "02",
+			"temperatureType" : "02",
+			"reportStatus" : 0
+		},
+		{
+			"id" : 4,
+			"name" : "2017验证报告4",
+			"object" : "冷藏车2",
 			"propertyType" : "02",
 			"temperatureType" : "02",
 			"reportStatus" : 1

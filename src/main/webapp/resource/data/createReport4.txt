@@ -1,0 +1,4 @@
+{
+	"temperaturePoint" : 13,
+	"environmentPoint" : 5
+}

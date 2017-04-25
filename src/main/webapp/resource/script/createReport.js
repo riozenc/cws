@@ -12,6 +12,22 @@ var imgUrlObj={};
 var jobDrop;
 //职责下拉
 var dutyDrop;
+//冷库echarts可截图数
+var lkEchartImgTotal=4;
+//冷藏车echarts可截图数
+var lccEchartImgTotal=3;
+//冷藏车echarts可截图数
+var bwxEchartImgTotal=5;
+//冷库echarts当前截图数
+var lkEchartImg=1;
+//冷藏车echarts当前截图数
+var lccEchartImg=1;
+//冷藏车echarts当前截图数
+var bwxEchartImg=1;
+//保存echarts截图时记录当前查询条件
+var curIf=[];
+//echarts图句柄
+var myChart;
 $(document).ready(function(){
 	/*--------------初始化数据-------------*/
 	//第一步加载数据
@@ -188,9 +204,9 @@ $(document).ready(function(){
 					alert("请求数据失败！status："+e.status);
 				}
 			});
-			$("#context3_bwxCanvas").css("display","block");
 			$("#context3_lkCanvas").css("display","none");
 			$("#context3_lccCanvas").css("display","none");
+			$("#context3_bwxCanvas").css("display","block");
 		}
 		$("#step2").css('color', '#000');
 		$("#step3").css('color', '#4485E0');
@@ -241,6 +257,20 @@ $(document).ready(function(){
 		grid.load({enterpriseId:enterpriseId,recordId:recordId},function(success){
 			$("#meterNum").text("仪表数量："+success.data.length);
 		});
+		//第四步获取测点数量
+		$.ajax({
+			url : "../resource/data/createReport4.txt",
+			data : {enterpriseId:enterpriseId,recordId:recordId},
+			dataType : "json",
+			type : "get",
+			success : function(e){
+				$("input[name='temperaturePoint']").val(e.temperaturePoint);
+				$("input[name='environmentPoint']").val(e.environmentPoint);
+			},
+			error : function(e){
+				alert("请求数据失败！status："+e.status);
+			}
+		});
 		$("#step3").css('color', '#000');
 		$("#step4").css('color', '#4485E0');
 		$("#context3").css("display","none");
@@ -256,11 +286,123 @@ $(document).ready(function(){
 		$("#context4").css("display","none");
 		$("#context3").css("display","block");
 	});
-	//配置完成按钮
-	var $configDone=$("#configDone");
-	$configDone.click(function(event) {
+	//下一步按钮
+	var $next4=$("#context4_next");
+	$next4.click(function(event) {
+		if(propertyType=="01"){
+			//切换第五步echarts左侧截图保存内容
+			$("#lccImgCanvas").css("display","none");
+			$("#bwxImgCanvas").css("display","none");
+			$("#lkImgCanvas").css("display","block");
+		}else if(propertyType=="02"){
+			//切换第五步echarts左侧截图保存内容
+			$("#lkImgCanvas").css("display","none");
+			$("#bwxImgCanvas").css("display","none");
+			$("#lccImgCanvas").css("display","block");
+		}else if(propertyType=="03"){
+			//切换第五步echarts左侧截图保存内容	
+			$("#lkImgCanvas").css("display","none");
+			$("#lccImgCanvas").css("display","none");
+			$("#bwxImgCanvas").css("display","block");
+		}
+		//加载echarts图
+		loadChart();
+		//保存图片按钮点击事件
+		var $saveImg=$("#saveImg");
+		$saveImg.click(function(){
+			var pointType=mini.get("pDropData").getValue();
+			var measureType=mini.get("mDropData").getValue();
+			//不能重复截图
+        	for(i=0;i<curIf.length;i++){
+        		if(curIf[i].pointType===pointType&&curIf[i].measureType===measureType){
+        			mini.alert("当前截图已存在！","提示");
+        			return;
+        		}
+        	}
+            if(propertyType=="01"){
+            	//如果当前截图数大于总截图数，返回
+            	if(lkEchartImgTotal<lkEchartImg){
+            		mini.alert("不能上传更多截图！","提示");
+            		return;
+            	}
+            	//截取echarts图形base64编码
+            	var base64data=myChart.getDataURL("png");
+            	//解码base64前台显示图形
+                $("#lkImg"+lkEchartImg).css('background-image','url('+base64data+')');
+                //记录base64编码信息，以便传递到后台
+                $("input[name='lkImg"+lkEchartImg+"']").val(base64data);
+                //记录测量信息，以便传递到后台
+                $("input[name='measureType"+lkEchartImg+"']").val(measureType);
+                //记录测点信息，以便传递到后台
+                $("input[name='pointType"+lkEchartImg+"']").val(pointType);
+                lkEchartImg++;
+			}else if(propertyType=="02"){
+				if(lccEchartImgTotal<lccEchartImg){
+            		mini.alert("不能上传更多截图！","提示");
+            		return;
+            	}
+            	var base64data=myChart.getDataURL("png");
+            	$("#lccImg"+lccEchartImg).css('background-image','url('+base64data+')');
+                $("input[name='lccImg"+lccEchartImg+"']").val(base64data);
+                $("input[name='measureType"+lccEchartImg+"']").val(measureType);
+                $("input[name='pointType"+lccEchartImg+"']").val(pointType);
+                lccEchartImg++;
+			}else if(propertyType=="03"){
+				if(bwxEchartImgTotal<bwxEchartImg){
+            		mini.alert("不能上传更多截图！","提示");
+            		return;
+            	}
+            	var base64data=myChart.getDataURL("png");
+            	$("#bwxImg"+bwxEchartImg).css('background-image','url('+base64data+')');
+                $("input[name='bwxImg"+bwxEchartImg+"']").val(base64data);
+                $("input[name='measureType"+bwxEchartImg+"']").val(measureType);
+                $("input[name='pointType"+bwxEchartImg+"']").val(pointType);
+                bwxEchartImg++;
+			}
+			curIf.push({pointType:pointType,measureType:measureType});
+		});
+		//删除图片按钮点击事件
+		var $deleteImg=$("#deleteImg");
+		$deleteImg.click(function(){
+			if(propertyType=="01"){
+				if(lkEchartImg==1){
+					mini.alert("没有可删除的图片！","提示");
+            		return;
+				}
+				lkEchartImg--;
+				//解码base64前台显示图形
+                $("#lkImg"+lkEchartImg).css('background-image','none');
+                //记录base64编码信息，以便传递到后台
+                $("input[name='lkImg"+lkEchartImg+"']").val('');
+                //记录测量信息，以便传递到后台
+                $("input[name='measureType"+lkEchartImg+"']").val('');
+                //记录测点信息，以便传递到后台
+                $("input[name='pointType"+lkEchartImg+"']").val('');
+			}else if(propertyType=="02"){
+				if(lccEchartImg==1){
+					mini.alert("没有可删除的图片！","提示");
+            		return;
+				}
+				lccEchartImg--;
+				$("#lccImg"+lccEchartImg).css('background-image','none');
+                $("input[name='lccImg"+lccEchartImg+"']").val('');
+                $("input[name='measureType"+lccEchartImg+"']").val('');
+                $("input[name='pointType"+lccEchartImg+"']").val('');
+			}else if(propertyType=="03"){
+				if(bwxEchartImg==1){
+					mini.alert("没有可删除的图片！","提示");
+            		return;
+				}
+				bwxEchartImg--;
+				$("#bwxImg"+bwxEchartImg).css('background-image','none');
+                $("input[name='bwxImg"+bwxEchartImg+"']").val('');
+                $("input[name='measureType"+bwxEchartImg+"']").val('');
+                $("input[name='pointType"+bwxEchartImg+"']").val('');
+			}
+			curIf.pop();
+		});
 		//提交数据
-		var configData = form.getData();
+		/*var configData = form.getData();
 		//将日期对象转化为字符串
 		configData.verifyTime=mini.formatDate(configData.verifyTime,"yyyy-MM-dd");
 		form.validate();
@@ -280,12 +422,16 @@ $(document).ready(function(){
             error: function (jqXHR, textStatus, errorThrown) {
                 alert(jqXHR.responseText);
             }
-        });
+        });*/
+        $("#step4").css('color', '#000');
+		$("#step5").css('color', '#4485E0');		
+		$("#context4").css("display","none");
+		$("#context5").css("display","block");
 	});
 
 	/*----------5-----------*/
 	//图片点击事件
-	var flag=0;
+	/*var flag=0;
 	var $uploadButton=$("#uploadButton");
 	$imgCanvansTop.click(function(event) {
 		flag=1;
@@ -341,14 +487,10 @@ $(document).ready(function(){
             url: "",
             type: "POST",
             data: formData,
-            /**
-            *必须false才会自动加上正确的Content-Type
-            */
+            //必须false才会自动加上正确的Content-Type
             contentType: false,
-            /**
-            * 必须false才会避开jQuery对 formdata 的默认处理
-            * XMLHttpRequest会对 formdata 进行正确的处理
-            */
+            //必须false才会避开jQuery对 formdata 的默认处理
+            //XMLHttpRequest会对 formdata 进行正确的处理
             processData: false,
             success: function (data) {
             	alert("请指定后台地址");
@@ -401,7 +543,7 @@ $(document).ready(function(){
 		}
 		var delval= mini.get("chartBot").getValue();
 		delImg(3,delval);
-	});
+	});*/
 	//上一步按钮
 	var $pre5=$("#context5_pre");
 	$pre5.click(function(event) {
@@ -506,8 +648,145 @@ function del(recodeID){
 	});
 }
 
+//第五步下拉切换事件
+function dropChanged(event){
+	loadChart();
+}
+
+//echarts图形加载
+function loadChart(){
+	var pointType=mini.get("pDropData").getValue();
+	var measureType=mini.get("mDropData").getValue();
+	$.ajax({
+		url : "../resource/data/createReportChart.txt",
+		data : {enterpriseId:enterpriseId,recordId:recordId,pointType:pointType,measureType:measureType,propertyType:propertyType},
+		dataType : "json",
+		type : "post",
+		success : function(data){
+			var xAxis=data.xAxis;
+			var yData=data.yData;
+			//为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
+		    require.config({
+		        paths: {
+		            echarts: contextPath+'/echarts'
+		        }
+		    });
+		    //动态加载echarts然后在回调函数中开始使用，注意保持按需加载结构定义图表路径
+		    require(
+			    [
+			        'echarts',
+			        'echarts/chart/line'
+			    ],
+			    function (ec) {
+			    	//初始化容器
+		        	myChart = ec.init(document.getElementById('chartData'));
+		        	//设置各属性及参数
+		        	myChart.setOption({
+		        		title: {
+					        text: '温度变化曲线图',
+					        x: 'center',
+							y: 'top'
+					    },
+		        		tooltip : {
+		        			trigger: 'axis',
+		       				axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            			type : 'line'        // 默认为直线，可选为：'line' | 'shadow'
+		        			}
+		        		},
+		        		/*legend: {
+							data:['主风机','备用风机','开门测试时段','断电时段'],
+							x: 'center',
+							y: 'bottom'
+						},*/
+		        		grid: {
+		        			x:40,//左边距
+		        			x2:10,//右边距
+		        			y:35,//上边距
+		        			y2:75,//下边距
+		        			containLabel: true
+		    			},
+		    			/*toolbox: {
+		    				show: true,
+		    				padding:[5,28,0,0],
+					        feature: {
+					            saveAsImage: {
+					            	show:true,
+		                        	title:"保存图片到本地",
+		                        	name:"温度变化曲线图",
+		                            pixelRatio: 2
+					            },
+					            selfButtons:
+						            {//自定义按钮 danielinbiti,这里增加，selfbuttons可以随便取名字    
+					                   show: true,//是否显示    
+					                   title: '保存图片到缓存', //鼠标移动上去显示的文字 
+					                   name: "温度变化曲线图",
+					                   icon: contextPath+'/resource/img/upload.png', //图标 
+					                   option: {},    
+					                   onclick: function(option1) {//点击事件,这里的option1是chart的option信息    
+					                        //这里可以加入自己的处理代码，切换不同的图形 
+					                      
+					                   }
+					               }
+					        }
+					    },*/
+		    			//滚动条以及滚动缩放
+		         		/*dataZoom : {
+		         		 	show : true, 
+		         		 	realtime : true,
+		         		 	height : 10,
+		         		 	fillerColor : 'rgba(110,181,228,0.4)',
+		         		 	start : 0, 
+		         		 	end : 100
+		         		},*/
+		    			xAxis : [
+							{
+		    					type : 'category',
+		    					boundaryGap: false,
+		    					splitLine: {
+		    						show:false
+		    					},
+		    					axisLabel: {
+		    						rotate:-90,
+		    						interval:0
+		    						/*formatter: function (value) {
+		                    			return value.substr(8,8);//横坐标日期格式 dd HH:mm:ss
+		                			}*/
+		    					},
+		    					axisTick: {
+		    						show: false
+		    					},
+		    					data:xAxis
+		    				}
+		    			],
+		    			yAxis: {
+		    				name: '℃',
+		    				type: 'value'
+		    			},
+						series: [
+							{
+								name:'温度',
+								type:'line',
+								data:yData
+							}
+						]
+		        	});
+		        	//窗口大小改变时图形自适应
+				    setTimeout(function(){
+				    	window.onresize = function () {
+				    		myChart.resize();
+				    	}
+				    },200);
+				}
+			);
+		},
+		error : function(e){
+			alert("请求数据失败！status："+e.status);
+		}
+	});
+}
+
 /*下拉切换图片功能*/
-function chartChangeTop(event){
+/*function chartChangeTop(event){
 	var imgUrl="imageUrl_Top"+event.value;
 	if(imgUrlObj[imgUrl]){
 		$uploadImgTop.css('display', 'none');
@@ -536,10 +815,10 @@ function chartChangeBottom(event){
 		$imgCanvansBottom.css('background-image', 'none');
 		$uploadImgBottom.css('display', 'block');
 	}
-}
+}*/
 
 /*------删除图片------*/
-function delImg(site,dropValue){
+/*function delImg(site,dropValue){
 	mini.open({
 	    url: "page/confirm.jsp",
 	    title: "提示", 
@@ -593,4 +872,4 @@ function delImg(site,dropValue){
 	    	} 
 	    }
 	});
-}
+}*/
