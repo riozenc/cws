@@ -45,30 +45,6 @@ $(document).ready(function(){
 		        data.verifyTime=mini.formatDate(value, 'yyyy-MM-dd');
 			}
 			form1.setData(data);
-			//显示图片
-			/*if(data.imageUrl_Top1){
-				//加载图片
-				$uploadImgTop.css('display', 'none');
-				$imgCanvansTop.css('background-image', 'url('+data.imageUrl_Top1+')');
-			}
-			if(data.imageUrl_Middle1){
-				//加载图片
-				$uploadImgMiddle.css('display', 'none');
-				$imgCanvansMiddle.css('background-image', 'url('+data.imageUrl_Middle1+')');
-			}
-			if(data.imageUrl_Bottom1){
-				//加载图片
-				$uploadImgBottom.css('display', 'none');
-				$imgCanvansBottom.css('background-image', 'url('+data.imageUrl_Bottom1+')');
-			}
-			//存储图片url
-			var props=Object.getOwnPropertyNames(data);
-			for(var i = 0; i < props.length; i++){
-				var propName=props[i];
-				if(propName.indexOf("imageUrl")>-1){	
-					imgUrlObj[propName]=data[propName];
-				}
-			}*/
 		},
 		error : function(e) {
 			alert("请求数据失败！status："+e.status);
@@ -216,25 +192,6 @@ $(document).ready(function(){
 	});
 
 	/*---------3--------*/
-	//验证对象动态名称
-	/*$.ajax({
-		url : '../resource/data/objectTypeDrop.txt',
-		data : {},
-		dataType : "json",
-		type : "get",
-		success : function(data) {
-			for(var i=0;i<data.length;i++){
-				if(reportType==data[i].value){
-					$("#incubatorNameTitle").text(data[i].name+"名称型号：");
-					$("#incubatorParamsTitle").text(data[i].name+"参数：");
-					break;
-				}
-			}
-		},
-		error : function(e) {
-			alert("请求数据失败！status："+e.status);
-		}
-	});*/
 	//上一步按钮
 	var $pre3=$("#context3_pre");
 	$pre3.click(function(event) {
@@ -328,14 +285,32 @@ $(document).ready(function(){
             	}
             	//截取echarts图形base64编码
             	var base64data=myChart.getDataURL("png");
-            	//解码base64前台显示图形
-                $("#lkImg"+lkEchartImg).css('background-image','url('+base64data+')');
-                //记录base64编码信息，以便传递到后台
-                $("input[name='lkImg"+lkEchartImg+"']").val(base64data);
-                //记录测量信息，以便传递到后台
-                $("input[name='measureType"+lkEchartImg+"']").val(measureType);
-                //记录测点信息，以便传递到后台
-                $("input[name='pointType"+lkEchartImg+"']").val(pointType);
+            	//将图片数据发送到后台
+                $.ajax({
+		            url: "",
+		            type: "post",
+		            data: {base64data:base64data,measureType:measureType,pointType:pointType,reportType:reportType},
+		            dataType : "json",
+		            success: function (data) {
+		            	if(data.statusCode==200){
+			                alert("保存成功！");
+			                var imgPath=contextPath+data.message;
+			                //解码base64前台显示图形
+			                $("#lkImg"+lkEchartImg).css('background-image','url('+base64data+')');
+			                //记录base64编码信息，以便传递到后台
+			                $("input[name='lkImg"+lkEchartImg+"']").val(imgPath);
+			                //记录测量信息，以便传递到后台
+			                $("input[name='lkMeasureType"+lkEchartImg+"']").val(measureType);
+			                //记录测点信息，以便传递到后台
+			                $("input[name='lkPointType"+lkEchartImg+"']").val(pointType);
+		            	}else{
+		            		alert("保存失败！");
+		            	}
+		            },
+		            error: function (XMLHttpRequest, textStatus) {
+		                mini.alert("保存失败！"+textStatus);
+		            }
+		        });
                 lkEchartImg++;
 			}else if(reportType=="2"){
 				if(lccEchartImgTotal<lccEchartImg){
@@ -343,10 +318,27 @@ $(document).ready(function(){
             		return;
             	}
             	var base64data=myChart.getDataURL("png");
-            	$("#lccImg"+lccEchartImg).css('background-image','url('+base64data+')');
-                $("input[name='lccImg"+lccEchartImg+"']").val(base64data);
-                $("input[name='measureType"+lccEchartImg+"']").val(measureType);
-                $("input[name='pointType"+lccEchartImg+"']").val(pointType);
+            	$.ajax({
+		            url: "",
+		            type: "post",
+		            data: {base64data:base64data,measureType:measureType,pointType:pointType,reportType:reportType},
+		            dataType : "json",
+		            success: function (data) {
+		            	if(data.statusCode==200){
+			                alert("保存成功！");
+			                var imgPath=contextPath+data.message;
+			                $("#lccImg"+lccEchartImg).css('background-image','url('+base64data+')');
+			                $("input[name='lccImg"+lccEchartImg+"']").val(imgPath);
+			                $("input[name='lccMeasureType"+lccEchartImg+"']").val(measureType);
+			                $("input[name='lccPointType"+lccEchartImg+"']").val(pointType);
+		            	}else{
+		            		alert("保存失败！");
+		            	}
+		            },
+		            error: function (XMLHttpRequest, textStatus) {
+		                mini.alert("保存失败！"+textStatus);
+		            }
+		        });
                 lccEchartImg++;
 			}else if(reportType=="3"){
 				if(bwxEchartImgTotal<bwxEchartImg){
@@ -354,10 +346,27 @@ $(document).ready(function(){
             		return;
             	}
             	var base64data=myChart.getDataURL("png");
-            	$("#bwxImg"+bwxEchartImg).css('background-image','url('+base64data+')');
-                $("input[name='bwxImg"+bwxEchartImg+"']").val(base64data);
-                $("input[name='measureType"+bwxEchartImg+"']").val(measureType);
-                $("input[name='pointType"+bwxEchartImg+"']").val(pointType);
+            	$.ajax({
+		            url: "",
+		            type: "post",
+		            data: {base64data:base64data,measureType:measureType,pointType:pointType,reportType:reportType},
+		            dataType : "json",
+		            success: function (data) {
+		            	if(data.statusCode==200){
+			                alert("保存成功！");
+			                var imgPath=contextPath+data.message;
+			                $("#bwxImg"+bwxEchartImg).css('background-image','url('+base64data+')');
+			                $("input[name='bwxImg"+bwxEchartImg+"']").val(imgPath);
+			                $("input[name='bwxMeasureType"+bwxEchartImg+"']").val(measureType);
+			                $("input[name='bwxPointType"+bwxEchartImg+"']").val(pointType);
+		            	}else{
+		            		alert("保存失败！");
+		            	}
+		            },
+		            error: function (XMLHttpRequest, textStatus) {
+		                mini.alert("保存失败！"+textStatus);
+		            }
+		        });
                 bwxEchartImg++;
 			}
 			curIf.push({pointType:pointType,measureType:measureType});
@@ -371,59 +380,86 @@ $(document).ready(function(){
             		return;
 				}
 				lkEchartImg--;
-				//解码base64前台显示图形
-                $("#lkImg"+lkEchartImg).css('background-image','none');
-                //记录base64编码信息，以便传递到后台
-                $("input[name='lkImg"+lkEchartImg+"']").val('');
-                //记录测量信息，以便传递到后台
-                $("input[name='measureType"+lkEchartImg+"']").val('');
-                //记录测点信息，以便传递到后台
-                $("input[name='pointType"+lkEchartImg+"']").val('');
+				$.ajax({
+		            url: "",
+		            type: "post",
+		            data: {measureType:measureType,pointType:pointType,reportType:reportType},
+		            dataType : "json",
+		            success: function (data) {
+		            	if(data.statusCode==200){
+			                alert("删除成功！");
+			                //清除图片
+			                $("#lkImg"+lkEchartImg).css('background-image','none');
+			                //清除图片路径
+			                $("input[name='lkImg"+lkEchartImg+"']").val('');
+			                //清除测量信息
+			                $("input[name='lkMeasureType"+lkEchartImg+"']").val('');
+			                //清除测点信息
+			                $("input[name='lkPointType"+lkEchartImg+"']").val('');
+		            	}else{
+		            		alert("删除失败！");
+		            	}
+		            },
+		            error: function (XMLHttpRequest, textStatus) {
+		                mini.alert("删除失败！"+textStatus);
+		            }
+		        });
 			}else if(reportType=="2"){
 				if(lccEchartImg==1){
 					mini.alert("没有可删除的图片！","提示");
             		return;
 				}
 				lccEchartImg--;
-				$("#lccImg"+lccEchartImg).css('background-image','none');
-                $("input[name='lccImg"+lccEchartImg+"']").val('');
-                $("input[name='measureType"+lccEchartImg+"']").val('');
-                $("input[name='pointType"+lccEchartImg+"']").val('');
+				$.ajax({
+		            url: "",
+		            type: "post",
+		            data: {measureType:measureType,pointType:pointType,reportType:reportType},
+		            dataType : "json",
+		            success: function (data) {
+		            	if(data.statusCode==200){
+			                alert("删除成功！");
+			                $("#lccImg"+lccEchartImg).css('background-image','none');
+			                $("input[name='lccImg"+lccEchartImg+"']").val('');
+			                $("input[name='lccMeasureType"+lccEchartImg+"']").val('');
+			                $("input[name='lccPointType"+lccEchartImg+"']").val('');
+		            	}else{
+		            		alert("删除失败！");
+		            	}
+		            },
+		            error: function (XMLHttpRequest, textStatus) {
+		                mini.alert("删除失败！"+textStatus);
+		            }
+		        });
 			}else if(reportType=="3"){
 				if(bwxEchartImg==1){
 					mini.alert("没有可删除的图片！","提示");
             		return;
 				}
 				bwxEchartImg--;
-				$("#bwxImg"+bwxEchartImg).css('background-image','none');
-                $("input[name='bwxImg"+bwxEchartImg+"']").val('');
-                $("input[name='measureType"+bwxEchartImg+"']").val('');
-                $("input[name='pointType"+bwxEchartImg+"']").val('');
+				$.ajax({
+		            url: "",
+		            type: "post",
+		            data: {measureType:measureType,pointType:pointType,reportType:reportType},
+		            dataType : "json",
+		            success: function (data) {
+		            	if(data.statusCode==200){
+			                alert("删除成功！");
+			                $("#bwxImg"+bwxEchartImg).css('background-image','none');
+			                $("input[name='bwxImg"+bwxEchartImg+"']").val('');
+			                $("input[name='bwxMeasureType"+bwxEchartImg+"']").val('');
+			                $("input[name='bwxPointType"+bwxEchartImg+"']").val('');
+		            	}else{
+		            		alert("删除失败！");
+		            	}
+		            },
+		            error: function (XMLHttpRequest, textStatus) {
+		                mini.alert("删除失败！"+textStatus);
+		            }
+		        });
 			}
+			//清除参数数组最后一组数据
 			curIf.pop();
 		});
-		//提交数据
-		/*var configData = form.getData();
-		//将日期对象转化为字符串
-		configData.verifyTime=mini.formatDate(configData.verifyTime,"yyyy-MM-dd");
-		form.validate();
-        if (form.isValid() == false) return;
-        $.ajax({
-            url: "",
-			type: 'post',
-            data: configData,
-            cache: false,
-            success: function (text) {
-            	//下一步
-				$("#step4").css('color', '#000');
-				$("#step5").css('color', '#4485E0');		
-				$("#context4").css("display","none");
-				$("#context5").css("display","block");
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert(jqXHR.responseText);
-            }
-        });*/
         $("#step4").css('color', '#000');
 		$("#step5").css('color', '#4485E0');		
 		$("#context4").css("display","none");
@@ -431,120 +467,6 @@ $(document).ready(function(){
 	});
 
 	/*----------5-----------*/
-	//图片点击事件
-	/*var flag=0;
-	var $uploadButton=$("#uploadButton");
-	$imgCanvansTop.click(function(event) {
-		flag=1;
-		$uploadButton.trigger('click');
-	});
-	$imgCanvansMiddle.click(function(event) {
-		flag=2;
-		$uploadButton.trigger('click');
-	});
-	$imgCanvansBottom.click(function(event) {
-		flag=3;
-		$uploadButton.trigger('click');
-	});
-	//上传图片到服务器
-	$uploadButton.change(function(event) {
-		//判断文件格式
-		var imgName=event.currentTarget.value;
-		// //获得上传文件后缀
-		var imgNames=imgName.split("\.");
-		var lastIndex=imgNames[imgNames.length-1];
-		if("bmp"!=lastIndex&&"png"!=lastIndex&&"jpg"!=lastIndex&&"jpeg"!=lastIndex&&"gif"!=lastIndex){
-			mini.alert("请上传bmp，png，jpg，jpeg，gif类型的图片！","提示");
-			return;
-		}
-		//定义表单参数
-		if(FormData==undefined){
-			mini.alert("当前浏览器版本过低，请升级或更换浏览器版本！","提示");
-			return;
-		}
-
-		var formData = new FormData();
-		formData.append("img", event.currentTarget.files[0]);
-		formData.append("enterpriseId",enterpriseId);
-		formData.append("recordId",recordId);
-		var val;	
-		if(flag==1){
-			val= mini.get("chartTop").getValue();
-			var imgSite="imageUrl_Top"+val;
-			formData.append("imgSite",imgSite);
-		}else if(flag==2){
-			val= mini.get("chartMid").getValue();
-			var imgSite="imageUrl_Middle"+val;
-			formData.append("imgSite",imgSite);
-		}else if(flag==3){
-			val= mini.get("chartBot").getValue();
-			var imgSite="imageUrl_Bottom"+val;
-			formData.append("imgSite",imgSite);
-		}else{
-			return;
-		}
-		//上传
-		$.ajax({
-            url: "",
-            type: "POST",
-            data: formData,
-            //必须false才会自动加上正确的Content-Type
-            contentType: false,
-            //必须false才会避开jQuery对 formdata 的默认处理
-            //XMLHttpRequest会对 formdata 进行正确的处理
-            processData: false,
-            success: function (data) {
-            	alert("请指定后台地址");
-                if (data.status == true) {
-                    mini.alert("上传成功！","提示");
-                    if(flag==1){
-                    	$uploadImgTop.css('display', 'none');
-                    	$imgCanvansTop.css('background-image', 'url('+data.imageUrl+')');
-                    	imgUrlObj["imageUrl_Top"+val]=data.imageUrl;
-                    }else if(flag==2){
-                    	$uploadImgMiddle.css('display', 'none');
-                    	$imgCanvansMiddle.css('background-image', 'url('+data.imageUrl+')');
-                    	imgUrlObj["imageUrl_Middle"+val]=data.imageUrl;
-                    }else if(flag==3){
-                    	$uploadImgBottom.css('display', 'none');
-                    	$imgCanvansBottom.css('background-image', 'url('+data.imageUrl+')');
-                    	imgUrlObj["imageUrl_Bottom"+val]=data.imageUrl;
-                    }
-                }
-            },
-            error: function (XMLHttpRequest, textStatus) {
-                mini.alert("上传失败！"+textStatus);
-            }
-        });
-	});
-	//删除图片按钮
-	$("#delIconTop").click(function(event) {
-		var bi=$imgCanvansTop.css('background-image');
-		if(bi=="none"){
-			mini.alert("没有图片可以删除！");
-			return;
-		}
-		var delval= mini.get("chartTop").getValue();
-		delImg(1,delval);
-	});
-	$("#delIconMid").click(function(event) {
-		var bi=$imgCanvansMiddle.css('background-image');
-		if(bi=="none"){
-			mini.alert("没有图片可以删除！");
-			return;
-		}
-		var delval= mini.get("chartMid").getValue();
-		delImg(2,delval);
-	});
-	$("#delIconBot").click(function(event) {
-		var bi=$imgCanvansBottom.css('background-image');
-		if(bi=="none"){
-			mini.alert("没有图片可以删除！");
-			return;
-		}
-		var delval= mini.get("chartBot").getValue();
-		delImg(3,delval);
-	});*/
 	//上一步按钮
 	var $pre5=$("#context5_pre");
 	$pre5.click(function(event) {
@@ -553,10 +475,70 @@ $(document).ready(function(){
 		$("#context5").css("display","none");
 		$("#context4").css("display","block");
 	});
-	//预览并下载按钮
+	//生成报告按钮
 	var $download=$("#download");
 	$download.click(function(event) {
-
+		//存储所有表单数据
+		var allFormData={};
+		//获取第一步表单数据
+		var formData1=form1.getData();
+		formData1.verifyTime=$("#verifyTime input").val();
+		//合并对象
+		$.extend(allFormData, formData1);
+		//向表单中添加第三步温度控制范围
+		var temperature=mini.get("temperature").getValue();
+		allFormData.temperatureRange=temperature;
+		//添加该报告属性信息
+		allFormData.reportType=reportType;
+		//向表单中添加第五步图片链接信息
+		//echartImg:[{echartImgUrl:1,measureType:1,pointType:1},{echartImgUrl:2,measureType:2,pointType:2}...]
+		var echartAllImgArr=[];
+		if(reportType=="1"){
+			for(i=1;i<lkEchartImg;i++){
+				//记录一组图片数据
+				var echartImgObj={};
+				echartImgObj.echartImgUrl=$("input[name='lkImg"+i+"']").val();
+				echartImgObj.measureType=$("input[name='lkMeasureType"+i+"']").val();
+				echartImgObj.pointType=$("input[name='lkPointType"+i+"']").val();
+				echartAllImgArr.push(echartImgObj);
+			}   
+		}else if(reportType=="2"){
+			for(i=1;i<lccEchartImg;i++){
+				//记录一组图片数据
+				var echartImgObj={};
+				echartImgObj.echartImgUrl=$("input[name='lccImg"+i+"']").val();
+				echartImgObj.measureType=$("input[name='lccMeasureType"+i+"']").val();
+				echartImgObj.pointType=$("input[name='lccPointType"+i+"']").val();
+				echartAllImgArr.push(echartImgObj);
+			}  
+		}else if(reportType=="3"){
+			for(i=1;i<bwxEchartImg;i++){
+				//记录一组图片数据
+				var echartImgObj={};
+				echartImgObj.echartImgUrl=$("input[name='bwxImg"+i+"']").val();
+				echartImgObj.measureType=$("input[name='bwxMeasureType"+i+"']").val();
+				echartImgObj.pointType=$("input[name='bwxPointType"+i+"']").val();
+				echartAllImgArr.push(echartImgObj);
+			} 
+		}
+		allFormData.echartImg=echartAllImgArr;
+		//发送报告数据到后台
+		$.ajax({
+            url: '',
+			type: 'post',
+            data: allFormData,
+            dataType : 'json',
+            success: function (success) {
+            	if(success.statusCode==200){
+                    alert(success.message);
+                }else{
+                	alert(success.message);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText);
+            }
+        });
 	});
 });
 
@@ -694,11 +676,6 @@ function loadChart(){
 		            			type : 'line'        // 默认为直线，可选为：'line' | 'shadow'
 		        			}
 		        		},
-		        		/*legend: {
-							data:['主风机','备用风机','开门测试时段','断电时段'],
-							x: 'center',
-							y: 'bottom'
-						},*/
 		        		grid: {
 		        			x:40,//左边距
 		        			x2:10,//右边距
@@ -706,39 +683,6 @@ function loadChart(){
 		        			y2:75,//下边距
 		        			containLabel: true
 		    			},
-		    			/*toolbox: {
-		    				show: true,
-		    				padding:[5,28,0,0],
-					        feature: {
-					            saveAsImage: {
-					            	show:true,
-		                        	title:"保存图片到本地",
-		                        	name:"温度变化曲线图",
-		                            pixelRatio: 2
-					            },
-					            selfButtons:
-						            {//自定义按钮 danielinbiti,这里增加，selfbuttons可以随便取名字    
-					                   show: true,//是否显示    
-					                   title: '保存图片到缓存', //鼠标移动上去显示的文字 
-					                   name: "温度变化曲线图",
-					                   icon: contextPath+'/resource/img/upload.png', //图标 
-					                   option: {},    
-					                   onclick: function(option1) {//点击事件,这里的option1是chart的option信息    
-					                        //这里可以加入自己的处理代码，切换不同的图形 
-					                      
-					                   }
-					               }
-					        }
-					    },*/
-		    			//滚动条以及滚动缩放
-		         		/*dataZoom : {
-		         		 	show : true, 
-		         		 	realtime : true,
-		         		 	height : 10,
-		         		 	fillerColor : 'rgba(110,181,228,0.4)',
-		         		 	start : 0, 
-		         		 	end : 100
-		         		},*/
 		    			xAxis : [
 							{
 		    					type : 'category',
@@ -785,92 +729,3 @@ function loadChart(){
 		}
 	});
 }
-
-/*下拉切换图片功能*/
-/*function chartChangeTop(event){
-	var imgUrl="imageUrl_Top"+event.value;
-	if(imgUrlObj[imgUrl]){
-		$uploadImgTop.css('display', 'none');
-		$imgCanvansTop.css('background-image', 'url('+imgUrlObj[imgUrl]+')');
-	}else{
-		$imgCanvansTop.css('background-image', 'none');
-		$uploadImgTop.css('display', 'block');
-	}
-}
-function chartChangeMiddle(event){
-	var imgUrl="imageUrl_Middle"+event.value;
-	if(imgUrlObj[imgUrl]){
-		$uploadImgMiddle.css('display', 'none');
-		$imgCanvansMiddle.css('background-image', 'url('+imgUrlObj[imgUrl]+')');
-	}else{
-		$imgCanvansMiddle.css('background-image', 'none');
-		$uploadImgMiddle.css('display', 'block');
-	}
-}
-function chartChangeBottom(event){
-	var imgUrl="imageUrl_Bottom"+event.value;
-	if(imgUrlObj[imgUrl]){
-		$uploadImgBottom.css('display', 'none');
-		$imgCanvansBottom.css('background-image', 'url('+imgUrlObj[imgUrl]+')');
-	}else{
-		$imgCanvansBottom.css('background-image', 'none');
-		$uploadImgBottom.css('display', 'block');
-	}
-}*/
-
-/*------删除图片------*/
-/*function delImg(site,dropValue){
-	mini.open({
-	    url: "page/confirm.jsp",
-	    title: "提示", 
-	    width: 350, 
-	    height: 130,
-	    allowResize: false,
-	    onload: function () {
-	        var iframe = this.getIFrameEl();
-	        var data = { 
-	        	tip: "您是否要删除当前图片？"
-	        };
-	        iframe.contentWindow.setData(data);
-	    },
-	    ondestroy: function (action) {
-	    	//点击确认时返回action=true
-	    	if (action===true) {
-	    		var imgSite;
-	    		if(site==1){
-	    			imgSite="imageUrl_Top"+dropValue;
-				}else if(site==2){
-					imgSite="imageUrl_Middle"+dropValue;
-				}else if(site==3){
-					imgSite="imageUrl_Bottom"+dropValue;
-				}
-                $.ajax({
-                    url: "",
-                    type: 'post',
-            		data: {enterpriseId:enterpriseId,recordId:recordId,imgSite:imgSite},
-                    success: function (data) {
-                        if (data.status == true) {
-                        	 mini.alert("图片删除成功！","提示");
-                        	if(site==1){
-				    			$imgCanvansTop.css('background-image', 'none');
-								$uploadImgTop.css('display', 'block');
-								imgUrlObj["imageUrl_Top"+dropValue]="";
-							}else if(site==2){
-								$imgCanvansMiddle.css('background-image', 'none');
-								$uploadImgMiddle.css('display', 'block');
-								imgUrlObj["imageUrl_Middle"+dropValue]="";
-							}else if(site==3){
-								$imgCanvansBottom.css('background-image', 'none');
-								$uploadImgBottom.css('display', 'block');
-								imgUrlObj["imageUrl_Bottom"+dropValue]="";
-							}
-                        }
-                    },
-                    error: function (err) {
-                    	mini.alert("删除失败："+textStatus);
-                    }
-                });
-	    	} 
-	    }
-	});
-}*/

@@ -28,7 +28,6 @@
 				<span class="flowStep" id="step3">3.验证对象描述及再确认</span>
 				<span class="flowStep" id="step4">4.验证仪表再确认、测点布置</span>
 				<span class="flowStep" id="step5">5.数据获取</span>
-				<span class="flowStep" id="step6">6.预览并下载</span>
 			</div>
 			<div id="pageContext">
 				<div id="context1">
@@ -118,72 +117,6 @@
 						    </div>
 						</div>
 					</div>
-					<!--<table id="context2_table" cellspacing="0" cellpadding="5px">
-						<tr>
-							<td colspan="2">
-								<input name="companyNameLeft" class="mini-textbox context2_input" required="true"
-								emptyText="请输入公司名称(必填)"/>
-							</td>
-							<td colspan="2">
-								<input name="companyNameRight" class="mini-textbox context2_input" required="true"
-								emptyText="请输入公司名称(必填)"/>
-							</td>
-						</tr>
-						<tr>
-							<th>姓名</th>
-							<th>职务</th>
-							<th>姓名</th>
-							<th>职责</th>
-						</tr>
-						<tr>
-							<td>
-								<input name="qualityMan" class="mini-textbox context2_input" required="true"
-								emptyText="请输入姓名(必填)"/>
-							</td>
-							<td>质量管理员</td>
-							<td rowspan="2">
-								<input name="verifyMan" class="mini-textbox context2_input" required="true"
-								emptyText="请输入姓名(必填)"/>
-							</td>
-							<td>验证设计专员</td>
-						</tr>
-						<tr>
-							<td>
-								<input name="storeMan" class="mini-textbox context2_input" required="true"
-								emptyText="请输入姓名(必填)"/>
-							</td>
-							<td>保管员</td>
-							<td>验证实施专员</td>
-						</tr>
-						<tr>
-							<td>
-								<input name="shippingManager" class="mini-textbox context2_input" required="true"
-								emptyText="请输入姓名(必填)"/>
-							</td>
-							<td>储运部经理</td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>
-								<input name="qualityManager" class="mini-textbox context2_input" required="true"
-								emptyText="请输入姓名(必填)"/>
-							</td>
-							<td>质管部经理</td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>
-								<input name="qualityVP" class="mini-textbox context2_input" required="true"
-								emptyText="请输入姓名(必填)"/>
-							</td>
-							<td>质量副总</td>
-							<td></td>
-							<td></td>
-						</tr>
-					</table>-->
-
 					<div class="stepButton" id="context2_pre">上一步</div>
 					<div class="stepButton" id="context2_next">下一步</div>
 				</div>
@@ -419,108 +352,6 @@
 							</table>
 						</form>
 					</div>
-					<!--<table cellpadding="5px">
-						<tr>
-							<td class="formRowName" id="incubatorNameTitle"></td>
-							<td class="context3Value">
-								<input name="incubatorName" class="mini-textbox context3_input" />
-							</td>
-						</tr>
-						<tr>
-							<td class="formRowName">验证实施：</td>
-							<td class="context3Value">
-								<input name="verifyImplement" class="mini-textbox context3_input" />
-							</td>
-						</tr>
-						<tr>
-							<td class="formRowName">验证设备提供公司：</td>
-							<td class="context3Value">
-								<input name="companyOfEquipment" class="mini-textbox context3_input" />
-							</td>
-						</tr>
-						<tr>
-							<td class="formRowName" id="incubatorParamsTitle"></td>
-							<td class="context3Value">
-								<table id="incubatorParams" cellspacing="0" cellpadding="2px">
-									<tr>
-										<td>品牌及型号</td>
-										<td>
-											<input name="incubatorBrand" class="mini-textbox" required="true"
-												emptyText="品牌及型号(必填)"/>
-										</td>
-									</tr>
-									<tr>
-										<td>外部尺寸</td>
-										<td>
-											<input name="incubatorOutside" class="mini-textbox" required="true"
-												emptyText="单位mm(必填)"/>
-										</td>
-									</tr>
-									<tr>
-										<td>内部尺寸</td>
-										<td>
-											<input name="incubatorInside" class="mini-textbox" required="true"
-												emptyText="单位mm(必填)"/>
-										</td>
-									</tr>
-									<tr>
-										<td>重量</td>
-										<td>
-											<input name="incubatorWeight" class="mini-textbox" required="true"
-												emptyText="单位kg(必填)"/>
-										</td>
-									</tr>
-									<tr>
-										<td>壁厚</td>
-										<td>
-											<input name="incubatorWallThickness" class="mini-textbox" required="true"
-												emptyText="单位mm(必填)"/>
-										</td>
-									</tr>
-									<tr>
-										<td>外部材料</td>
-										<td>
-											<input name="incubatorOutMaterial" class="mini-textbox" required="true"
-												emptyText="PP/ABS(必填)"/>
-										</td>
-									</tr>
-									<tr>
-										<td>内部材料</td>
-										<td>
-											<input name="incubatorInMaterial" class="mini-textbox" required="true"
-												emptyText="无毒PU(必填)"/>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr>
-							<td class="formRowName">蓄冷剂品牌型号：</td>
-							<td class="context3Value">
-								<input id="coldBrand" name="coldBrand" class="mini-textbox" />
-								<span class="cellInnerTitle">数量:</span>
-								<input id="coldQuantity" name="coldQuantity" class="mini-textbox" />
-							</td>
-						</tr>
-						<tr>
-							<td class="formRowName">监控系统探头数量：</td>
-							<td class="context3Value">
-								<input id="monitorQuantity" name="monitorQuantity" class="mini-textbox" />
-								<span class="cellInnerTitle">厂家:</span>
-								<input id="monitorManu" name="monitorManu" class="mini-textbox" />
-							</td>
-						</tr>
-						<tr>
-							<td class="formRowName">验证对象温度控制范围：</td>
-							<td class="context3Value">
-								<input id="duty" name="temperatureRange" class="mini-combobox context3_input" showNullItem="true"
-									textField="name" valueField="value" 
-                    				data='[{"value": "01", "name": "保温箱：2-8℃"},{"value": "02", "name": "冷库：2-8℃"},
-                    					{"value": "03", "name": "阴凉库：0-20℃"},{"value": "04", "name": "常温库：常温"},
-                    					{"value": "05", "name": "冷藏车：2-8℃"}]' />
-							</td>
-						</tr>
-					</table>-->
 					<div id="context3_verifyObjectCanvas">
 						<div id="context3_verifyObjectName">验证对象温度控制范围：</div>
 						<div id="context3_verifyObjectValue">
@@ -575,24 +406,6 @@
 					    </div>
 				    </div>
 				    <table id="context4_bottomTable" cellpadding="5px">
-			    		<!--<tr>
-			    			<td class="formRowName">温度监测系统箱体外部探头：</td>
-			    			<td>
-			    				<div name="outsideProbe" class="mini-radiobuttonlist" repeatLayout="table"
-			    					textField="name" valueField="value"
-									data='[{"value": 1, "name": "有"},{"value": 0, "name": "无"}]'>
-								</div>
-			    			</td>
-			    		</tr>
-			    		<tr>
-			    			<td class="formRowName">温度监测系统箱体内部探头：</td>
-			    			<td>
-			    				<div name="insideProbe" class="mini-radiobuttonlist" repeatLayout="table"
-			    					textField="name" valueField="value"
-									data='[{"value": 1, "name": "有"},{"value": 0, "name": "无"}]'>
-								</div>
-			    			</td>
-			    		</tr>-->
 			    		<tr>
 			    			<td class="formRowName">温度测量点：</td>
 			    			<td>
@@ -619,74 +432,74 @@
 						<input id="mDropData" class="mini-combobox" showNullItem="false" value="1" onvaluechanged="dropChanged"
 							textField="name" valueField="value" name="measureType" 
 	                        data='[{"value": 1, "name": "断电数据"},{"value": 2, "name": "开门数据"},{"value": 3, "name": "环境数据"}]'/>
-	                    <div id="deleteImg">从缓存中删除上一张图片</div>
-	                    <div id="saveImg">保存截图到缓存</div>
+	                    <div id="deleteImg">删除上一张截图</div>
+	                    <div id="saveImg">保存截图</div>
 					</div>
 					<div id="context5_canvas">
 						<div class="context5_imgCanvas" id="lkImgCanvas">
 							<div class="echartsImgCanvans" id="lkImg1">
 								<input type="text" name="lkImg1" />
-								<input type="text" name="measureType1" />
-								<input type="text" name="pointType1" />
+								<input type="text" name="lkMeasureType1" />
+								<input type="text" name="lkPointType1" />
 							</div>
 							<div class="echartsImgCanvans" id="lkImg2">
 								<input type="text" name="lkImg2" />
-								<input type="text" name="measureType2" />
-								<input type="text" name="pointType2" />
+								<input type="text" name="lkMeasureType2" />
+								<input type="text" name="lkPointType2" />
 							</div>
 							<div class="echartsImgCanvans" id="lkImg3">
 								<input type="text" name="lkImg3" />
-								<input type="text" name="measureType3" />
-								<input type="text" name="pointType3" />
+								<input type="text" name="lkMeasureType3" />
+								<input type="text" name="lkPointType3" />
 							</div>
 							<div class="echartsImgCanvans" id="lkImg4">
 								<input type="text" name="lkImg4" />
-								<input type="text" name="measureType4" />
-								<input type="text" name="pointType4" />
+								<input type="text" name="lkMeasureType4" />
+								<input type="text" name="lkPointType4" />
 							</div>
 						</div>
 						<div class="context5_imgCanvas" id="lccImgCanvas">
 							<div class="echartsImgCanvans" id="lccImg1">
 								<input type="text" name="lccImg1" />
-								<input type="text" name="measureType1" />
-								<input type="text" name="pointType1" />
+								<input type="text" name="lccMeasureType1" />
+								<input type="text" name="lccPointType1" />
 							</div>
 							<div class="echartsImgCanvans" id="lccImg2">
 								<input type="text" name="lccImg2" />
-								<input type="text" name="measureType2" />
-								<input type="text" name="pointType2" />
+								<input type="text" name="lccMeasureType2" />
+								<input type="text" name="lccPointType2" />
 							</div>
 							<div class="echartsImgCanvans" id="lccImg3">
 								<input type="text" name="lccImg3" />
-								<input type="text" name="measureType3" />
-								<input type="text" name="pointType3" />
+								<input type="text" name="lccMeasureType3" />
+								<input type="text" name="lccPointType3" />
 							</div>
 						</div>
 						<div class="context5_imgCanvas" id="bwxImgCanvas">
 							<div class="echartsImgCanvans" id="bwxImg1">
 								<input type="text" name="bwxImg1" />
-								<input type="text" name="measureType1" />
-								<input type="text" name="pointType1" />
+								<input type="text" name="bwxMeasureType1" />
+								<input type="text" name="bwxPointType1" />
 							</div>
 							<div class="echartsImgCanvans" id="bwxImg2">
 								<input type="text" name="bwxImg2" />
-								<input type="text" name="measureType2" />
-								<input type="text" name="pointType2" />
+								<input type="text" name="bwxMeasureType2" />
+								<input type="text" name="bwxPointType2" />
 							</div>
 							<div class="echartsImgCanvans" id="bwxImg3">
 								<input type="text" name="bwxImg3" />
-								<input type="text" name="measureType3" />
-								<input type="text" name="pointType3" />
+								<input type="text" name="bwxMeasureType3" />
+								<input type="text" name="bwxPointType3" />
 							</div>
 							<div class="echartsImgCanvans" id="bwxImg4">
 								<input type="text" name="bwxImg4" />
-								<input type="text" name="measureType4" />
-								<input type="text" name="pointType4" />
+								<input type="text" name="bwxMeasureType4" />
+								<input type="text" name="bwxPointType4" />
 							</div>
 							<div class="echartsImgCanvans" id="bwxImg5">
 								<input type="text" name="bwxImg5" />
-								<input type="text" name="measureType5" />
-								<input type="text" name="pointType5" />
+								<input type="text" name="bwxMeasureType5" />
+								<input type="text" name="bwxPointType5" />
 							</div>
 						</div>
 						<div id="echartCanvas">
@@ -694,102 +507,9 @@
 						</div>
 					</div>
 					<br/>
-					<!--<div class="context5Can" id="context5_top">
-						<div class="context5Left">
-							<div id="context5Left1_top">
-								<div id="context5Left1_envir">外部环境：</div>
-								<div id="outsideEnvironment">
-									<input id="environmentTemp" name="environmentTemperature" class="mini-textbox" />
-								</div>
-							</div>
-							<div id="context5Left1_descrip">描述：</div>
-							<table id="context5Left1_table" cellspacing="0" cellpadding="5px">
-								<thead>
-									<tr>
-										<th>环境温度测点位置</th>
-										<th>箱体前侧</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>环境测点温度最大值</td>
-										<td>
-											<input name="temperatureMax" class="mini-textbox environmentTemp" />
-										</td>
-									</tr>
-									<tr>
-										<td>环境测点温度最小值</td>
-										<td>
-											<input name="temperatureMin" class="mini-textbox environmentTemp" />
-										</td>
-									</tr>
-									<tr>
-										<td>环境测点温度平均值</td>
-										<td>
-											<input name="temperatureAvg" class="mini-textbox environmentTemp" />
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div class="context5Right">
-							<div class="context5Right_top">
-								<input id="chartTop" class="mini-combobox" showNullItem="false" value="1" onvaluechanged="chartChangeTop"
-									textField="name" valueField="value"
-                    				data='[{"value": 1, "name": "环境温度曲线图1"},{"value": 2, "name": "环境温度曲线图2"}]'/>
-                    			<div id="delIconTop" class="delIcon"></div>
-							</div>
-							<div id="imgCanvansTop" class="imgCanvans">
-								<div id="uploadImgTop" class="uploadImg"></div>
-							</div>
-						</div>
-					</div>
-					<div class="context5Can" id="context5_middle">
-						<div class="context5Left">
-							<div id="context5Left2_title">最长保温时限：</div>
-							<div id="context5Left2_time">
-								<input id="warmTime" name="maxWarmTime" class="mini-textbox" />
-							</div>
-						</div>
-						<div class="context5Right">
-							<div class="context5Right_top">
-								<input id="chartMid" class="mini-combobox" showNullItem="false" value="1" onvaluechanged="chartChangeMiddle"
-									textField="name" valueField="value"
-                    				data='[{"value": 1, "name": "环境温度曲线图3"}]'/>
-                    			<div id="delIconMid" class="delIcon"></div>
-							</div>
-							<div id="imgCanvansMiddle" class="imgCanvans">
-								<div id="uploadImgMiddle" class="uploadImg"></div>
-							</div>
-						</div>
-					</div>
-					<div class="context5Can" id="context5_bottom">
-						<div class="context5Left">
-							<div id="context5Left3_title">分析说明：</div>
-							<div>
-								<textarea id="desc" name="desc" class="mini-textarea"></textarea>
-							</div>
-						</div>
-						<div class="context5Right">
-							<div class="context5Right_top">
-								<input id="chartBot" class="mini-combobox" showNullItem="false" value="1" onvaluechanged="chartChangeBottom"
-									textField="name" valueField="value"
-                    				data='[{"value": 1, "name": "环境温度曲线图4"},{"value": 2, "name": "环境温度曲线图5"}]'/>
-                    			<div id="delIconBot" class="delIcon"></div>
-							</div>
-							<div id="imgCanvansBottom" class="imgCanvans">
-								<div id="uploadImgBottom" class="uploadImg"></div>
-							</div>
-						</div>
-					</div>
-					<div></div>-->
 					<div class="stepButton" id="context5_pre">上一步</div>
-					<div class="stepButton" id="download">预览并下载</div>
+					<div class="stepButton" id="download">生成报告</div>
 				</div>
-				<!--上传图片-->
-				<!--<form id="imgForm" method="post" enctype="multipart/form-data" >
-					<input id="uploadButton" type="file" name="Fdata" accept="image/*" />
-				</form>-->
 			</div>
 		</div>
 	</div>
