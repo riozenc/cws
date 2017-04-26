@@ -5,7 +5,7 @@ var objectTypeDrop;
 //对象下拉
 var objectDrop;
 //温度下拉
-var temperatureDrop=[{"value": "01", "name": "极高温验证"},{"value": "02", "name": "极低温验证"}];
+var temperatureDrop=[{"value": "极高温验证", "name": "极高温验证"},{"value": "极低温验证", "name": "极低温验证"}];
 //是否完成下拉
 var reportStatusDrop=[{"value": 0, "name": "未完成"},{"value": 1, "name": "已完成"}];
 $(document).ready(function(){

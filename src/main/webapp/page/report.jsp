@@ -44,22 +44,22 @@
 			    
 			    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:92%;min-height:359px;" 
 			    	url="../report.do?type=findReportByCompany" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
-			    	multiSelect="false" idField="id" pageIndexField="pageCurrent">
+			    	multiSelect="false" idField="reportNo" pageIndexField="pageCurrent">
 			        <div property="columns">
 			        	<div field="reportName" headerAlign="center" allowSort="false" width="160">报告名称
 			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="100" />
 			            </div> 
-			            <div type="comboboxcolumn" name="object" field="object" width="120" headerAlign="center" 
+			            <div type="comboboxcolumn" name="object" field="verifyObject" width="120" headerAlign="center" 
 			        		autoShowPopup="true" allowSort="false">对象
 							<input property="editor" class="mini-combobox" style="width:100%;" minWidth="100" 
 								valueField="value" textField="name" data="objectDrop"/>
 						</div> 
-						<div type="comboboxcolumn" name="reportType" field="propertyType" width="100" headerAlign="center" 
+						<div type="comboboxcolumn" name="reportType" field="reportType" width="100" headerAlign="center" 
 			        		autoShowPopup="true" allowSort="false">属性
 							<input property="editor" class="mini-combobox" style="width:100%;" minWidth="80" 
 								valueField="value" textField="name" data="objectTypeDrop"/>
 						</div>
-						<div type="comboboxcolumn" name="temperature" field="temperatureType" width="100" headerAlign="center" 
+						<div type="comboboxcolumn" name="temperature" field="temperature" width="100" headerAlign="center" 
 			        		autoShowPopup="true" allowSort="false" align="center">温度
 							<input property="editor" class="mini-combobox" style="width:100%;" minWidth="80" 
 								valueField="value" textField="name" data="temperatureDrop"/>
