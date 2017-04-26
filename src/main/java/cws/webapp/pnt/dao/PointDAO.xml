@@ -100,8 +100,8 @@
 		</where>
 	</delete>
 
-	<select id="findPointBySn" parameterType="PointDomain" resultType="PointDomain"
-		useCache="true">
+	<select id="findPointBySn" parameterType="PointDomain"
+		resultType="PointDomain" useCache="true">
 		select
 		ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,VALID_DATE,REMARK,STATUS
 		from POINT_INFO
@@ -177,4 +177,17 @@
 			AND a.VERIFY_TYPE = #{verifyType}
 		</where>
 	</select>
+
+	<select id="findPointByReport" parameterType="ReportDomain"
+		resultType="PointDomain" useCache="true">
+		SELECT c.* FROM report_info a LEFT JOIN verify_point_rel b ON
+		a.VERIFY_OBJECT = b.VERIFY_ID AND a.REPORT_TYPE = b.VERIFY_TYPE LEFT
+		JOIN point_info c ON b.POINT_ID = c.ID
+		<where>
+			a.REPORT_NO = #{reportNo}
+		</where>
+	</select>
+
+
+
 </mapper>

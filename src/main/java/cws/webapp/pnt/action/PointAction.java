@@ -25,6 +25,7 @@ import cws.common.json.JsonGrid;
 import cws.common.json.JsonResult;
 import cws.webapp.pnt.domain.PointDomain;
 import cws.webapp.pnt.service.IPointService;
+import cws.webapp.rpt.domain.ReportDomain;
 import cws.webapp.sys.domain.CommonParamDomain;
 
 @ControllerAdvice
@@ -114,6 +115,13 @@ public class PointAction extends BaseAction {
 	@RequestMapping(params = "type=findPointByVerify")
 	public String findPointByVerify(PointDomain pointDomain) {
 		List<PointDomain> list = pointService.findPointByVerify(pointDomain);
+		return JSONUtil.toJsonString(new JsonGrid(list));
+	}
+	
+	@ResponseBody
+	@RequestMapping(params = "type=findPointByReport")
+	public String findPointByReport(ReportDomain reportDomain) {
+		List<PointDomain> list = pointService.findPointByReport(reportDomain);
 		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
 }

@@ -17,6 +17,7 @@ import cws.webapp.pnt.dao.PointDAO;
 import cws.webapp.pnt.domain.CompanyPointDomain;
 import cws.webapp.pnt.domain.PointDomain;
 import cws.webapp.pnt.service.IPointService;
+import cws.webapp.rpt.domain.ReportDomain;
 
 @TransactionService
 public class PointServiceImpl implements IPointService {
@@ -81,6 +82,12 @@ public class PointServiceImpl implements IPointService {
 	public List<PointDomain> findPointByCompanyToDrop(PointDomain pointDomain) {
 		// TODO Auto-generated method stub
 		return pointDAO.findPointByCompanyToDrop(pointDomain);
+	}
+
+	@Override
+	public List<PointDomain> findPointByReport(ReportDomain reportDomain) {
+		// TODO Auto-generated method stub
+		return pointDAO.findPointByReport(reportDomain);
 	}
 
 }

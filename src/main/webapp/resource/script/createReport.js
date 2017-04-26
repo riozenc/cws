@@ -134,8 +134,9 @@ $(document).ready(function(){
 			//第三步加载冷库基本数据
 			var form2 = new mini.Form("reportDataForm2");
 			$.ajax({
-				url : '../resource/data/freezerBaseInfo.txt',
-				data : {enterpriseId:enterpriseId,recordId:recordId},
+//				url : '../resource/data/freezerBaseInfo.txt',
+				url : '../verify.do?type=getVerifyInfoByReport',
+				data : {enterpriseId:enterpriseId,reportNo:recordId,reportType:reportType},
 				dataType : "json",
 				type : "post",
 				success : function(data) {
@@ -152,8 +153,9 @@ $(document).ready(function(){
 			//第三步加载冷藏车基本数据
 			var form3 = new mini.Form("reportDataForm3");
 			$.ajax({
-				url : '../resource/data/truckBaseInfo.txt',
-				data : {enterpriseId:enterpriseId,recordId:recordId},
+//				url : '../resource/data/truckBaseInfo.txt',
+				url : '../verify.do?type=getVerifyInfoByReport',
+				data : {enterpriseId:enterpriseId,reportNo:recordId,reportType:reportType},
 				dataType : "json",
 				type : "post",
 				success : function(data) {
@@ -170,8 +172,9 @@ $(document).ready(function(){
 			//第三步加载保温箱基本数据
 			var form4 = new mini.Form("reportDataForm4");
 			$.ajax({
-				url : '../resource/data/incubatorBaseInfo.txt',
-				data : {enterpriseId:enterpriseId,recordId:recordId},
+//				url : '../resource/data/incubatorBaseInfo.txt',
+				url : '../verify.do?type=getVerifyInfoByReport',
+				data : {enterpriseId:enterpriseId,reportNo:recordId,reportType:reportType},
 				dataType : "json",
 				type : "post",
 				success : function(data) {
@@ -212,7 +215,7 @@ $(document).ready(function(){
 		                    + '<a href="javascript:del(\'' + e.record.id + '\')">删除</a>&nbsp; ';
 		    }
 		});
-		grid.load({enterpriseId:enterpriseId,recordId:recordId},function(success){
+		grid.load({enterpriseId:enterpriseId,reportNo:recordId},function(success){
 			$("#meterNum").text("仪表数量："+success.data.length);
 		});
 		//第四步获取测点数量
@@ -289,7 +292,7 @@ $(document).ready(function(){
                 $.ajax({
 		            url: "",
 		            type: "post",
-		            data: {base64data:base64data,measureType:measureType,pointType:pointType,reportType:reportType},
+		            data: {base64data:base64data,measureType:measureType,pointType:pointType,reportType:reportType,reportNo:reportNo},
 		            dataType : "json",
 		            success: function (data) {
 		            	if(data.statusCode==200){

@@ -141,7 +141,7 @@
 									<tr>
 										<td class="baseInfo_cellTitle">冷库规格</td>
 										<td class="baseInfo_cellValue" colspan="5">
-											<input name="type" class="mini-textbox context3_input" allowInput="false" />
+											<input name="types" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 									</tr>
 									<tr>
@@ -216,7 +216,7 @@
 									<tr>
 										<td class="baseInfo_cellTitle">冷库规格</td>
 										<td class="baseInfo_cellValue" colspan="3">
-											<input name="type" class="mini-textbox context3_input" allowInput="false" />
+											<input name="types" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 									</tr>
 									<tr>
@@ -385,18 +385,18 @@
 					        </div>
 					    </div>
 					    <div id="datagrid1" class="mini-datagrid" style="width:80%;" allowCellEdit="false" allowCellSelect="true" 
-					    	url="../resource/data/meter.txt" multiSelect="false" idField="id" showPager="false">
+					    	url="../point.do?type=findPointByReport" multiSelect="false" idField="id" showPager="false">
 					        <div property="columns">
-					        	<div field="number" headerAlign="center" align="center" allowSort="false" width="60">对应编号
+					        	<div field="no" headerAlign="center" align="center" allowSort="false" width="60">对应编号
 					                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="60" />
 					            </div> 
-					        	<div field="model" headerAlign="center" align="center" allowSort="false" width="100">仪器型号
+					        	<div field="types" headerAlign="center" align="center" allowSort="false" width="100">仪器型号
 					                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="100" />
 					            </div>
-					            <div field="SN" headerAlign="center" align="center" allowSort="false" width="100">仪器SN号
+					            <div field="snNo" headerAlign="center" align="center" allowSort="false" width="100">仪器SN号
 					                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="100" />
 					            </div>
-					            <div field="verifyUnit" headerAlign="center" align="center" allowSort="false" width="150">校验单位
+					            <div field="checkUnit" headerAlign="center" align="center" allowSort="false" width="150">校验单位
 					                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="150" />
 					            </div> 
 					            <div name="operate" headerAlign="center" allowSort="false" width="80">操作
@@ -518,6 +518,8 @@
 		var enterpriseId=${param.enterpriseId};
 		//验证报告管理点击查看时传过来的该条记录id
 		var recordId=${param.reportNo};
+		
+		//验证报告ID
 		//该条记录的属性
  		var reportType=${param.reportType};
 		//获得项目路径

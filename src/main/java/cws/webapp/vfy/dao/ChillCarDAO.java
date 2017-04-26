@@ -13,6 +13,7 @@ import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.mybatis.dao.AbstractTransactionDAOSupport;
 import com.riozenc.quicktool.mybatis.dao.BaseDAO;
 
+import cws.webapp.rpt.domain.ReportDomain;
 import cws.webapp.vfy.domain.ChillCarDomain;
 
 @TransactionDAO
@@ -46,6 +47,11 @@ public class ChillCarDAO extends AbstractTransactionDAOSupport implements BaseDA
 	public List<ChillCarDomain> findByWhere(ChillCarDomain t) {
 		// TODO Auto-generated method stub
 		return getPersistanceManager().find(getNamespace() + ".findByWhere", t);
+	}
+
+	public ChillCarDomain findByReport(ReportDomain reportDomain) {
+		// TODO Auto-generated method stub
+		return getPersistanceManager().load(getNamespace() + ".findByReport", reportDomain);
 	}
 
 }

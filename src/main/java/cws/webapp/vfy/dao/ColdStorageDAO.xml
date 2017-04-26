@@ -59,11 +59,11 @@
 		</where>
 	</select>
 	<insert id="insert" parameterType="ColdStorageDomain"
-	flushCache="true" useGeneratedKeys="true" keyProperty="id">
-	insert into
-	COLD_STORAGE_INFO(NAME,TYPES,VOLUME,AREA,FAN_NUM,FAN_MAIN_NUM,FAN_SPARE_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP,REMARK,STATUS)
-	values
-	(#{name},#{types},#{volume},#{area},#{fanNum},#{fanMainNum},#{fanSpareNum},#{entranceNum},#{goodsShelves},#{probeNum},#{manufactor},#{disMap},#{remark},#{status})
+		flushCache="true" useGeneratedKeys="true" keyProperty="id">
+		insert into
+		COLD_STORAGE_INFO(NAME,TYPES,VOLUME,AREA,FAN_NUM,FAN_MAIN_NUM,FAN_SPARE_NUM,ENTRANCE_NUM,GOODS_SHELVES,PROBE_NUM,MANUFACTOR,DIS_MAP,REMARK,STATUS)
+		values
+		(#{name},#{types},#{volume},#{area},#{fanNum},#{fanMainNum},#{fanSpareNum},#{entranceNum},#{goodsShelves},#{probeNum},#{manufactor},#{disMap},#{remark},#{status})
 	</insert>
 	<update id="update" parameterType="ColdStorageDomain"
 		flushCache="true">
@@ -125,4 +125,14 @@
 
 		</where>
 	</delete>
+
+
+	<select id="findByReport" parameterType="ReportDomain"
+		resultType="ColdStorageDomain" useCache="true">
+		SELECT b.* FROM report_info a LEFT JOIN COLD_STORAGE_INFO b ON
+		a.VERIFY_OBJECT = b.ID
+		<where>
+			and a.REPORT_NO = #{reportNo}
+		</where>
+	</select>
 </mapper>

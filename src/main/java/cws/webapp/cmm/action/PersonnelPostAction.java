@@ -60,7 +60,8 @@ public class PersonnelPostAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=update")
-	public String update(PersonnelPostDomain personnelPostDomain) {
+	public String update(PersonnelPostDomain personnelPostDomain, String postName) {
+		personnelPostDomain.setPostId(Integer.parseInt(postName));
 		int i = personnelPostService.update(personnelPostDomain);
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
@@ -97,7 +98,8 @@ public class PersonnelPostAction extends BaseAction {
 	public String findPersonnelPostByCompanyToDrop(PersonnelPostDomain personnelPostDomain,
 			@RequestParam(name = "enterpriseId") int companyId) {
 		personnelPostDomain.setCompanyId(companyId);
-		List<PersonnelPostDomain> personnelPostDomains = personnelPostService.findPersonnelPostByCompanyToDrop(personnelPostDomain);
+		List<PersonnelPostDomain> personnelPostDomains = personnelPostService
+				.findPersonnelPostByCompanyToDrop(personnelPostDomain);
 		List<CommonParamDomain> list = new ArrayList<CommonParamDomain>();
 		for (PersonnelPostDomain domain : personnelPostDomains) {
 			CommonParamDomain commonParamDomain = new CommonParamDomain();

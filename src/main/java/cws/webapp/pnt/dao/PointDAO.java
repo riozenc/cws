@@ -16,6 +16,7 @@ import com.riozenc.quicktool.mybatis.dao.BaseDAO;
 
 import cws.webapp.pnt.domain.CompanyPointDomain;
 import cws.webapp.pnt.domain.PointDomain;
+import cws.webapp.rpt.domain.ReportDomain;
 
 @TransactionDAO
 public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<PointDomain> {
@@ -102,5 +103,9 @@ public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<P
 
 	public int insertVerifyPointRel(PointDomain pointDomain) {
 		return getPersistanceManager().insert(getNamespace() + ".insertVerifyPointRel", pointDomain);
+	}
+	
+	public List<PointDomain> findPointByReport(ReportDomain reportDomain){
+		return getPersistanceManager().find(getNamespace() + ".findPointByReport", reportDomain);
 	}
 }

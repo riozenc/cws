@@ -105,4 +105,13 @@
 
 		</where>
 	</delete>
+	
+	<select id="findByReport" parameterType="ReportDomain"
+		resultType="ChillCarDomain" useCache="true">
+		SELECT b.* FROM report_info a LEFT JOIN CHILL_CAR_INFO b ON
+		a.VERIFY_OBJECT = b.ID
+		<where>
+			and a.REPORT_NO = #{reportNo}
+		</where>
+	</select>
 </mapper>

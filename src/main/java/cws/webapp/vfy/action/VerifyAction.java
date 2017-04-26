@@ -23,6 +23,7 @@ import com.riozenc.quicktool.common.util.json.JSONUtil;
 import cws.common.json.JsonGrid;
 import cws.common.json.JsonResult;
 import cws.webapp.cmm.domain.CompanyDomain;
+import cws.webapp.rpt.domain.ReportDomain;
 import cws.webapp.sys.domain.CommonParamDomain;
 import cws.webapp.vfy.domain.VerifyDomain;
 import cws.webapp.vfy.service.IVerifyService;
@@ -118,6 +119,13 @@ public class VerifyAction {
 	public String getVerifyInfo(VerifyDomain verifyDomain) {
 		verifyDomain = verifyService.getVerifyInfo(verifyDomain);
 
+		return JSONUtil.toJsonString(verifyDomain);
+	}
+	
+	@ResponseBody
+	@RequestMapping(params = "type=getVerifyInfoByReport")
+	public String getVerifyInfoByReport(ReportDomain reportDomain){
+		VerifyDomain verifyDomain=verifyService.getVerifyInfoByReport(reportDomain);
 		return JSONUtil.toJsonString(verifyDomain);
 	}
 

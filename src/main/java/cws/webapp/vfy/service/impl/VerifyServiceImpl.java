@@ -13,6 +13,7 @@ import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.annotation.TransactionService;
 
 import cws.webapp.cmm.domain.CompanyDomain;
+import cws.webapp.rpt.domain.ReportDomain;
 import cws.webapp.vfy.dao.ChillCarDAO;
 import cws.webapp.vfy.dao.ColdStorageDAO;
 import cws.webapp.vfy.dao.VerifyDAO;
@@ -142,4 +143,20 @@ public class VerifyServiceImpl implements IVerifyService {
 		return verifyDAO.getVerifyByCompanyToDrop(companyDomain);
 	}
 
+	@Override
+	public VerifyDomain getVerifyInfoByReport(ReportDomain reportDomain) {
+		// TODO Auto-generated method stub
+		VerifyDomain verifyDomain = null;
+		switch (Integer.parseInt(reportDomain.getReportType())) {
+		case 1:// 冷库
+			verifyDomain = coldStorageDAO.findByReport(reportDomain);
+			break;
+		case 2:// 冷藏车
+			verifyDomain = chillCarDAO.findByReport(reportDomain);
+			break;
+		case 3:// 保温箱
+			break;
+		}
+		return verifyDomain;
+	}
 }
