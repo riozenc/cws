@@ -120,7 +120,7 @@ $(document).ready(function(){
 		success : function(data) {
 			dutyDrop=data;
 			//加载表格数据
-			grid3.load({enterpriseId:enterpriseId});
+			grid3.load({});
 			$.ajax({
 				url : "../personnelPost.do?type=findPersonnelPostByCompanyToDrop",
 				data : {enterpriseId:enterpriseId},
@@ -345,7 +345,7 @@ function onKeyEnterDutyRight(){
 //查询
 function searchDutyRight(){
 	var name = mini.get("key3").getValue();
-    var param={enterpriseId:enterpriseId,name:name};
+    var param={name:name};
     grid3.load(param);
 }
 //添加验证人员
@@ -367,7 +367,7 @@ function addRowDutyRight(){
 	    },
 	    ondestroy: function (action) {
 	    	if(action===true){
-	    		grid3.load({enterpriseId:enterpriseId});
+	    		grid3.load({});
 	    	}  
 	    }
 	});
@@ -384,13 +384,13 @@ function editDutyRight(recodeID){
 	    onload: function () {
 	    	//向表单传参
 	    	//recode.dutyFlag=2;
-	    	recode.enterpriseId=enterpriseId;
+	    	recode.enterpriseId=0;
 	    	var iframe = this.getIFrameEl();
 	        iframe.contentWindow.setData(recode);
 	    },
 	    ondestroy: function (action) {
 	        if(action===true){
-	    		grid3.load({enterpriseId:enterpriseId});
+	    		grid3.load({});
 	    	} 
 	    }
 	});
@@ -422,7 +422,7 @@ function delDutyRight(recode){
             		dataType : 'json',
                     success: function (text) {
                     	alert(text.message);
-                        grid3.load({enterpriseId:enterpriseId});
+                        grid3.load({});
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                     	alert(jqXHR.responseText);
