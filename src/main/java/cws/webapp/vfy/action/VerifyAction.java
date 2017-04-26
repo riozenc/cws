@@ -110,7 +110,7 @@ public class VerifyAction {
 			commonParamDomain.setValue(domain.getVerifyId()+"");
 			list.add(commonParamDomain);
 		}
-		return JSONUtil.toJsonString(new JsonGrid(list));
+		return JSONUtil.toJsonString(list);
 	}
 
 	@ResponseBody
