@@ -22,7 +22,7 @@ $(document).ready(function(){
 			//operate列，超连接操作按钮
 	    	e.cellStyle = "text-align:center";
 	    	if(e.row.reportStatus==0){
-		        e.cellHtml = '<a href="javascript:createReport(\'' + e.record.reportNo+"\',\'" + enterpriseId +'\')">生成报告</a>&nbsp; '
+		        e.cellHtml = '<a href="javascript:createReport(\'' + e.record.reportNo+"\',\'" + enterpriseId +'\',\''+e.record.reportType+'\')">生成报告</a>&nbsp; '
 		                    + '<a href="javascript:del(\'' + e.record.reportNo + '\')">删除</a>&nbsp; ';
 	    	}else if (e.row.reportStatus==1) {
 	    		e.cellHtml = '<a href="javascript:seek(\'' + e.record.reportNo +'\')">查看</a>&nbsp; '
@@ -193,11 +193,11 @@ function seek(recordId,object,temperature){
 		+"&object=\""+object+"\"&temp=\""+temperature+"\"' width='100%' height='100%' style='border-width: 0'>");
 }
 //生成报告
-function createReport(reportNo,enterpriseId){
+function createReport(reportNo,enterpriseId,reportType){
 	var $mainCanvans=$("#mainCanvans");
 	var $childCanvans=$("#childCanvans");
 	$childCanvans.empty();
 	$mainCanvans.css("display", "none");
 	$childCanvans.css("display", "block");
-	$childCanvans.append("<iframe name='childCanvansIframe' src='createReport.jsp?enterpriseId="+enterpriseId + "&reportNo=\""+reportNo +"\"' width='100%' height='100%' style='border-width: 0'>");
+	$childCanvans.append("<iframe name='childCanvansIframe' src='createReport.jsp?enterpriseId="+enterpriseId + "&reportNo=\""+reportNo +"\"&reportType=\""+reportType+"\"' width='100%' height='100%' style='border-width: 0'>");
 }

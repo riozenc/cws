@@ -154,7 +154,7 @@ $(document).ready(function(){
 	//下一步按钮
 	var $next2=$("#context2_next");
 	$next2.click(function(event) {
-		if(propertyType=="01"){
+		if(reportType=="1"){
 			//第三步加载冷库基本数据
 			var form2 = new mini.Form("reportDataForm2");
 			$.ajax({
@@ -172,7 +172,7 @@ $(document).ready(function(){
 			$("#context3_lccCanvas").css("display","none");
 			$("#context3_bwxCanvas").css("display","none");
 			$("#context3_lkCanvas").css("display","block");
-		}else if(propertyType=="02"){
+		}else if(reportType=="2"){
 			//第三步加载冷藏车基本数据
 			var form3 = new mini.Form("reportDataForm3");
 			$.ajax({
@@ -190,7 +190,7 @@ $(document).ready(function(){
 			$("#context3_lkCanvas").css("display","none");
 			$("#context3_bwxCanvas").css("display","none");
 			$("#context3_lccCanvas").css("display","block");
-		}else if(propertyType=="03"){
+		}else if(reportType=="3"){
 			//第三步加载保温箱基本数据
 			var form4 = new mini.Form("reportDataForm4");
 			$.ajax({
@@ -224,7 +224,7 @@ $(document).ready(function(){
 		type : "get",
 		success : function(data) {
 			for(var i=0;i<data.length;i++){
-				if(propertyType==data[i].value){
+				if(reportType==data[i].value){
 					$("#incubatorNameTitle").text(data[i].name+"名称型号：");
 					$("#incubatorParamsTitle").text(data[i].name+"参数：");
 					break;
@@ -290,17 +290,17 @@ $(document).ready(function(){
 	//下一步按钮
 	var $next4=$("#context4_next");
 	$next4.click(function(event) {
-		if(propertyType=="01"){
+		if(reportType=="1"){
 			//切换第五步echarts左侧截图保存内容
 			$("#lccImgCanvas").css("display","none");
 			$("#bwxImgCanvas").css("display","none");
 			$("#lkImgCanvas").css("display","block");
-		}else if(propertyType=="02"){
+		}else if(reportType=="2"){
 			//切换第五步echarts左侧截图保存内容
 			$("#lkImgCanvas").css("display","none");
 			$("#bwxImgCanvas").css("display","none");
 			$("#lccImgCanvas").css("display","block");
-		}else if(propertyType=="03"){
+		}else if(reportType=="3"){
 			//切换第五步echarts左侧截图保存内容	
 			$("#lkImgCanvas").css("display","none");
 			$("#lccImgCanvas").css("display","none");
@@ -320,7 +320,7 @@ $(document).ready(function(){
         			return;
         		}
         	}
-            if(propertyType=="01"){
+            if(reportType=="1"){
             	//如果当前截图数大于总截图数，返回
             	if(lkEchartImgTotal<lkEchartImg){
             		mini.alert("不能上传更多截图！","提示");
@@ -337,7 +337,7 @@ $(document).ready(function(){
                 //记录测点信息，以便传递到后台
                 $("input[name='pointType"+lkEchartImg+"']").val(pointType);
                 lkEchartImg++;
-			}else if(propertyType=="02"){
+			}else if(reportType=="2"){
 				if(lccEchartImgTotal<lccEchartImg){
             		mini.alert("不能上传更多截图！","提示");
             		return;
@@ -348,7 +348,7 @@ $(document).ready(function(){
                 $("input[name='measureType"+lccEchartImg+"']").val(measureType);
                 $("input[name='pointType"+lccEchartImg+"']").val(pointType);
                 lccEchartImg++;
-			}else if(propertyType=="03"){
+			}else if(reportType=="3"){
 				if(bwxEchartImgTotal<bwxEchartImg){
             		mini.alert("不能上传更多截图！","提示");
             		return;
@@ -365,7 +365,7 @@ $(document).ready(function(){
 		//删除图片按钮点击事件
 		var $deleteImg=$("#deleteImg");
 		$deleteImg.click(function(){
-			if(propertyType=="01"){
+			if(reportType=="1"){
 				if(lkEchartImg==1){
 					mini.alert("没有可删除的图片！","提示");
             		return;
@@ -379,7 +379,7 @@ $(document).ready(function(){
                 $("input[name='measureType"+lkEchartImg+"']").val('');
                 //记录测点信息，以便传递到后台
                 $("input[name='pointType"+lkEchartImg+"']").val('');
-			}else if(propertyType=="02"){
+			}else if(reportType=="2"){
 				if(lccEchartImg==1){
 					mini.alert("没有可删除的图片！","提示");
             		return;
@@ -389,7 +389,7 @@ $(document).ready(function(){
                 $("input[name='lccImg"+lccEchartImg+"']").val('');
                 $("input[name='measureType"+lccEchartImg+"']").val('');
                 $("input[name='pointType"+lccEchartImg+"']").val('');
-			}else if(propertyType=="03"){
+			}else if(reportType=="3"){
 				if(bwxEchartImg==1){
 					mini.alert("没有可删除的图片！","提示");
             		return;
@@ -660,7 +660,7 @@ function loadChart(){
 	var measureType=mini.get("mDropData").getValue();
 	$.ajax({
 		url : "../resource/data/createReportChart.txt",
-		data : {enterpriseId:enterpriseId,recordId:recordId,pointType:pointType,measureType:measureType,propertyType:propertyType},
+		data : {enterpriseId:enterpriseId,recordId:recordId,pointType:pointType,measureType:measureType,reportType:reportType},
 		dataType : "json",
 		type : "post",
 		success : function(data){

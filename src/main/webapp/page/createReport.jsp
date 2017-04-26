@@ -799,7 +799,7 @@
 		//验证报告管理点击查看时传过来的该条记录id
 		var recordId=${param.reportNo};
 		//该条记录的属性
-// 		var propertyType=${param.propertyType};
+ 		var reportType=${param.reportType};
 		//获得项目路径
 		var contextPath="${pageContext.request.contextPath}";
 	</script>
