@@ -262,7 +262,7 @@ function addRowDutyLeft(){
 	    	var iframe = this.getIFrameEl();
 	    	//1表明添加的是客户公司
 	        var data = { 
-	        	enterpriseId: 0
+	        	enterpriseId: enterpriseId
 	        	//dutyFlag: 1
 	        };
 	        iframe.contentWindow.setData(data);
