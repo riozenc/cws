@@ -114,7 +114,7 @@ $(document).ready(function(){
 	//获取职责下拉
 	$.ajax({
 		url : '../commonParam.do?type=findCommonParamByType&paramType=DUTIES_TYPE',
-		data : {id:enterpriseId},
+		data : {enterpriseId:enterpriseId},
 		dataType : "json",
 		type : "get",
 		success : function(data) {
