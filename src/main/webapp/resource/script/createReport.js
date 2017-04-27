@@ -494,37 +494,31 @@ $(document).ready(function(){
 		//添加该报告属性信息
 		allFormData.reportType=reportType;
 		//向表单中添加第五步图片链接信息
-		//echartImg:[{echartImgUrl:1,measureType:1,pointType:1},{echartImgUrl:2,measureType:2,pointType:2}...]
-		var echartAllImgArr=[];
+		//imagePath:{imagePath_1_1:1,imagePath_1_2:2,...}
+		var imagePathAll={};
 		if(reportType=="1"){
 			for(i=1;i<lkEchartImg;i++){
-				//记录一组图片数据
-				var echartImgObj={};
-				echartImgObj.echartImgUrl=$("input[name='lkImg"+i+"']").val();
-				echartImgObj.measureType=$("input[name='lkMeasureType"+i+"']").val();
-				echartImgObj.pointType=$("input[name='lkPointType"+i+"']").val();
-				echartAllImgArr.push(echartImgObj);
+				//记录一组图片数据			
+				var pt=$("input[name='lkPointType"+i+"']").val();
+				var mt=$("input[name='lkMeasureType"+i+"']").val();
+				imagePathAll["imagePath_"+pt+"_"+mt]=$("input[name='lkImg"+i+"']").val();
 			}   
 		}else if(reportType=="2"){
 			for(i=1;i<lccEchartImg;i++){
 				//记录一组图片数据
-				var echartImgObj={};
-				echartImgObj.echartImgUrl=$("input[name='lccImg"+i+"']").val();
-				echartImgObj.measureType=$("input[name='lccMeasureType"+i+"']").val();
-				echartImgObj.pointType=$("input[name='lccPointType"+i+"']").val();
-				echartAllImgArr.push(echartImgObj);
+				var pt=$("input[name='lccPointType"+i+"']").val();
+				var mt=$("input[name='lccMeasureType"+i+"']").val();
+				imagePathAll["imagePath_"+pt+"_"+mt]=$("input[name='lccImg"+i+"']").val();
 			}  
 		}else if(reportType=="3"){
 			for(i=1;i<bwxEchartImg;i++){
 				//记录一组图片数据
-				var echartImgObj={};
-				echartImgObj.echartImgUrl=$("input[name='bwxImg"+i+"']").val();
-				echartImgObj.measureType=$("input[name='bwxMeasureType"+i+"']").val();
-				echartImgObj.pointType=$("input[name='bwxPointType"+i+"']").val();
-				echartAllImgArr.push(echartImgObj);
+				var pt=$("input[name='bwxPointType"+i+"']").val();
+				var mt=$("input[name='bwxMeasureType"+i+"']").val();
+				imagePathAll["imagePath_"+pt+"_"+mt]=$("input[name='bwxImg"+i+"']").val();
 			} 
 		}
-		allFormData.echartImg=echartAllImgArr;
+		allFormData.imagePath=imagePathAll;
 		//发送报告数据到后台
 		$.ajax({
             url: '',
