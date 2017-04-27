@@ -90,7 +90,7 @@
 						            <div field="name" width="80" headerAlign="center" allowSort="false">姓名
 						                <input property="editor" class="mini-textbox" style="width:200px;" minWidth="80" />
 						            </div>
-						            <div type="comboboxcolumn" name="job" field="postName" width="150" headerAlign="center" 
+						            <div type="comboboxcolumn" name="job" field="postId" width="150" headerAlign="center" 
 						            	autoShowPopup="true">职务
 										<input property="editor" class="mini-combobox" style="width:100%;" valueField="value" 
 											textField="name" data="jobDrop"/>
