@@ -85,28 +85,28 @@ $(document).ready(function(){
 		var datagridJob = mini.get("datagridJob");
 		var datagridDuty = mini.get("datagridDuty");
 		$.ajax({
-			url : '../resource/data/jobDrop.txt',
-			data : {enterpriseId:enterpriseId,recordId:recordId},
+			url : '../commonParam.do?type=findCommonParamByType&paramType=POST_TYPE',
+			data : {enterpriseId:enterpriseId,reportNo:recordId},
 			dataType : "json",
 			type : "get",
 			success : function(data) {
 				jobDrop=data;
 				//加载表格数据
-				datagridJob.load({enterpriseId:enterpriseId,recordId:recordId});
-				$.ajax({
-					url : '../resource/data/dutyDrop.txt',
-					data : {enterpriseId:enterpriseId,recordId:recordId},
-					dataType : "json",
-					type : "get",
-					success : function(data) {
-						dutyDrop=data;
-						//加载表格数据
-						datagridDuty.load({enterpriseId:enterpriseId,recordId:recordId});
-					},
-					error : function(e) {
-						alert("请求数据失败！status："+e.status);
-					}
-				});
+				datagridJob.load({enterpriseId:enterpriseId,reportNo:recordId});
+			},
+			error : function(e) {
+				alert("请求数据失败！status："+e.status);
+			}
+		});
+		$.ajax({
+			url : '../commonParam.do?type=findCommonParamByType&paramType=DUTIES_TYPE',
+			data : {enterpriseId:enterpriseId,reportNo:recordId},
+			dataType : "json",
+			type : "get",
+			success : function(data) {
+				dutyDrop=data;
+				//加载表格数据
+				datagridDuty.load({enterpriseId:enterpriseId,reportNo:recordId});
 			},
 			error : function(e) {
 				alert("请求数据失败！status："+e.status);
