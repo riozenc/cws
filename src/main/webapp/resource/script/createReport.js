@@ -290,9 +290,9 @@ $(document).ready(function(){
             	var base64data=myChart.getDataURL("png");
             	//将图片数据发送到后台
                 $.ajax({
-		            url: "",
+		            url: "../commonParam.do?type=uploadBase64",
 		            type: "post",
-		            data: {base64data:base64data,measureType:measureType,pointType:pointType,reportType:reportType,reportNo:reportNo},
+		            data: {base64data:base64data,measureType:measureType,pointType:pointType,reportType:reportType,reportNo:recordId},
 		            dataType : "json",
 		            success: function (data) {
 		            	if(data.statusCode==200){
@@ -322,7 +322,7 @@ $(document).ready(function(){
             	}
             	var base64data=myChart.getDataURL("png");
             	$.ajax({
-		            url: "",
+            		url: "../commonParam.do?type=uploadBase64",
 		            type: "post",
 		            data: {base64data:base64data,measureType:measureType,pointType:pointType,reportType:reportType},
 		            dataType : "json",
@@ -350,7 +350,7 @@ $(document).ready(function(){
             	}
             	var base64data=myChart.getDataURL("png");
             	$.ajax({
-		            url: "",
+            		url: "../commonParam.do?type=uploadBase64",
 		            type: "post",
 		            data: {base64data:base64data,measureType:measureType,pointType:pointType,reportType:reportType},
 		            dataType : "json",
@@ -521,7 +521,7 @@ $(document).ready(function(){
 		allFormData.imagePath=imagePathAll;
 		//发送报告数据到后台
 		$.ajax({
-            url: '',
+            url: '../report.do?type=createReport',
 			type: 'post',
             data: allFormData,
             dataType : 'json',
@@ -638,8 +638,9 @@ function loadChart(){
 	var pointType=mini.get("pDropData").getValue();
 	var measureType=mini.get("mDropData").getValue();
 	$.ajax({
-		url : "../resource/data/createReportChart.txt",
-		data : {enterpriseId:enterpriseId,recordId:recordId,pointType:pointType,measureType:measureType,reportType:reportType},
+//		url : "../resource/data/createReportChart.txt",
+		url : "../report.do?type=getDeviceDate",
+		data : {enterpriseId:enterpriseId,reportNo:recordId,pointType:pointType,measureType:measureType,reportType:reportType},
 		dataType : "json",
 		type : "post",
 		success : function(data){

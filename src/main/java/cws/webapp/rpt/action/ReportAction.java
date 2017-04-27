@@ -7,6 +7,7 @@
  */
 package cws.webapp.rpt.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,11 @@ import com.riozenc.quicktool.common.util.json.JSONUtil;
 
 import cws.common.json.JsonGrid;
 import cws.common.json.JsonResult;
+import cws.webapp.pnt.domain.VerifyPointDomain;
+import cws.webapp.pnt.service.IVerifyPointService;
+import cws.webapp.rpt.domain.DeviceDomain;
 import cws.webapp.rpt.domain.ReportDomain;
+import cws.webapp.rpt.service.IDeviceService;
 import cws.webapp.rpt.service.IReportService;
 
 @ControllerAdvice
@@ -30,35 +35,41 @@ public class ReportAction {
 	@Autowired
 	@Qualifier("reportServiceImpl")
 	private IReportService reportService;
+	@Autowired
+	@Qualifier("deviceServiceImpl")
+	private IDeviceService deviceService;
+	@Autowired
+	@Qualifier("verifyPointServiceImpl")
+	private IVerifyPointService verifyPointService;
 
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
-	public String insert(ReportDomain reportDomain,@RequestParam(name = "enterpriseId") int companyId) {
+	public String insert(ReportDomain reportDomain, @RequestParam(name = "enterpriseId") int companyId) {
 		reportDomain.setCompanyId(companyId);
 		reportDomain.setReportStatus(0);
-		//初始化
-		reportDomain.setReportNo(reportDomain.getReportType()+"_"+System.currentTimeMillis());
-//		reportDomain.setReportVersion("1.0");
-		
-		//({"type":["insert"],"id":[""],"enterpriseId":["1"],"name":["123"],"object":["55"],"propertyType":["01"],"temperatureType":["01"],"remark":["000"]})
-		
+		// 初始化
+		reportDomain.setReportNo(reportDomain.getReportType() + "_" + System.currentTimeMillis());
+		// reportDomain.setReportVersion("1.0");
+
+		// ({"type":["insert"],"id":[""],"enterpriseId":["1"],"name":["123"],"object":["55"],"propertyType":["01"],"temperatureType":["01"],"remark":["000"]})
+
 		int i = reportService.insert(reportDomain);
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "成功."));
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
 	@ResponseBody
 	@RequestMapping(params = "type=delete")
-	public String delete(ReportDomain reportDomain,@RequestParam(name = "enterpriseId") int companyId) {
+	public String delete(ReportDomain reportDomain, @RequestParam(name = "enterpriseId") int companyId) {
 		reportDomain.setCompanyId(companyId);
 		int i = reportService.delete(reportDomain);
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "成功."));
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -69,7 +80,7 @@ public class ReportAction {
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "成功."));
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -94,11 +105,52 @@ public class ReportAction {
 			reportDomain.setReportStatus(null);
 		reportDomain.setCompanyId(companyId);
 		List<ReportDomain> list = reportService.findReportByCompany(reportDomain);
-		
-		for(ReportDomain domain:list){
-			domain.setVerifyObject(domain.getVerifyObject()+"_"+domain.getReportType());
+
+		for (ReportDomain domain : list) {
+			domain.setVerifyObject(domain.getVerifyObject() + "_" + domain.getReportType());
 		}
-		
+
 		return JSONUtil.toJsonString(new JsonGrid(list));
+	}
+
+	@ResponseBody
+	@RequestMapping(params = "type=getDeviceDate")
+	public String getDeviceDate(String enterpriseId, String reportNo, int pointType, int measureType) {
+		List<DeviceDomain> deviceDomains = new ArrayList<>();
+
+		ReportDomain reportDomain = new ReportDomain();
+		reportDomain.setReportNo(reportNo);
+		List<VerifyPointDomain> verifyPointDomains = verifyPointService.getVerifyPointByReport(reportDomain);
+		for (VerifyPointDomain domain : verifyPointDomains) {
+			if (Integer.parseInt(domain.getPointType()) == pointType) {
+				DeviceDomain deviceDomain = new DeviceDomain();
+				deviceDomain.setDeviceId(domain.getPointId() + "");
+				deviceDomain.setPointId(domain.getPointId());
+				deviceDomain.setVerifyReportId(reportNo);
+				deviceDomain.setStyle(measureType);
+				deviceDomains.add(deviceDomain);
+			}
+		}
+
+		for (DeviceDomain domain : deviceDomains) {
+			List<DeviceDomain> list = deviceService.getDeviceDate(domain);
+			System.out.println(JSONUtil.toJsonString(list));
+		}
+		//"xAxis"
+		//"yData"
+
+		return null;
+	}
+
+	@ResponseBody
+	@RequestMapping(params = "type=createReport")
+	public String createReport() {
+
+		int i = 1;
+		if (i > 0) {
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
+		} else {
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "成功."));
+		}
 	}
 }

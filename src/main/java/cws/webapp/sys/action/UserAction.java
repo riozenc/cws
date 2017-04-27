@@ -36,7 +36,7 @@ public class UserAction extends BaseAction {
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "成功."));
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -47,7 +47,7 @@ public class UserAction extends BaseAction {
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "成功."));
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 
@@ -58,7 +58,7 @@ public class UserAction extends BaseAction {
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} else {
-			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "成功."));
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
 		}
 	}
 

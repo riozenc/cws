@@ -18,6 +18,7 @@ import cws.webapp.pnt.domain.CompanyPointDomain;
 import cws.webapp.pnt.domain.PointDomain;
 import cws.webapp.pnt.domain.VerifyPointDomain;
 import cws.webapp.pnt.service.IVerifyPointService;
+import cws.webapp.rpt.domain.ReportDomain;
 
 @TransactionService
 public class VerifyPointServiceImpl implements IVerifyPointService {
@@ -83,6 +84,12 @@ public class VerifyPointServiceImpl implements IVerifyPointService {
 	public List<VerifyPointDomain> findVerifyPointByVerify(VerifyPointDomain verifyPointDomain) {
 		// TODO Auto-generated method stub
 		return verifyPointDAO.findVerifyPointByVerify(verifyPointDomain);
+	}
+
+	@Override
+	public List<VerifyPointDomain> getVerifyPointByReport(ReportDomain reportDomain) {
+		// TODO Auto-generated method stub
+		return verifyPointDAO.getVerifyPointByReport(reportDomain);
 	}
 
 }

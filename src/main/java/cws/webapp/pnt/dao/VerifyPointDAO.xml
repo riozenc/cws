@@ -121,4 +121,19 @@
 		</where>
 		ORDER BY a.POINT_POSITION
 	</select>
+
+
+	<select id="getVerifyPointByReport" parameterType="ReportDomain"
+		resultType="VerifyPointDomain" useCache="true">
+		SELECT
+		b.*
+		FROM
+		report_info a
+		LEFT JOIN verify_point_rel b ON
+		a.VERIFY_OBJECT = b.VERIFY_ID
+		AND a.REPORT_TYPE = b.VERIFY_TYPE
+		<where>
+			a.REPORT_NO = #{reportNo}
+		</where>
+	</select>
 </mapper>

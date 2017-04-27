@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cws.webapp.rpt.dao.DeviceDAO">
+	<select id="findByKey" parameterType="DeviceDomain" resultType="DeviceDomain"
+		useCache="true">
+		select ID,DATE,VERIFY_REPORT_ID,TEMPERATURE,HUMIDITY,STYLE,DEVICE_ID
+		from device
+		<where>
+			and ID = #{id}
+
+		</where>
+	</select>
+	<select id="findByWhere" parameterType="DeviceDomain"
+		resultType="DeviceDomain" useCache="true">
+		select ID,DATE,VERIFY_REPORT_ID,TEMPERATURE,HUMIDITY,STYLE,DEVICE_ID
+		from device
+		<where>
+			<if test="id !=null">
+				and ID = #{id}
+			</if>
+			<if test="date !=null">
+				and DATE = #{date}
+			</if>
+			<if test="verifyReportId !=null">
+				and VERIFY_REPORT_ID = #{verifyReportId}
+			</if>
+			<if test="temperature !=null">
+				and TEMPERATURE = #{temperature}
+			</if>
+			<if test="humidity !=null">
+				and HUMIDITY = #{humidity}
+			</if>
+			<if test="style !=null">
+				and STYLE = #{style}
+			</if>
+			<if test="deviceId !=null">
+				and DEVICE_ID = #{deviceId}
+			</if>
+		</where>
+	</select>
+	<insert id="insert" parameterType="DeviceDomain" flushCache="true">
+		insert into
+		device(ID,DATE,VERIFY_REPORT_ID,TEMPERATURE,HUMIDITY,STYLE,DEVICE_ID)
+		values
+		(#{id},#{date},#{verifyReportId},#{temperature},#{humidity},#{style},#{deviceId})
+	</insert>
+	<update id="update" parameterType="DeviceDomain" flushCache="true">
+		update device
+		<set>
+			<if test="date !=null">
+				DATE = #{date},
+			</if>
+			<if test="verifyReportId !=null">
+				VERIFY_REPORT_ID = #{verifyReportId},
+			</if>
+			<if test="temperature !=null">
+				TEMPERATURE = #{temperature},
+			</if>
+			<if test="humidity !=null">
+				HUMIDITY = #{humidity},
+			</if>
+			<if test="style !=null">
+				STYLE = #{style},
+			</if>
+			<if test="deviceId !=null">
+				DEVICE_ID = #{deviceId},
+			</if>
+		</set>
+		<where>
+			and ID = #{id}
+
+		</where>
+	</update>
+	<delete id="delete" parameterType="DeviceDomain" flushCache="true">
+		delete from device
+		<where>
+			and ID = #{id}
+
+		</where>
+	</delete>
+	
+	<select id="getDeviceDate" parameterType="DeviceDomain"
+		resultType="DeviceDomain" useCache="true">
+		select ID,DATE,VERIFY_REPORT_ID,TEMPERATURE,HUMIDITY,STYLE,DEVICE_ID
+		from device_${pointId}
+		<where>
+			<if test="id !=null">
+				and ID = #{id}
+			</if>
+			<if test="date !=null">
+				and DATE = #{date}
+			</if>
+			<if test="verifyReportId !=null">
+				and VERIFY_REPORT_ID = #{verifyReportId}
+			</if>
+			<if test="temperature !=null">
+				and TEMPERATURE = #{temperature}
+			</if>
+			<if test="humidity !=null">
+				and HUMIDITY = #{humidity}
+			</if>
+			<if test="style !=null">
+				and STYLE = #{style}
+			</if>
+			<if test="deviceId !=null">
+				and DEVICE_ID = #{deviceId}
+			</if>
+		</where>
+	</select>
+</mapper>

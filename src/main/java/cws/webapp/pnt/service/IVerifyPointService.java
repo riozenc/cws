@@ -12,8 +12,11 @@ import java.util.List;
 import com.riozenc.quicktool.springmvc.webapp.service.BaseService;
 
 import cws.webapp.pnt.domain.VerifyPointDomain;
+import cws.webapp.rpt.domain.ReportDomain;
 
 public interface IVerifyPointService extends BaseService<VerifyPointDomain>{
 
 	public List<VerifyPointDomain> findVerifyPointByVerify(VerifyPointDomain verifyPointDomain);
+	
+	public List<VerifyPointDomain> getVerifyPointByReport(ReportDomain reportDomain);
 }

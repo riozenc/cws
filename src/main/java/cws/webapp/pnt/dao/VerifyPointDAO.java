@@ -15,6 +15,7 @@ import com.riozenc.quicktool.mybatis.dao.AbstractTransactionDAOSupport;
 import com.riozenc.quicktool.mybatis.dao.BaseDAO;
 
 import cws.webapp.pnt.domain.VerifyPointDomain;
+import cws.webapp.rpt.domain.ReportDomain;
 
 @TransactionDAO
 public class VerifyPointDAO extends AbstractTransactionDAOSupport implements BaseDAO<VerifyPointDomain> {
@@ -54,4 +55,7 @@ public class VerifyPointDAO extends AbstractTransactionDAOSupport implements Bas
 		return getPersistanceManager().find(getNamespace() + ".findVerifyPointByVerify", verifyPointDomain);
 	}
 
+	public List<VerifyPointDomain> getVerifyPointByReport(ReportDomain reportDomain){
+		return getPersistanceManager().find(getNamespace() + ".getVerifyPointByReport", reportDomain);
+	}
 }

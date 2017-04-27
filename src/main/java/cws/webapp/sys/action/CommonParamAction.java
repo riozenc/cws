@@ -119,17 +119,19 @@ public class CommonParamAction extends BaseAction {
 		return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "文件上传失败."));
 	}
 
-	public String uploadBase64(String base64data, HttpServletRequest httpServletRequest) {
+	@ResponseBody
+	@RequestMapping(params = "type=uploadBase64")
+	public String uploadBase64(String base64data,String measureType,String pointType,String reportNo, HttpServletRequest httpServletRequest) {
 
 		// 项目部署的路径
 		String path = httpServletRequest.getSession().getServletContext().getRealPath("/");
-		File dic = new File(path + Global.getConfig("file.doc.path"));
-		if (!dic.exists()) {
-			dic.mkdirs();
-		}
+//		File dic = new File(path + Global.getConfig("file.doc.path"));
+//		if (!dic.exists()) {
+//			dic.mkdirs();
+//		}
 
 		try {
-			File file = FileUtil.uploadPictureByBase64(base64data, filePath, fileName);
+			File file = FileUtil.uploadPictureByBase64(base64data, path + Global.getConfig("file.doc.path"), "czy");
 			return JSONUtil.toJsonString(
 					new JsonResult(JsonResult.SUCCESS, Global.getConfig("file.doc.path") + "/" + file.getName()));
 		} catch (Exception e) {
