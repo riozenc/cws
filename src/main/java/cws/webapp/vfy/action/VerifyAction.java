@@ -108,7 +108,7 @@ public class VerifyAction {
 		for (VerifyDomain domain : verifyDomains) {
 			CommonParamDomain commonParamDomain = new CommonParamDomain();
 			commonParamDomain.setName(domain.getVerifyName());
-			commonParamDomain.setValue(domain.getVerifyId()+"");
+			commonParamDomain.setValue(domain.getVerifyId()+"_"+domain.getVerifyType());
 			list.add(commonParamDomain);
 		}
 		return JSONUtil.toJsonString(list);

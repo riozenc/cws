@@ -94,6 +94,11 @@ public class ReportAction {
 			reportDomain.setReportStatus(null);
 		reportDomain.setCompanyId(companyId);
 		List<ReportDomain> list = reportService.findReportByCompany(reportDomain);
+		
+		for(ReportDomain domain:list){
+			domain.setVerifyObject(domain.getVerifyObject()+"_"+domain.getReportType());
+		}
+		
 		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
 }
