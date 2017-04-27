@@ -98,7 +98,7 @@ function edit(recodeID){
 	    	//向表单传参
 	    	recode.enterpriseId=enterpriseId;
 	    	var iframe = this.getIFrameEl();
-	        iframe.contentWindow.setData(recode);
+	        iframe.contentWindow.setData(recode,"update");
 	    },
 	    ondestroy: function (action) {
 	        if(action===true){

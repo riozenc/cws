@@ -74,8 +74,11 @@
 		mini.parse();
         var form = new mini.Form("form1");
         //载入数据
-        function setData(data){
+        function setData(data,flag){
             form.setData(data);
+            if("update"==flag){
+                mini.get("schemeType").setReadOnly(true);
+            }
         }
 		//确定
 		function onOk(e) {
