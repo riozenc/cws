@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import com.riozenc.quicktool.common.util.file.FileUtil;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.config.Global;
 import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
@@ -116,5 +117,25 @@ public class CommonParamAction extends BaseAction {
 		}
 		// return JSONUtil.toJsonString(map);
 		return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "文件上传失败."));
+	}
+
+	public String uploadBase64(String base64data, HttpServletRequest httpServletRequest) {
+
+		// 项目部署的路径
+		String path = httpServletRequest.getSession().getServletContext().getRealPath("/");
+		File dic = new File(path + Global.getConfig("file.doc.path"));
+		if (!dic.exists()) {
+			dic.mkdirs();
+		}
+
+		try {
+			File file = FileUtil.uploadPictureByBase64(base64data, filePath, fileName);
+			return JSONUtil.toJsonString(
+					new JsonResult(JsonResult.SUCCESS, Global.getConfig("file.doc.path") + "/" + file.getName()));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
