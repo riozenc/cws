@@ -60,7 +60,8 @@
 							<tr>
 								<td class="formRowName">验证对象：</td>
 								<td>
-									<input name="verifyObject" class="mini-textbox context1_input" />
+									<input id="verifyObject" name="verifyObject" class="mini-combobox context1_input" readonly="true"
+									textField="name" valueField="value" data="objectTypeDrop" />
 								</td>
 							</tr>
 							<tr>
