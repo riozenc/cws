@@ -495,30 +495,33 @@ $(document).ready(function(){
 		allFormData.reportType=reportType;
 		//向表单中添加第五步图片链接信息
 		//imagePath:{imagePath_1_1:1,imagePath_1_2:2,...}
-		var imagePathAll={};
+		//var imagePathAll={};
 		if(reportType=="1"){
 			for(i=1;i<lkEchartImg;i++){
 				//记录一组图片数据			
 				var pt=$("input[name='lkPointType"+i+"']").val();
 				var mt=$("input[name='lkMeasureType"+i+"']").val();
-				imagePathAll["imagePath_"+pt+"_"+mt]=$("input[name='lkImg"+i+"']").val();
+				//imagePathAll["imagePath_"+pt+"_"+mt]=$("input[name='lkImg"+i+"']").val();
+				allFormData["imagePath_"+pt+"_"+mt]=$("input[name='lkImg"+i+"']").val();
 			}   
 		}else if(reportType=="2"){
 			for(i=1;i<lccEchartImg;i++){
 				//记录一组图片数据
 				var pt=$("input[name='lccPointType"+i+"']").val();
 				var mt=$("input[name='lccMeasureType"+i+"']").val();
-				imagePathAll["imagePath_"+pt+"_"+mt]=$("input[name='lccImg"+i+"']").val();
+				//imagePathAll["imagePath_"+pt+"_"+mt]=$("input[name='lccImg"+i+"']").val();
+				allFormData["imagePath_"+pt+"_"+mt]=$("input[name='lccImg"+i+"']").val();
 			}  
 		}else if(reportType=="3"){
 			for(i=1;i<bwxEchartImg;i++){
 				//记录一组图片数据
 				var pt=$("input[name='bwxPointType"+i+"']").val();
 				var mt=$("input[name='bwxMeasureType"+i+"']").val();
-				imagePathAll["imagePath_"+pt+"_"+mt]=$("input[name='bwxImg"+i+"']").val();
+				//imagePathAll["imagePath_"+pt+"_"+mt]=$("input[name='bwxImg"+i+"']").val();
+				allFormData["imagePath_"+pt+"_"+mt]=$("input[name='bwxImg"+i+"']").val();
 			} 
 		}
-		allFormData.imagePath=imagePathAll;
+		//allFormData.imagePath=imagePathAll;
 		//发送报告数据到后台
 		$.ajax({
             url: '../report.do?type=createReport',
