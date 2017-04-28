@@ -11,16 +11,16 @@ var jobDrop;
 //职责下拉
 var dutyDrop;
 //冷库echarts可截图数
-var lkEchartImgTotal=4;
+var lkEchartImgTotal=5;
 //冷藏车echarts可截图数
-var lccEchartImgTotal=3;
-//冷藏车echarts可截图数
-var bwxEchartImgTotal=5;
+var lccEchartImgTotal=6;
+//保温箱echarts可截图数
+var bwxEchartImgTotal=4;
 //冷库echarts当前截图数
 var lkEchartImg=1;
 //冷藏车echarts当前截图数
 var lccEchartImg=1;
-//冷藏车echarts当前截图数
+//保温箱echarts当前截图数
 var bwxEchartImg=1;
 //保存echarts截图时记录当前查询条件
 var curIf=[];

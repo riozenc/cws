@@ -458,6 +458,11 @@
 								<input type="text" name="lkMeasureType4" />
 								<input type="text" name="lkPointType4" />
 							</div>
+							<div class="echartsImgCanvans" id="lkImg5">
+								<input type="text" name="lkImg5" />
+								<input type="text" name="lkMeasureType5" />
+								<input type="text" name="lkPointType5" />
+							</div>
 						</div>
 						<div class="context5_imgCanvas" id="lccImgCanvas">
 							<div class="echartsImgCanvans" id="lccImg1">
@@ -474,6 +479,21 @@
 								<input type="text" name="lccImg3" />
 								<input type="text" name="lccMeasureType3" />
 								<input type="text" name="lccPointType3" />
+							</div>
+							<div class="echartsImgCanvans" id="lccImg4">
+								<input type="text" name="lccImg4" />
+								<input type="text" name="lccMeasureType4" />
+								<input type="text" name="lccPointType4" />
+							</div>
+							<div class="echartsImgCanvans" id="lccImg5">
+								<input type="text" name="lccImg5" />
+								<input type="text" name="lccMeasureType5" />
+								<input type="text" name="lccPointType5" />
+							</div>
+							<div class="echartsImgCanvans" id="lccImg6">
+								<input type="text" name="lccImg6" />
+								<input type="text" name="lccMeasureType6" />
+								<input type="text" name="lccPointType6" />
 							</div>
 						</div>
 						<div class="context5_imgCanvas" id="bwxImgCanvas">
@@ -496,11 +516,6 @@
 								<input type="text" name="bwxImg4" />
 								<input type="text" name="bwxMeasureType4" />
 								<input type="text" name="bwxPointType4" />
-							</div>
-							<div class="echartsImgCanvans" id="bwxImg5">
-								<input type="text" name="bwxImg5" />
-								<input type="text" name="bwxMeasureType5" />
-								<input type="text" name="bwxPointType5" />
 							</div>
 						</div>
 						<div id="echartCanvas">
