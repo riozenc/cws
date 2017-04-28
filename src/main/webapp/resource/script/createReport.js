@@ -647,8 +647,22 @@ function loadChart(){
 		dataType : "json",
 		type : "post",
 		success : function(data){
+			//横坐标
 			var xAxis=data.xAxis;
-			var yData=data.yData;
+			//var yData=data.yData;
+			var seriesData=[];
+			//遍历返回的json对象
+			for(var key in data){
+				//如果不是横坐标
+				if(key!="xAxis"){
+					var value=data[key];
+					var seriesObj={};
+					seriesObj.name="温度";
+					seriesObj.type="line";
+					seriesObj.data=value;
+					seriesData.push(seriesObj);
+				}
+			}
 			//为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
 		    require.config({
 		        paths: {
@@ -708,13 +722,7 @@ function loadChart(){
 		    				name: '℃',
 		    				type: 'value'
 		    			},
-						series: [
-							{
-								name:'温度',
-								type:'line',
-								data:yData
-							}
-						]
+						series: seriesData
 		        	});
 		        	//窗口大小改变时图形自适应
 				    setTimeout(function(){
