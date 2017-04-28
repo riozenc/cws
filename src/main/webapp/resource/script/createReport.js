@@ -11,16 +11,16 @@ var jobDrop;
 //职责下拉
 var dutyDrop;
 //冷库echarts可截图数
-var lkEchartImgTotal=4;
+var lkEchartImgTotal=5;
 //冷藏车echarts可截图数
-var lccEchartImgTotal=3;
-//冷藏车echarts可截图数
-var bwxEchartImgTotal=5;
+var lccEchartImgTotal=6;
+//保温箱echarts可截图数
+var bwxEchartImgTotal=4;
 //冷库echarts当前截图数
 var lkEchartImg=1;
 //冷藏车echarts当前截图数
 var lccEchartImg=1;
-//冷藏车echarts当前截图数
+//保温箱echarts当前截图数
 var bwxEchartImg=1;
 //保存echarts截图时记录当前查询条件
 var curIf=[];
@@ -647,8 +647,25 @@ function loadChart(){
 		dataType : "json",
 		type : "post",
 		success : function(data){
+			//横坐标
 			var xAxis=data.xAxis;
-			var yData=data.yData;
+			//var yData=data.yData;
+			var seriesData=[];
+			//图例
+			var legendData=[];
+			//遍历返回的json对象
+			for(var key in data){
+				//如果不是横坐标
+				if(key!="xAxis"){
+					var value=data[key];
+					var seriesObj={};
+					seriesObj.name=key;
+					seriesObj.type="line";
+					seriesObj.data=value;
+					seriesData.push(seriesObj);
+					legendData.push(key);
+				}
+			}
 			//为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
 		    require.config({
 		        paths: {
@@ -677,6 +694,11 @@ function loadChart(){
 		            			type : 'line'        // 默认为直线，可选为：'line' | 'shadow'
 		        			}
 		        		},
+		        		legend: {
+							data:legendData,
+							x: 'center',
+							y: 'bottom'
+						},
 		        		grid: {
 		        			x:40,//左边距
 		        			x2:10,//右边距
@@ -708,13 +730,7 @@ function loadChart(){
 		    				name: '℃',
 		    				type: 'value'
 		    			},
-						series: [
-							{
-								name:'温度',
-								type:'line',
-								data:yData
-							}
-						]
+						series: seriesData
 		        	});
 		        	//窗口大小改变时图形自适应
 				    setTimeout(function(){
