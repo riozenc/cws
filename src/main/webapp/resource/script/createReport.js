@@ -6,8 +6,6 @@ var $imgCanvansBottom=$("#imgCanvansBottom");
 var $uploadImgTop=$("#uploadImgTop");
 var $uploadImgMiddle=$("#uploadImgMiddle");
 var $uploadImgBottom=$("#uploadImgBottom");
-//验证对象下拉
-var objectTypeDrop;
 //职务下拉
 var jobDrop;
 //职责下拉
@@ -33,30 +31,20 @@ $(document).ready(function(){
 	//第一步加载数据
 	var form1 = new mini.Form("reportDataForm1");
 	$.ajax({
-		url : '../commonParam.do?type=findCommonParamByType&paramType=VERIFY_TYPE',
-		data : {enterpriseId:enterpriseId},
+//		url : '../resource/data/createReport1.txt',
+		url : '../report.do?type=findReportByKey',
+		data : {reportNo:recordId},
 		dataType : "json",
-		type : "get",
+		type : "post",
 		success : function(data) {
-			objectTypeDrop=data;
-			$.ajax({
-//				url : '../resource/data/createReport1.txt',
-				url : '../report.do?type=findReportByKey',
-				data : {reportNo:recordId},
-				dataType : "json",
-				type : "post",
-				success : function(data) {
-					//格式化日期
-					if(!isNaN(data.verifyTime)){
-						var value = new Date(Number(data.verifyTime));
-				        data.verifyTime=mini.formatDate(value, 'yyyy-MM-dd');
-					}
-					form1.setData(data);
-				},
-				error : function(e) {
-					alert("请求数据失败！status："+e.status);
-				}
-			});
+			var verifyObjectDrop = mini.get("verifyObject");
+			verifyObjectDrop.load("../commonParam.do?type=findCommonParamByType&paramType=VERIFY_TYPE&enterpriseId="+enterpriseId);
+			//格式化日期
+			if(!isNaN(data.verifyTime)){
+				var value = new Date(Number(data.verifyTime));
+		        data.verifyTime=mini.formatDate(value, 'yyyy-MM-dd');
+			}
+			form1.setData(data);
 		},
 		error : function(e) {
 			alert("请求数据失败！status："+e.status);
