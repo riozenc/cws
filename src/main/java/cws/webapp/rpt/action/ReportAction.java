@@ -8,7 +8,9 @@
 package cws.webapp.rpt.action;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -118,6 +120,8 @@ public class ReportAction {
 	public String getDeviceDate(String enterpriseId, String reportNo, int pointType, int measureType) {
 		List<DeviceDomain> deviceDomains = new ArrayList<>();
 
+		List<String> x = new ArrayList<>();
+
 		ReportDomain reportDomain = new ReportDomain();
 		reportDomain.setReportNo(reportNo);
 		List<VerifyPointDomain> verifyPointDomains = verifyPointService.getVerifyPointByReport(reportDomain);
@@ -132,14 +136,26 @@ public class ReportAction {
 			}
 		}
 
+		Map<String, List<String>> map = new HashMap<>();
 		for (DeviceDomain domain : deviceDomains) {
-			List<DeviceDomain> list = deviceService.getDeviceDate(domain);
+			List<String> y = new ArrayList<>();
+
+			List<DeviceDomain> list = deviceService.getDeviceDate(domain);// 日期排序
+			for (DeviceDomain temp : list) {
+				if (x.size() == 0) {
+					x.add(temp.getDate());
+				}
+				y.add(temp.getTemperature().toString());
+			}
+			map.put(domain.getDeviceId(), y);
+
 			System.out.println(JSONUtil.toJsonString(list));
 		}
-		//"xAxis"
-		//"yData"
+		// "xAxis"
+		// "yData"
+		map.put("xAxis", x);
 
-		return null;
+		return JSONUtil.toJsonString(map);
 	}
 
 	@ResponseBody
