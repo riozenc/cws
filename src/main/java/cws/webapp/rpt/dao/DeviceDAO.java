@@ -49,7 +49,7 @@ public class DeviceDAO extends AbstractTransactionDAOSupport implements BaseDAO<
 	}
 	
 	public List<DeviceDomain> getDeviceDate(DeviceDomain deviceDomain){
-		return getPersistanceManager().load(getNamespace() + ".getDeviceDate", deviceDomain);
+		return getPersistanceManager().find(getNamespace() + ".getDeviceDate", deviceDomain);
 	}
 
 }

@@ -106,5 +106,6 @@
 				and DEVICE_ID = #{deviceId}
 			</if>
 		</where>
+		ORDER BY STR_TO_DATE(DATE,'%Y-%m-%d %H:%i:%s') ASC
 	</select>
 </mapper>

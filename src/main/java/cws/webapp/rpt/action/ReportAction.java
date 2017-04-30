@@ -8,9 +8,12 @@
 package cws.webapp.rpt.action;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -120,7 +123,7 @@ public class ReportAction {
 	public String getDeviceDate(String enterpriseId, String reportNo, int pointType, int measureType) {
 		List<DeviceDomain> deviceDomains = new ArrayList<>();
 
-		List<String> x = new ArrayList<>();
+		Set<String> x = new HashSet<>();
 
 		ReportDomain reportDomain = new ReportDomain();
 		reportDomain.setReportNo(reportNo);
@@ -136,15 +139,19 @@ public class ReportAction {
 			}
 		}
 
-		Map<String, List<String>> map = new HashMap<>();
+		Map<String, Collection<String>> map = new HashMap<>();
 		for (DeviceDomain domain : deviceDomains) {
 			List<String> y = new ArrayList<>();
 
+			// "xAxis" :
+			// ["2011-01-01","2011-01-02","2011-01-03","2011-01-04","2011-01-05","2011-01-06","2011-01-07"],
+			// "yData" : [-10, -12, -10, -8, -11, -10.5, -10.2]
+
 			List<DeviceDomain> list = deviceService.getDeviceDate(domain);// 日期排序
 			for (DeviceDomain temp : list) {
-				if (x.size() == 0) {
-					x.add(temp.getDate());
-				}
+
+				x.add(temp.getDate());
+
 				y.add(temp.getTemperature().toString());
 			}
 			map.put(domain.getDeviceId(), y);
@@ -153,15 +160,18 @@ public class ReportAction {
 		}
 		// "xAxis"
 		// "yData"
+		if (x.size() == 0) {
+			x.add("-");
+		}
 		map.put("xAxis", x);
-
+		System.out.println(JSONUtil.toJsonString(map));
 		return JSONUtil.toJsonString(map);
 	}
 
 	@ResponseBody
 	@RequestMapping(params = "type=createReport")
 	public String createReport() {
-
+//({"type":["createReport"],"reportNo":["1_1493045541961"],"versionNo":["1.0"],"reportTitle":["久级测试"],"verifySite":["家里"],"verifyObject":["1"],"verifyNature":["莫名其妙"],"temperatureRange":[""],"reportType":["1"],"imagePath__":[""]})
 		int i = 1;
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
