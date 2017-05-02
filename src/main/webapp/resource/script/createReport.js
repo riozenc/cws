@@ -383,82 +383,82 @@ $(document).ready(function(){
             		return;
 				}
 				lkEchartImg--;
-				$.ajax({
-		            url: "",
-		            type: "post",
-		            data: {measureType:measureType,pointType:pointType,reportType:reportType},
-		            dataType : "json",
-		            success: function (data) {
-		            	if(data.statusCode==200){
-			                alert("删除成功！");
-			                //清除图片
-			                $("#lkImg"+lkEchartImg).css('background-image','none');
-			                //清除图片路径
-			                $("input[name='lkImg"+lkEchartImg+"']").val('');
-			                //清除测量信息
-			                $("input[name='lkMeasureType"+lkEchartImg+"']").val('');
-			                //清除测点信息
-			                $("input[name='lkPointType"+lkEchartImg+"']").val('');
-		            	}else{
-		            		alert("删除失败！");
-		            	}
-		            },
-		            error: function (XMLHttpRequest, textStatus) {
-		                mini.alert("删除失败！"+textStatus);
-		            }
-		        });
+//				$.ajax({
+//		            url: "",
+//		            type: "post",
+//		            data: {measureType:measureType,pointType:pointType,reportType:reportType},
+//		            dataType : "json",
+//		            success: function (data) {
+//		            	if(data.statusCode==200){
+//			                alert("删除成功！");
+                //清除图片
+                $("#lkImg"+lkEchartImg).css('background-image','none');
+                //清除图片路径
+                $("input[name='lkImg"+lkEchartImg+"']").val('');
+                //清除测量信息
+                $("input[name='lkMeasureType"+lkEchartImg+"']").val('');
+                //清除测点信息
+                $("input[name='lkPointType"+lkEchartImg+"']").val('');
+//		            	}else{
+//		            		alert("删除失败！");
+//		            	}
+//		            },
+//		            error: function (XMLHttpRequest, textStatus) {
+//		                mini.alert("删除失败！"+textStatus);
+//		            }
+//		        });
 			}else if(reportType=="2"){
 				if(lccEchartImg==1){
 					mini.alert("没有可删除的图片！","提示");
             		return;
 				}
 				lccEchartImg--;
-				$.ajax({
-		            url: "",
-		            type: "post",
-		            data: {measureType:measureType,pointType:pointType,reportType:reportType},
-		            dataType : "json",
-		            success: function (data) {
-		            	if(data.statusCode==200){
-			                alert("删除成功！");
-			                $("#lccImg"+lccEchartImg).css('background-image','none');
-			                $("input[name='lccImg"+lccEchartImg+"']").val('');
-			                $("input[name='lccMeasureType"+lccEchartImg+"']").val('');
-			                $("input[name='lccPointType"+lccEchartImg+"']").val('');
-		            	}else{
-		            		alert("删除失败！");
-		            	}
-		            },
-		            error: function (XMLHttpRequest, textStatus) {
-		                mini.alert("删除失败！"+textStatus);
-		            }
-		        });
+//				$.ajax({
+//		            url: "",
+//		            type: "post",
+//		            data: {measureType:measureType,pointType:pointType,reportType:reportType},
+//		            dataType : "json",
+//		            success: function (data) {
+//		            	if(data.statusCode==200){
+//			                alert("删除成功！");
+                $("#lccImg"+lccEchartImg).css('background-image','none');
+                $("input[name='lccImg"+lccEchartImg+"']").val('');
+                $("input[name='lccMeasureType"+lccEchartImg+"']").val('');
+                $("input[name='lccPointType"+lccEchartImg+"']").val('');
+//		            	}else{
+//		            		alert("删除失败！");
+//		            	}
+//		            },
+//		            error: function (XMLHttpRequest, textStatus) {
+//		                mini.alert("删除失败！"+textStatus);
+//		            }
+//		        });
 			}else if(reportType=="3"){
 				if(bwxEchartImg==1){
 					mini.alert("没有可删除的图片！","提示");
             		return;
 				}
 				bwxEchartImg--;
-				$.ajax({
-		            url: "",
-		            type: "post",
-		            data: {measureType:measureType,pointType:pointType,reportType:reportType},
-		            dataType : "json",
-		            success: function (data) {
-		            	if(data.statusCode==200){
-			                alert("删除成功！");
-			                $("#bwxImg"+bwxEchartImg).css('background-image','none');
-			                $("input[name='bwxImg"+bwxEchartImg+"']").val('');
-			                $("input[name='bwxMeasureType"+bwxEchartImg+"']").val('');
-			                $("input[name='bwxPointType"+bwxEchartImg+"']").val('');
-		            	}else{
-		            		alert("删除失败！");
-		            	}
-		            },
-		            error: function (XMLHttpRequest, textStatus) {
-		                mini.alert("删除失败！"+textStatus);
-		            }
-		        });
+//				$.ajax({
+//		            url: "",
+//		            type: "post",
+//		            data: {measureType:measureType,pointType:pointType,reportType:reportType},
+//		            dataType : "json",
+//		            success: function (data) {
+//		            	if(data.statusCode==200){
+//			                alert("删除成功！");
+                $("#bwxImg"+bwxEchartImg).css('background-image','none');
+                $("input[name='bwxImg"+bwxEchartImg+"']").val('');
+                $("input[name='bwxMeasureType"+bwxEchartImg+"']").val('');
+                $("input[name='bwxPointType"+bwxEchartImg+"']").val('');
+//		            	}else{
+//		            		alert("删除失败！");
+//		            	}
+//		            },
+//		            error: function (XMLHttpRequest, textStatus) {
+//		                mini.alert("删除失败！"+textStatus);
+//		            }
+//		        });
 			}
 			//清除参数数组最后一组数据
 			curIf.pop();
