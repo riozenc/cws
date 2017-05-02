@@ -85,8 +85,8 @@
 		</where>
 	</delete>
 
-	<select id="getPointByCompany" parameterType="PointDomain"
-		resultType="CompanyDomain" useCache="true">
+	<select id="getPointByCompany" parameterType="CompanyDomain"
+		resultType="PointDomain" useCache="true">
 		SELECT b.* FROM company_point_rel a LEFT JOIN point_info b ON
 		a.POINT_ID
 		= b.ID
@@ -95,8 +95,8 @@
 		</where>
 	</select>
 
-	<select id="getVerifyByCompany" parameterType="VerifyDomain"
-		resultType="CompanyDomain" useCache="true">
+	<select id="getVerifyByCompany" parameterType="CompanyDomain"
+		resultType="VerifyDomain" useCache="true">
 		SELECT * FROM company_verify_rel
 		<where>
 			COMPANY_ID = #{id}
@@ -104,11 +104,20 @@
 	</select>
 	
 	
-	<select id="getHostByCompany" parameterType="VerifyDomain"
-		resultType="CompanyDomain" useCache="true">
+	<select id="getHostByCompany" parameterType="CompanyDomain"
+		resultType="HostDomain" useCache="true">
 		SELECT * FROM company_host_rel
 		<where>
 			COMPANY_ID = #{id}
 		</where>
 	</select>
+	
+	<select id="getReportByCompany" parameterType="CompanyDomain"
+		resultType="ReportDomain" useCache="true">
+		SELECT * FROM company_report_rel
+		<where>
+			COMPANY_ID = #{id}
+		</where>
+	</select>
+	
 </mapper>

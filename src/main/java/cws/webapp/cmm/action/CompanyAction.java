@@ -7,7 +7,6 @@
  */
 package cws.webapp.cmm.action;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -28,7 +27,7 @@ import cws.webapp.cmm.domain.CompanyDomain;
 import cws.webapp.cmm.service.ICompanyService;
 import cws.webapp.hst.domain.HostDomain;
 import cws.webapp.pnt.domain.PointDomain;
-import cws.webapp.vfy.domain.ValidationReportDomain;
+import cws.webapp.rpt.domain.ReportDomain;
 import cws.webapp.vfy.domain.VerifyDomain;
 
 @ControllerAdvice
@@ -104,14 +103,14 @@ public class CompanyAction extends BaseAction {
 		List<VerifyDomain> verifyDomains = companyService.getVerifyByCompany(companyDomain);
 
 		// 获取企业相关验证报告
-		List<ValidationReportDomain> validationReportDomains = new ArrayList<ValidationReportDomain>();
+		List<ReportDomain> reportDomains = companyService.getReportByCompany(companyDomain);
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		map.put("company", companyDomain);
-		map.put("pointCount", pointdomaians.size()+hostDomains.size());
+		map.put("pointCount", pointdomaians.size() + hostDomains.size());
 		map.put("verifyCount", verifyDomains.size());
-		map.put("validationReporCount", validationReportDomains.size());
+		map.put("validationReporCount", reportDomains.size());
 
 		return JSONUtil.toJsonString(map);
 	}

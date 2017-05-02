@@ -9,6 +9,7 @@ package cws.webapp.rpt.dao;
 
 import java.util.List;
 
+import com.riozenc.quicktool.annotation.PaginationSupport;
 import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.mybatis.dao.AbstractTransactionDAOSupport;
 import com.riozenc.quicktool.mybatis.dao.BaseDAO;
@@ -48,6 +49,7 @@ public class ReportDAO extends AbstractTransactionDAOSupport implements BaseDAO<
 		return getPersistanceManager().find(getNamespace() + ".findByWhere", t);
 	}
 
+	@PaginationSupport
 	public List<ReportDomain> findReportByCompany(ReportDomain reportDomain) {
 		return getPersistanceManager().find(getNamespace() + ".findReportByCompany", reportDomain);
 	}

@@ -11,8 +11,9 @@ import java.util.Date;
 
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
 import com.riozenc.quicktool.mybatis.MybatisEntity;
+import com.riozenc.quicktool.mybatis.persistence.Page;
 
-public class ReportDomain implements MybatisEntity {
+public class ReportDomain extends Page<ReportDomain> implements MybatisEntity {
 	@TablePrimaryKey
 	private String reportNo;// `REPORT_NO` varchar(64) NOT NULL default '',
 	private String reportVersion;// `REPORT_VERSION` varchar(16) default NULL,

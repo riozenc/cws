@@ -9,6 +9,7 @@ package cws.webapp.cmm.dao;
 
 import java.util.List;
 
+import com.riozenc.quicktool.annotation.PaginationSupport;
 import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.mybatis.dao.AbstractTransactionDAOSupport;
 import com.riozenc.quicktool.mybatis.dao.BaseDAO;
@@ -48,6 +49,7 @@ public class PersonnelDutiesDAO extends AbstractTransactionDAOSupport implements
 		return getPersistanceManager().find(getNamespace() + ".findByWhere", t);
 	}
 
+	@PaginationSupport
 	public List<PersonnelDutiesDomain> findPersonnelDutiesByCompany(PersonnelDutiesDomain personnelDutiesDomain) {
 		return getPersistanceManager().find(getNamespace() + ".findPersonnelDutiesByCompany", personnelDutiesDomain);
 	}

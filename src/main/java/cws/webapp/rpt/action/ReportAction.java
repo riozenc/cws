@@ -115,7 +115,7 @@ public class ReportAction {
 			domain.setVerifyObject(domain.getVerifyObject() + "_" + domain.getReportType());
 		}
 
-		return JSONUtil.toJsonString(new JsonGrid(list));
+		return JSONUtil.toJsonString(new JsonGrid(reportDomain,list));
 	}
 
 	@ResponseBody

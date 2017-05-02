@@ -17,6 +17,7 @@ import cws.webapp.cmm.domain.CompanyDomain;
 import cws.webapp.cmm.service.ICompanyService;
 import cws.webapp.hst.domain.HostDomain;
 import cws.webapp.pnt.domain.PointDomain;
+import cws.webapp.rpt.domain.ReportDomain;
 import cws.webapp.vfy.domain.VerifyDomain;
 
 
@@ -72,6 +73,12 @@ public class CompanyServiceImpl implements ICompanyService {
 	public List<HostDomain> getHostByCompany(CompanyDomain companyDomain) {
 		// TODO Auto-generated method stub
 		return companyDAO.getHostByCompany(companyDomain);
+	}
+
+	@Override
+	public List<ReportDomain> getReportByCompany(CompanyDomain companyDomain) {
+		// TODO Auto-generated method stub
+		return companyDAO.getReportByCompany(companyDomain);
 	}
 
 }

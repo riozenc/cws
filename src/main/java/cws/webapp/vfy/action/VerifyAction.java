@@ -96,7 +96,7 @@ public class VerifyAction {
 	public String getVerifyByCompany(CompanyDomain companyDomain,@RequestParam(name = "enterpriseId") int companyId) {
 		companyDomain.setId(companyId);
 		List<VerifyDomain> list = verifyService.getVerifyByCompany(companyDomain);
-		return JSONUtil.toJsonString(new JsonGrid(list));
+		return JSONUtil.toJsonString(new JsonGrid(companyDomain,list));
 	}
 	
 	@ResponseBody

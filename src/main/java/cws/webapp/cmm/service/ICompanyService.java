@@ -14,6 +14,7 @@ import com.riozenc.quicktool.springmvc.webapp.service.BaseService;
 import cws.webapp.cmm.domain.CompanyDomain;
 import cws.webapp.hst.domain.HostDomain;
 import cws.webapp.pnt.domain.PointDomain;
+import cws.webapp.rpt.domain.ReportDomain;
 import cws.webapp.vfy.domain.VerifyDomain;
 
 public interface ICompanyService extends BaseService<CompanyDomain> {
@@ -21,6 +22,8 @@ public interface ICompanyService extends BaseService<CompanyDomain> {
 	public List<VerifyDomain> getVerifyByCompany(CompanyDomain companyDomain);
 
 	public List<PointDomain> getPointByCompany(CompanyDomain companyDomain);
-	
+
 	public List<HostDomain> getHostByCompany(CompanyDomain companyDomain);
+
+	public List<ReportDomain> getReportByCompany(CompanyDomain companyDomain);
 }
