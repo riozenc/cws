@@ -1,3 +1,4 @@
+window.onerror=function(){return true;}
 mini.parse();
 //主机
 var gridMaster = mini.get("datagridMaster");

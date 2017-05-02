@@ -1,3 +1,4 @@
+window.onerror=function(){return true;}
 mini.parse();
 var grid = mini.get("datagrid1");
 //验证对象类型下拉

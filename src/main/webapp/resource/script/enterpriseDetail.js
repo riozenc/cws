@@ -1,3 +1,4 @@
+window.onerror=function(){return true;}
 mini.parse();
 //职务表
 var grid1 = mini.get("datagrid1");
