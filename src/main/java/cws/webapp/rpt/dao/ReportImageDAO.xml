@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cws.webapp.rpt.dao.ReportImageDAO">
+	<select id="findByKey" parameterType="ReportImageDomain"
+		resultType="ReportImageDomain" useCache="true">
+		select
+		REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,FJ_DD,FJ_KM,FJ_HJ,CRK_DD,CRK_KM,CRK_HJ,SJ_DD,SJ_KM,SJ_HJ,HJ_DD,HJ_KM,HJ_HJ,WSD_DD,WSD_KM,WSD_HJ,DD,KM,HJ
+		from REPORT_IMAGE_INFO
+		<where>
+			and REPORT_NO = #{reportNo}
+
+		</where>
+	</select>
+	<select id="findByWhere" parameterType="ReportImageDomain"
+		resultType="ReportImageDomain" useCache="true">
+		select
+		REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,FJ_DD,FJ_KM,FJ_HJ,CRK_DD,CRK_KM,CRK_HJ,SJ_DD,SJ_KM,SJ_HJ,HJ_DD,HJ_KM,HJ_HJ,WSD_DD,WSD_KM,WSD_HJ,DD,KM,HJ
+		from REPORT_IMAGE_INFO
+		<where>
+			<if test="reportNo !=null">
+				and REPORT_NO = #{reportNo}
+			</if>
+			<if test="jyxDd !=null">
+				and JYX_DD = #{jyxDd}
+			</if>
+			<if test="jyxKm !=null">
+				and JYX_KM = #{jyxKm}
+			</if>
+			<if test="jyxHj !=null">
+				and JYX_HJ = #{jyxHj}
+			</if>
+			<if test="fjDd !=null">
+				and FJ_DD = #{fjDd}
+			</if>
+			<if test="fjKm !=null">
+				and FJ_KM = #{fjKm}
+			</if>
+			<if test="fjHj !=null">
+				and FJ_HJ = #{fjHj}
+			</if>
+			<if test="crkDd !=null">
+				and CRK_DD = #{crkDd}
+			</if>
+			<if test="crkKm !=null">
+				and CRK_KM = #{crkKm}
+			</if>
+			<if test="crkHj !=null">
+				and CRK_HJ = #{crkHj}
+			</if>
+			<if test="sjDd !=null">
+				and SJ_DD = #{sjDd}
+			</if>
+			<if test="sjKm !=null">
+				and SJ_KM = #{sjKm}
+			</if>
+			<if test="sjHj !=null">
+				and SJ_HJ = #{sjHj}
+			</if>
+			<if test="hjDd !=null">
+				and HJ_DD = #{hjDd}
+			</if>
+			<if test="hjKm !=null">
+				and HJ_KM = #{hjKm}
+			</if>
+			<if test="hjHj !=null">
+				and HJ_HJ = #{hjHj}
+			</if>
+			<if test="wsdDd !=null">
+				and WSD_DD = #{wsdDd}
+			</if>
+			<if test="wsdKm !=null">
+				and WSD_KM = #{wsdKm}
+			</if>
+			<if test="wsdHj !=null">
+				and WSD_HJ = #{wsdHj}
+			</if>
+			<if test="dd !=null">
+				and DD = #{dd}
+			</if>
+			<if test="km !=null">
+				and KM = #{km}
+			</if>
+			<if test="hj !=null">
+				and HJ = #{hj}
+			</if>
+		</where>
+	</select>
+	<insert id="insert" parameterType="ReportImageDomain"
+		flushCache="true">
+		insert into
+		REPORT_IMAGE_INFO(REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,FJ_DD,FJ_KM,FJ_HJ,CRK_DD,CRK_KM,CRK_HJ,SJ_DD,SJ_KM,SJ_HJ,HJ_DD,HJ_KM,HJ_HJ,WSD_DD,WSD_KM,WSD_HJ,DD,KM,HJ)
+		values
+		(#{reportNo},#{jyxDd},#{jyxKm},#{jyxHj},#{fjDd},#{fjKm},#{fjHj},#{crkDd},#{crkKm},#{crkHj},#{sjDd},#{sjKm},#{sjHj},#{hjDd},#{hjKm},#{hjHj},#{wsdDd},#{wsdKm},#{wsdHj},#{dd},#{km},#{hj})
+	</insert>
+	<update id="update" parameterType="ReportImageDomain"
+		flushCache="true">
+		update REPORT_IMAGE_INFO
+		<set>
+			<if test="jyxDd !=null">
+				JYX_DD = #{jyxDd},
+			</if>
+			<if test="jyxKm !=null">
+				JYX_KM = #{jyxKm},
+			</if>
+			<if test="jyxHj !=null">
+				JYX_HJ = #{jyxHj},
+			</if>
+			<if test="fjDd !=null">
+				FJ_DD = #{fjDd},
+			</if>
+			<if test="fjKm !=null">
+				FJ_KM = #{fjKm},
+			</if>
+			<if test="fjHj !=null">
+				FJ_HJ = #{fjHj},
+			</if>
+			<if test="crkDd !=null">
+				CRK_DD = #{crkDd},
+			</if>
+			<if test="crkKm !=null">
+				CRK_KM = #{crkKm},
+			</if>
+			<if test="crkHj !=null">
+				CRK_HJ = #{crkHj},
+			</if>
+			<if test="sjDd !=null">
+				SJ_DD = #{sjDd},
+			</if>
+			<if test="sjKm !=null">
+				SJ_KM = #{sjKm},
+			</if>
+			<if test="sjHj !=null">
+				SJ_HJ = #{sjHj},
+			</if>
+			<if test="hjDd !=null">
+				HJ_DD = #{hjDd},
+			</if>
+			<if test="hjKm !=null">
+				HJ_KM = #{hjKm},
+			</if>
+			<if test="hjHj !=null">
+				HJ_HJ = #{hjHj},
+			</if>
+			<if test="wsdDd !=null">
+				WSD_DD = #{wsdDd},
+			</if>
+			<if test="wsdKm !=null">
+				WSD_KM = #{wsdKm},
+			</if>
+			<if test="wsdHj !=null">
+				WSD_HJ = #{wsdHj},
+			</if>
+			<if test="dd !=null">
+				DD = #{dd},
+			</if>
+			<if test="km !=null">
+				KM = #{km},
+			</if>
+			<if test="hj !=null">
+				HJ = #{hj},
+			</if>
+		</set>
+		<where>
+			and REPORT_NO = #{reportNo}
+
+		</where>
+	</update>
+	<delete id="delete" parameterType="ReportImageDomain"
+		flushCache="true">
+		delete from REPORT_IMAGE_INFO
+		<where>
+			and REPORT_NO = #{reportNo}
+
+		</where>
+	</delete>
+</mapper>

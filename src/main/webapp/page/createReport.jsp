@@ -42,7 +42,7 @@
 							<tr>
 								<td class="formRowName">版本编号：</td>
 								<td>
-									<input name="versionNo" class="mini-textbox context1_input" />
+									<input name="reportVersion" class="mini-textbox context1_input" />
 								</td>
 							</tr>
 							<tr>
@@ -54,7 +54,7 @@
 							<tr>
 								<td class="formRowName">验证地点：</td>
 								<td>
-									<input name="verifySite" class="mini-textbox context1_input" />
+									<input name="verifyPlace" class="mini-textbox context1_input" />
 								</td>
 							</tr>
 							<tr>
@@ -73,7 +73,7 @@
 							<tr>
 								<td class="formRowName">验证性质：</td>
 								<td>
-									<input name="verifyNature" class="mini-textbox context1_input" />
+									<input name="verifyAttr" class="mini-textbox context1_input" />
 								</td>
 							</tr>
 						</table>

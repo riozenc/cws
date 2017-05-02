@@ -4,7 +4,7 @@
 	<select id="findByKey" parameterType="ReportDomain" resultType="ReportDomain"
 		useCache="true">
 		select
-		REPORT_NO,REPORT_VERSION,REPORT_TITLE,VERIFY_PLACE,VERIFY_OBJECT,VERIFY_TIME,VERIFY_ATTR,REPORT_NAME,REPORT_TYPE,TEMPERATURE,REPORT_STATUS
+		REPORT_NO,REPORT_VERSION,REPORT_TITLE,VERIFY_PLACE,VERIFY_OBJECT,VERIFY_TIME,VERIFY_ATTR,REPORT_NAME,REPORT_TYPE,TEMPERATURE,REPORT_PATH,REPORT_STATUS
 		from report_info
 		<where>
 			and REPORT_NO = #{reportNo}
@@ -14,7 +14,7 @@
 	<select id="findByWhere" parameterType="ReportDomain"
 		resultType="ReportDomain" useCache="true">
 		select
-		REPORT_NO,REPORT_VERSION,REPORT_TITLE,VERIFY_PLACE,VERIFY_OBJECT,VERIFY_TIME,VERIFY_ATTR,REPORT_NAME,REPORT_TYPE,TEMPERATURE,REPORT_STATUS
+		REPORT_NO,REPORT_VERSION,REPORT_TITLE,VERIFY_PLACE,VERIFY_OBJECT,VERIFY_TIME,VERIFY_ATTR,REPORT_NAME,REPORT_TYPE,TEMPERATURE,REPORT_PATH,REPORT_STATUS
 		from report_info
 		<where>
 			<if test="reportNo !=null">
@@ -54,9 +54,9 @@
 	</select>
 	<insert id="insert" parameterType="ReportDomain" flushCache="true">
 		insert into
-		report_info(REPORT_NO,REPORT_VERSION,REPORT_TITLE,VERIFY_PLACE,VERIFY_OBJECT,VERIFY_TIME,VERIFY_ATTR,REPORT_NAME,REPORT_TYPE,TEMPERATURE,REPORT_STATUS)
+		report_info(REPORT_NO,REPORT_VERSION,REPORT_TITLE,VERIFY_PLACE,VERIFY_OBJECT,VERIFY_TIME,VERIFY_ATTR,REPORT_NAME,REPORT_TYPE,TEMPERATURE,REPORT_PATH,REPORT_STATUS)
 		values
-		(#{reportNo},#{reportVersion},#{reportTitle},#{verifyPlace},#{verifyObject},#{verifyTime},#{verifyAttr},#{reportName},#{reportType},#{temperature},#{reportStatus})
+		(#{reportNo},#{reportVersion},#{reportTitle},#{verifyPlace},#{verifyObject},#{verifyTime},#{verifyAttr},#{reportName},#{reportType},#{temperature},#{reportPath},#{reportStatus})
 	</insert>
 	<update id="update" parameterType="ReportDomain" flushCache="true">
 		update report_info
@@ -87,6 +87,9 @@
 			</if>
 			<if test="temperature !=null">
 				TEMPERATURE = #{temperature},
+			</if>
+			<if test="reportPath != null">
+				REPORT_PATH = #{reportPath}
 			</if>
 			<if test="reportStatus !=null">
 				REPORT_STATUS = #{reportStatus},

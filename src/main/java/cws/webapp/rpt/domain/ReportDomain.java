@@ -28,6 +28,7 @@ public class ReportDomain extends Page<ReportDomain> implements MybatisEntity {
 	private String reportType;// `REPORT_TYPE` varchar(64) default NULL,
 	private String verifyName;// 验证对象名字
 	private String temperature;// `TEMPERATURE` varchar(64) default NULL,
+	private String reportPath;//
 	private Integer reportStatus;// `REPORT_STATUS` int(1) default NULL,
 
 	private Integer companyId;//
@@ -152,6 +153,14 @@ public class ReportDomain extends Page<ReportDomain> implements MybatisEntity {
 
 	public void setVerifyName(String verifyName) {
 		this.verifyName = verifyName;
+	}
+
+	public String getReportPath() {
+		return reportPath;
+	}
+
+	public void setReportPath(String reportPath) {
+		this.reportPath = reportPath;
 	}
 
 }

@@ -14,7 +14,9 @@ import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.annotation.TransactionService;
 
 import cws.webapp.rpt.dao.ReportDAO;
+import cws.webapp.rpt.dao.ReportImageDAO;
 import cws.webapp.rpt.domain.ReportDomain;
+import cws.webapp.rpt.domain.ReportImageDomain;
 import cws.webapp.rpt.service.IReportService;
 
 @TransactionService
@@ -22,6 +24,8 @@ public class ReportServiceImpl implements IReportService {
 
 	@TransactionDAO
 	private ReportDAO reportDAO;
+	@TransactionDAO
+	private ReportImageDAO reportImageDAO;
 
 	@Override
 	public int insert(ReportDomain t) {
@@ -61,6 +65,18 @@ public class ReportServiceImpl implements IReportService {
 	public List<ReportDomain> findReportByCompany(ReportDomain reportDomain) {
 		// TODO Auto-generated method stub
 		return reportDAO.findReportByCompany(reportDomain);
+	}
+
+	@Override
+	public int insertReportImage(ReportImageDomain reportImageDomain) {
+		// TODO Auto-generated method stub
+		return reportImageDAO.insert(reportImageDomain);
+	}
+
+	@Override
+	public int updateReportImage(ReportImageDomain reportImageDomain) {
+		// TODO Auto-generated method stub
+		return reportImageDAO.update(reportImageDomain);
 	}
 
 }

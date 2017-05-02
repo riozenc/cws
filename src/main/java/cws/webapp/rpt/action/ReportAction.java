@@ -7,6 +7,7 @@
  */
 package cws.webapp.rpt.action;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -14,6 +15,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.riozenc.quicktool.common.util.json.JSONUtil;
+import com.riozenc.quicktool.config.Global;
 
 import cws.common.json.JsonGrid;
 import cws.common.json.JsonResult;
@@ -30,6 +34,7 @@ import cws.webapp.pnt.domain.VerifyPointDomain;
 import cws.webapp.pnt.service.IVerifyPointService;
 import cws.webapp.rpt.domain.DeviceDomain;
 import cws.webapp.rpt.domain.ReportDomain;
+import cws.webapp.rpt.domain.ReportImageDomain;
 import cws.webapp.rpt.service.IDeviceService;
 import cws.webapp.rpt.service.IReportService;
 
@@ -115,7 +120,7 @@ public class ReportAction {
 			domain.setVerifyObject(domain.getVerifyObject() + "_" + domain.getReportType());
 		}
 
-		return JSONUtil.toJsonString(new JsonGrid(reportDomain,list));
+		return JSONUtil.toJsonString(new JsonGrid(reportDomain, list));
 	}
 
 	@ResponseBody
@@ -170,13 +175,61 @@ public class ReportAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=createReport")
-	public String createReport() {
-//({"type":["createReport"],"reportNo":["1_1493045541961"],"versionNo":["1.0"],"reportTitle":["久级测试"],"verifySite":["家里"],"verifyObject":["1"],"verifyNature":["莫名其妙"],"temperatureRange":[""],"reportType":["1"],"imagePath__":[""]})
-		int i = 1;
-		if (i > 0) {
-			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
-		} else {
-			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "成功."));
+	public String createReport(ReportDomain reportDomain, HttpServletRequest request) {
+
+		reportService.update(reportDomain);// 更新
+
+		// 图片
+		ReportImageDomain reportImageDomain = new ReportImageDomain();
+		reportImageDomain.setReportNo(reportDomain.getReportNo());
+		// 均允性
+		reportImageDomain.setJyxDd(request.getParameter("imagePath_1_1"));
+		reportImageDomain.setJyxKm(request.getParameter("imagePath_1_2"));
+		reportImageDomain.setJyxHj(request.getParameter("imagePath_1_3"));
+		// 风机
+		reportImageDomain.setFjDd(request.getParameter("imagePath_2_1"));
+		reportImageDomain.setFjKm(request.getParameter("imagePath_2_2"));
+		reportImageDomain.setFjHj(request.getParameter("imagePath_2_3"));
+		// 出入口
+		reportImageDomain.setCrkDd(request.getParameter("imagePath_3_1"));
+		reportImageDomain.setCrkKm(request.getParameter("imagePath_3_2"));
+		reportImageDomain.setCrkHj(request.getParameter("imagePath_3_3"));
+		// 死角
+		reportImageDomain.setSjDd(request.getParameter("imagePath_4_1"));
+		reportImageDomain.setSjKm(request.getParameter("imagePath_4_2"));
+		reportImageDomain.setSjHj(request.getParameter("imagePath_4_3"));
+		// 货架
+		reportImageDomain.setHjDd(request.getParameter("imagePath_5_1"));
+		reportImageDomain.setHjKm(request.getParameter("imagePath_5_2"));
+		reportImageDomain.setHjHj(request.getParameter("imagePath_5_3"));
+		// 温湿度
+		reportImageDomain.setWsdDd(request.getParameter("imagePath_6_1"));
+		reportImageDomain.setWsdKm(request.getParameter("imagePath_6_2"));
+		reportImageDomain.setWsdHj(request.getParameter("imagePath_6_3"));
+		// 环境
+		reportImageDomain.setDd(request.getParameter("imagePath_7_1"));
+		reportImageDomain.setKm(request.getParameter("imagePath_7_2"));
+		reportImageDomain.setHj(request.getParameter("imagePath_7_3"));
+
+		if (reportService.updateReportImage(reportImageDomain) == 0) {
+			reportService.insertReportImage(reportImageDomain);// 插入一条数据
 		}
+
+		String exePath = Global.getConfig("exe.path");
+
+		try {
+			Process process = Runtime.getRuntime().exec(exePath + " /c %" + reportDomain.getReportNo() + "%"
+					+ reportDomain.getReportNo() + ".doc%" + reportDomain.getVerifyObject());
+//			process.destroy();
+			
+			reportDomain.setReportStatus(1);
+			reportService.update(reportDomain);// 更新
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
+		}
+
 	}
 }
