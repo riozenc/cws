@@ -29,7 +29,7 @@ $(document).ready(function(){
 			grid.load({enterpriseId:enterpriseId});
 		},
 		error : function(e) {
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 });

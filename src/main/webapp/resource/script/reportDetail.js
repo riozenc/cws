@@ -74,7 +74,7 @@ function loadPoint(){
 			}
 		},
 		error : function(e){
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 }
@@ -237,7 +237,7 @@ function loadChart(){
 			);
 		},
 		error : function(e){
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 }
@@ -278,7 +278,7 @@ function loadTable(){
 			grid.load({enterpriseId:enterpriseId,recordId:recordId,dataType:dataType,pointType:pointType});
 		},
 		error : function(e){
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 }

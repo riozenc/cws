@@ -28,7 +28,7 @@ $(document).ready(function(){
 			$reportNum.text(e.validationReporCount);
 		},
 		error : function(e){
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 	//读取企业详情
@@ -48,7 +48,7 @@ $(document).ready(function(){
 			$address.text(e.address);
 		},
 		error : function(e){
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 	/*
@@ -74,7 +74,7 @@ $(document).ready(function(){
 			grid1.load({enterpriseId:enterpriseId});
 		},
 		error : function(e) {
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 	/*
@@ -109,7 +109,7 @@ $(document).ready(function(){
 			$companyNameRight.text(e.companyNameRight);
 		},
 		error : function(e){
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 	//获取职责下拉
@@ -133,12 +133,12 @@ $(document).ready(function(){
 					grid2.load({enterpriseId:enterpriseId});
 				},
 				error : function(e) {
-					alert("请求数据失败！status："+e.status);
+					mini.alert("请求数据失败！status："+e.status);
 				}
 			});
 		},
 		error : function(e) {
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 });

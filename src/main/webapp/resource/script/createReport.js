@@ -47,7 +47,7 @@ $(document).ready(function(){
 			form1.setData(data);
 		},
 		error : function(e) {
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 
@@ -78,7 +78,7 @@ $(document).ready(function(){
 				$companyNameRight.text(e.companyNameRight);
 			},
 			error : function(e){
-				alert("请求数据失败！status："+e.status);
+				mini.alert("请求数据失败！status："+e.status);
 			}
 		});
 		//加载职责和职务下拉
@@ -95,7 +95,7 @@ $(document).ready(function(){
 				datagridJob.load({enterpriseId:enterpriseId,reportNo:recordId});
 			},
 			error : function(e) {
-				alert("请求数据失败！status："+e.status);
+				mini.alert("请求数据失败！status："+e.status);
 			}
 		});
 		$.ajax({
@@ -109,7 +109,7 @@ $(document).ready(function(){
 				datagridDuty.load({enterpriseId:enterpriseId,reportNo:recordId});
 			},
 			error : function(e) {
-				alert("请求数据失败！status："+e.status);
+				mini.alert("请求数据失败！status："+e.status);
 			}
 		});
 		$("#step1").css('color', '#000');
@@ -143,7 +143,7 @@ $(document).ready(function(){
 					form2.setData(data);
 				},
 				error : function(e) {
-					alert("请求数据失败！status："+e.status);
+					mini.alert("请求数据失败！status："+e.status);
 				}
 			});
 			$("#context3_lccCanvas").css("display","none");
@@ -162,7 +162,7 @@ $(document).ready(function(){
 					form3.setData(data);
 				},
 				error : function(e) {
-					alert("请求数据失败！status："+e.status);
+					mini.alert("请求数据失败！status："+e.status);
 				}
 			});
 			$("#context3_lkCanvas").css("display","none");
@@ -181,7 +181,7 @@ $(document).ready(function(){
 					form4.setData(data);
 				},
 				error : function(e) {
-					alert("请求数据失败！status："+e.status);
+					mini.alert("请求数据失败！status："+e.status);
 				}
 			});
 			$("#context3_lkCanvas").css("display","none");
@@ -229,7 +229,7 @@ $(document).ready(function(){
 				$("input[name='environmentPoint']").val(e.environmentPoint);
 			},
 			error : function(e){
-				alert("请求数据失败！status："+e.status);
+				mini.alert("请求数据失败！status："+e.status);
 			}
 		});
 		$("#step3").css('color', '#000');
@@ -742,7 +742,7 @@ function loadChart(){
 			);
 		},
 		error : function(e){
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 }

@@ -53,12 +53,12 @@ $(document).ready(function(){
 					grid.load({enterpriseId:enterpriseId,reportName:reportName,reportStatus:reportStatus});
 				},
 				error : function(e) {
-					alert("请求数据失败！status："+e.status);
+					mini.alert("请求数据失败！status："+e.status);
 				}
 			});
 		},
 		error : function(e) {
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 });
@@ -179,7 +179,7 @@ function download(recordId){
 			
 		},
 		error : function(e) {
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 }

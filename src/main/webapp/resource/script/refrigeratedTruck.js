@@ -38,7 +38,7 @@ $(document).ready(function(){
 			baseInfoData.imgChanged=0;
 		},
 		error : function(e){
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 	//图片点击事件
@@ -200,12 +200,12 @@ $(document).ready(function(){
 					grid.load({enterpriseId:enterpriseId,verifyId:verifyId,verifyType:verifyType,pointType:pointType});
 				},
 				error : function(e) {
-					alert("请求数据失败！status："+e.status);
+					mini.alert("请求数据失败！status："+e.status);
 				}
 			});
 		},
 		error : function(e) {
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 	/*--------返回验证对象及布点方案按钮-----------*/
@@ -238,7 +238,7 @@ function seekCollect(){
 			$("#huanjPoint").text(e.huanjPoint);
 		},
 		error : function(e){
-			alert("请求数据失败！status："+e.status);
+			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
 }
