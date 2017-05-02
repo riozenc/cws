@@ -306,6 +306,7 @@ $(document).ready(function(){
 			                $("input[name='lkMeasureType"+lkEchartImg+"']").val(measureType);
 			                //记录测点信息，以便传递到后台
 			                $("input[name='lkPointType"+lkEchartImg+"']").val(pointType);
+			                lkEchartImg++;
 		            	}else{
 		            		alert("保存失败！");
 		            	}
@@ -314,7 +315,6 @@ $(document).ready(function(){
 		                mini.alert("保存失败！"+textStatus);
 		            }
 		        });
-                lkEchartImg++;
 			}else if(reportType=="2"){
 				if(lccEchartImgTotal<lccEchartImg){
             		mini.alert("不能上传更多截图！","提示");
@@ -334,6 +334,7 @@ $(document).ready(function(){
 			                $("input[name='lccImg"+lccEchartImg+"']").val(imgPath);
 			                $("input[name='lccMeasureType"+lccEchartImg+"']").val(measureType);
 			                $("input[name='lccPointType"+lccEchartImg+"']").val(pointType);
+			                lccEchartImg++;
 		            	}else{
 		            		alert("保存失败！");
 		            	}
@@ -342,7 +343,6 @@ $(document).ready(function(){
 		                mini.alert("保存失败！"+textStatus);
 		            }
 		        });
-                lccEchartImg++;
 			}else if(reportType=="3"){
 				if(bwxEchartImgTotal<bwxEchartImg){
             		mini.alert("不能上传更多截图！","提示");
@@ -362,6 +362,7 @@ $(document).ready(function(){
 			                $("input[name='bwxImg"+bwxEchartImg+"']").val(imgPath);
 			                $("input[name='bwxMeasureType"+bwxEchartImg+"']").val(measureType);
 			                $("input[name='bwxPointType"+bwxEchartImg+"']").val(pointType);
+			                bwxEchartImg++;
 		            	}else{
 		            		alert("保存失败！");
 		            	}
@@ -370,7 +371,6 @@ $(document).ready(function(){
 		                mini.alert("保存失败！"+textStatus);
 		            }
 		        });
-                bwxEchartImg++;
 			}
 			curIf.push({pointType:pointType,measureType:measureType});
 		});
