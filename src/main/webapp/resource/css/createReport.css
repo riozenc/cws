@@ -271,7 +271,7 @@ table{
 }
 #context5_canvas{
 	width: 90%;
-	height: 280px;
+	height: 400px;
 	border-right: 1px solid #BBB;
 	border-bottom: 1px solid #BBB;
 	border-left: 1px solid #BBB;
@@ -305,7 +305,7 @@ table{
 }
 .echartsImgCanvans{
 	width: 90%;
-	height: 80px;
+	height: 115px;
 	margin-bottom: 10px;
 	border: 1px solid #BBB;
 	display: inline-block;

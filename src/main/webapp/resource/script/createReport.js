@@ -703,7 +703,7 @@ function loadChart(){
 		        			x:40,//左边距
 		        			x2:10,//右边距
 		        			y:35,//上边距
-		        			y2:75,//下边距
+		        			y2:155,//下边距
 		        			containLabel: true
 		    			},
 		    			xAxis : [
@@ -714,8 +714,8 @@ function loadChart(){
 		    						show:false
 		    					},
 		    					axisLabel: {
-		    						rotate:-90,
-		    						interval:0
+		    						rotate:-90
+		    						//interval:0
 		    						/*formatter: function (value) {
 		                    			return value.substr(8,8);//横坐标日期格式 dd HH:mm:ss
 		                			}*/
