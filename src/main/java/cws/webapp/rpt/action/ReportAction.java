@@ -7,6 +7,10 @@
  */
 package cws.webapp.rpt.action;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,6 +21,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -25,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.riozenc.quicktool.common.util.StringUtils;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.config.Global;
 
@@ -73,8 +79,7 @@ public class ReportAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=delete")
-	public String delete(ReportDomain reportDomain, @RequestParam(name = "enterpriseId") int companyId) {
-		reportDomain.setCompanyId(companyId);
+	public String delete(ReportDomain reportDomain) {
 		int i = reportService.delete(reportDomain);
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
@@ -111,7 +116,7 @@ public class ReportAction {
 	@ResponseBody
 	@RequestMapping(params = "type=findReportByCompany")
 	public String findReportByCompany(ReportDomain reportDomain, @RequestParam(name = "enterpriseId") int companyId) {
-		if (reportDomain.getReportStatus() == 0)
+		if (reportDomain.getReportStatus() == 3)
 			reportDomain.setReportStatus(null);
 		reportDomain.setCompanyId(companyId);
 		List<ReportDomain> list = reportService.findReportByCompany(reportDomain);
@@ -218,10 +223,13 @@ public class ReportAction {
 		String exePath = Global.getConfig("exe.path");
 
 		try {
+
 			Process process = Runtime.getRuntime().exec(exePath + " /c %" + reportDomain.getReportNo() + "%"
 					+ reportDomain.getReportNo() + ".doc%" + reportDomain.getVerifyObject());
-//			process.destroy();
-			
+			// process.destroy();
+
+			String path = exePath.substring(exePath.lastIndexOf("/")) + reportDomain.getReportNo() + ".doc";
+			System.out.println(path);
 			reportDomain.setReportStatus(1);
 			reportService.update(reportDomain);// 更新
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
@@ -229,6 +237,48 @@ public class ReportAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
+		}
+
+	}
+
+	@ResponseBody
+	@RequestMapping(params = "type=download")
+	public void download(ReportDomain reportDomain, HttpServletResponse httpServletResponse) throws IOException {
+		reportDomain = reportService.findByKey(reportDomain);
+
+		if (reportDomain == null || StringUtils.isEmpty(reportDomain.getReportPath())) {
+			httpServletResponse.getWriter().print("文件丢失..");
+			httpServletResponse.getWriter().flush();
+			httpServletResponse.getWriter().close();
+		}
+
+		File file = new File(reportDomain.getReportPath());
+
+		httpServletResponse.setHeader("Content-Disposition",
+				"attachment;filename=\"" + new String(file.getName().getBytes(), "ISO8859-1") + "\"");
+		httpServletResponse.setContentLength((int) file.length());
+		byte[] buffer = new byte[4096];// 缓冲区
+		BufferedOutputStream output = null;
+		BufferedInputStream input = null;
+		try {
+			output = new BufferedOutputStream(httpServletResponse.getOutputStream());
+			input = new BufferedInputStream(new FileInputStream(file));
+			int n = -1;
+			// 遍历，开始下载
+			while ((n = input.read(buffer, 0, 4096)) > -1) {
+				output.write(buffer, 0, n);
+			}
+			output.flush(); // 不可少
+			httpServletResponse.flushBuffer();// 不可少
+		} catch (Exception e) {
+			// 异常自己捕捉
+			throw e;
+		} finally {
+			// 关闭流，不可少
+			if (input != null)
+				input.close();
+			if (output != null)
+				output.close();
 		}
 
 	}

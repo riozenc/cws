@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cws.webapp.vfy.dao.InsulationCanDAO">
+	<select id="findByKey" parameterType="InsulationCanDomain"
+		resultType="InsulationCanDomain" useCache="true">
+		select
+		NAME,BRAND,TYPES,VOLUME,DATE,OUT_SIZE,IN_SIZE,WEIGHT,THICKNESS,OUT_MATERIAL,IN_MATERIAL,CRYOGEN_BRAND,CRYOGEN_TYPES,CRYOGEN_COUNT,PROBE_NUM,MANUFACTOR,DIS_MAP,ID,REMARK,STATUS
+		from INSULATION_CAN_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</select>
+	<select id="findByWhere" parameterType="InsulationCanDomain"
+		resultType="InsulationCanDomain" useCache="true">
+		select
+		NAME,BRAND,TYPES,VOLUME,DATE,OUT_SIZE,IN_SIZE,WEIGHT,THICKNESS,OUT_MATERIAL,IN_MATERIAL,CRYOGEN_BRAND,CRYOGEN_TYPES,CRYOGEN_COUNT,PROBE_NUM,MANUFACTOR,DIS_MAP,ID,REMARK,STATUS
+		from INSULATION_CAN_INFO
+		<where>
+			<if test="name !=null">
+				and NAME = #{name}
+			</if>
+			<if test="brand !=null">
+				and BRAND = #{brand}
+			</if>
+			<if test="types !=null">
+				and TYPES = #{types}
+			</if>
+			<if test="volume !=null">
+				and VOLUME = #{volume}
+			</if>
+			<if test="date !=null">
+				and DATE = #{date}
+			</if>
+			<if test="outSize !=null">
+				and OUT_SIZE = #{outSize}
+			</if>
+			<if test="inSize !=null">
+				and IN_SIZE = #{inSize}
+			</if>
+			<if test="weight !=null">
+				and WEIGHT = #{weight}
+			</if>
+			<if test="thickness !=null">
+				and THICKNESS = #{thickness}
+			</if>
+			<if test="outMaterial !=null">
+				and OUT_MATERIAL = #{outMaterial}
+			</if>
+			<if test="inMaterial !=null">
+				and IN_MATERIAL = #{inMaterial}
+			</if>
+			<if test="cryogenBrand !=null">
+				and CRYOGEN_BRAND = #{cryogenBrand}
+			</if>
+			<if test="cryogenTypes !=null">
+				and CRYOGEN_TYPES = #{cryogenTypes}
+			</if>
+			<if test="cryogenCount !=null">
+				and CRYOGEN_COUNT = #{cryogenCount}
+			</if>
+			<if test="probeNum !=null">
+				and PROBE_NUM = #{probeNum}
+			</if>
+			<if test="manufactor !=null">
+				and MANUFACTOR = #{manufactor}
+			</if>
+			<if test="disMap !=null">
+				and DIS_MAP = #{disMap}
+			</if>
+			<if test="id !=null">
+				and ID = #{id}
+			</if>
+			<if test="remark !=null">
+				and REMARK = #{remark}
+			</if>
+			<if test="status !=null">
+				and STATUS = #{status}
+			</if>
+		</where>
+	</select>
+	<insert id="insert" parameterType="InsulationCanDomain"
+		flushCache="true" useGeneratedKeys="true" keyProperty="id">
+		insert into
+		INSULATION_CAN_INFO(NAME,BRAND,TYPES,VOLUME,DATE,OUT_SIZE,IN_SIZE,WEIGHT,THICKNESS,OUT_MATERIAL,IN_MATERIAL,CRYOGEN_BRAND,CRYOGEN_TYPES,CRYOGEN_COUNT,PROBE_NUM,MANUFACTOR,DIS_MAP,ID,REMARK,STATUS)
+		values
+		(#{name},#{brand},#{types},#{volume},#{date},#{outSize},#{inSize},#{weight},#{thickness},#{outMaterial},#{inMaterial},#{cryogenBrand},#{cryogenTypes},#{cryogenCount},#{probeNum},#{manufactor},#{disMap},#{id},#{remark},#{status})
+	</insert>
+	<update id="update" parameterType="InsulationCanDomain"
+		flushCache="true">
+		update INSULATION_CAN_INFO
+		<set>
+			<if test="name !=null">
+				NAME = #{name},
+			</if>
+			<if test="brand !=null">
+				BRAND = #{brand},
+			</if>
+			<if test="types !=null">
+				TYPES = #{types},
+			</if>
+			<if test="volume !=null">
+				VOLUME = #{volume},
+			</if>
+			<if test="date !=null">
+				DATE = #{date},
+			</if>
+			<if test="outSize !=null">
+				OUT_SIZE = #{outSize},
+			</if>
+			<if test="inSize !=null">
+				IN_SIZE = #{inSize},
+			</if>
+			<if test="weight !=null">
+				WEIGHT = #{weight},
+			</if>
+			<if test="thickness !=null">
+				THICKNESS = #{thickness},
+			</if>
+			<if test="outMaterial !=null">
+				OUT_MATERIAL = #{outMaterial},
+			</if>
+			<if test="inMaterial !=null">
+				IN_MATERIAL = #{inMaterial},
+			</if>
+			<if test="cryogenBrand !=null">
+				CRYOGEN_BRAND = #{cryogenBrand},
+			</if>
+			<if test="cryogenTypes !=null">
+				CRYOGEN_TYPES = #{cryogenTypes},
+			</if>
+			<if test="cryogenCount !=null">
+				CRYOGEN_COUNT = #{cryogenCount},
+			</if>
+			<if test="probeNum !=null">
+				PROBE_NUM = #{probeNum},
+			</if>
+			<if test="manufactor !=null">
+				MANUFACTOR = #{manufactor},
+			</if>
+			<if test="disMap !=null">
+				DIS_MAP = #{disMap},
+			</if>
+			<if test="remark !=null">
+				REMARK = #{remark},
+			</if>
+			<if test="status !=null">
+				STATUS = #{status},
+			</if>
+		</set>
+		<where>
+			and ID = #{id}
+
+		</where>
+	</update>
+	<delete id="delete" parameterType="InsulationCanDomain"
+		flushCache="true">
+		delete from INSULATION_CAN_INFO
+		<where>
+			and ID = #{id}
+
+		</where>
+	</delete>
+	
+	<select id="findByReport" parameterType="ReportDomain"
+		resultType="InsulationCanDomain" useCache="true">
+		SELECT b.* FROM report_info a LEFT JOIN INSULATION_CAN_INFO b ON
+		a.VERIFY_OBJECT = b.ID
+		<where>
+			and a.REPORT_NO = #{reportNo}
+		</where>
+	</select>
+</mapper>

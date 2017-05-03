@@ -35,6 +35,8 @@ public class VerifyDomain implements MybatisEntity {
 	protected Date createDate;// 创建时间 CREATE_DATE datetime FALSE FALSE FALSE
 	protected String remark;// 备注 REMARK varchar(100) 100 FALSE FALSE FALSE
 	protected Integer status;// 状态 STATUS smallint FALSE FALSE FALSE
+	@ReflectionIgnore
+	private Integer companyId;//
 
 	public Integer getId() {
 		return id;
@@ -90,6 +92,14 @@ public class VerifyDomain implements MybatisEntity {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public Integer getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
 	}
 
 }

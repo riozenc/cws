@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50027
 File Encoding         : 65001
 
-Date: 2017-05-02 23:12:04
+Date: 2017-05-03 23:37:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -38,7 +38,7 @@ CREATE TABLE `chill_car_info` (
 -- ----------------------------
 -- Records of chill_car_info
 -- ----------------------------
-INSERT INTO `chill_car_info` VALUES ('1', '大汽车', null, null, null, null, null, null, null, null, null, '1');
+INSERT INTO `chill_car_info` VALUES ('5', '大汽车', null, null, null, null, null, null, null, null, null, '1');
 
 -- ----------------------------
 -- Table structure for cold_storage_info
@@ -94,6 +94,7 @@ INSERT INTO `common_param_info` VALUES ('4', 'DUTIES_TYPE', '协助组织实施'
 INSERT INTO `common_param_info` VALUES ('5', 'POST_TYPE', '验证组负责人', '3', null, '2017-04-10 23:04:33', '2017-04-10 23:09:33', '1');
 INSERT INTO `common_param_info` VALUES ('6', 'VERIFY_TYPE', '冷藏车', '2', null, '2017-04-10 23:07:06', '2017-04-10 23:07:21', '1');
 INSERT INTO `common_param_info` VALUES ('10', 'DUTIES_TYPE', '组织协调、监督实施、复核关键数据', '3', null, '2017-04-10 23:26:14', null, '1');
+INSERT INTO `common_param_info` VALUES ('11', 'VERIFY_TYPE', '保温箱', '3', '不能改', '2017-05-03 22:34:01', null, '1');
 
 -- ----------------------------
 -- Table structure for company_host_rel
@@ -192,7 +193,8 @@ CREATE TABLE `company_verify_rel` (
 -- ----------------------------
 -- Records of company_verify_rel
 -- ----------------------------
-INSERT INTO `company_verify_rel` VALUES ('1', '1', '1', '2017-03-29 23:01:10', '测试关系', '1');
+INSERT INTO `company_verify_rel` VALUES ('1', '1', '99', '2017-03-29 23:01:10', '测试关系', '1');
+INSERT INTO `company_verify_rel` VALUES ('4', '1', '107', '2017-05-03 23:35:54', '2', '1');
 
 -- ----------------------------
 -- Table structure for device_1
@@ -1025,11 +1027,11 @@ CREATE TABLE `insulation_can_info` (
   `CRYOGEN_BRAND` varchar(30) default NULL,
   `CRYOGEN_TYPES` varchar(30) default NULL,
   `CRYOGEN_COUNT` int(11) default NULL,
-  `PROBE_NUM` varchar(30) default NULL,
+  `PROBE_NUM` int(11) default NULL,
   `MANUFACTOR` varchar(30) default NULL,
-  `布点图` varchar(100) default NULL,
-  `备注` varchar(100) default NULL,
-  `状态` smallint(6) default NULL,
+  `DIS_MAP` varchar(100) default NULL,
+  `REMARK` varchar(100) default NULL,
+  `STATUS` smallint(6) default NULL,
   PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='insulation can\r\n';
 
@@ -1191,7 +1193,7 @@ CREATE TABLE `report_info` (
 -- ----------------------------
 -- Records of report_info
 -- ----------------------------
-INSERT INTO `report_info` VALUES ('1_1493045541961', '1.0', '救济测试', '家里', '1', null, '阿苏大', '测试报告', '0', '1', '极高温验证', null, '1');
+INSERT INTO `report_info` VALUES ('1_1493045541961', '1.0', '救济测试', '家里', '1', null, '阿苏大', '测试报告', '0', '1', '极高温验证', 'C:\\Users\\rioze\\Desktop\\《冷库》生成样例.word', '1');
 
 -- ----------------------------
 -- Table structure for report_worker
@@ -1259,7 +1261,7 @@ CREATE TABLE `verify_info` (
 -- Records of verify_info
 -- ----------------------------
 INSERT INTO `verify_info` VALUES ('99', '1', '冷库名称', '1', '2017-03-29 23:00:38', '测试2个', '1');
-INSERT INTO `verify_info` VALUES ('101', '1', '大汽车', '2', '2017-04-13 21:56:56', '奔驰', '1');
+INSERT INTO `verify_info` VALUES ('107', '5', '大汽车', '2', '2017-05-03 23:35:54', '2', '1');
 
 -- ----------------------------
 -- Table structure for verify_point_rel

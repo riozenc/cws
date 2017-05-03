@@ -44,7 +44,8 @@ public class VerifyAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
-	public String insert(VerifyDomain verifyDomain) {
+	public String insert(VerifyDomain verifyDomain,@RequestParam(name = "enterpriseId") int companyId) {
+		verifyDomain.setCompanyId(companyId);
 		verifyDomain.setCreateDate(new Date());
 		verifyDomain.setStatus(1);
 		int i = verifyService.insert(verifyDomain);
@@ -57,7 +58,8 @@ public class VerifyAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=delete")
-	public String delete(VerifyDomain verifyDomain) {
+	public String delete(VerifyDomain verifyDomain, @RequestParam(name = "enterpriseId") int companyId) {
+		verifyDomain.setCompanyId(companyId);
 		int i = verifyService.delete(verifyDomain);
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
@@ -93,22 +95,23 @@ public class VerifyAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=getVerifyByCompany")
-	public String getVerifyByCompany(CompanyDomain companyDomain,@RequestParam(name = "enterpriseId") int companyId) {
+	public String getVerifyByCompany(CompanyDomain companyDomain, @RequestParam(name = "enterpriseId") int companyId) {
 		companyDomain.setId(companyId);
 		List<VerifyDomain> list = verifyService.getVerifyByCompany(companyDomain);
-		return JSONUtil.toJsonString(new JsonGrid(companyDomain,list));
+		return JSONUtil.toJsonString(new JsonGrid(companyDomain, list));
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(params = "type=getVerifyByCompanyToDrop")
-	public String getVerifyByCompanyToDrop(CompanyDomain companyDomain,@RequestParam(name = "enterpriseId") int companyId) {
+	public String getVerifyByCompanyToDrop(CompanyDomain companyDomain,
+			@RequestParam(name = "enterpriseId") int companyId) {
 		companyDomain.setId(companyId);
 		List<VerifyDomain> verifyDomains = verifyService.getVerifyByCompanyToDrop(companyDomain);
 		List<CommonParamDomain> list = new ArrayList<CommonParamDomain>();
 		for (VerifyDomain domain : verifyDomains) {
 			CommonParamDomain commonParamDomain = new CommonParamDomain();
 			commonParamDomain.setName(domain.getVerifyName());
-			commonParamDomain.setValue(domain.getVerifyId()+"_"+domain.getVerifyType());
+			commonParamDomain.setValue(domain.getVerifyId() + "_" + domain.getVerifyType());
 			list.add(commonParamDomain);
 		}
 		return JSONUtil.toJsonString(list);
@@ -121,11 +124,11 @@ public class VerifyAction {
 
 		return JSONUtil.toJsonString(verifyDomain);
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(params = "type=getVerifyInfoByReport")
-	public String getVerifyInfoByReport(ReportDomain reportDomain){
-		VerifyDomain verifyDomain=verifyService.getVerifyInfoByReport(reportDomain);
+	public String getVerifyInfoByReport(ReportDomain reportDomain) {
+		VerifyDomain verifyDomain = verifyService.getVerifyInfoByReport(reportDomain);
 		return JSONUtil.toJsonString(verifyDomain);
 	}
 

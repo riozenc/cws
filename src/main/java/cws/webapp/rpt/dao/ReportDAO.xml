@@ -117,6 +117,9 @@
 			<if test="reportStatus !=null">
 				AND b.REPORT_STATUS = #{reportStatus}
 			</if>
+			<if test="reportName !=null">
+				AND b.REPORT_NAME like '%${reportName}%'
+			</if>
 		</where>
 	</select>
 	
@@ -131,7 +134,6 @@
 	<delete id="deleteCompanyReportRel" parameterType="ReportDomain" flushCache="true">
 		delete from company_report_rel
 		<where>
-			and COMPANY_ID = #{companyId}
 			and REPORT_NO = #{reportNo}
 		</where>
 	</delete>

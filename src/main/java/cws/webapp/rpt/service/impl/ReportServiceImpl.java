@@ -40,6 +40,11 @@ public class ReportServiceImpl implements IReportService {
 	public int delete(ReportDomain t) {
 		// TODO Auto-generated method stub
 		reportDAO.deleteCompanyReportRel(t);
+
+		ReportImageDomain reportImageDomain = new ReportImageDomain();
+		reportImageDomain.setReportNo(t.getReportNo());
+		reportImageDAO.delete(reportImageDomain);
+
 		return reportDAO.delete(t);
 	}
 

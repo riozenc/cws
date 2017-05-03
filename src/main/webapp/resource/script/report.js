@@ -150,7 +150,7 @@ function del(recodeID){
                 $.ajax({
                     url: "../report.do?type=delete",
                     type: 'post',
-            		data: { id: recodeID },
+            		data: { reportNo: recodeID },
             		dataType : 'json',
                     success: function (text) {
                     	alert(text.message);
@@ -170,8 +170,8 @@ function del(recodeID){
 //下载
 function download(recordId){
 	$.ajax({
-		url : '',
-		data : JSON.stringify({recordId:recordId}),
+		url : '../report.do?type=download',
+		data : JSON.stringify({reportNo:recordId}),
 		dataType : "json",
 		type : "get",
 		contentType : "application/json",

@@ -16,9 +16,11 @@ import cws.webapp.cmm.domain.CompanyDomain;
 import cws.webapp.rpt.domain.ReportDomain;
 import cws.webapp.vfy.dao.ChillCarDAO;
 import cws.webapp.vfy.dao.ColdStorageDAO;
+import cws.webapp.vfy.dao.InsulationCanDAO;
 import cws.webapp.vfy.dao.VerifyDAO;
 import cws.webapp.vfy.domain.ChillCarDomain;
 import cws.webapp.vfy.domain.ColdStorageDomain;
+import cws.webapp.vfy.domain.InsulationCanDomain;
 import cws.webapp.vfy.domain.VerifyDomain;
 import cws.webapp.vfy.service.IVerifyService;
 
@@ -31,6 +33,8 @@ public class VerifyServiceImpl implements IVerifyService {
 	private ChillCarDAO chillCarDAO;
 	@TransactionDAO
 	private ColdStorageDAO coldStorageDAO;
+	@TransactionDAO
+	private InsulationCanDAO insulationCanDAO;
 
 	@Override
 	public int insert(VerifyDomain verifyDomain) {
@@ -51,10 +55,16 @@ public class VerifyServiceImpl implements IVerifyService {
 			verifyDomain.setVerifyId(chillCarDomain.getId());
 			break;
 		case 3:// 保温箱
+			InsulationCanDomain insulationCanDomain = new InsulationCanDomain();
+			insulationCanDomain.setName(verifyDomain.getVerifyName());
+			insulationCanDomain.setStatus(1);
+			insulationCanDAO.insert(insulationCanDomain);
+			verifyDomain.setVerifyId(insulationCanDomain.getId());
 			break;
 		}
 
-		return verifyDAO.insert(verifyDomain);
+		verifyDAO.insert(verifyDomain);
+		return verifyDAO.insertVerifyCompanyRel(verifyDomain);
 	}
 
 	@Override
@@ -72,8 +82,12 @@ public class VerifyServiceImpl implements IVerifyService {
 			chillCarDAO.delete(chillCarDomain);
 			break;
 		case 3:// 保温箱
+			InsulationCanDomain insulationCanDomain = new InsulationCanDomain();
+			insulationCanDomain.setId(verifyDomain.getVerifyId());
+			insulationCanDAO.delete(insulationCanDomain);
 			break;
 		}
+		verifyDAO.deleteVerifyCompanyRel(verifyDomain);
 		return verifyDAO.delete(verifyDomain);
 	}
 
@@ -94,6 +108,10 @@ public class VerifyServiceImpl implements IVerifyService {
 			chillCarDAO.update(chillCarDomain);
 			break;
 		case 3:// 保温箱
+			InsulationCanDomain insulationCanDomain = new InsulationCanDomain();
+			insulationCanDomain.setId(verifyDomain.getVerifyId());
+			insulationCanDomain.setName(verifyDomain.getVerifyName());
+			insulationCanDAO.update(insulationCanDomain);
 			break;
 		}
 		return verifyDAO.update(verifyDomain);
@@ -132,6 +150,9 @@ public class VerifyServiceImpl implements IVerifyService {
 			verifyDomain = chillCarDAO.findByKey(chillCarDomain);
 			break;
 		case 3:// 保温箱
+			InsulationCanDomain insulationCanDomain = new InsulationCanDomain();
+			insulationCanDomain.setId(verifyDomain.getVerifyId());
+			verifyDomain = insulationCanDAO.findByKey(insulationCanDomain);
 			break;
 		}
 		return verifyDomain;
@@ -155,6 +176,7 @@ public class VerifyServiceImpl implements IVerifyService {
 			verifyDomain = chillCarDAO.findByReport(reportDomain);
 			break;
 		case 3:// 保温箱
+			verifyDomain = insulationCanDAO.findByReport(reportDomain);
 			break;
 		}
 		return verifyDomain;

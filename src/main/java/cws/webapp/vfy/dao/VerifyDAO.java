@@ -54,9 +54,17 @@ public class VerifyDAO extends AbstractTransactionDAOSupport implements BaseDAO<
 	public List<VerifyDomain> getVerifyByCompany(CompanyDomain companyDomain) {
 		return getPersistanceManager().find(getNamespace() + ".getVerifyByCompany", companyDomain);
 	}
-	
+
 	public List<VerifyDomain> getVerifyByCompanyToDrop(CompanyDomain companyDomain) {
 		return getPersistanceManager().find(getNamespace() + ".getVerifyByCompanyToDrop", companyDomain);
+	}
+
+	public int insertVerifyCompanyRel(VerifyDomain verifyDomain) {
+		return getPersistanceManager().insert(getNamespace() + ".insertVerifyCompanyRel", verifyDomain);
+	}
+
+	public int deleteVerifyCompanyRel(VerifyDomain verifyDomain) {
+		return getPersistanceManager().delete(getNamespace() + ".deleteVerifyCompanyRel", verifyDomain);
 	}
 
 }

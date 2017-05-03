@@ -38,7 +38,7 @@
 			</if>
 		</where>
 	</select>
-	<insert id="insert" parameterType="VerifyDomain" flushCache="true">
+	<insert id="insert" parameterType="VerifyDomain" flushCache="true" useGeneratedKeys="true" keyProperty="id">
 		insert into
 		VERIFY_INFO(ID,VERIFY_ID,VERIFY_NAME,VERIFY_TYPE,CREATE_DATE,REMARK,STATUS)
 		values
@@ -81,13 +81,13 @@
 		FROM company_verify_rel a LEFT JOIN company_info b
 		ON
 		a.COMPANY_ID = b.ID
-		LEFT JOIN verify_info c ON a.VERIFY_ID = a.ID
+		LEFT JOIN verify_info c ON a.VERIFY_ID = c.ID
 		<where>
 			a.COMPANY_ID =#{id}
 		</where>
 	</select>
-	
-	
+
+
 	<select id="getVerifyByCompanyToDrop" parameterType="CompanyDomain"
 		resultType="VerifyDomain" useCache="true">
 		SELECT c.*
@@ -99,4 +99,21 @@
 			a.COMPANY_ID =#{id}
 		</where>
 	</select>
+
+
+	<insert id="insertVerifyCompanyRel" parameterType="VerifyDomain"
+		flushCache="true">
+		insert into
+		company_verify_rel(COMPANY_ID,VERIFY_ID,CREATE_DATE,REMARK,STATUS)
+		values
+		(#{companyId},#{id},#{createDate},#{remark},#{status})
+	</insert>
+	<delete id="deleteVerifyCompanyRel" parameterType="VerifyDomain"
+		flushCache="true">
+		delete from company_verify_rel
+		<where>
+			and COMPANY_ID = #{companyId}
+			and VERIFY_ID = #{verifyId}
+		</where>
+	</delete>
 </mapper>
