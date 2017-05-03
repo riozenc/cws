@@ -649,6 +649,9 @@ function loadChart(){
 		dataType : "json",
 		type : "post",
 		success : function(data){
+			if(data==null){
+				return;
+			}
 			//横坐标
 			var xAxis=data.xAxis;
 			//var yData=data.yData;
