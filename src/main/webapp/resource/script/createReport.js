@@ -221,7 +221,7 @@ $(document).ready(function(){
 			$("#meterNum").text("仪表数量："+success.data.length);
 		});
 		//第四步获取测点数量
-		$.ajax({
+		/*$.ajax({
 			url : "../resource/data/createReport4.txt",
 			data : {enterpriseId:enterpriseId,recordId:recordId},
 			dataType : "json",
@@ -233,7 +233,7 @@ $(document).ready(function(){
 			error : function(e){
 				mini.alert("请求数据失败！status："+e.status);
 			}
-		});
+		});*/
 		$("#step3").css('color', '#000');
 		$("#step4").css('color', '#4485E0');
 		$("#context3").css("display","none");
@@ -491,8 +491,8 @@ $(document).ready(function(){
 		//合并对象
 		$.extend(allFormData, formData1);
 		//向表单中添加第三步温度控制范围
-		var temperature=mini.get("temperature").getValue();
-		allFormData.temperatureRange=temperature;
+		//var temperature=mini.get("temperature").getValue();
+		//allFormData.temperatureRange=temperature;
 		//添加该报告属性信息
 		allFormData.reportType=reportType;
 		//向表单中添加第五步图片链接信息

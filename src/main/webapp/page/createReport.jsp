@@ -353,7 +353,7 @@
 							</table>
 						</form>
 					</div>
-					<div id="context3_verifyObjectCanvas">
+					<!--  <div id="context3_verifyObjectCanvas">
 						<div id="context3_verifyObjectName">验证对象温度控制范围：</div>
 						<div id="context3_verifyObjectValue">
 							<input id="temperature" name="temperatureRange" class="mini-combobox context3_input" showNullItem="true"
@@ -362,7 +362,7 @@
                     					{"value": "03", "name": "阴凉库：0-20℃"},{"value": "04", "name": "常温库：常温"},
                     					{"value": "05", "name": "冷藏车：2-8℃"}]' />
 						</div>
-					</div>
+					</div>-->
 					<br/>
 					<div class="stepButton" id="context3_pre">上一步</div>
 					<div class="stepButton" id="context3_next">下一步</div>
@@ -406,7 +406,7 @@
 					        </div>
 					    </div>
 				    </div>
-				    <table id="context4_bottomTable" cellpadding="5px">
+				    <!--  <table id="context4_bottomTable" cellpadding="5px">
 			    		<tr>
 			    			<td class="formRowName">温度测量点：</td>
 			    			<td>
@@ -421,7 +421,7 @@
 			    				<span>处</span>
 			    			</td>
 			    		</tr>
-				    </table>
+				    </table>-->
 					<div class="stepButton" id="context4_pre">上一步</div>
 					<div class="stepButton" id="context4_next">下一步</div>
 				</div>
