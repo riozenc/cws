@@ -41,6 +41,9 @@
         #temperature{
         	width: 100%;
         }
+        #isFullType{
+            width: 100%;
+        }
 	</style>
 </head>
 <body>
@@ -75,6 +78,14 @@
                         <input id="temperature" name="temperature" class="mini-combobox" showNullItem="false"
                         valueField="value" textField="name" 
                         data='[{"value": "极高温验证", "name": "极高温验证"},{"value": "极低温验证", "name": "极低温验证"}]' />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="colTitle">是否满载：</td>
+                    <td class="colData">    
+                        <input id="isFullType" name="isFull" class="mini-combobox" showNullItem="false"
+                        valueField="value" textField="name" 
+                        data='[{"value": "是", "name": "是"},{"value": "否", "name": "否"}]' />
                     </td>
                 </tr>
                 <tr>
