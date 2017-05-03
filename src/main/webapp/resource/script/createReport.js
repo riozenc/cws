@@ -40,11 +40,13 @@ $(document).ready(function(){
 			var verifyObjectDrop = mini.get("verifyObject");
 			verifyObjectDrop.load("../commonParam.do?type=findCommonParamByType&paramType=VERIFY_TYPE&enterpriseId="+enterpriseId);
 			//格式化日期
-			if(!isNaN(data.verifyTime)){
-				var value = new Date(Number(data.verifyTime));
-		        data.verifyTime=mini.formatDate(value, 'yyyy-MM-dd');
+			if(data!=null){
+				if(!isNaN(data.verifyTime)){
+					var value = new Date(Number(data.verifyTime));
+			        data.verifyTime=mini.formatDate(value, 'yyyy-MM-dd');
+				}
+				form1.setData(data);
 			}
-			form1.setData(data);
 		},
 		error : function(e) {
 			mini.alert("请求数据失败！status："+e.status);
@@ -485,7 +487,7 @@ $(document).ready(function(){
 		var allFormData={};
 		//获取第一步表单数据
 		var formData1=form1.getData();
-		formData1.verifyTime=$("#verifyTime input").val();
+		formData1.verifyTime=$("input[name='verifyTime']").val();
 		//合并对象
 		$.extend(allFormData, formData1);
 		//向表单中添加第三步温度控制范围
