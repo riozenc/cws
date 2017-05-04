@@ -64,7 +64,7 @@
 							<input property="editor" class="mini-combobox" style="width:100%;" minWidth="80" 
 								valueField="value" textField="name" data="temperatureDrop"/>
 						</div>
-						<div type="comboboxcolumn" name="isFullType" field="isFull" width="60" headerAlign="center" 
+						<div type="comboboxcolumn" name="isFull" field="isFull" width="60" headerAlign="center" 
 			        		autoShowPopup="true" allowSort="false" align="center">是否满载
 							<input property="editor" class="mini-combobox" style="width:100%;" minWidth="60" 
 								valueField="value" textField="name" data="isFullDrop"/>

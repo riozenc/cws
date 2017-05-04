@@ -61,6 +61,10 @@ public class ReportAction {
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
 	public String insert(ReportDomain reportDomain, @RequestParam(name = "enterpriseId") int companyId) {
+
+		// verifyObject
+		reportDomain.setVerifyObject(
+				reportDomain.getVerifyObject().substring(0, reportDomain.getVerifyObject().indexOf("_")));
 		reportDomain.setCompanyId(companyId);
 		reportDomain.setReportStatus(0);
 		// 初始化

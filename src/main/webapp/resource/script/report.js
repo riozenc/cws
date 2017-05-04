@@ -8,7 +8,7 @@ var objectDrop;
 //温度下拉
 var temperatureDrop=[{"value": "极高温验证", "name": "极高温验证"},{"value": "极低温验证", "name": "极低温验证"}];
 //是否满载下拉
-var isFullDrop=[{"value": "是", "name": "是"},{"value": "否", "name": "否"}]
+var isFullDrop=[{"value": "1", "name": "是"},{"value": "0", "name": "否"}]
 //是否完成下拉
 var reportStatusDrop=[{"value": 0, "name": "未完成"},{"value": 1, "name": "已完成"}];
 $(document).ready(function(){

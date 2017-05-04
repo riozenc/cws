@@ -54,9 +54,9 @@
 	</select>
 	<insert id="insert" parameterType="ReportDomain" flushCache="true">
 		insert into
-		report_info(REPORT_NO,REPORT_VERSION,REPORT_TITLE,VERIFY_PLACE,VERIFY_OBJECT,VERIFY_TIME,VERIFY_ATTR,REPORT_NAME,REPORT_TYPE,TEMPERATURE,REPORT_PATH,REPORT_STATUS)
+		report_info(REPORT_NO,REPORT_VERSION,REPORT_TITLE,VERIFY_PLACE,VERIFY_OBJECT,VERIFY_TIME,VERIFY_ATTR,REPORT_NAME,IS_FULL,REPORT_TYPE,TEMPERATURE,REPORT_PATH,REPORT_STATUS)
 		values
-		(#{reportNo},#{reportVersion},#{reportTitle},#{verifyPlace},#{verifyObject},#{verifyTime},#{verifyAttr},#{reportName},#{reportType},#{temperature},#{reportPath},#{reportStatus})
+		(#{reportNo},#{reportVersion},#{reportTitle},#{verifyPlace},#{verifyObject},#{verifyTime},#{verifyAttr},#{reportName},#{isFull},#{reportType},#{temperature},#{reportPath},#{reportStatus})
 	</insert>
 	<update id="update" parameterType="ReportDomain" flushCache="true">
 		update report_info
@@ -81,6 +81,9 @@
 			</if>
 			<if test="reportName !=null">
 				REPORT_NAME = #{reportName},
+			</if>
+			<if test="isFull !=null">
+				IS_FULL = #{isFull},
 			</if>
 			<if test="reportType !=null">
 				REPORT_TYPE = #{reportType},

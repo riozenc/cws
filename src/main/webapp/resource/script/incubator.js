@@ -159,7 +159,7 @@ $(document).ready(function(){
 		    	//点击确认时返回action=true
 		    	if (action===true) {
 		    		$.ajax({
-						url : "save?type=update&id="+verifyId,
+						url : "../insulationCan.do?type=update&id="+verifyId,
 						data : formData,
 						dataType : "json",
 						type : "post",

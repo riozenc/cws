@@ -30,6 +30,7 @@ public class ReportDomain extends Page<ReportDomain> implements MybatisEntity {
 	private String temperature;// `TEMPERATURE` varchar(64) default NULL,
 	private String reportPath;//
 	private Integer reportStatus;// `REPORT_STATUS` int(1) default NULL,
+	private Integer isFull;
 
 	private Integer companyId;//
 	private Date createDate;
@@ -161,6 +162,14 @@ public class ReportDomain extends Page<ReportDomain> implements MybatisEntity {
 
 	public void setReportPath(String reportPath) {
 		this.reportPath = reportPath;
+	}
+
+	public Integer getIsFull() {
+		return isFull;
+	}
+
+	public void setIsFull(Integer isFull) {
+		this.isFull = isFull;
 	}
 
 }

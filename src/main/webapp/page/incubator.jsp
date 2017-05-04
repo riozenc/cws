@@ -262,19 +262,21 @@
 					            </table>           
 					        </div>
 					    </div>
+					    
+					    
 					    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:216px;" pageIndexField="pageCurrent"
 					    	url="../verifyPoint.do?type=findVerifyPointByVerify" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
 					    	multiSelect="false" idField="id">
 					        <div property="columns">
-					        	<div field="no" headerAlign="center" align="center" allowSort="true" width="80">位置
+					        	<div field="pointPosition" headerAlign="center" align="center" allowSort="true" width="80">位置
 					                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="60" />
 					            </div> 
-					        	<div type="comboboxcolumn" name="schemeType" field="types" width="200" headerAlign="center" 
+					        	<div type="comboboxcolumn" name="schemeType" field="pointType" width="200" headerAlign="center" 
 					        		autoShowPopup="true" allowSort="false">布点
 									<input property="editor" class="mini-combobox" style="width:100%;" minWidth="100" 
 										valueField="value" textField="name" data="schemeDrop"/>
 								</div>
-					            <div type="comboboxcolumn" name="SNType" field="snNo" width="200" headerAlign="center" 
+					            <div type="comboboxcolumn" name="SNType" field="pointSn" width="200" headerAlign="center" 
 					        		autoShowPopup="true" allowSort="false" align="center">SN
 									<input property="editor" class="mini-combobox" style="width:100%;" minWidth="100" 
 										valueField="value" textField="name" data="SNDrop"/>
