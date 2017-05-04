@@ -73,7 +73,7 @@ $(document).ready(function(){
 		formData.append("verifyType",verifyType);
 		//上传
 		$.ajax({
-            url: "",
+            url: "../commonParam.do?type=uploadFile",
             type: "post",
             data: formData,
             dataType : "json",
@@ -189,7 +189,7 @@ $(document).ready(function(){
 		success : function(data) {
 			schemeDrop=data;
 			$.ajax({
-				url : '../resource/data/SNDrop.txt',
+				url : '../point.do?type=findPointByCompanyToDrop',
 				data : {enterpriseId:enterpriseId,verifyId:verifyId,verifyType:verifyType},
 				dataType : "json",
 				type : "get",
@@ -224,7 +224,7 @@ $(document).ready(function(){
 */
 function seekCollect(){
 	$.ajax({
-		url : "../resource/data/schemeCollect.txt",
+		url : "../verifyPoint.do?type=findVerifyPointCountByWhere",
 		data : {enterpriseId:enterpriseId,verifyId:verifyId,verifyType:verifyType},
 		dataType : "json",
 		type : "post",
@@ -318,7 +318,7 @@ function del(recode){
 	    	//点击确认时返回action=true
 	    	if (action===true) {
                 $.ajax({
-                    url: "",
+                    url: "../verifyPoint.do?type=delete",
                     type: 'post',
             		data: { id: recode },
             		dataType : 'json',

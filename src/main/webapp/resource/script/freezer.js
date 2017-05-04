@@ -158,7 +158,6 @@ $(document).ready(function(){
 						dataType : "json",
 						type : "post",
 						success : function(e){
-							debugger;
 							if(e.statusCode==200){
 								baseInfoData=formData;
 								baseInfoData.imgChanged=0;
