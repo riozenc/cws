@@ -191,8 +191,10 @@ function seek(recordId,object,temperature){
 	$childCanvans.empty();
 	$mainCanvans.css("display", "none");
 	$childCanvans.css("display", "block");
-	$childCanvans.append("<iframe name='childCanvansIframe' src='reportDetail.jsp?enterpriseId="+enterpriseId+"&recordId=\""+recordId
-		+"\"&object=\""+object+"\"&temp=\""+temperature+"\"' width='100%' height='100%' style='border-width: 0'>");
+//	$childCanvans.append("<iframe name='childCanvansIframe' src='reportDetail.jsp?enterpriseId="+enterpriseId+"&recordId=\""+recordId
+//		+"\"&object=\""+object+"\"&temp=\""+temperature+"\"' width='100%' height='100%' style='border-width: 0'>");
+	$childCanvans.append("<iframe name='childCanvansIframe' src='reportSeek.jsp?enterpriseId="+enterpriseId+"&recordId=\""+recordId+
+	"\"' width='100%' height='100%' style='border-width: 0'>");
 }
 //生成报告
 function createReport(reportNo,enterpriseId,reportType){
