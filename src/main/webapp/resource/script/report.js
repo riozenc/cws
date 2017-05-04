@@ -7,6 +7,8 @@ var objectTypeDrop;
 var objectDrop;
 //温度下拉
 var temperatureDrop=[{"value": "极高温验证", "name": "极高温验证"},{"value": "极低温验证", "name": "极低温验证"}];
+//是否满载下拉
+var isFullDrop=[{"value": "是", "name": "是"},{"value": "否", "name": "否"}]
 //是否完成下拉
 var reportStatusDrop=[{"value": 0, "name": "未完成"},{"value": 1, "name": "已完成"}];
 $(document).ready(function(){
@@ -171,12 +173,11 @@ function del(recodeID){
 function download(recordId){
 	$.ajax({
 		url : '../report.do?type=download',
-		data : JSON.stringify({reportNo:recordId}),
+		data : {reportNo:recordId},
 		dataType : "json",
 		type : "get",
-		contentType : "application/json",
 		success : function(data) {
-			
+			alert(data.message);
 		},
 		error : function(e) {
 			mini.alert("请求数据失败！status："+e.status);
@@ -190,8 +191,8 @@ function seek(recordId,object,temperature){
 	$childCanvans.empty();
 	$mainCanvans.css("display", "none");
 	$childCanvans.css("display", "block");
-	$childCanvans.append("<iframe name='childCanvansIframe' src='reportDetail.jsp?enterpriseId="+enterpriseId+"&recordId="+recordId
-		+"&object=\""+object+"\"&temp=\""+temperature+"\"' width='100%' height='100%' style='border-width: 0'>");
+	$childCanvans.append("<iframe name='childCanvansIframe' src='reportDetail.jsp?enterpriseId="+enterpriseId+"&recordId=\""+recordId
+		+"\"&object=\""+object+"\"&temp=\""+temperature+"\"' width='100%' height='100%' style='border-width: 0'>");
 }
 //生成报告
 function createReport(reportNo,enterpriseId,reportType){

@@ -5,11 +5,11 @@ var selectAllFlag=false;
 $(document).ready(function(){
 	//面板标题
 	var $panelTitle=$("#panelTitle");
-	if(temperatureType=="01"){
-		$panelTitle.text(object+"极高温验证数据");
-	}else if(temperatureType=="02"){
-		$panelTitle.text(object+"极低温验证数据");
-	}
+//	if(temperatureType=="01"){
+//		$panelTitle.text(object+"极高温验证数据");
+//	}else if(temperatureType=="02"){
+//		$panelTitle.text(object+"极低温验证数据");
+//	}
 	/*--------返回报告列表按钮-----------*/
 	var $returnButton=$("#returnButton");
 	$returnButton.click(function(event) {
