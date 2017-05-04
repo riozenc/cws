@@ -22,7 +22,7 @@ function loadChart(){
 	var pointType=mini.get("pDropData").getValue();
 	var measureType=mini.get("mDropData").getValue();
 	$.ajax({
-		url : "../resource/data/createReportChart.txt",
+		url : "../report.do?type=getDeviceDate",
 		data : {enterpriseId:enterpriseId,recordId:recordId,pointType:pointType,measureType:measureType},
 		dataType : "json",
 		type : "post",
