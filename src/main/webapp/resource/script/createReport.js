@@ -69,7 +69,8 @@ $(document).ready(function(){
 	$next1.click(function(event) {
 		//获取第二步公司名称
 		$.ajax({
-			url : "../resource/data/companyName.txt",
+//			url : "../resource/data/companyName.txt",
+			url :"../company.do?type=getCompanyName",
 			data : {enterpriseId:enterpriseId,recordId:recordId},
 			dataType : "json",
 			type : "get",
@@ -88,7 +89,7 @@ $(document).ready(function(){
 		var datagridDuty = mini.get("datagridDuty");
 		$.ajax({
 			url : '../commonParam.do?type=findCommonParamByType&paramType=POST_TYPE',
-			data : {enterpriseId:enterpriseId,reportNo:recordId},
+			data : {id:enterpriseId,reportNo:recordId},
 			dataType : "json",
 			type : "get",
 			success : function(data) {

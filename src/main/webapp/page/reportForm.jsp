@@ -128,7 +128,7 @@
         	var o = form.getData();
             //根据id是否存在判断是修改还是新增操作。
             var url;
-            if(o.id){
+            if(o.reportNo){
                 url="../report.do?type=update";
             }else{
                 url="../report.do?type=insert";

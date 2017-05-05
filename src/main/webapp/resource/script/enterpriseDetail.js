@@ -98,8 +98,8 @@ $(document).ready(function(){
 	});
 	//获取客户公司和验证公司名称
 	$.ajax({
-		url : "../resource/data/companyName.txt",
-		data : {enterpriseId:enterpriseId},
+		url : "../company.do?type=getCompanyName",
+		data : {id:enterpriseId},
 		dataType : "json",
 		type : "get",
 		success : function(e){
