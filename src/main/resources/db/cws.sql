@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50027
-Source Host           : 127.0.0.1:3306
+Source Server Version : 50624
+Source Host           : localhost:3306
 Source Database       : cws
 
 Target Server Type    : MYSQL
-Target Server Version : 50027
+Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2017-05-03 23:37:17
+Date: 2017-05-05 16:43:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,69 +20,69 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `chill_car_info`;
 CREATE TABLE `chill_car_info` (
-  `ID` int(11) NOT NULL auto_increment,
-  `NAME` varchar(30) default NULL,
-  `TYPES` varchar(30) default NULL,
-  `VOLUME` varchar(30) default NULL,
-  `FAN_NUM` varchar(30) default NULL,
-  `ENTRANCE_NUM` int(11) default NULL,
-  `GOODS_SHELVES` int(11) default NULL,
-  `PROBE_NUM` int(11) default NULL,
-  `MANUFACTOR` varchar(30) default NULL,
-  `DIS_MAP` varchar(100) default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='chill car冷藏车';
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(30) DEFAULT NULL,
+  `TYPES` varchar(30) DEFAULT NULL,
+  `VOLUME` varchar(30) DEFAULT NULL,
+  `FAN_NUM` varchar(30) DEFAULT NULL,
+  `ENTRANCE_NUM` int(11) DEFAULT NULL,
+  `GOODS_SHELVES` int(11) DEFAULT NULL,
+  `PROBE_NUM` int(11) DEFAULT NULL,
+  `MANUFACTOR` varchar(30) DEFAULT NULL,
+  `DIS_MAP` varchar(100) DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='chill car冷藏车';
 
 -- ----------------------------
 -- Records of chill_car_info
 -- ----------------------------
-INSERT INTO `chill_car_info` VALUES ('5', '大汽车', null, null, null, null, null, null, null, null, null, '1');
+INSERT INTO `chill_car_info` VALUES ('5', '大汽车', '100S', '90S', '1', '1', null, '1', '海康摄像头', '/cws/sds_file/微信对接流程图.png', null, '1');
 
 -- ----------------------------
 -- Table structure for cold_storage_info
 -- ----------------------------
 DROP TABLE IF EXISTS `cold_storage_info`;
 CREATE TABLE `cold_storage_info` (
-  `ID` int(11) NOT NULL auto_increment,
-  `NAME` varchar(30) default NULL,
-  `TYPES` varchar(30) default NULL,
-  `VOLUME` varchar(30) default NULL,
-  `AREA` varchar(30) default NULL,
-  `FAN_NUM` int(11) default NULL,
-  `FAN_MAIN_NUM` int(11) default NULL,
-  `FAN_SPARE_NUM` int(11) default NULL,
-  `ENTRANCE_NUM` int(11) default NULL,
-  `GOODS_SHELVES` int(11) default NULL,
-  `PROBE_NUM` int(11) default NULL,
-  `MANUFACTOR` varchar(30) default NULL,
-  `DIS_MAP` varchar(100) default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='���Cold storage';
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(30) DEFAULT NULL,
+  `TYPES` varchar(30) DEFAULT NULL,
+  `VOLUME` varchar(30) DEFAULT NULL,
+  `AREA` varchar(30) DEFAULT NULL,
+  `FAN_NUM` int(11) DEFAULT NULL,
+  `FAN_MAIN_NUM` int(11) DEFAULT NULL,
+  `FAN_SPARE_NUM` int(11) DEFAULT NULL,
+  `ENTRANCE_NUM` int(11) DEFAULT NULL,
+  `GOODS_SHELVES` int(11) DEFAULT NULL,
+  `PROBE_NUM` int(11) DEFAULT NULL,
+  `MANUFACTOR` varchar(30) DEFAULT NULL,
+  `DIS_MAP` varchar(100) DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='���Cold storage';
 
 -- ----------------------------
 -- Records of cold_storage_info
 -- ----------------------------
-INSERT INTO `cold_storage_info` VALUES ('1', '冷库名称', '15', '1', '1', '1', '1', '1', '1', '1', '1', '1', '/cws/sds_file/0-1-企业列表.jpg', '1', '1');
+INSERT INTO `cold_storage_info` VALUES ('1', '冷库名称', '15', '1', '12', '1', '1', '1', '1', '1', '1', '1', '/cws/sds_file/0-1-企业列表.jpg', '1', '1');
 
 -- ----------------------------
 -- Table structure for common_param_info
 -- ----------------------------
 DROP TABLE IF EXISTS `common_param_info`;
 CREATE TABLE `common_param_info` (
-  `ID` bigint(20) NOT NULL auto_increment,
-  `TYPE` varchar(20) default NULL,
-  `NAME` varchar(20) default NULL,
-  `VALUE` varchar(20) default NULL,
-  `REMARK` varchar(100) default NULL,
-  `CREATE_DATE` datetime default NULL,
-  `UPDATE_DATE` datetime default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `TYPE` varchar(20) DEFAULT NULL,
+  `NAME` varchar(20) DEFAULT NULL,
+  `VALUE` varchar(20) DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `CREATE_DATE` datetime DEFAULT NULL,
+  `UPDATE_DATE` datetime DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of common_param_info
@@ -101,14 +101,14 @@ INSERT INTO `common_param_info` VALUES ('11', 'VERIFY_TYPE', '保温箱', '3', '
 -- ----------------------------
 DROP TABLE IF EXISTS `company_host_rel`;
 CREATE TABLE `company_host_rel` (
-  `ID` int(11) NOT NULL auto_increment,
-  `COMPANY_ID` int(11) default NULL,
-  `HOST_ID` int(11) default NULL,
-  `CREATE_DATE` datetime default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STAUTS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='��ҵ������ϵ��';
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `COMPANY_ID` int(11) DEFAULT NULL,
+  `HOST_ID` int(11) DEFAULT NULL,
+  `CREATE_DATE` datetime DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STAUTS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='��ҵ������ϵ��';
 
 -- ----------------------------
 -- Records of company_host_rel
@@ -120,16 +120,16 @@ INSERT INTO `company_host_rel` VALUES ('1', '1', '1', '2017-04-15 20:31:23', nul
 -- ----------------------------
 DROP TABLE IF EXISTS `company_info`;
 CREATE TABLE `company_info` (
-  `ID` int(11) NOT NULL auto_increment,
-  `NAME` varchar(50) default NULL,
-  `LINKMAN` varchar(20) default NULL,
-  `PHONE` varchar(20) default NULL,
-  `ADDRESS` varchar(100) default NULL,
-  `REMARK` varchar(100) default NULL,
-  `CREATE_DATE` datetime default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='��ҵ��';
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(50) DEFAULT NULL,
+  `LINKMAN` varchar(20) DEFAULT NULL,
+  `PHONE` varchar(20) DEFAULT NULL,
+  `ADDRESS` varchar(100) DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `CREATE_DATE` datetime DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='��ҵ��';
 
 -- ----------------------------
 -- Records of company_info
@@ -142,34 +142,36 @@ INSERT INTO `company_info` VALUES ('2', '山东艾欧特集团', null, null, nul
 -- ----------------------------
 DROP TABLE IF EXISTS `company_point_rel`;
 CREATE TABLE `company_point_rel` (
-  `ID` int(11) NOT NULL auto_increment,
-  `COMPANY_ID` int(11) default NULL,
-  `POINT_ID` int(11) default NULL,
-  `CREATE_DATE` datetime default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='企业测点关系表';
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `COMPANY_ID` int(11) DEFAULT NULL,
+  `POINT_ID` int(11) DEFAULT NULL,
+  `CREATE_DATE` datetime DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='企业测点关系表';
 
 -- ----------------------------
 -- Records of company_point_rel
 -- ----------------------------
 INSERT INTO `company_point_rel` VALUES ('1', '1', '5', '2017-04-15 20:29:14', null, '2');
 INSERT INTO `company_point_rel` VALUES ('2', '1', '6', '2017-04-15 20:30:20', null, '2');
+INSERT INTO `company_point_rel` VALUES ('3', '1', '7', '2017-05-05 15:33:21', null, '2');
+INSERT INTO `company_point_rel` VALUES ('4', '1', '8', '2017-05-05 16:26:39', null, '2');
 
 -- ----------------------------
 -- Table structure for company_report_rel
 -- ----------------------------
 DROP TABLE IF EXISTS `company_report_rel`;
 CREATE TABLE `company_report_rel` (
-  `ID` int(11) NOT NULL auto_increment,
-  `COMPANY_ID` int(11) default NULL,
-  `REPORT_NO` varchar(64) default NULL,
-  `CREATE_DATE` datetime default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STATUS` smallint(6) default NULL COMMENT '1未完成\r\n            2已完成',
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='企业与验证报告关系表';
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `COMPANY_ID` int(11) DEFAULT NULL,
+  `REPORT_NO` varchar(64) DEFAULT NULL,
+  `CREATE_DATE` datetime DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL COMMENT '1未完成\r\n            2已完成',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='企业与验证报告关系表';
 
 -- ----------------------------
 -- Records of company_report_rel
@@ -181,34 +183,35 @@ INSERT INTO `company_report_rel` VALUES ('4', '1', '1_1493045541961', '2017-04-2
 -- ----------------------------
 DROP TABLE IF EXISTS `company_verify_rel`;
 CREATE TABLE `company_verify_rel` (
-  `ID` int(11) NOT NULL auto_increment,
-  `COMPANY_ID` int(11) default NULL,
-  `VERIFY_ID` int(11) default NULL,
-  `CREATE_DATE` datetime default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='企业与验证对象关系表。\r\n验证对象包括：冷库、冷藏车等';
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `COMPANY_ID` int(11) DEFAULT NULL,
+  `VERIFY_ID` int(11) DEFAULT NULL,
+  `CREATE_DATE` datetime DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='企业与验证对象关系表。\r\n验证对象包括：冷库、冷藏车等';
 
 -- ----------------------------
 -- Records of company_verify_rel
 -- ----------------------------
 INSERT INTO `company_verify_rel` VALUES ('1', '1', '99', '2017-03-29 23:01:10', '测试关系', '1');
 INSERT INTO `company_verify_rel` VALUES ('4', '1', '107', '2017-05-03 23:35:54', '2', '1');
+INSERT INTO `company_verify_rel` VALUES ('5', '1', '108', '2017-05-05 16:26:03', '的', '1');
 
 -- ----------------------------
 -- Table structure for device_1
 -- ----------------------------
 DROP TABLE IF EXISTS `device_1`;
 CREATE TABLE `device_1` (
-  `ID` int(11) NOT NULL auto_increment,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
   `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float default NULL,
-  `STYLE` int(11) default NULL,
-  `HUMIDITY` float default NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `STYLE` int(11) DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
   `DEVICE_ID` text,
-  PRIMARY KEY  (`ID`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -283,14 +286,14 @@ INSERT INTO `device_1` VALUES ('63', '2017-04-24 15:59:5', '1', '26', '1', '25',
 -- ----------------------------
 DROP TABLE IF EXISTS `device_10`;
 CREATE TABLE `device_10` (
-  `ID` int(11) NOT NULL auto_increment,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
   `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float default NULL,
-  `STYLE` int(11) default NULL,
-  `HUMIDITY` float default NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `STYLE` int(11) DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
   `DEVICE_ID` text,
-  PRIMARY KEY  (`ID`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -364,14 +367,14 @@ INSERT INTO `device_10` VALUES ('62', '2017-04-24 22:30:53', '7', '28', '1', '26
 -- ----------------------------
 DROP TABLE IF EXISTS `device_2`;
 CREATE TABLE `device_2` (
-  `ID` int(11) NOT NULL auto_increment,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
   `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float default NULL,
-  `STYLE` int(11) default NULL,
-  `HUMIDITY` float default NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `STYLE` int(11) DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
   `DEVICE_ID` text,
-  PRIMARY KEY  (`ID`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -449,14 +452,14 @@ INSERT INTO `device_2` VALUES ('66', '2017-04-24 9:34:43', '2', '23', '2', '21',
 -- ----------------------------
 DROP TABLE IF EXISTS `device_3`;
 CREATE TABLE `device_3` (
-  `ID` int(11) NOT NULL auto_increment,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
   `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float default NULL,
-  `STYLE` int(11) default NULL,
-  `HUMIDITY` float default NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `STYLE` int(11) DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
   `DEVICE_ID` text,
-  PRIMARY KEY  (`ID`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -531,14 +534,14 @@ INSERT INTO `device_3` VALUES ('63', '2017-04-24 22:10:58', '7', '27', '2', '21'
 -- ----------------------------
 DROP TABLE IF EXISTS `device_4`;
 CREATE TABLE `device_4` (
-  `ID` int(11) NOT NULL auto_increment,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
   `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float default NULL,
-  `STYLE` int(11) default NULL,
-  `HUMIDITY` float default NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `STYLE` int(11) DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
   `DEVICE_ID` text,
-  PRIMARY KEY  (`ID`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -615,14 +618,14 @@ INSERT INTO `device_4` VALUES ('65', '2017-04-24 5:49:2', '10', '26', '1', '26',
 -- ----------------------------
 DROP TABLE IF EXISTS `device_5`;
 CREATE TABLE `device_5` (
-  `ID` int(11) NOT NULL auto_increment,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
   `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float default NULL,
-  `STYLE` int(11) default NULL,
-  `HUMIDITY` float default NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `STYLE` int(11) DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
   `DEVICE_ID` text,
-  PRIMARY KEY  (`ID`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -688,14 +691,14 @@ INSERT INTO `device_5` VALUES ('54', '2017-04-24 16:6:3', '3', '20', '3', '25', 
 -- ----------------------------
 DROP TABLE IF EXISTS `device_6`;
 CREATE TABLE `device_6` (
-  `ID` int(11) NOT NULL auto_increment,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
   `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float default NULL,
-  `STYLE` int(11) default NULL,
-  `HUMIDITY` float default NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `STYLE` int(11) DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
   `DEVICE_ID` text,
-  PRIMARY KEY  (`ID`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -761,14 +764,14 @@ INSERT INTO `device_6` VALUES ('54', '2017-04-24 5:39:5', '1_1493045541961', '20
 -- ----------------------------
 DROP TABLE IF EXISTS `device_7`;
 CREATE TABLE `device_7` (
-  `ID` int(11) NOT NULL auto_increment,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
   `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float default NULL,
-  `STYLE` int(11) default NULL,
-  `HUMIDITY` float default NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `STYLE` int(11) DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
   `DEVICE_ID` text,
-  PRIMARY KEY  (`ID`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -843,14 +846,14 @@ INSERT INTO `device_7` VALUES ('63', '2017-04-24 17:54:54', '2', '27', '1', '24'
 -- ----------------------------
 DROP TABLE IF EXISTS `device_8`;
 CREATE TABLE `device_8` (
-  `ID` int(11) NOT NULL auto_increment,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
   `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float default NULL,
-  `STYLE` int(11) default NULL,
-  `HUMIDITY` float default NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `STYLE` int(11) DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
   `DEVICE_ID` text,
-  PRIMARY KEY  (`ID`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -909,14 +912,14 @@ INSERT INTO `device_8` VALUES ('47', '2017-04-24 4:52:47', '7', '25', '2', '24',
 -- ----------------------------
 DROP TABLE IF EXISTS `device_9`;
 CREATE TABLE `device_9` (
-  `ID` int(11) NOT NULL auto_increment,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
   `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float default NULL,
-  `STYLE` int(11) default NULL,
-  `HUMIDITY` float default NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `STYLE` int(11) DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
   `DEVICE_ID` text,
-  PRIMARY KEY  (`ID`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -992,15 +995,15 @@ INSERT INTO `device_9` VALUES ('64', '2017-04-24 10:57:35', '2', '23', '1', '21'
 -- ----------------------------
 DROP TABLE IF EXISTS `host_info`;
 CREATE TABLE `host_info` (
-  `ID` int(11) NOT NULL auto_increment,
-  `NAME` varchar(30) default NULL,
-  `TYPES` varchar(30) default NULL,
-  `SN_NO` varchar(30) default NULL,
-  `CREATE_DATE` datetime default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(30) DEFAULT NULL,
+  `TYPES` varchar(30) DEFAULT NULL,
+  `SN_NO` varchar(30) DEFAULT NULL,
+  `CREATE_DATE` datetime DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of host_info
@@ -1012,46 +1015,47 @@ INSERT INTO `host_info` VALUES ('1', '真的主机', 'TEST.HOST.1', 'SN-HOST-1',
 -- ----------------------------
 DROP TABLE IF EXISTS `insulation_can_info`;
 CREATE TABLE `insulation_can_info` (
-  `ID` int(11) NOT NULL auto_increment,
-  `NAME` varchar(30) default NULL,
-  `BRAND` varchar(30) default NULL,
-  `TYPES` varchar(30) default NULL,
-  `VOLUME` varchar(30) default NULL,
-  `DATE` varchar(30) default NULL,
-  `OUT_SIZE` varchar(30) default NULL,
-  `IN_SIZE` varchar(30) default NULL,
-  `WEIGHT` varchar(30) default NULL,
-  `THICKNESS` varchar(30) default NULL,
-  `OUT_MATERIAL` varchar(30) default NULL,
-  `IN_MATERIAL` varchar(30) default NULL,
-  `CRYOGEN_BRAND` varchar(30) default NULL,
-  `CRYOGEN_TYPES` varchar(30) default NULL,
-  `CRYOGEN_COUNT` int(11) default NULL,
-  `PROBE_NUM` int(11) default NULL,
-  `MANUFACTOR` varchar(30) default NULL,
-  `DIS_MAP` varchar(100) default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='insulation can\r\n';
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(30) DEFAULT NULL,
+  `BRAND` varchar(30) DEFAULT NULL,
+  `TYPES` varchar(30) DEFAULT NULL,
+  `VOLUME` varchar(30) DEFAULT NULL,
+  `DATE` varchar(30) DEFAULT NULL,
+  `OUT_SIZE` varchar(30) DEFAULT NULL,
+  `IN_SIZE` varchar(30) DEFAULT NULL,
+  `WEIGHT` varchar(30) DEFAULT NULL,
+  `THICKNESS` varchar(30) DEFAULT NULL,
+  `OUT_MATERIAL` varchar(30) DEFAULT NULL,
+  `IN_MATERIAL` varchar(30) DEFAULT NULL,
+  `CRYOGEN_BRAND` varchar(30) DEFAULT NULL,
+  `CRYOGEN_TYPES` varchar(30) DEFAULT NULL,
+  `CRYOGEN_COUNT` int(11) DEFAULT NULL,
+  `PROBE_NUM` int(11) DEFAULT NULL,
+  `MANUFACTOR` varchar(30) DEFAULT NULL,
+  `DIS_MAP` varchar(100) DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='insulation can\r\n';
 
 -- ----------------------------
 -- Records of insulation_can_info
 -- ----------------------------
+INSERT INTO `insulation_can_info` VALUES ('1', '箱子', '1', '123', '900', null, null, null, '12', null, null, null, null, null, null, null, null, null, null, '1');
 
 -- ----------------------------
 -- Table structure for personnel_duties_info
 -- ----------------------------
 DROP TABLE IF EXISTS `personnel_duties_info`;
 CREATE TABLE `personnel_duties_info` (
-  `ID` int(11) NOT NULL auto_increment,
-  `NAME` varchar(30) default NULL,
-  `DUTIES_ID` int(11) default NULL,
-  `COMPANY_ID` int(11) default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='duties';
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(30) DEFAULT NULL,
+  `DUTIES_ID` int(11) DEFAULT NULL,
+  `COMPANY_ID` int(11) DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='duties';
 
 -- ----------------------------
 -- Records of personnel_duties_info
@@ -1064,14 +1068,14 @@ INSERT INTO `personnel_duties_info` VALUES ('6', 'dd', '3', '0', null, '1');
 -- ----------------------------
 DROP TABLE IF EXISTS `personnel_post_info`;
 CREATE TABLE `personnel_post_info` (
-  `ID` int(11) NOT NULL auto_increment,
-  `NAME` varchar(30) default NULL,
-  `POST_ID` int(11) default NULL,
-  `COMPANY_ID` int(11) default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='personnel_post';
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(30) DEFAULT NULL,
+  `POST_ID` int(11) DEFAULT NULL,
+  `COMPANY_ID` int(11) DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='personnel_post';
 
 -- ----------------------------
 -- Records of personnel_post_info
@@ -1086,47 +1090,49 @@ INSERT INTO `personnel_post_info` VALUES ('5', 'dddd', '3', '1', 'a', '1');
 -- ----------------------------
 DROP TABLE IF EXISTS `point_info`;
 CREATE TABLE `point_info` (
-  `ID` int(11) NOT NULL auto_increment,
-  `NO` varchar(4) default NULL,
-  `SN_NO` varchar(30) default NULL,
-  `TYPES` varchar(30) default NULL,
-  `CHECK_UNIT` varchar(30) default NULL,
-  `CERTIFICATE_NO` varchar(30) default NULL,
-  `CREATE_DATE` datetime default NULL,
-  `VALID_DATE` datetime default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='point';
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NO` varchar(4) DEFAULT NULL,
+  `SN_NO` varchar(30) DEFAULT NULL,
+  `TYPES` varchar(30) DEFAULT NULL,
+  `CHECK_UNIT` varchar(30) DEFAULT NULL,
+  `CERTIFICATE_NO` varchar(30) DEFAULT NULL,
+  `CREATE_DATE` datetime DEFAULT NULL,
+  `VALID_DATE` datetime DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='point';
 
 -- ----------------------------
 -- Records of point_info
 -- ----------------------------
 INSERT INTO `point_info` VALUES ('5', '1001', 'SN-01', 'TEST.1', '自测', '911', '2017-04-15 20:29:14', '2017-05-06 00:00:00', '1001', '1');
 INSERT INTO `point_info` VALUES ('6', '1002', 'SN-02', 'TEST.1', '自测', '911', '2017-04-15 20:30:20', '2017-05-06 00:00:00', '1002', '1');
+INSERT INTO `point_info` VALUES ('7', '1003', 'SN-03', 'TEST.1', '自测', '911', '2017-05-05 15:33:21', '2017-05-31 00:00:00', '的', '1');
+INSERT INTO `point_info` VALUES ('8', '1004', 'SN-04', 'TEST.1', '自测', '911', '2017-05-05 16:26:39', '2017-06-01 00:00:00', null, '1');
 
 -- ----------------------------
 -- Table structure for report_describe
 -- ----------------------------
 DROP TABLE IF EXISTS `report_describe`;
 CREATE TABLE `report_describe` (
-  `REPORT_NO` varchar(64) NOT NULL default '',
-  `VERIFY_MODEL_NAME` varchar(64) default NULL,
-  `LENGTH` varchar(8) default NULL,
-  `WIDTH` varchar(8) default NULL,
-  `HEIGHT` varchar(8) default NULL,
-  `VOLUME` varchar(8) default NULL,
-  `EXT` varchar(8) default NULL,
-  `MONITOR` varchar(8) default NULL,
-  `MANUFACTOR` varchar(8) default NULL,
-  `TEMPERATURE` varchar(8) default NULL,
+  `REPORT_NO` varchar(64) NOT NULL DEFAULT '',
+  `VERIFY_MODEL_NAME` varchar(64) DEFAULT NULL,
+  `LENGTH` varchar(8) DEFAULT NULL,
+  `WIDTH` varchar(8) DEFAULT NULL,
+  `HEIGHT` varchar(8) DEFAULT NULL,
+  `VOLUME` varchar(8) DEFAULT NULL,
+  `EXT` varchar(8) DEFAULT NULL,
+  `MONITOR` varchar(8) DEFAULT NULL,
+  `MANUFACTOR` varchar(8) DEFAULT NULL,
+  `TEMPERATURE` varchar(8) DEFAULT NULL,
   `VERIFY_ID` int(11) NOT NULL,
   `VERIFY_TYPE` int(11) NOT NULL,
-  `MACHINE_Z` varchar(8) default NULL,
-  `MACHINE_M` varchar(8) default NULL,
-  `MACHINE_B` varchar(8) default NULL,
-  `SHELF` varchar(8) default NULL,
-  PRIMARY KEY  (`REPORT_NO`)
+  `MACHINE_Z` varchar(8) DEFAULT NULL,
+  `MACHINE_M` varchar(8) DEFAULT NULL,
+  `MACHINE_B` varchar(8) DEFAULT NULL,
+  `SHELF` varchar(8) DEFAULT NULL,
+  PRIMARY KEY (`REPORT_NO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1140,28 +1146,28 @@ INSERT INTO `report_describe` VALUES ('jjkk123', '牛逼的东西', '21', '22', 
 DROP TABLE IF EXISTS `report_image_info`;
 CREATE TABLE `report_image_info` (
   `REPORT_NO` varchar(64) NOT NULL,
-  `JYX_DD` varchar(100) default NULL,
-  `JYX_KM` varchar(100) default NULL,
-  `JYX_HJ` varchar(100) default NULL,
-  `FJ_DD` varchar(100) default NULL,
-  `FJ_KM` varchar(100) default NULL,
-  `FJ_HJ` varchar(100) default NULL,
-  `CRK_DD` varchar(100) default NULL,
-  `CRK_KM` varchar(100) default NULL,
-  `CRK_HJ` varchar(100) default NULL,
-  `SJ_DD` varchar(100) default NULL,
-  `SJ_KM` varchar(100) default NULL,
-  `SJ_HJ` varchar(100) default NULL,
-  `HJ_DD` varchar(100) default NULL,
-  `HJ_KM` varchar(100) default NULL,
-  `HJ_HJ` varchar(100) default NULL,
-  `WSD_DD` varchar(100) default NULL,
-  `WSD_KM` varchar(100) default NULL,
-  `WSD_HJ` varchar(100) default NULL,
-  `DD` varchar(100) default NULL,
-  `KM` varchar(100) default NULL,
-  `HJ` varchar(100) default NULL,
-  PRIMARY KEY  (`REPORT_NO`)
+  `JYX_DD` varchar(100) DEFAULT NULL,
+  `JYX_KM` varchar(100) DEFAULT NULL,
+  `JYX_HJ` varchar(100) DEFAULT NULL,
+  `FJ_DD` varchar(100) DEFAULT NULL,
+  `FJ_KM` varchar(100) DEFAULT NULL,
+  `FJ_HJ` varchar(100) DEFAULT NULL,
+  `CRK_DD` varchar(100) DEFAULT NULL,
+  `CRK_KM` varchar(100) DEFAULT NULL,
+  `CRK_HJ` varchar(100) DEFAULT NULL,
+  `SJ_DD` varchar(100) DEFAULT NULL,
+  `SJ_KM` varchar(100) DEFAULT NULL,
+  `SJ_HJ` varchar(100) DEFAULT NULL,
+  `HJ_DD` varchar(100) DEFAULT NULL,
+  `HJ_KM` varchar(100) DEFAULT NULL,
+  `HJ_HJ` varchar(100) DEFAULT NULL,
+  `WSD_DD` varchar(100) DEFAULT NULL,
+  `WSD_KM` varchar(100) DEFAULT NULL,
+  `WSD_HJ` varchar(100) DEFAULT NULL,
+  `DD` varchar(100) DEFAULT NULL,
+  `KM` varchar(100) DEFAULT NULL,
+  `HJ` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`REPORT_NO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='验证报告图表';
 
 -- ----------------------------
@@ -1174,20 +1180,20 @@ INSERT INTO `report_image_info` VALUES ('1_1493045541961', null, null, null, '/c
 -- ----------------------------
 DROP TABLE IF EXISTS `report_info`;
 CREATE TABLE `report_info` (
-  `REPORT_NO` varchar(64) NOT NULL default '',
-  `REPORT_VERSION` varchar(16) default NULL,
-  `REPORT_TITLE` varchar(64) default NULL,
-  `VERIFY_PLACE` varchar(64) default NULL,
-  `VERIFY_OBJECT` varchar(64) default NULL,
-  `VERIFY_TIME` varchar(64) default NULL,
-  `VERIFY_ATTR` varchar(32) default NULL,
-  `REPORT_NAME` varchar(64) default NULL,
-  `IS_FULL` int(1) default NULL COMMENT '是否满载.0:空载 , 1:满载',
-  `REPORT_TYPE` varchar(64) default NULL,
-  `TEMPERATURE` varchar(64) default NULL,
-  `REPORT_PATH` varchar(100) default NULL,
-  `REPORT_STATUS` int(1) default NULL,
-  PRIMARY KEY  (`REPORT_NO`)
+  `REPORT_NO` varchar(64) NOT NULL DEFAULT '',
+  `REPORT_VERSION` varchar(16) DEFAULT NULL,
+  `REPORT_TITLE` varchar(64) DEFAULT NULL,
+  `VERIFY_PLACE` varchar(64) DEFAULT NULL,
+  `VERIFY_OBJECT` varchar(64) DEFAULT NULL,
+  `VERIFY_TIME` varchar(64) DEFAULT NULL,
+  `VERIFY_ATTR` varchar(32) DEFAULT NULL,
+  `REPORT_NAME` varchar(64) DEFAULT NULL,
+  `IS_FULL` int(1) DEFAULT NULL COMMENT '是否满载.0:空载 , 1:满载',
+  `REPORT_TYPE` varchar(64) DEFAULT NULL,
+  `TEMPERATURE` varchar(64) DEFAULT NULL,
+  `REPORT_PATH` varchar(100) DEFAULT NULL,
+  `REPORT_STATUS` int(1) DEFAULT NULL,
+  PRIMARY KEY (`REPORT_NO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1200,14 +1206,14 @@ INSERT INTO `report_info` VALUES ('1_1493045541961', '1.0', '救济测试', '家
 -- ----------------------------
 DROP TABLE IF EXISTS `report_worker`;
 CREATE TABLE `report_worker` (
-  `REPORT_NO` varchar(64) NOT NULL default '',
-  `NAME` varchar(32) default NULL,
-  `TYPE` varchar(8) default NULL,
-  `WORK_P` varchar(32) default NULL,
-  `WORK_D` varchar(32) default NULL,
-  `SUP` varchar(32) default NULL,
-  `ID` varchar(32) NOT NULL default '',
-  PRIMARY KEY  (`ID`)
+  `REPORT_NO` varchar(64) NOT NULL DEFAULT '',
+  `NAME` varchar(32) DEFAULT NULL,
+  `TYPE` varchar(8) DEFAULT NULL,
+  `WORK_P` varchar(32) DEFAULT NULL,
+  `WORK_D` varchar(32) DEFAULT NULL,
+  `SUP` varchar(32) DEFAULT NULL,
+  `ID` varchar(32) NOT NULL DEFAULT '',
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1227,15 +1233,15 @@ INSERT INTO `report_worker` VALUES ('jjkk123', '吕步思', '1', '爪哇师', '�
 -- ----------------------------
 DROP TABLE IF EXISTS `validation_report_info`;
 CREATE TABLE `validation_report_info` (
-  `ID` int(11) NOT NULL auto_increment,
-  `NAME` varchar(30) default NULL,
-  `COMPANY_ID` int(11) default NULL,
-  `VERIFY_ID` int(11) default NULL,
-  `VERIFY_TYPE` int(11) default NULL,
-  `CREATE_DATE` datetime default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(30) DEFAULT NULL,
+  `COMPANY_ID` int(11) DEFAULT NULL,
+  `VERIFY_ID` int(11) DEFAULT NULL,
+  `VERIFY_TYPE` int(11) DEFAULT NULL,
+  `CREATE_DATE` datetime DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ValidationReport';
 
 -- ----------------------------
@@ -1247,42 +1253,45 @@ CREATE TABLE `validation_report_info` (
 -- ----------------------------
 DROP TABLE IF EXISTS `verify_info`;
 CREATE TABLE `verify_info` (
-  `ID` int(11) NOT NULL auto_increment,
-  `VERIFY_ID` int(11) default NULL,
-  `VERIFY_NAME` varchar(30) default NULL,
-  `VERIFY_TYPE` int(11) default NULL COMMENT '1、冷库\r\n            2、冷藏车\r\n            3、保温箱',
-  `CREATE_DATE` datetime default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='验证对象表';
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `VERIFY_ID` int(11) DEFAULT NULL,
+  `VERIFY_NAME` varchar(30) DEFAULT NULL,
+  `VERIFY_TYPE` int(11) DEFAULT NULL COMMENT '1、冷库\r\n            2、冷藏车\r\n            3、保温箱',
+  `CREATE_DATE` datetime DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8 COMMENT='验证对象表';
 
 -- ----------------------------
 -- Records of verify_info
 -- ----------------------------
 INSERT INTO `verify_info` VALUES ('99', '1', '冷库名称', '1', '2017-03-29 23:00:38', '测试2个', '1');
 INSERT INTO `verify_info` VALUES ('107', '5', '大汽车', '2', '2017-05-03 23:35:54', '2', '1');
+INSERT INTO `verify_info` VALUES ('108', '1', '箱子', '3', '2017-05-05 16:26:03', '的', '1');
 
 -- ----------------------------
 -- Table structure for verify_point_rel
 -- ----------------------------
 DROP TABLE IF EXISTS `verify_point_rel`;
 CREATE TABLE `verify_point_rel` (
-  `ID` int(11) NOT NULL auto_increment,
-  `VERIFY_ID` int(11) default NULL,
-  `VERIFY_TYPE` int(11) default NULL,
-  `POINT_ID` int(11) default NULL,
-  `POINT_SN` varchar(30) default NULL,
-  `POINT_POSITION` int(11) default NULL,
-  `POINT_TYPE` varchar(4) default NULL,
-  `CREATE_DATE` datetime default NULL,
-  `REMARK` varchar(100) default NULL,
-  `STATUS` smallint(6) default NULL,
-  PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='VERIFY是方涛起名的';
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `VERIFY_ID` int(11) DEFAULT NULL,
+  `VERIFY_TYPE` int(11) DEFAULT NULL,
+  `POINT_ID` int(11) DEFAULT NULL,
+  `POINT_SN` varchar(30) DEFAULT NULL,
+  `POINT_POSITION` int(11) DEFAULT NULL,
+  `POINT_TYPE` varchar(4) DEFAULT NULL,
+  `CREATE_DATE` datetime DEFAULT NULL,
+  `REMARK` varchar(100) DEFAULT NULL,
+  `STATUS` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='VERIFY是方涛起名的';
 
 -- ----------------------------
 -- Records of verify_point_rel
 -- ----------------------------
 INSERT INTO `verify_point_rel` VALUES ('3', '1', '1', '6', 'SN-02', '2', '2', '2017-04-15 22:16:30', '3', '1');
 INSERT INTO `verify_point_rel` VALUES ('4', '1', '1', '5', 'SN-01', '1', '3', '2017-04-21 22:59:24', null, '1');
+INSERT INTO `verify_point_rel` VALUES ('5', '5', '2', '7', 'SN-03', '1', '5', '2017-05-05 15:33:39', null, '1');
+INSERT INTO `verify_point_rel` VALUES ('6', '1', '3', '8', 'SN-04', '1', '4', '2017-05-05 16:26:57', null, '1');
