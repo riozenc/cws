@@ -194,7 +194,8 @@
 					</div>
 					<!--上传图片-->
 					<form id="imgForm" method="post" enctype="multipart/form-data" >
-						<input id="uploadButton" type="file" name="Fdata" accept="image/*" />
+						<input id="uploadButton" type="file" name="Fdata" 
+						accept="image/bmp,image/png,image/jpg,image/jpeg,image/gif" />
 					</form>
 					<div class="clearfloat"></div><!--清除浮动，使外层div高度自适应内层-->
 				</div>
