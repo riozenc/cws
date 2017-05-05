@@ -59,7 +59,7 @@
 										<td class="baseInfo_cellValue" colspan="2">
 											<span class="baseInfoSpan1">
 												<span class="baseInfoSpan2">
-													<input class="baseInfoInput" type="text" name="model" />
+													<input class="baseInfoInput" type="text" name="types" />
 												</span>
 											</span>
 										</td>
@@ -82,7 +82,7 @@
 													<input class="baseInfoInput" type="text" name="productionDate" />
 												</span>
 											</span>-->
-											<input id="productionDate" name="productionDate" class="mini-datepicker" />
+											<input id="productionDate" name="date" class="mini-datepicker" />
 										</td>
 									</tr>
 									<tr>
@@ -90,7 +90,7 @@
 										<td class="baseInfo_cellValue" colspan="2">
 											<span class="baseInfoSpan1">
 												<span class="baseInfoSpan2">
-													<input class="baseInfoInput" type="text" name="outsideSize" />
+													<input class="baseInfoInput" type="text" name="outSize" />
 												</span>
 											</span>
 										</td>
@@ -98,7 +98,7 @@
 										<td class="baseInfo_cellValue" colspan="2">
 											<span class="baseInfoSpan1">
 												<span class="baseInfoSpan2">
-													<input class="baseInfoInput" type="text" name="insideSize" />
+													<input class="baseInfoInput" type="text" name="inSize" />
 												</span>
 											</span>
 										</td>
@@ -116,7 +116,7 @@
 										<td class="baseInfo_cellValue" colspan="2">
 											<span class="baseInfoSpan1">
 												<span class="baseInfoSpan2">
-													<input class="baseInfoInput" type="text" name="wallThickness" />
+													<input class="baseInfoInput" type="text" name="thickness" />
 												</span>
 											</span>
 										</td>
@@ -126,7 +126,7 @@
 										<td class="baseInfo_cellValue" colspan="2">
 											<span class="baseInfoSpan1">
 												<span class="baseInfoSpan2">
-													<input class="baseInfoInput" type="text" name="outsideMaterial" />
+													<input class="baseInfoInput" type="text" name="outMaterial" />
 												</span>
 											</span>
 										</td>
@@ -134,7 +134,7 @@
 										<td class="baseInfo_cellValue" colspan="2">
 											<span class="baseInfoSpan1">
 												<span class="baseInfoSpan2">
-													<input class="baseInfoInput" type="text" name="insideMaterial" />
+													<input class="baseInfoInput" type="text" name="inMaterial" />
 												</span>
 											</span>
 										</td>
@@ -144,7 +144,7 @@
 										<td class="baseInfo_cellValue_d">
 											<span class="baseInfoSpan1">
 												<span class="baseInfoSpan2">
-													<input class="baseInfoInput" type="text" name="coldLogo" />
+													<input class="baseInfoInput" type="text" name="cryogenBrand" />
 												</span>
 											</span>
 										</td>
@@ -152,7 +152,7 @@
 										<td class="baseInfo_cellValue">
 											<span class="baseInfoSpan1">
 												<span class="baseInfoSpan2">
-													<input class="baseInfoInput" type="text" name="coldModel" />
+													<input class="baseInfoInput" type="text" name="cryogenTypes" />
 												</span>
 											</span>
 										</td>
@@ -160,7 +160,7 @@
 										<td class="baseInfo_cellValue">
 											<span class="baseInfoSpan1">
 												<span class="baseInfoSpan2">
-													<input class="baseInfoInput" type="text" name="coldQuantity" />
+													<input class="baseInfoInput" type="text" name="cryogenCount" />
 												</span>
 											</span>
 										</td>
@@ -170,7 +170,7 @@
 										<td class="baseInfo_cellValue_d">
 											<span class="baseInfoSpan1">
 												<span class="baseInfoSpan2">
-													<input class="baseInfoInput" type="text" name="monitor" />
+													<input class="baseInfoInput" type="text" name="probeNum" />
 												</span>
 											</span>
 										</td>
@@ -178,7 +178,7 @@
 										<td class="baseInfo_cellValue" colspan="3">
 											<span class="baseInfoSpan1">
 												<span class="baseInfoSpan2">
-													<input class="baseInfoInput" type="text" name="manufacturer" />
+													<input class="baseInfoInput" type="text" name="manufactor" />
 												</span>
 											</span>
 										</td>

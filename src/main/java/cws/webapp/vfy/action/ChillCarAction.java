@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.riozenc.quicktool.common.util.json.JSONUtil;
+import com.riozenc.quicktool.springmvc.webapp.action.BaseAction;
 
 import cws.common.json.JsonResult;
 import cws.webapp.vfy.domain.ChillCarDomain;
@@ -21,7 +22,7 @@ import cws.webapp.vfy.service.IChillCarService;
 
 @ControllerAdvice
 @RequestMapping("chillCar")
-public class ChillCarAction {
+public class ChillCarAction extends BaseAction{
 
 	@Autowired
 	@Qualifier("chillCarServiceImpl")

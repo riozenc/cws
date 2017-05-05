@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 
@@ -32,8 +33,11 @@ public class InsulationCanAction {
 	@Qualifier("insulationCanServiceImpl")
 	private IInsulationCanService insulationCanService;
 
+	@ResponseBody
+	@RequestMapping(params="type=update")
 	public String update(InsulationCanDomain insulationCanDomain) {
 
+		//{"type":["update"],"id":["1"],"name":["箱子"],"brand":["1"],"model":[""],"volume":["900"],"outsideSize":[""],"insideSize":[""],"weight":["12"],"wallThickness":[""],"outsideMaterial":[""],"insideMaterial":[""],"coldLogo":[""],"coldModel":[""],"coldQuantity":[""],"monitor":[""],"manufacturer":[""],"disMap":[""],"imgChanged":["0"],"productionDate":["2017-05-05"]})
 		int i = insulationCanService.update(insulationCanDomain);
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
