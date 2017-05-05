@@ -85,7 +85,7 @@
                     <td class="colData">    
                         <input id="isFullType" name="isFull" class="mini-combobox" showNullItem="false"
                         valueField="value" textField="name" 
-                        data='[{"value": "是", "name": "是"},{"value": "否", "name": "否"}]' />
+                        data='[{"value": "1", "name": "是"},{"value": "0", "name": "否"}]' />
                     </td>
                 </tr>
                 <tr>

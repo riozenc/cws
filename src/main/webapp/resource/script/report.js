@@ -89,7 +89,7 @@ function addRow(){
 	    url: "page/reportForm.jsp",
 	    title: "新建报告", 
 	    width: 380, 
-	    height: 280,
+	    height: 320,
 	    allowResize: true,
 	    onload: function () {
 	    	var iframe = this.getIFrameEl();
@@ -114,7 +114,7 @@ function edit(recodeID){
 	    url: "page/reportForm.jsp",
 	    title: "编辑报告", 
 	    width: 380, 
-	    height: 280,
+	    height: 320,
 	    allowResize: true,
 	    onload: function () {
 	    	//向表单传参
