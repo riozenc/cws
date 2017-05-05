@@ -17,7 +17,10 @@ $(document).ready(function(){
 		dataType : "json",
 		type : "post",
 		success : function(data){
-			if(!isNaN(data.date)){
+			if(!data){
+				return;
+			}
+			if(!isNaN(data.date)&&data.date){
 				var value = new Date(Number(data.date));
 		        data.date=mini.formatDate(value, 'yyyy-MM-dd');
 			}
@@ -25,7 +28,9 @@ $(document).ready(function(){
 			$("input[name='brand']").val(data.brand);
 			$("input[name='types']").val(data.types);
 			$("input[name='volume']").val(data.volume);
-			$("#date input").val(data.date);
+			if(data.date){
+				$("#productionDate input").val(data.date);
+			}
 			$("input[name='outSize']").val(data.outSize);
 			$("input[name='inSize']").val(data.inSize);
 			$("input[name='weight']").val(data.weight);
@@ -127,7 +132,7 @@ $(document).ready(function(){
 		$.each(allData, function(index, val) {
 			 formData[this.name]=this.value;
 		});
-		formData.date=$("#date input").val();
+		formData.date=$("#productionDate input").val();
 		//判断数据是否被修改过
 		var flag=true;
 		var props=Object.getOwnPropertyNames(formData);

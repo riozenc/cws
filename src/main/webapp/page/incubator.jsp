@@ -82,7 +82,7 @@
 													<input class="baseInfoInput" type="text" name="productionDate" />
 												</span>
 											</span>-->
-											<input id="date" name="date" class="mini-datepicker" />
+											<input id="productionDate" name="date" class="mini-datepicker" />
 										</td>
 									</tr>
 									<tr>

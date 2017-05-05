@@ -17,6 +17,9 @@ $(document).ready(function(){
 		dataType : "json",
 		type : "post",
 		success : function(e){
+			if(!e){
+				return;
+			}
 			$("input[name='name']").val(e.name);
 			$("input[name='types']").val(e.types);
 			$("input[name='volume']").val(e.volume);

@@ -41,11 +41,18 @@ $(document).ready(function(){
 			verifyObjectDrop.load("../commonParam.do?type=findCommonParamByType&paramType=VERIFY_TYPE&enterpriseId="+enterpriseId);
 			//格式化日期
 			if(data!=null){
-				if(!isNaN(data.verifyTime)){
+				if(!isNaN(data.verifyTime)&&data.verifyTime){
 					var value = new Date(Number(data.verifyTime));
 			        data.verifyTime=mini.formatDate(value, 'yyyy-MM-dd');
 				}
+				var setDateFlag=false;
+				if(!data.verifyTime){
+					setDateFlag=true;
+				}
 				form1.setData(data);
+				if(setDateFlag){
+					$("#verifyTime input").empty();
+				}
 			}
 		},
 		error : function(e) {
