@@ -17,26 +17,26 @@ $(document).ready(function(){
 		dataType : "json",
 		type : "post",
 		success : function(data){
-			if(!isNaN(data.productionDate)){
-				var value = new Date(Number(data.productionDate));
-		        data.productionDate=mini.formatDate(value, 'yyyy-MM-dd');
+			if(!isNaN(data.date)){
+				var value = new Date(Number(data.date));
+		        data.date=mini.formatDate(value, 'yyyy-MM-dd');
 			}
 			$("input[name='name']").val(data.name);
 			$("input[name='brand']").val(data.brand);
-			$("input[name='model']").val(data.model);
+			$("input[name='types']").val(data.types);
 			$("input[name='volume']").val(data.volume);
-			$("#productionDate input").val(data.productionDate);
-			$("input[name='outsideSize']").val(data.outsideSize);
-			$("input[name='insideSize']").val(data.insideSize);
+			$("#date input").val(data.date);
+			$("input[name='outSize']").val(data.outSize);
+			$("input[name='inSize']").val(data.inSize);
 			$("input[name='weight']").val(data.weight);
-			$("input[name='wallThickness']").val(data.wallThickness);
-			$("input[name='outsideMaterial']").val(data.outsideMaterial);
-			$("input[name='insideMaterial']").val(data.insideMaterial);
-			$("input[name='coldLogo']").val(data.coldLogo);
-			$("input[name='coldModel']").val(data.coldModel);
-			$("input[name='coldQuantity']").val(data.coldQuantity);
-			$("input[name='monitor']").val(data.monitor);
-			$("input[name='manufacturer']").val(data.manufacturer);
+			$("input[name='thickness']").val(data.thickness);
+			$("input[name='outMaterial']").val(data.outMaterial);
+			$("input[name='inMaterial']").val(data.inMaterial);
+			$("input[name='cryogenBrand']").val(data.cryogenBrand);
+			$("input[name='cryogenTypes']").val(data.cryogenTypes);
+			$("input[name='cryogenCount']").val(data.cryogenCount);
+			$("input[name='probeNum']").val(data.probeNum);
+			$("input[name='manufactor']").val(data.manufactor);
 			if(data.disMap){
 				$baseInfoImg.unbind("click");
 				$("#uploadImg").css('display', 'none');
@@ -127,7 +127,7 @@ $(document).ready(function(){
 		$.each(allData, function(index, val) {
 			 formData[this.name]=this.value;
 		});
-		formData.productionDate=$("#productionDate input").val();
+		formData.date=$("#date input").val();
 		//判断数据是否被修改过
 		var flag=true;
 		var props=Object.getOwnPropertyNames(formData);
