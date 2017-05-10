@@ -21,12 +21,12 @@
 			</div>
 			<div id="panelContent">
 				<div id="dropContent">
-					<input id="pDropData" class="mini-combobox" showNullItem="false" value="1" onvaluechanged="dropChanged"
+					<input id="pDropData" class="mini-combobox" showNullItem="false" value="0" onvaluechanged="dropChanged"
 						textField="name" valueField="value" name="pointType" 
-						url="../resource/data/schemeDrop.txt" />
-					<input id="mDropData" class="mini-combobox" showNullItem="false" value="1" onvaluechanged="dropChanged"
+						url="../resource/data/schemeDropAll.txt" />
+					<input id="mDropData" class="mini-combobox" showNullItem="false" value="0" onvaluechanged="dropChanged"
 						textField="name" valueField="value" name="measureType" 
-                        data='[{"value": 1, "name": "断电数据"},{"value": 2, "name": "开门数据"},{"value": 3, "name": "环境数据"}]'/>
+                        data='[{"value": 0, "name": "全部"},{"value": 1, "name": "断电数据"},{"value": 2, "name": "开门数据"},{"value": 3, "name": "环境数据"}]'/>
 				</div>
 				<div id="echartContent">
 					<div id="chartData"></div>
