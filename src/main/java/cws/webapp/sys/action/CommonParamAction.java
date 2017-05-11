@@ -8,7 +8,11 @@
 package cws.webapp.sys.action;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
 
@@ -97,18 +101,39 @@ public class CommonParamAction extends BaseAction {
 		if (!dic.exists()) {
 			dic.mkdirs();
 		}
-
+		String xpath = Global.getConfig("PATH_TYPE");
 		File dest = new File(path + Global.getConfig("file.doc.path") + File.separator + file.getOriginalFilename());
+		File xFile = new File(xpath + Global.getConfig("file.doc.path") + File.separator + file.getOriginalFilename());
 		// Map<String, String> map = new HashMap<>();
 		try {
 			if (!dest.exists()) {
 				dest.createNewFile();
 			}
+
 			file.transferTo(dest);
+
+			InputStream inputStream = new FileInputStream(dest);
+			OutputStream outputStream = new FileOutputStream(xFile);
+			try {
+				byte[] b = new byte[1024 * 5];
+				int len;
+				while ((len = inputStream.read(b)) != -1) {
+					outputStream.write(b, 0, len);
+				}
+				outputStream.flush();
+			} finally {
+				// 关闭流
+				if (inputStream != null)
+					inputStream.close();
+				if (outputStream != null)
+					outputStream.close();
+			}
 
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS,
 					Global.getConfig("file.doc.path") + "/" + file.getOriginalFilename()));
-		} catch (IllegalStateException e) {
+		} catch (
+
+		IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -130,9 +155,12 @@ public class CommonParamAction extends BaseAction {
 		// if (!dic.exists()) {
 		// dic.mkdirs();
 		// }
-
+		String xpath = Global.getConfig("PATH_TYPE");
 		try {
 			File file = FileUtil.uploadPictureByBase64(base64data, path + Global.getConfig("file.doc.path"),
+					reportNo + "_" + pointType + "_" + measureType);
+
+			File xfile = FileUtil.uploadPictureByBase64(base64data, xpath + Global.getConfig("file.doc.path"),
 					reportNo + "_" + pointType + "_" + measureType);
 			return JSONUtil.toJsonString(
 					new JsonResult(JsonResult.SUCCESS, Global.getConfig("file.doc.path") + "/" + file.getName()));

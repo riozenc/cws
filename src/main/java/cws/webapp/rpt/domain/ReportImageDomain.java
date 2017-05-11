@@ -10,30 +10,48 @@ package cws.webapp.rpt.domain;
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
 import com.riozenc.quicktool.mybatis.MybatisEntity;
 
-public class ReportImageDomain implements MybatisEntity{
+public class ReportImageDomain implements MybatisEntity {
 	@TablePrimaryKey
 	private String reportNo;//
 	private String jyxDd;// 均匀性-断电
 	private String jyxKm;// 均允性-开门
 	private String jyxHj;// 均匀性-环境
+	private String jyxAll;
+
 	private String fjDd;// 风机-断电
 	private String fjKm;// 风机-开门
 	private String fjHj;// 风机-环境
+	private String fjAll;//
+
 	private String crkDd;// 出入口-断电
 	private String crkKm;// 出入口-开门
 	private String crkHj;// 出入口-环境
+	private String crkAll;//
+
 	private String sjDd;// 死角-断电
 	private String sjKm;// 死角-开门
 	private String sjHj;// 死角-环境
-	private String hjDd;// 货架-断电
-	private String hjKm;// 货架-开门
-	private String hjHj;// 货架-环境
+	private String sjAll;
+
+	private String huojiaDd;// 货架-断电
+	private String huojiaKm;// 货架-开门
+	private String huojiaHj;// 货架-环境
+	private String huojiaAll;
+
 	private String wsdDd;// 温湿度-断电
 	private String wsdKm;// 温湿度-开门
 	private String wsdHj;// 温湿度-环境
-	private String dd;// 环境-断电
-	private String km;// 环境-开门
-	private String hj;// 环境-环境
+	private String wsdAll;//
+
+	private String huanjingDd;// 环境-断电
+	private String huanjingKm;// 环境-开门
+	private String huanjingHj;// 环境-环境
+	private String huanjingAll;//
+
+	private String dd;//
+	private String km;//
+	private String hj;//
+	private String all;//
 
 	public String getReportNo() {
 		return reportNo;
@@ -67,6 +85,14 @@ public class ReportImageDomain implements MybatisEntity{
 		this.jyxHj = jyxHj;
 	}
 
+	public String getJyxAll() {
+		return jyxAll;
+	}
+
+	public void setJyxAll(String jyxAll) {
+		this.jyxAll = jyxAll;
+	}
+
 	public String getFjDd() {
 		return fjDd;
 	}
@@ -89,6 +115,14 @@ public class ReportImageDomain implements MybatisEntity{
 
 	public void setFjHj(String fjHj) {
 		this.fjHj = fjHj;
+	}
+
+	public String getFjAll() {
+		return fjAll;
+	}
+
+	public void setFjAll(String fjAll) {
+		this.fjAll = fjAll;
 	}
 
 	public String getCrkDd() {
@@ -115,6 +149,14 @@ public class ReportImageDomain implements MybatisEntity{
 		this.crkHj = crkHj;
 	}
 
+	public String getCrkAll() {
+		return crkAll;
+	}
+
+	public void setCrkAll(String crkAll) {
+		this.crkAll = crkAll;
+	}
+
 	public String getSjDd() {
 		return sjDd;
 	}
@@ -139,28 +181,44 @@ public class ReportImageDomain implements MybatisEntity{
 		this.sjHj = sjHj;
 	}
 
-	public String getHjDd() {
-		return hjDd;
+	public String getSjAll() {
+		return sjAll;
 	}
 
-	public void setHjDd(String hjDd) {
-		this.hjDd = hjDd;
+	public void setSjAll(String sjAll) {
+		this.sjAll = sjAll;
 	}
 
-	public String getHjKm() {
-		return hjKm;
+	public String getHuojiaDd() {
+		return huojiaDd;
 	}
 
-	public void setHjKm(String hjKm) {
-		this.hjKm = hjKm;
+	public void setHuojiaDd(String huojiaDd) {
+		this.huojiaDd = huojiaDd;
 	}
 
-	public String getHjHj() {
-		return hjHj;
+	public String getHuojiaKm() {
+		return huojiaKm;
 	}
 
-	public void setHjHj(String hjHj) {
-		this.hjHj = hjHj;
+	public void setHuojiaKm(String huojiaKm) {
+		this.huojiaKm = huojiaKm;
+	}
+
+	public String getHuojiaHj() {
+		return huojiaHj;
+	}
+
+	public void setHuojiaHj(String huojiaHj) {
+		this.huojiaHj = huojiaHj;
+	}
+
+	public String getHuojiaAll() {
+		return huojiaAll;
+	}
+
+	public void setHuojiaAll(String huojiaAll) {
+		this.huojiaAll = huojiaAll;
 	}
 
 	public String getWsdDd() {
@@ -187,6 +245,46 @@ public class ReportImageDomain implements MybatisEntity{
 		this.wsdHj = wsdHj;
 	}
 
+	public String getWsdAll() {
+		return wsdAll;
+	}
+
+	public void setWsdAll(String wsdAll) {
+		this.wsdAll = wsdAll;
+	}
+
+	public String getHuanjingDd() {
+		return huanjingDd;
+	}
+
+	public void setHuanjingDd(String huanjingDd) {
+		this.huanjingDd = huanjingDd;
+	}
+
+	public String getHuanjingKm() {
+		return huanjingKm;
+	}
+
+	public void setHuanjingKm(String huanjingKm) {
+		this.huanjingKm = huanjingKm;
+	}
+
+	public String getHuanjingHj() {
+		return huanjingHj;
+	}
+
+	public void setHuanjingHj(String huanjingHj) {
+		this.huanjingHj = huanjingHj;
+	}
+
+	public String getHuanjingAll() {
+		return huanjingAll;
+	}
+
+	public void setHuanjingAll(String huanjingAll) {
+		this.huanjingAll = huanjingAll;
+	}
+
 	public String getDd() {
 		return dd;
 	}
@@ -209,6 +307,14 @@ public class ReportImageDomain implements MybatisEntity{
 
 	public void setHj(String hj) {
 		this.hj = hj;
+	}
+
+	public String getAll() {
+		return all;
+	}
+
+	public void setAll(String all) {
+		this.all = all;
 	}
 
 }

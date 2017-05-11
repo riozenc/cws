@@ -15,10 +15,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -134,26 +135,81 @@ public class ReportAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=getDeviceDate")
-	public String getDeviceDate(String enterpriseId, String reportNo, int pointType, int measureType) {
+	public String adads(String enterpriseId, String reportNo, int pointType, int measureType) {
 		List<DeviceDomain> deviceDomains = new ArrayList<>();
 
-		Set<String> x = new HashSet<>();
+		Set<String> x = new TreeSet<>();
 
 		ReportDomain reportDomain = new ReportDomain();
 		reportDomain.setReportNo(reportNo);
 		List<VerifyPointDomain> verifyPointDomains = verifyPointService.getVerifyPointByReport(reportDomain);
 		for (VerifyPointDomain domain : verifyPointDomains) {
-			if (Integer.parseInt(domain.getPointType()) == pointType) {
+			if (Integer.parseInt(domain.getPointType()) == pointType || pointType == 0) {
 				DeviceDomain deviceDomain = new DeviceDomain();
 				deviceDomain.setDeviceId(domain.getPointId() + "");
 				deviceDomain.setPointId(domain.getPointId());
 				deviceDomain.setVerifyReportId(reportNo);
-				deviceDomain.setStyle(measureType);
+				deviceDomain.setStyle(measureType == 0 ? null : measureType);
+				deviceDomains.add(deviceDomain);
+			}
+		}
+
+		int dataSize = deviceDomains.size();
+
+		Map<String, Collection<String>> map = new HashMap<>();
+
+		@SuppressWarnings("unchecked")
+		Map<String, String>[] maps = new Map[dataSize];
+
+		for (int i = 0; i < dataSize; i++) {
+			maps[i] = new HashMap<String, String>();
+			List<DeviceDomain> list = deviceService.getDeviceDate(deviceDomains.get(i));// 日期排序
+			for (DeviceDomain temp : list) {
+				x.add(temp.getDate());
+				maps[i].put(temp.getDate(), temp.getTemperature().toString());
+			}
+		}
+
+		// 组合
+
+		for (int i = 0; i < dataSize; i++) {
+			List<String> y = new ArrayList<>();
+			for (String temp : x) {
+				 y.add(maps[i].get(temp) == null ? "0" : maps[i].get(temp));
+//				y.add(maps[i].get(temp));
+			}
+			map.put(deviceDomains.get(i).getDeviceId(), y);
+		}
+
+		if (x.size() == 0) {
+			x.add("-");
+		}
+		map.put("xAxis", x);
+		System.out.println(JSONUtil.toJsonString(map));
+		return JSONUtil.toJsonString(map);
+	}
+
+	public String getDeviceDate(String enterpriseId, String reportNo, int pointType, int measureType) {
+		List<DeviceDomain> deviceDomains = new ArrayList<>();
+
+		Set<String> x = new LinkedHashSet<>();
+
+		ReportDomain reportDomain = new ReportDomain();
+		reportDomain.setReportNo(reportNo);
+		List<VerifyPointDomain> verifyPointDomains = verifyPointService.getVerifyPointByReport(reportDomain);
+		for (VerifyPointDomain domain : verifyPointDomains) {
+			if (Integer.parseInt(domain.getPointType()) == pointType || pointType == 0) {
+				DeviceDomain deviceDomain = new DeviceDomain();
+				deviceDomain.setDeviceId(domain.getPointId() + "");
+				deviceDomain.setPointId(domain.getPointId());
+				deviceDomain.setVerifyReportId(reportNo);
+				deviceDomain.setStyle(measureType == 0 ? null : measureType);
 				deviceDomains.add(deviceDomain);
 			}
 		}
 
 		Map<String, Collection<String>> map = new HashMap<>();
+
 		for (DeviceDomain domain : deviceDomains) {
 			List<String> y = new ArrayList<>();
 
@@ -191,34 +247,48 @@ public class ReportAction {
 		// 图片
 		ReportImageDomain reportImageDomain = new ReportImageDomain();
 		reportImageDomain.setReportNo(reportDomain.getReportNo());
+
+		// 全部
+		reportImageDomain.setAll(request.getParameter("imagePath_0_0"));
+		reportImageDomain.setDd(request.getParameter("imagePath_0_1"));
+		reportImageDomain.setKm(request.getParameter("imagePath_0_2"));
+		reportImageDomain.setHj(request.getParameter("imagePath_0_3"));
+
 		// 均允性
+		reportImageDomain.setJyxAll(request.getParameter("imagePath_1_0"));
 		reportImageDomain.setJyxDd(request.getParameter("imagePath_1_1"));
 		reportImageDomain.setJyxKm(request.getParameter("imagePath_1_2"));
 		reportImageDomain.setJyxHj(request.getParameter("imagePath_1_3"));
 		// 风机
+		reportImageDomain.setFjAll(request.getParameter("imagePath_2_0"));
 		reportImageDomain.setFjDd(request.getParameter("imagePath_2_1"));
 		reportImageDomain.setFjKm(request.getParameter("imagePath_2_2"));
 		reportImageDomain.setFjHj(request.getParameter("imagePath_2_3"));
 		// 出入口
+		reportImageDomain.setCrkAll(request.getParameter("imagePath_3_0"));
 		reportImageDomain.setCrkDd(request.getParameter("imagePath_3_1"));
 		reportImageDomain.setCrkKm(request.getParameter("imagePath_3_2"));
 		reportImageDomain.setCrkHj(request.getParameter("imagePath_3_3"));
 		// 死角
+		reportImageDomain.setSjAll(request.getParameter("imagePath_4_0"));
 		reportImageDomain.setSjDd(request.getParameter("imagePath_4_1"));
 		reportImageDomain.setSjKm(request.getParameter("imagePath_4_2"));
 		reportImageDomain.setSjHj(request.getParameter("imagePath_4_3"));
 		// 货架
-		reportImageDomain.setHjDd(request.getParameter("imagePath_5_1"));
-		reportImageDomain.setHjKm(request.getParameter("imagePath_5_2"));
-		reportImageDomain.setHjHj(request.getParameter("imagePath_5_3"));
+		reportImageDomain.setHuojiaAll(request.getParameter("imagePath_5_0"));
+		reportImageDomain.setHuojiaDd(request.getParameter("imagePath_5_1"));
+		reportImageDomain.setHuojiaKm(request.getParameter("imagePath_5_2"));
+		reportImageDomain.setHuojiaHj(request.getParameter("imagePath_5_3"));
 		// 温湿度
+		reportImageDomain.setWsdAll(request.getParameter("imagePath_6_0"));
 		reportImageDomain.setWsdDd(request.getParameter("imagePath_6_1"));
 		reportImageDomain.setWsdKm(request.getParameter("imagePath_6_2"));
 		reportImageDomain.setWsdHj(request.getParameter("imagePath_6_3"));
 		// 环境
-		reportImageDomain.setDd(request.getParameter("imagePath_7_1"));
-		reportImageDomain.setKm(request.getParameter("imagePath_7_2"));
-		reportImageDomain.setHj(request.getParameter("imagePath_7_3"));
+		reportImageDomain.setHuanjingAll(request.getParameter("imagePath_7_0"));
+		reportImageDomain.setHuanjingDd(request.getParameter("imagePath_7_1"));
+		reportImageDomain.setHuanjingKm(request.getParameter("imagePath_7_2"));
+		reportImageDomain.setHuanjingHj(request.getParameter("imagePath_7_3"));
 
 		if (reportService.updateReportImage(reportImageDomain) == 0) {
 			reportService.insertReportImage(reportImageDomain);// 插入一条数据
