@@ -198,6 +198,9 @@ body{
 #imgForm{
 	display: none;
 }
+#curtain{
+	width: 100%;
+}
 /*----布点方案----*/
 #layoutSchemeCollect{
 	width: 100%;

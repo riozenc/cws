@@ -87,11 +87,13 @@
 										</td>
 										<td class="baseInfo_cellTitle">门帘</td>
 										<td class="baseInfo_cellValue">
-											<span class="baseInfoSpan1">
+											<!--  <span class="baseInfoSpan1">
 												<span class="baseInfoSpan2">
 													<input class="baseInfoInput" type="text" name="curtain" />
 												</span>
-											</span>
+											</span>-->
+											<input id="curtain" name="curtain" class="mini-combobox"
+											textField="name" valueField="value" />
 										</td>
 									</tr>
 									<tr>

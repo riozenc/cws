@@ -6,6 +6,8 @@ var schemeDrop;
 var SNDrop;
 //记录基本信息数据，用于比较
 var baseInfoData;
+//门帘下拉
+var curtain = mini.get("curtain");
 $(document).ready(function(){
 	/*------------基本信息------------------*/
 	var $baseInfoImg=$("#baseInfoImg");
@@ -25,7 +27,9 @@ $(document).ready(function(){
 			$("input[name='volume']").val(e.volume);
 			$("input[name='fanNum']").val(e.fanNum);
 			$("input[name='entranceNum']").val(e.entranceNum);
-			$("input[name='curtain']").val(e.curtain);
+			//$("input[name='curtain']").val(e.curtain);
+			curtain.load("../resource/data/curtainDrop.txt");
+			curtain.setValue(e.curtain);
 			$("input[name='probeNum']").val(e.probeNum);
 			$("input[name='manufactor']").val(e.manufactor);
 			if(e.disMap){
@@ -118,6 +122,7 @@ $(document).ready(function(){
 		$.each(allData, function(index, val) {
 			 formData[this.name]=this.value;
 		});
+		formData.curtain=curtain.getValue();
 		//判断数据是否被修改过
 		var flag=true;
 		var props=Object.getOwnPropertyNames(formData);
