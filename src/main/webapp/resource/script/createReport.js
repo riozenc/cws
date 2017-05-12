@@ -82,10 +82,12 @@ $(document).ready(function(){
 			dataType : "json",
 			type : "get",
 			success : function(e){
-				var $companyNameLeft=$("#companyNameLeft");
-				var $companyNameRight=$("#companyNameRight");
-				$companyNameLeft.text(e.companyNameLeft);
-				$companyNameRight.text(e.companyNameRight);
+				if(e!=null){
+					var $companyNameLeft=$("#companyNameLeft");
+					var $companyNameRight=$("#companyNameRight");
+					$companyNameLeft.text(e.companyNameLeft);
+					$companyNameRight.text(e.companyNameRight);
+				}
 			},
 			error : function(e){
 				mini.alert("请求数据失败！status："+e.status);
