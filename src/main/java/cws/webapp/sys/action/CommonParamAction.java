@@ -8,14 +8,14 @@
 package cws.webapp.sys.action;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,9 +39,55 @@ import cws.webapp.sys.service.ICommonParamService;
 @RequestMapping("commonParam")
 public class CommonParamAction extends BaseAction {
 
+	private static final Map<String, Map<String, CommonParamDomain>> MAP = new ConcurrentHashMap<String, Map<String, CommonParamDomain>>();
+	private static boolean FLAG = false;
+
 	@Autowired
 	@Qualifier("commonParamServiceImpl")
 	private ICommonParamService commonParamService;
+
+	@ResponseBody
+	@RequestMapping(params = "getConfig")
+	public static Map<String, CommonParamDomain> getConfig(String type) throws Exception {
+		long time = System.currentTimeMillis();
+
+		while (!FLAG) {
+			if ((System.currentTimeMillis() - time) > 10 * 1000) {
+				// 等待10秒
+				throw new Exception("获取参数超时(" + type + ").");
+			}
+		}
+		return MAP.get(type);
+	}
+
+	@PostConstruct
+	public void init() {
+		List<CommonParamDomain> list = commonParamService.findByWhere(new CommonParamDomain());
+		for (CommonParamDomain temp : list) {
+			Map<String, CommonParamDomain> map = MAP.get(temp.getType());
+			if (map == null) {
+				map = new HashMap<String, CommonParamDomain>();
+				MAP.put(temp.getType(), map);
+			}
+			map.put(temp.getName(), temp);
+		}
+
+		// 特殊处理
+		String rootPath = getClass().getResource("/").getFile().toString();
+		String[] ss = rootPath.split("/");
+		StringBuffer sb = new StringBuffer();
+
+		for (int i = 1; i < ss.length - 2; i++) {
+			sb.append(ss[i]).append("/");
+		}
+
+		sb.deleteCharAt(sb.length() - 1);
+		MAP.get("PATH_TYPE").get("TOMCAT_PATH").setValue(sb.toString());
+
+		// 取得根目录路径
+
+		FLAG = true;
+	}
 
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
@@ -95,39 +141,23 @@ public class CommonParamAction extends BaseAction {
 	@RequestMapping(params = "type=uploadFile")
 	public String uploadFile(@RequestParam("img") CommonsMultipartFile file, HttpServletRequest httpServletRequest) {
 		// 项目部署的路径
-		String path = httpServletRequest.getSession().getServletContext().getRealPath("/");
+		// String path =
+		// httpServletRequest.getSession().getServletContext().getRealPath("/");
+		String path = MAP.get("PATH_TYPE").get("TOMCAT_PATH").getValue();
 
 		File dic = new File(path + Global.getConfig("file.doc.path"));
 		if (!dic.exists()) {
 			dic.mkdirs();
 		}
-		String xpath = Global.getConfig("PATH_TYPE");
+
 		File dest = new File(path + Global.getConfig("file.doc.path") + File.separator + file.getOriginalFilename());
-		File xFile = new File(xpath + Global.getConfig("file.doc.path") + File.separator + file.getOriginalFilename());
-		// Map<String, String> map = new HashMap<>();
+
 		try {
 			if (!dest.exists()) {
 				dest.createNewFile();
 			}
 
 			file.transferTo(dest);
-
-			InputStream inputStream = new FileInputStream(dest);
-			OutputStream outputStream = new FileOutputStream(xFile);
-			try {
-				byte[] b = new byte[1024 * 5];
-				int len;
-				while ((len = inputStream.read(b)) != -1) {
-					outputStream.write(b, 0, len);
-				}
-				outputStream.flush();
-			} finally {
-				// 关闭流
-				if (inputStream != null)
-					inputStream.close();
-				if (outputStream != null)
-					outputStream.close();
-			}
 
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS,
 					Global.getConfig("file.doc.path") + "/" + file.getOriginalFilename()));
@@ -150,18 +180,14 @@ public class CommonParamAction extends BaseAction {
 			HttpServletRequest httpServletRequest) {
 
 		// 项目部署的路径
-		String path = httpServletRequest.getSession().getServletContext().getRealPath("/");
-		// File dic = new File(path + Global.getConfig("file.doc.path"));
-		// if (!dic.exists()) {
-		// dic.mkdirs();
-		// }
-		String xpath = Global.getConfig("PATH_TYPE");
+		// String path =
+		// httpServletRequest.getSession().getServletContext().getRealPath("/");
+		String path = MAP.get("PATH_TYPE").get("TOMCAT_PATH").getValue();
+
 		try {
 			File file = FileUtil.uploadPictureByBase64(base64data, path + Global.getConfig("file.doc.path"),
 					reportNo + "_" + pointType + "_" + measureType);
 
-			File xfile = FileUtil.uploadPictureByBase64(base64data, xpath + Global.getConfig("file.doc.path"),
-					reportNo + "_" + pointType + "_" + measureType);
 			return JSONUtil.toJsonString(
 					new JsonResult(JsonResult.SUCCESS, Global.getConfig("file.doc.path") + "/" + file.getName()));
 		} catch (Exception e) {
