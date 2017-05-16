@@ -83,7 +83,14 @@ public class CommonParamAction extends BaseAction {
 
 		sb.deleteCharAt(sb.length() - 1);
 		MAP.get("PATH_TYPE").get("TOMCAT_PATH").setValue(sb.toString());
-
+		
+		CommonParamDomain commonParamDomain = new CommonParamDomain();
+		
+		commonParamDomain.setId(MAP.get("PATH_TYPE").get("TOMCAT_PATH").getId());
+		commonParamDomain.setType("PATH_TYPE");
+		commonParamDomain.setName("TOMCAT_PATH");
+		commonParamDomain.setValue(sb.toString());
+		commonParamService.update(commonParamDomain);
 		// 取得根目录路径
 
 		FLAG = true;
