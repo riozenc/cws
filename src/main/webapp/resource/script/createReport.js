@@ -38,7 +38,10 @@ $(document).ready(function(){
 		type : "post",
 		success : function(data) {
 			var verifyObjectDrop = mini.get("verifyObject");
-			verifyObjectDrop.load("../commonParam.do?type=findCommonParamByType&paramType=VERIFY_TYPE&enterpriseId="+enterpriseId);
+//			verifyObjectDrop.load("../commonParam.do?type=findCommonParamByType&paramType=VERIFY_TYPE&enterpriseId="+enterpriseId);
+			
+			verifyObjectDrop.load("../verify.do?type=getVerifyByCompanyToDrop&enterpriseId="+enterpriseId);
+			
 			//格式化日期
 			if(data!=null){
 				if(!isNaN(data.verifyTime)&&data.verifyTime){
@@ -98,7 +101,7 @@ $(document).ready(function(){
 		var datagridDuty = mini.get("datagridDuty");
 		$.ajax({
 			url : '../commonParam.do?type=findCommonParamByType&paramType=POST_TYPE',
-			data : {id:enterpriseId,reportNo:recordId},
+			data : {enterpriseId:enterpriseId,reportNo:recordId},
 			dataType : "json",
 			type : "get",
 			success : function(data) {

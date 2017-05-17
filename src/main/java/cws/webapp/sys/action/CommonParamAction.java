@@ -77,7 +77,8 @@ public class CommonParamAction extends BaseAction {
 		String[] ss = rootPath.split("/");
 		StringBuffer sb = new StringBuffer();
 
-		for (int i = 1; i < ss.length - 2; i++) {
+		//开头是/所以从1开始.路径class的位置,需要向上3层到项目路径
+		for (int i = 1; i < ss.length - 3; i++) {
 			sb.append(ss[i]).append("/");
 		}
 

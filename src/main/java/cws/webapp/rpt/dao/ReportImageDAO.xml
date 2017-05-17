@@ -4,7 +4,7 @@
 	<select id="findByKey" parameterType="ReportImageDomain"
 		resultType="ReportImageDomain" useCache="true">
 		select
-		REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,FJ_DD,FJ_KM,FJ_HJ,CRK_DD,CRK_KM,CRK_HJ,SJ_DD,SJ_KM,SJ_HJ,HJ_DD,HJ_KM,HJ_HJ,WSD_DD,WSD_KM,WSD_HJ,DD,KM,HJ
+		REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,JYX_ALL,FJ_DD,FJ_KM,FJ_HJ,FJ_ALL,CRK_DD,CRK_KM,CRK_HJ,CRK_ALL,SJ_DD,SJ_KM,SJ_HJ,SJ_ALL,HUOJIA_DD,HUOJIA_KM,HUOJIA_HJ,HUOJIA_ALL,WSD_DD,WSD_KM,WSD_HJ,WSD_ALL,HUANJING_DD,HUANJING_KM,HUANJING_HJ,HUANJING_ALL,DD,KM,HJ,ALL
 		from REPORT_IMAGE_INFO
 		<where>
 			and REPORT_NO = #{reportNo}
@@ -14,7 +14,7 @@
 	<select id="findByWhere" parameterType="ReportImageDomain"
 		resultType="ReportImageDomain" useCache="true">
 		select
-		REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,FJ_DD,FJ_KM,FJ_HJ,CRK_DD,CRK_KM,CRK_HJ,SJ_DD,SJ_KM,SJ_HJ,HJ_DD,HJ_KM,HJ_HJ,WSD_DD,WSD_KM,WSD_HJ,DD,KM,HJ
+		REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,JYX_ALL,FJ_DD,FJ_KM,FJ_HJ,FJ_ALL,CRK_DD,CRK_KM,CRK_HJ,CRK_ALL,SJ_DD,SJ_KM,SJ_HJ,SJ_ALL,HUOJIA_DD,HUOJIA_KM,HUOJIA_HJ,HUOJIA_ALL,WSD_DD,WSD_KM,WSD_HJ,WSD_ALL,HUANJING_DD,HUANJING_KM,HUANJING_HJ,HUANJING_ALL,DD,KM,HJ,ALL
 		from REPORT_IMAGE_INFO
 		<where>
 			<if test="reportNo !=null">
@@ -29,6 +29,9 @@
 			<if test="jyxHj !=null">
 				and JYX_HJ = #{jyxHj}
 			</if>
+			<if test="jyxAll !=null">
+				and JYX_ALL = #{jyxAll}
+			</if>
 			<if test="fjDd !=null">
 				and FJ_DD = #{fjDd}
 			</if>
@@ -37,6 +40,9 @@
 			</if>
 			<if test="fjHj !=null">
 				and FJ_HJ = #{fjHj}
+			</if>
+			<if test="fjAll !=null">
+				and FJ_ALL = #{fjAll}
 			</if>
 			<if test="crkDd !=null">
 				and CRK_DD = #{crkDd}
@@ -47,6 +53,9 @@
 			<if test="crkHj !=null">
 				and CRK_HJ = #{crkHj}
 			</if>
+			<if test="crkAll !=null">
+				and CRK_ALL = #{crkAll}
+			</if>
 			<if test="sjDd !=null">
 				and SJ_DD = #{sjDd}
 			</if>
@@ -56,14 +65,20 @@
 			<if test="sjHj !=null">
 				and SJ_HJ = #{sjHj}
 			</if>
-			<if test="hjDd !=null">
-				and HJ_DD = #{hjDd}
+			<if test="sjAll !=null">
+				and SJ_ALL = #{sjAll}
 			</if>
-			<if test="hjKm !=null">
-				and HJ_KM = #{hjKm}
+			<if test="huojiaDd !=null">
+				and HUOJIA_DD = #{huojiaDd}
 			</if>
-			<if test="hjHj !=null">
-				and HJ_HJ = #{hjHj}
+			<if test="huojiaKm !=null">
+				and HUOJIA_KM = #{huojiaKm}
+			</if>
+			<if test="huojiaHj !=null">
+				and HUOJIA_HJ = #{huojiaHj}
+			</if>
+			<if test="huojiaAll !=null">
+				and HUOJIA_ALL = #{huojiaAll}
 			</if>
 			<if test="wsdDd !=null">
 				and WSD_DD = #{wsdDd}
@@ -74,6 +89,21 @@
 			<if test="wsdHj !=null">
 				and WSD_HJ = #{wsdHj}
 			</if>
+			<if test="wsdAll !=null">
+				and WSD_ALL = #{wsdAll}
+			</if>
+			<if test="huanjingDd !=null">
+				and HUANJING_DD = #{huanjingDd}
+			</if>
+			<if test="huanjingKm !=null">
+				and HUANJING_KM = #{huanjingKm}
+			</if>
+			<if test="huanjingHj !=null">
+				and HUANJING_HJ = #{huanjingHj}
+			</if>
+			<if test="huanjingAll !=null">
+				and HUANJING_ALL = #{huanjingAll}
+			</if>
 			<if test="dd !=null">
 				and DD = #{dd}
 			</if>
@@ -83,14 +113,17 @@
 			<if test="hj !=null">
 				and HJ = #{hj}
 			</if>
+			<if test="all !=null">
+				and ALL = #{all}
+			</if>
 		</where>
 	</select>
 	<insert id="insert" parameterType="ReportImageDomain"
 		flushCache="true">
 		insert into
-		REPORT_IMAGE_INFO(REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,FJ_DD,FJ_KM,FJ_HJ,CRK_DD,CRK_KM,CRK_HJ,SJ_DD,SJ_KM,SJ_HJ,HJ_DD,HJ_KM,HJ_HJ,WSD_DD,WSD_KM,WSD_HJ,DD,KM,HJ)
+		REPORT_IMAGE_INFO(REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,JYX_ALL,FJ_DD,FJ_KM,FJ_HJ,FJ_ALL,CRK_DD,CRK_KM,CRK_HJ,CRK_ALL,SJ_DD,SJ_KM,SJ_HJ,SJ_ALL,HUOJIA_DD,HUOJIA_KM,HUOJIA_HJ,HUOJIA_ALL,WSD_DD,WSD_KM,WSD_HJ,WSD_ALL,HUANJING_DD,HUANJING_KM,HUANJING_HJ,HUANJING_ALL,DD,KM,HJ,ALL)
 		values
-		(#{reportNo},#{jyxDd},#{jyxKm},#{jyxHj},#{fjDd},#{fjKm},#{fjHj},#{crkDd},#{crkKm},#{crkHj},#{sjDd},#{sjKm},#{sjHj},#{hjDd},#{hjKm},#{hjHj},#{wsdDd},#{wsdKm},#{wsdHj},#{dd},#{km},#{hj})
+		(#{reportNo},#{jyxDd},#{jyxKm},#{jyxHj},#{jyxAll},#{fjDd},#{fjKm},#{fjHj},#{fjAll},#{crkDd},#{crkKm},#{crkHj},#{crkAll},#{sjDd},#{sjKm},#{sjHj},#{sjAll},#{huojiaDd},#{huojiaKm},#{huojiaHj},#{huojiaAll},#{wsdDd},#{wsdKm},#{wsdHj},#{wsdAll},#{huanjingDd},#{huanjingKm},#{huanjingHj},#{huanjingAll},#{dd},#{km},#{hj},#{all})
 	</insert>
 	<update id="update" parameterType="ReportImageDomain"
 		flushCache="true">
@@ -105,6 +138,9 @@
 			<if test="jyxHj !=null">
 				JYX_HJ = #{jyxHj},
 			</if>
+			<if test="jyxAll !=null">
+				JYX_ALL = #{jyxAll},
+			</if>
 			<if test="fjDd !=null">
 				FJ_DD = #{fjDd},
 			</if>
@@ -113,6 +149,9 @@
 			</if>
 			<if test="fjHj !=null">
 				FJ_HJ = #{fjHj},
+			</if>
+			<if test="fjAll !=null">
+				FJ_ALL = #{fjAll},
 			</if>
 			<if test="crkDd !=null">
 				CRK_DD = #{crkDd},
@@ -123,6 +162,9 @@
 			<if test="crkHj !=null">
 				CRK_HJ = #{crkHj},
 			</if>
+			<if test="crkAll !=null">
+				CRK_ALL = #{crkAll},
+			</if>
 			<if test="sjDd !=null">
 				SJ_DD = #{sjDd},
 			</if>
@@ -132,14 +174,20 @@
 			<if test="sjHj !=null">
 				SJ_HJ = #{sjHj},
 			</if>
-			<if test="hjDd !=null">
-				HJ_DD = #{hjDd},
+			<if test="sjAll !=null">
+				SJ_ALL = #{sjAll},
 			</if>
-			<if test="hjKm !=null">
-				HJ_KM = #{hjKm},
+			<if test="huojiaDd !=null">
+				HUOJIA_DD = #{huojiaDd},
 			</if>
-			<if test="hjHj !=null">
-				HJ_HJ = #{hjHj},
+			<if test="huojiaKm !=null">
+				HUOJIA_KM = #{huojiaKm},
+			</if>
+			<if test="huojiaHj !=null">
+				HUOJIA_HJ = #{huojiaHj},
+			</if>
+			<if test="huojiaAll !=null">
+				HUOJIA_ALL = #{huojiaAll},
 			</if>
 			<if test="wsdDd !=null">
 				WSD_DD = #{wsdDd},
@@ -150,6 +198,21 @@
 			<if test="wsdHj !=null">
 				WSD_HJ = #{wsdHj},
 			</if>
+			<if test="wsdAll !=null">
+				WSD_ALL = #{wsdAll},
+			</if>
+			<if test="huanjingDd !=null">
+				HUANJING_DD = #{huanjingDd},
+			</if>
+			<if test="huanjingKm !=null">
+				HUANJING_KM = #{huanjingKm},
+			</if>
+			<if test="huanjingHj !=null">
+				HUANJING_HJ = #{huanjingHj},
+			</if>
+			<if test="huanjingAll !=null">
+				HUANJING_ALL = #{huanjingAll},
+			</if>
 			<if test="dd !=null">
 				DD = #{dd},
 			</if>
@@ -158,6 +221,9 @@
 			</if>
 			<if test="hj !=null">
 				HJ = #{hj},
+			</if>
+			<if test="all !=null">
+				ALL = #{all},
 			</if>
 		</set>
 		<where>

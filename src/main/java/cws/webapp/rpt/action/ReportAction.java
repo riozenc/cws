@@ -108,6 +108,7 @@ public class ReportAction {
 	@RequestMapping(params = "type=findReportByKey")
 	public String findReportByKey(ReportDomain reportDomain) {
 		reportDomain = reportService.findByKey(reportDomain);
+		reportDomain.setVerifyObject(reportDomain.getVerifyObject() + "_" + reportDomain.getReportType());
 		return JSONUtil.toJsonString(reportDomain);
 	}
 
@@ -175,8 +176,8 @@ public class ReportAction {
 		for (int i = 0; i < dataSize; i++) {
 			List<String> y = new ArrayList<>();
 			for (String temp : x) {
-				 y.add(maps[i].get(temp) == null ? "0" : maps[i].get(temp));
-//				y.add(maps[i].get(temp));
+				y.add(maps[i].get(temp) == null ? "0" : maps[i].get(temp));
+				// y.add(maps[i].get(temp));
 			}
 			map.put(deviceDomains.get(i).getDeviceId(), y);
 		}
@@ -241,6 +242,11 @@ public class ReportAction {
 	@ResponseBody
 	@RequestMapping(params = "type=createReport")
 	public String createReport(ReportDomain reportDomain, HttpServletRequest request) {
+		if (reportDomain.getVerifyObject().indexOf("_") < 0) {
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "验证对象参数错误."));
+		}
+
+		reportDomain.setVerifyObject(reportDomain.getVerifyObject().split("_")[0]);
 
 		reportService.update(reportDomain);// 更新
 
@@ -300,6 +306,9 @@ public class ReportAction {
 
 			Process process = Runtime.getRuntime().exec(exePath + " /c %" + reportDomain.getReportNo() + "%"
 					+ reportDomain.getReportNo() + ".doc%" + reportDomain.getVerifyObject());
+
+			int i = process.waitFor();
+
 			// process.destroy();
 
 			String path = exePath.substring(exePath.lastIndexOf("/")) + reportDomain.getReportNo() + ".doc";
@@ -308,6 +317,10 @@ public class ReportAction {
 			reportService.update(reportDomain);// 更新
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
+		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
