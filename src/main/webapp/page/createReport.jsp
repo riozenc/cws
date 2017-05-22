@@ -239,7 +239,7 @@
 										</td>
 										<td class="baseInfo_cellTitle">门帘</td>
 										<td class="baseInfo_cellValue">
-											<input name="curtain" class="mini-textbox context3_input" allowInput="false" />
+											<input name="curtainName" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 									</tr>
 									<tr>
