@@ -135,10 +135,10 @@ $(document).ready(function(){
 				break;
 			}
 		}
-//		if(flag){
-//			mini.alert("没有修改过的数据！");
-//			return;
-//		}
+		if(flag){
+			mini.alert("没有修改过的数据！");
+			return;
+		}
 		mini.open({
 		    url: "page/confirm.jsp",
 		    title: "提示", 
