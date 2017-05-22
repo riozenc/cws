@@ -53,6 +53,9 @@ $(document).ready(function(){
 			}
 			baseInfoData=data;
 			baseInfoData.imgChanged=0;
+			for(var key in baseInfoData){
+				baseInfoData.key=baseInfoData.key==null?"":baseInfoData.key;
+			}
 		},
 		error : function(e){
 			mini.alert("请求数据失败！status："+e.status);
