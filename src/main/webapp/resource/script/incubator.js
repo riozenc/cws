@@ -49,7 +49,7 @@ $(document).ready(function(){
 				$refreshImg.css('display', 'block');
 				$baseInfoImg.css('cursor', 'default');
 				//记录图片url
-				$("input[name='disMap']").val(e.disMap);
+				$("input[name='disMap']").val(data.disMap);
 			}
 			baseInfoData=data;
 			baseInfoData.imgChanged=0;
