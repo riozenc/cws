@@ -239,7 +239,8 @@
 										</td>
 										<td class="baseInfo_cellTitle">门帘</td>
 										<td class="baseInfo_cellValue">
-											<input name="curtainName" class="mini-textbox context3_input" allowInput="false" />
+											<input name="curtain" class="mini-combobox context3_input" allowInput="false" 
+											textField="name" valueField="value" url="../resource/data/curtainDrop.txt"/>
 										</td>
 									</tr>
 									<tr>
