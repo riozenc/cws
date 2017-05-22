@@ -16,7 +16,7 @@ public class ChillCarDomain extends VerifyDomain implements MybatisEntity {
 	private String volume;// VOLUME varchar(30),
 	private Integer fanNum;// FAN_NUM int,
 	private Integer entranceNum;// ENTRANCE_NUM int,
-	private Integer goodsShelves;// GOODS_SHELVES int,
+	private Integer curtain;// GOODS_SHELVES int,
 	private Integer probeNum;// PROBE_NUM int,
 	private String manufactor;// MANUFACTOR varchar(30),
 	private String disMap;// DIS_MAP varchar(100),
@@ -61,12 +61,12 @@ public class ChillCarDomain extends VerifyDomain implements MybatisEntity {
 		this.entranceNum = entranceNum;
 	}
 
-	public Integer getGoodsShelves() {
-		return goodsShelves;
+	public Integer getCurtain() {
+		return curtain;
 	}
 
-	public void setGoodsShelves(Integer goodsShelves) {
-		this.goodsShelves = goodsShelves;
+	public void setCurtain(Integer curtain) {
+		this.curtain = curtain;
 	}
 
 	public Integer getProbeNum() {
