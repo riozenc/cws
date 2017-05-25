@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	mini.parse();
 	/*//查询
 	var searchDiv=$("#searchDiv");
 	searchDiv.click(function(event) {
@@ -307,5 +308,21 @@ $(document).ready(function(){
 		error : function(e){
 			alert("请求数据失败！status："+e.status);
 		}
+	});
+	
+	//后台获取设备
+	$("#topNotice").click(function(){
+		mini.open({
+		    url: "page/equipmentWin.jsp",
+		    title: "过期设备", 
+		    width: 890, 
+		    height: 530,
+		    allowResize: true,
+		    onload: function () {
+		    },
+		    ondestroy: function (action) {
+		        
+		    }
+		});
 	});
 });

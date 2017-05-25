@@ -196,6 +196,7 @@ body{
 	background-image: url(../img/message.png);
 	background-repeat: no-repeat;
 	background-size: 100%;
+	cursor: pointer;
 }
 /*#topInform{
 	float: right;
