@@ -30,10 +30,10 @@ public class PointDomain extends Page<PointDomain> implements MybatisEntity {
 	private String certificateNo;// 证书编号 CERTIFICATE_NO varchar(30) 30 FALSE
 									// FALSE FALSE
 	private Date createDate;// 创建日期 CREATE_DATE datetime FALSE FALSE FALSE
-	private Date validDate;// 有效期 VALID_DATE datetime FALSE FALSE FALSE
 	private String remark;// 备注 REMARK varchar(100) 100 FALSE FALSE FALSE
 	private Integer status;// 状态 STATUS smallint FALSE FALSE FALSE
 
+	private Date validDate;
 	private Integer companyId;
 	private Integer verifyId;
 	private Integer verifyType;

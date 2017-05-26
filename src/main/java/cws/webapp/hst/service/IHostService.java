@@ -16,4 +16,5 @@ import cws.webapp.hst.domain.HostDomain;
 public interface IHostService extends BaseService<HostDomain>{
 
 	public List<HostDomain> findHostByCompany(HostDomain hostDomain);
+	
 }

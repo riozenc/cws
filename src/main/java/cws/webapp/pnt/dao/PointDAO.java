@@ -8,6 +8,7 @@
 package cws.webapp.pnt.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.riozenc.quicktool.annotation.PaginationSupport;
 import com.riozenc.quicktool.annotation.TransactionDAO;
@@ -50,8 +51,8 @@ public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<P
 		// TODO Auto-generated method stub
 		return getPersistanceManager().find(getNamespace() + ".findByWhere", t);
 	}
-	
-	public PointDomain findPointBySn(PointDomain t){
+
+	public PointDomain findPointBySn(PointDomain t) {
 		return getPersistanceManager().load(getNamespace() + ".findPointBySn", t);
 	}
 
@@ -92,7 +93,7 @@ public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<P
 	public int deleteCompanyPointRel(CompanyPointDomain companyPointDomain) {
 		return getPersistanceManager().delete(getNamespace() + ".deleteCompanyPointRel", companyPointDomain);
 	}
-	
+
 	public int updateCompanyPointRel(CompanyPointDomain companyPointDomain) {
 		return getPersistanceManager().delete(getNamespace() + ".updateCompanyPointRel", companyPointDomain);
 	}
@@ -104,8 +105,16 @@ public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<P
 	public int insertVerifyPointRel(PointDomain pointDomain) {
 		return getPersistanceManager().insert(getNamespace() + ".insertVerifyPointRel", pointDomain);
 	}
-	
-	public List<PointDomain> findPointByReport(ReportDomain reportDomain){
+
+	public List<PointDomain> findPointByReport(ReportDomain reportDomain) {
 		return getPersistanceManager().find(getNamespace() + ".findPointByReport", reportDomain);
+	}
+
+	public int getOverduePointCount(Map<String, String> map) {
+		return getPersistanceManager().load(getNamespace() + ".getOverduePointCount", map);
+	}
+	
+	public List<PointDomain> getOverduePoint(Map<String, String> map){
+		return getPersistanceManager().find(getNamespace() + ".getOverduePoint", map);
 	}
 }

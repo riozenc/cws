@@ -9,7 +9,9 @@ package cws.webapp.pnt.action;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -117,11 +119,30 @@ public class PointAction extends BaseAction {
 		List<PointDomain> list = pointService.findPointByVerify(pointDomain);
 		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(params = "type=findPointByReport")
 	public String findPointByReport(ReportDomain reportDomain) {
 		List<PointDomain> list = pointService.findPointByReport(reportDomain);
 		return JSONUtil.toJsonString(new JsonGrid(list));
 	}
+
+	@ResponseBody
+	@RequestMapping(params = "type=getOverduePointCount")
+	public String getOverduePointCount(String other) {
+		int i = pointService.getOverduePointCount(null);// 目前没用参数
+		
+		Map<String,Integer> map = new HashMap<>();
+		map.put("message", i);
+//		return JSONUtil.toJsonString(map);
+		return "{\"message\":"+i+"}";
+	}
+	
+	@ResponseBody
+	@RequestMapping(params = "type=getOverduePoint")
+	public String getOverduePoint(PointDomain pointDomain){
+		List<PointDomain> list = pointService.getOverduePoint(null);// 目前没用参数
+		return JSONUtil.toJsonString(new JsonGrid(pointDomain,list));
+	} 
+	
 }

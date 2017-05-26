@@ -265,8 +265,9 @@ $(document).ready(function(){
 
 	//读取提示消息数量
 	$.ajax({
-		url : "resource/data/message.txt",
-		data : {},
+//		url : "resource/data/message.txt",
+		url : "point.do?type=getOverduePointCount",
+		data : {other:1},
 		dataType : "json",
 		type : "get",
 		success : function(e){

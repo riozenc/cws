@@ -63,5 +63,5 @@ public class HostDAO extends AbstractTransactionDAOSupport implements BaseDAO<Ho
 		// TODO Auto-generated method stub
 		return getPersistanceManager().find(getNamespace() + ".findHostByCompany", t);
 	}
-
+	
 }

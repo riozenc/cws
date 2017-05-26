@@ -18,6 +18,8 @@ public class CompanyPointDomain implements MybatisEntity {
 	private Integer pointId;// POINT_ID POINT_ID int FALSE FALSE FALSE
 	private Date createDate;// CREATE_DATE CREATE_DATE datetime FALSE FALSE
 							// FALSE
+
+	private Date validDate;// 有效期
 	private String remark;// REMARK REMARK varchar(100) 100 FALSE FALSE FALSE
 	private Integer status;// 0失效,1可用,2占用
 
@@ -67,6 +69,14 @@ public class CompanyPointDomain implements MybatisEntity {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public Date getValidDate() {
+		return validDate;
+	}
+
+	public void setValidDate(Date validDate) {
+		this.validDate = validDate;
 	}
 
 }

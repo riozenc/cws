@@ -9,6 +9,7 @@ package cws.webapp.pnt.service.impl;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import com.riozenc.quicktool.annotation.TransactionDAO;
 import com.riozenc.quicktool.annotation.TransactionService;
@@ -33,6 +34,7 @@ public class PointServiceImpl implements IPointService {
 		companyPointDomain.setCompanyId(t.getCompanyId());
 		companyPointDomain.setPointId(t.getId());
 		companyPointDomain.setCreateDate(new Date());
+		companyPointDomain.setValidDate(t.getValidDate());
 		companyPointDomain.setStatus(1);
 
 		return pointDAO.insertCompanyPointRel(companyPointDomain);
@@ -88,6 +90,18 @@ public class PointServiceImpl implements IPointService {
 	public List<PointDomain> findPointByReport(ReportDomain reportDomain) {
 		// TODO Auto-generated method stub
 		return pointDAO.findPointByReport(reportDomain);
+	}
+
+	@Override
+	public int getOverduePointCount(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return pointDAO.getOverduePointCount(map);
+	}
+
+	@Override
+	public List<PointDomain> getOverduePoint(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return pointDAO.getOverduePoint(map);
 	}
 
 }

@@ -4,7 +4,7 @@
 	<select id="findByKey" parameterType="PointDomain" resultType="PointDomain"
 		useCache="true">
 		select
-		ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,VALID_DATE,REMARK,STATUS
+		ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,REMARK,STATUS
 		from POINT_INFO
 		<where>
 			and ID = #{id}
@@ -14,7 +14,7 @@
 	<select id="findByWhere" parameterType="PointDomain" resultType="PointDomain"
 		useCache="true">
 		select
-		ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,VALID_DATE,REMARK,STATUS
+		ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,REMARK,STATUS
 		from POINT_INFO
 		<where>
 			<if test="id !=null">
@@ -38,9 +38,6 @@
 			<if test="createDate !=null">
 				and CREATE_DATE = #{createDate}
 			</if>
-			<if test="validDate !=null">
-				and VALID_DATE = #{validDate}
-			</if>
 			<if test="remark !=null">
 				and REMARK = #{remark}
 			</if>
@@ -52,9 +49,9 @@
 	<insert id="insert" parameterType="PointDomain" flushCache="true"
 		useGeneratedKeys="true" keyProperty="id">
 		insert into
-		POINT_INFO(ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,VALID_DATE,REMARK,STATUS)
+		POINT_INFO(ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,REMARK,STATUS)
 		values
-		(#{id},#{no},#{snNo},#{types},#{checkUnit},#{certificateNo},#{createDate},#{validDate},#{remark},#{status})
+		(#{id},#{no},#{snNo},#{types},#{checkUnit},#{certificateNo},#{createDate},#{remark},#{status})
 	</insert>
 	<update id="update" parameterType="PointDomain" flushCache="true">
 		update POINT_INFO
@@ -76,9 +73,6 @@
 			</if>
 			<if test="createDate !=null">
 				CREATE_DATE = #{createDate},
-			</if>
-			<if test="validDate !=null">
-				VALID_DATE = #{validDate},
 			</if>
 			<if test="remark !=null">
 				REMARK = #{remark},
@@ -103,7 +97,7 @@
 	<select id="findPointBySn" parameterType="PointDomain"
 		resultType="PointDomain" useCache="true">
 		select
-		ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,VALID_DATE,REMARK,STATUS
+		ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,REMARK,STATUS
 		from POINT_INFO
 		<where>
 			and SN_NO = #{snNo}
@@ -134,9 +128,9 @@
 	<insert id="insertCompanyPointRel" parameterType="CompanyPointDomain"
 		flushCache="true">
 		insert into
-		company_point_rel(ID,COMPANY_ID,POINT_ID,CREATE_DATE,REMARK,STATUS)
+		company_point_rel(ID,COMPANY_ID,POINT_ID,CREATE_DATE,VALID_DATE,REMARK,STATUS)
 		values
-		(#{id},#{companyId},#{pointId},#{createDate},#{remark},#{status})
+		(#{id},#{companyId},#{pointId},#{createDate},#{validDate},#{remark},#{status})
 	</insert>
 
 	<delete id="deleteCompanyPointRel" parameterType="CompanyPointDomain"
@@ -188,6 +182,31 @@
 		</where>
 	</select>
 
+	<select id="getOverduePointCount" resultType="int">
+		SELECT count(1) FROM company_point_rel a
+		<where>
+			TO_DAYS(NOW()) - TO_DAYS(a.VALID_DATE)>0
+		</where>
+	</select>
 
+	<select id="getOverduePoint" resultType="PointDomain">
+		SELECT
+		b.ID,
+		b. NO,
+		b.SN_NO,
+		b.TYPES,
+		b.CHECK_UNIT,
+		b.CERTIFICATE_NO,
+		b.CREATE_DATE,
+		b.REMARK,
+		b. STATUS,
+		a.VALID_DATE
+		FROM
+		company_point_rel a
+		LEFT JOIN point_info b ON a.POINT_ID = b.ID
+		<where>
+			TO_DAYS(NOW()) - TO_DAYS(a.VALID_DATE)>0
+		</where>
+	</select>
 
 </mapper>

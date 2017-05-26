@@ -102,4 +102,5 @@
 			and HOST_ID = #{hostId}
 		</where>
 	</delete>
+	
 </mapper>
