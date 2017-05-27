@@ -14,28 +14,6 @@
 				主机
 			</div>
 			<div id="dataGridCanMaster">
-				<div style="width:100%;">
-			        <div class="mini-toolbar">
-			            <table style="width:100%;">
-			                <tr>
-			                    <td style="width:100%;">
-			                        <a class="mini-button" iconCls="icon-add" onclick="addRowMaster()" plain="true" 
-			                        	tooltip="添加主机">
-			                        	添加主机
-			                        </a>            
-			                    </td>
-			                    <td style="white-space:nowrap;">
-			                       <!-- <input id="keyMaster" class="mini-textbox" emptyText="请输入主机SN号" 
-			                        	style="width:250px;" onenter="onKeyEnterMaster"/>   
-			                        <a class="mini-button" onclick="searchMaster()" 
-			                        	style="background:#FFF;border-color: #BBB;">
-			                        	查询
-			                        </a>-->
-			                    </td>
-			                </tr>
-			            </table>           
-			        </div>
-			    </div>
 			    <div id="datagridMaster" class="mini-datagrid" style="width:100%;height:81%;min-height:148px;" 
 			    	url="../host.do?type=findHostByCompany" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
 			    	multiSelect="false" idField="id" pageIndexField="pageCurrent">
@@ -65,28 +43,6 @@
 				设备测点
 			</div>
 			<div id="dataGridCanPoint">
-				<div style="width:100%;">
-			        <div class="mini-toolbar">
-			            <table style="width:100%;">
-			                <tr>
-			                    <td style="width:100%;">
-			                        <a class="mini-button" iconCls="icon-add" onclick="addRowPoint()" plain="true" 
-			                        	tooltip="添加测点">
-			                        	添加测点
-			                        </a>            
-			                    </td>
-			                    <td style="white-space:nowrap;">
-			                      <!--  <input id="keyPoint" class="mini-textbox" emptyText="请输入测点SN号" 
-			                        	style="width:250px;" onenter="onKeyEnterPoint"/>   
-			                        <a class="mini-button" onclick="searchPoint()" 
-			                        	style="background:#FFF;border-color: #BBB;">
-			                        	查询
-			                        </a>-->
-			                    </td>
-			                </tr>
-			            </table>           
-			        </div>
-			    </div>
 			    <div id="datagridPoint" class="mini-datagrid" style="width:100%;height:83%;min-height:148px;" 
 			    	url="../point.do?type=getOverduePoint" pageSize="20" allowCellEdit="false" allowCellSelect="true" 
 			    	multiSelect="false" idField="id" pageIndexField="pageCurrent">
