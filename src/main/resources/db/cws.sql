@@ -2,21 +2,20 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50624
+Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : cws
 
 Target Server Type    : MYSQL
-Target Server Version : 50624
+Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-05-26 16:29:51
+Date: 2017-05-31 09:28:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
-
 -- ----------------------------
--- Table structure for chill_car_info
+-- Table structure for `chill_car_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `chill_car_info`;
 CREATE TABLE `chill_car_info` (
@@ -38,10 +37,10 @@ CREATE TABLE `chill_car_info` (
 -- ----------------------------
 -- Records of chill_car_info
 -- ----------------------------
-INSERT INTO `chill_car_info` VALUES ('5', '大汽车', '100S', '90S', '1', '1', null, '1', '海康摄像头', '/cws/sds_file/微信对接流程图.png', null, '1');
+INSERT INTO chill_car_info VALUES ('5', '大汽车', '100S', '90S', '1', '1', null, '1', '海康摄像头', '/cws/sds_file/微信对接流程图.png', null, '1');
 
 -- ----------------------------
--- Table structure for cold_storage_info
+-- Table structure for `cold_storage_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `cold_storage_info`;
 CREATE TABLE `cold_storage_info` (
@@ -61,15 +60,16 @@ CREATE TABLE `cold_storage_info` (
   `REMARK` varchar(100) DEFAULT NULL,
   `STATUS` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='���Cold storage';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='���Cold storage';
 
 -- ----------------------------
 -- Records of cold_storage_info
 -- ----------------------------
-INSERT INTO `cold_storage_info` VALUES ('1', '冷库名称', '15', '1', '12', '1', '1', '1', '1', '1', '1', '1', '/cws/sds_file/0-1-企业列表.jpg', '1', '1');
+INSERT INTO cold_storage_info VALUES ('1', '冷库名称', '15', '1', '12', '1', '1', '1', '1', '1', '1', '1', '/cws/sds_file/0-1-企业列表.jpg', '1', '1');
+INSERT INTO cold_storage_info VALUES ('2', '深圳冷库测试', null, null, null, null, null, null, null, null, null, null, '/cws/cws_file/1.jpg', null, '1');
 
 -- ----------------------------
--- Table structure for common_param_info
+-- Table structure for `common_param_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `common_param_info`;
 CREATE TABLE `common_param_info` (
@@ -87,19 +87,19 @@ CREATE TABLE `common_param_info` (
 -- ----------------------------
 -- Records of common_param_info
 -- ----------------------------
-INSERT INTO `common_param_info` VALUES ('1', 'VERIFY_TYPE', '冷库', '1', null, '2017-04-08 22:00:33', '2017-04-10 23:06:42', '1');
-INSERT INTO `common_param_info` VALUES ('2', 'POST_TYPE', '验证设计人员', '1', null, '2017-04-10 22:53:15', '2017-04-10 22:53:17', '1');
-INSERT INTO `common_param_info` VALUES ('3', 'POST_TYPE', '验证实施人员', '2', null, '2017-04-10 22:53:28', '2017-04-10 22:53:30', '1');
-INSERT INTO `common_param_info` VALUES ('4', 'DUTIES_TYPE', '协助组织实施', '1', null, '2017-04-10 22:55:00', '2017-04-10 22:55:02', '1');
-INSERT INTO `common_param_info` VALUES ('5', 'POST_TYPE', '验证组负责人', '3', null, '2017-04-10 23:04:33', '2017-04-10 23:09:33', '1');
-INSERT INTO `common_param_info` VALUES ('6', 'VERIFY_TYPE', '冷藏车', '2', null, '2017-04-10 23:07:06', '2017-04-10 23:07:21', '1');
-INSERT INTO `common_param_info` VALUES ('10', 'DUTIES_TYPE', '组织协调、监督实施、复核关键数据', '3', null, '2017-04-10 23:26:14', null, '1');
-INSERT INTO `common_param_info` VALUES ('11', 'VERIFY_TYPE', '保温箱', '3', '不能改', '2017-05-03 22:34:01', null, '1');
-INSERT INTO `common_param_info` VALUES ('12', 'PATH_TYPE', 'TOMCAT_PATH', 'C:/Users/riozenc/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps', null, null, null, null);
-INSERT INTO `common_param_info` VALUES ('13', 'IP_TYPE', 'IP', '221.0.91.34:801', null, null, null, null);
+INSERT INTO common_param_info VALUES ('1', 'VERIFY_TYPE', '冷库', '1', null, '2017-04-08 22:00:33', '2017-04-10 23:06:42', '1');
+INSERT INTO common_param_info VALUES ('2', 'POST_TYPE', '验证设计人员', '1', null, '2017-04-10 22:53:15', '2017-04-10 22:53:17', '1');
+INSERT INTO common_param_info VALUES ('3', 'POST_TYPE', '验证实施人员', '2', null, '2017-04-10 22:53:28', '2017-04-10 22:53:30', '1');
+INSERT INTO common_param_info VALUES ('4', 'DUTIES_TYPE', '协助组织实施', '1', null, '2017-04-10 22:55:00', '2017-04-10 22:55:02', '1');
+INSERT INTO common_param_info VALUES ('5', 'POST_TYPE', '验证组负责人', '3', null, '2017-04-10 23:04:33', '2017-04-10 23:09:33', '1');
+INSERT INTO common_param_info VALUES ('6', 'VERIFY_TYPE', '冷藏车', '2', null, '2017-04-10 23:07:06', '2017-04-10 23:07:21', '1');
+INSERT INTO common_param_info VALUES ('10', 'DUTIES_TYPE', '组织协调、监督实施、复核关键数据', '3', null, '2017-04-10 23:26:14', null, '1');
+INSERT INTO common_param_info VALUES ('11', 'VERIFY_TYPE', '保温箱', '3', '不能改', '2017-05-03 22:34:01', null, '1');
+INSERT INTO common_param_info VALUES ('12', 'PATH_TYPE', 'TOMCAT_PATH', 'C:/Users/Administrator/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps', null, null, null, null);
+INSERT INTO common_param_info VALUES ('13', 'IP_TYPE', 'IP', '221.0.91.34:801', null, null, null, null);
 
 -- ----------------------------
--- Table structure for company_host_rel
+-- Table structure for `company_host_rel`
 -- ----------------------------
 DROP TABLE IF EXISTS `company_host_rel`;
 CREATE TABLE `company_host_rel` (
@@ -110,15 +110,16 @@ CREATE TABLE `company_host_rel` (
   `REMARK` varchar(100) DEFAULT NULL,
   `STAUTS` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='��ҵ������ϵ��';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='��ҵ������ϵ��';
 
 -- ----------------------------
 -- Records of company_host_rel
 -- ----------------------------
-INSERT INTO `company_host_rel` VALUES ('1', '1', '1', '2017-04-15 20:31:23', null, '1');
+INSERT INTO company_host_rel VALUES ('1', '1', '1', '2017-04-15 20:31:23', null, '1');
+INSERT INTO company_host_rel VALUES ('2', '1', '2', '2017-05-27 11:49:17', null, '1');
 
 -- ----------------------------
--- Table structure for company_info
+-- Table structure for `company_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `company_info`;
 CREATE TABLE `company_info` (
@@ -136,11 +137,11 @@ CREATE TABLE `company_info` (
 -- ----------------------------
 -- Records of company_info
 -- ----------------------------
-INSERT INTO `company_info` VALUES ('1', '天安门', '123', '123', '123', '123', '2017-04-26 23:13:07', '1');
-INSERT INTO `company_info` VALUES ('2', '山东艾欧特集团', null, null, null, null, null, '0');
+INSERT INTO company_info VALUES ('1', '天安门', '123', '123', '123', '123', '2017-04-26 23:13:07', '1');
+INSERT INTO company_info VALUES ('2', '山东艾欧特集团', null, null, null, null, null, '0');
 
 -- ----------------------------
--- Table structure for company_point_rel
+-- Table structure for `company_point_rel`
 -- ----------------------------
 DROP TABLE IF EXISTS `company_point_rel`;
 CREATE TABLE `company_point_rel` (
@@ -152,18 +153,48 @@ CREATE TABLE `company_point_rel` (
   `REMARK` varchar(100) DEFAULT NULL,
   `STATUS` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='企业测点关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COMMENT='企业测点关系表';
 
 -- ----------------------------
 -- Records of company_point_rel
 -- ----------------------------
-INSERT INTO `company_point_rel` VALUES ('1', '1', '5', '2017-04-15 20:29:14', '2017-05-25 00:00:00', null, '2');
-INSERT INTO `company_point_rel` VALUES ('2', '1', '6', '2017-04-15 20:30:20', '2017-05-26 00:00:00', null, '2');
-INSERT INTO `company_point_rel` VALUES ('3', '1', '7', '2017-05-05 15:33:21', '2017-05-27 00:00:00', null, '2');
-INSERT INTO `company_point_rel` VALUES ('4', '1', '8', '2017-05-05 16:26:39', '2017-05-28 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('1', '1', '5', '2017-04-15 20:29:14', '2017-05-25 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('2', '1', '6', '2017-04-15 20:30:20', '2017-05-26 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('3', '1', '7', '2017-05-05 15:33:21', '2017-05-27 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('4', '1', '8', '2017-05-05 16:26:39', '2017-05-28 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('5', '1', '9', '2017-05-27 12:21:25', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('6', '1', '10', '2017-05-27 12:21:38', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('7', '1', '11', '2017-05-27 12:21:53', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('8', '1', '12', '2017-05-27 12:22:09', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('9', '1', '13', '2017-05-27 12:22:24', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('10', '1', '14', '2017-05-27 12:22:37', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('11', '1', '15', '2017-05-27 12:22:52', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('12', '1', '16', '2017-05-27 12:23:06', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('13', '1', '17', '2017-05-27 12:23:17', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('14', '1', '18', '2017-05-27 12:23:32', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('15', '1', '19', '2017-05-27 12:23:45', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('16', '1', '20', '2017-05-27 12:23:55', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('17', '1', '21', '2017-05-27 12:24:06', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('18', '1', '22', '2017-05-27 12:24:18', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('19', '1', '23', '2017-05-27 12:24:36', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('20', '1', '24', '2017-05-27 12:24:49', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('21', '1', '25', '2017-05-27 12:25:02', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('22', '1', '26', '2017-05-27 12:25:16', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('23', '1', '27', '2017-05-27 12:25:31', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('24', '1', '28', '2017-05-27 12:25:44', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('25', '1', '29', '2017-05-27 12:25:54', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('26', '1', '30', '2017-05-27 12:26:05', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('27', '1', '31', '2017-05-27 12:26:16', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('28', '1', '32', '2017-05-27 12:26:26', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('29', '1', '33', '2017-05-27 12:26:40', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('30', '1', '34', '2017-05-27 12:26:56', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('31', '1', '35', '2017-05-27 12:27:11', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('32', '1', '36', '2017-05-27 12:27:23', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('33', '1', '37', '2017-05-27 12:27:35', '2017-06-10 00:00:00', null, '2');
+INSERT INTO company_point_rel VALUES ('34', '1', '38', '2017-05-27 12:27:48', '2017-06-10 00:00:00', null, '2');
 
 -- ----------------------------
--- Table structure for company_report_rel
+-- Table structure for `company_report_rel`
 -- ----------------------------
 DROP TABLE IF EXISTS `company_report_rel`;
 CREATE TABLE `company_report_rel` (
@@ -174,15 +205,16 @@ CREATE TABLE `company_report_rel` (
   `REMARK` varchar(100) DEFAULT NULL,
   `STATUS` smallint(6) DEFAULT NULL COMMENT '1未完成\r\n            2已完成',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='企业与验证报告关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='企业与验证报告关系表';
 
 -- ----------------------------
 -- Records of company_report_rel
 -- ----------------------------
-INSERT INTO `company_report_rel` VALUES ('4', '1', '1_1493045541961', '2017-04-24 22:52:59', '55', '1');
+INSERT INTO company_report_rel VALUES ('4', '1', '1_1493045541961', '2017-04-24 22:52:59', '55', '1');
+INSERT INTO company_report_rel VALUES ('7', '1', '1_1495859418548', '2017-05-27 12:30:19', null, '1');
 
 -- ----------------------------
--- Table structure for company_verify_rel
+-- Table structure for `company_verify_rel`
 -- ----------------------------
 DROP TABLE IF EXISTS `company_verify_rel`;
 CREATE TABLE `company_verify_rel` (
@@ -193,808 +225,648 @@ CREATE TABLE `company_verify_rel` (
   `REMARK` varchar(100) DEFAULT NULL,
   `STATUS` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='企业与验证对象关系表。\r\n验证对象包括：冷库、冷藏车等';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='企业与验证对象关系表。\r\n验证对象包括：冷库、冷藏车等';
 
 -- ----------------------------
 -- Records of company_verify_rel
 -- ----------------------------
-INSERT INTO `company_verify_rel` VALUES ('1', '1', '99', '2017-03-29 23:01:10', '测试关系', '1');
-INSERT INTO `company_verify_rel` VALUES ('4', '1', '107', '2017-05-03 23:35:54', '2', '1');
-INSERT INTO `company_verify_rel` VALUES ('5', '1', '108', '2017-05-05 16:26:03', '的', '1');
+INSERT INTO company_verify_rel VALUES ('1', '1', '99', '2017-03-29 23:01:10', '测试关系', '1');
+INSERT INTO company_verify_rel VALUES ('4', '1', '107', '2017-05-03 23:35:54', '2', '1');
+INSERT INTO company_verify_rel VALUES ('5', '1', '108', '2017-05-05 16:26:03', '的', '1');
+INSERT INTO company_verify_rel VALUES ('6', '1', '109', '2017-05-27 12:29:55', null, '1');
 
 -- ----------------------------
--- Table structure for device_1
+-- Table structure for `device_34002900`
 -- ----------------------------
-DROP TABLE IF EXISTS `device_1`;
-CREATE TABLE `device_1` (
+DROP TABLE IF EXISTS `device_34002900`;
+CREATE TABLE `device_34002900` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
-  `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float DEFAULT NULL,
+  `SN_NO` text,
+  `REPORT_NO` text,
   `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
   `HUMIDITY` float DEFAULT NULL,
-  `DEVICE_ID` text,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of device_1
+-- Records of device_34002900
 -- ----------------------------
-INSERT INTO `device_1` VALUES ('1', '2015-12-24 21:52:31', '2345', '23.5', '1', '32', '1');
-INSERT INTO `device_1` VALUES ('2', '2017-04-24 14:41:49', '4', '27', '3', '26', '1');
-INSERT INTO `device_1` VALUES ('3', '2017-04-24 22:21:24', '9', '28', '1', '27', '1');
-INSERT INTO `device_1` VALUES ('4', '2017-04-24 12:28:41', '6', '20', '1', '26', '1');
-INSERT INTO `device_1` VALUES ('5', '2017-04-24 12:55:3', '10', '27', '1', '24', '1');
-INSERT INTO `device_1` VALUES ('6', '2017-04-24 7:53:28', '10', '25', '2', '22', '1');
-INSERT INTO `device_1` VALUES ('7', '2017-04-24 1:41:4', '2', '22', '2', '28', '1');
-INSERT INTO `device_1` VALUES ('8', '2017-04-24 12:23:54', '3', '25', '2', '27', '1');
-INSERT INTO `device_1` VALUES ('9', '2017-04-24 11:51:1', '5', '25', '1', '23', '1');
-INSERT INTO `device_1` VALUES ('10', '2017-04-24 9:35:17', '8', '20', '2', '24', '1');
-INSERT INTO `device_1` VALUES ('11', '2017-04-24 7:43:31', '2', '27', '2', '23', '1');
-INSERT INTO `device_1` VALUES ('12', '2017-04-24 3:8:30', '3', '24', '3', '23', '1');
-INSERT INTO `device_1` VALUES ('13', '2017-04-24 20:23:37', '10', '22', '3', '24', '1');
-INSERT INTO `device_1` VALUES ('14', '2017-04-24 15:23:52', '2', '22', '2', '23', '1');
-INSERT INTO `device_1` VALUES ('15', '2017-04-24 2:42:10', '4', '22', '1', '26', '1');
-INSERT INTO `device_1` VALUES ('16', '2017-04-24 5:38:9', '7', '28', '2', '21', '1');
-INSERT INTO `device_1` VALUES ('17', '2017-04-24 16:38:19', '2', '24', '3', '23', '1');
-INSERT INTO `device_1` VALUES ('18', '2017-04-24 3:57:2', '6', '20', '2', '20', '1');
-INSERT INTO `device_1` VALUES ('19', '2017-04-24 21:38:20', '9', '26', '1', '24', '1');
-INSERT INTO `device_1` VALUES ('20', '2017-04-24 14:49:28', '5', '27', '3', '21', '1');
-INSERT INTO `device_1` VALUES ('21', '2017-04-24 19:4:4', '3', '21', '3', '25', '1');
-INSERT INTO `device_1` VALUES ('22', '2017-04-24 9:36:43', '3', '26', '2', '27', '1');
-INSERT INTO `device_1` VALUES ('23', '2017-04-24 18:4:24', '4', '20', '2', '24', '1');
-INSERT INTO `device_1` VALUES ('24', '2017-04-24 8:2:54', '8', '28', '2', '24', '1');
-INSERT INTO `device_1` VALUES ('25', '2017-04-24 5:35:1', '8', '27', '2', '27', '1');
-INSERT INTO `device_1` VALUES ('26', '2017-04-24 12:19:44', '3', '21', '1', '28', '1');
-INSERT INTO `device_1` VALUES ('27', '2017-04-24 23:2:52', '4', '25', '1', '23', '1');
-INSERT INTO `device_1` VALUES ('28', '2017-04-24 18:18:30', '7', '28', '3', '20', '1');
-INSERT INTO `device_1` VALUES ('29', '2017-04-24 23:51:35', '7', '27', '3', '22', '1');
-INSERT INTO `device_1` VALUES ('30', '2017-04-24 6:43:27', '3', '27', '1', '27', '1');
-INSERT INTO `device_1` VALUES ('31', '2017-04-24 15:53:1', '9', '26', '3', '25', '1');
-INSERT INTO `device_1` VALUES ('32', '2017-04-24 5:23:7', '1', '20', '3', '28', '1');
-INSERT INTO `device_1` VALUES ('33', '2017-04-24 12:34:10', '6', '27', '2', '27', '1');
-INSERT INTO `device_1` VALUES ('34', '2017-04-24 13:16:15', '5', '23', '2', '27', '1');
-INSERT INTO `device_1` VALUES ('35', '2017-04-24 15:9:29', '8', '22', '1', '25', '1');
-INSERT INTO `device_1` VALUES ('36', '2017-04-24 10:37:13', '7', '23', '2', '22', '1');
-INSERT INTO `device_1` VALUES ('37', '2017-04-24 14:1:7', '9', '26', '3', '27', '1');
-INSERT INTO `device_1` VALUES ('38', '2017-04-24 9:19:20', '4', '26', '1', '28', '1');
-INSERT INTO `device_1` VALUES ('39', '2017-04-24 20:42:30', '9', '23', '1', '21', '1');
-INSERT INTO `device_1` VALUES ('40', '2017-04-24 11:39:25', '6', '23', '1', '26', '1');
-INSERT INTO `device_1` VALUES ('41', '2017-04-24 21:57:46', '4', '23', '2', '28', '1');
-INSERT INTO `device_1` VALUES ('42', '2017-04-24 14:52:33', '10', '23', '3', '21', '1');
-INSERT INTO `device_1` VALUES ('43', '2017-04-24 6:45:36', '1', '28', '1', '22', '1');
-INSERT INTO `device_1` VALUES ('44', '2017-04-24 23:2:58', '1', '25', '2', '28', '1');
-INSERT INTO `device_1` VALUES ('45', '2017-04-24 5:47:55', '9', '27', '1', '27', '1');
-INSERT INTO `device_1` VALUES ('46', '2017-04-24 21:4:43', '7', '24', '2', '20', '1');
-INSERT INTO `device_1` VALUES ('47', '2017-04-24 9:49:1', '6', '21', '1', '27', '1');
-INSERT INTO `device_1` VALUES ('48', '2017-04-24 14:52:9', '2', '20', '3', '28', '1');
-INSERT INTO `device_1` VALUES ('49', '2017-04-24 20:29:19', '2', '28', '3', '27', '1');
-INSERT INTO `device_1` VALUES ('50', '2017-04-24 7:4:35', '2', '24', '3', '26', '1');
-INSERT INTO `device_1` VALUES ('51', '2017-04-24 4:54:48', '9', '27', '3', '28', '1');
-INSERT INTO `device_1` VALUES ('52', '2017-04-24 23:52:5', '10', '21', '1', '25', '1');
-INSERT INTO `device_1` VALUES ('53', '2017-04-24 10:41:21', '6', '23', '3', '23', '1');
-INSERT INTO `device_1` VALUES ('54', '2017-04-24 8:59:45', '2', '20', '1', '27', '1');
-INSERT INTO `device_1` VALUES ('55', '2017-04-24 8:35:28', '4', '28', '3', '26', '1');
-INSERT INTO `device_1` VALUES ('56', '2017-04-24 20:19:50', '9', '24', '1', '24', '1');
-INSERT INTO `device_1` VALUES ('57', '2017-04-24 22:44:37', '3', '28', '2', '21', '1');
-INSERT INTO `device_1` VALUES ('58', '2017-04-24 19:11:8', '6', '25', '1', '27', '1');
-INSERT INTO `device_1` VALUES ('59', '2017-04-24 9:8:6', '8', '23', '1', '20', '1');
-INSERT INTO `device_1` VALUES ('60', '2017-04-24 7:10:7', '5', '26', '2', '28', '1');
-INSERT INTO `device_1` VALUES ('61', '2017-04-24 21:58:40', '9', '26', '1', '28', '1');
-INSERT INTO `device_1` VALUES ('62', '2017-04-24 14:40:2', '3', '24', '2', '26', '1');
-INSERT INTO `device_1` VALUES ('63', '2017-04-24 15:59:5', '1', '26', '1', '25', '1');
+INSERT INTO device_34002900 VALUES ('1', '2017-05-28 05:56:15', '34002900', '1_1495859418548', '1', '27.09', '61.25');
+INSERT INTO device_34002900 VALUES ('2', '2017-05-28 05:56:15', '34002900', '1_1495859418548', '1', '27.09', '61.25');
+INSERT INTO device_34002900 VALUES ('3', '2017-05-28 05:56:15', '34002900', '1_1495859418548', '1', '27.09', '61.25');
+INSERT INTO device_34002900 VALUES ('4', '2017-05-28 05:56:15', '34002900', '1_1495859418548', '1', '27.09', '61.25');
+INSERT INTO device_34002900 VALUES ('5', '2017-05-28 10:04:33', '34002900', '1_1495859418548', '1', '27.66', '66.15');
+INSERT INTO device_34002900 VALUES ('6', '2017-05-28 10:14:34', '34002900', '1_1495859418548', '1', '27.75', '66.4');
+INSERT INTO device_34002900 VALUES ('7', '2017-05-28 10:19:34', '34002900', '1_1495859418548', '1', '27.79', '66.7');
+INSERT INTO device_34002900 VALUES ('8', '2017-05-28 10:24:35', '34002900', '1_1495859418548', '1', '27.83', '66.94');
+INSERT INTO device_34002900 VALUES ('9', '2017-05-28 10:29:35', '34002900', '1_1495859418548', '1', '27.87', '66.7');
+INSERT INTO device_34002900 VALUES ('10', '2017-05-28 10:34:36', '34002900', '1_1495859418548', '1', '27.83', '67.14');
+INSERT INTO device_34002900 VALUES ('11', '2017-05-28 10:39:37', '34002900', '1_1495859418548', '1', '27.92', '67.44');
+INSERT INTO device_34002900 VALUES ('12', '2017-05-28 10:44:37', '34002900', '1_1495859418548', '1', '27.95', '67.3');
+INSERT INTO device_34002900 VALUES ('13', '2017-05-28 10:49:39', '34002900', '1_1495859418548', '1', '27.96', '66.94');
+INSERT INTO device_34002900 VALUES ('14', '2017-05-28 10:54:38', '34002900', '1_1495859418548', '1', '27.87', '66.88');
+INSERT INTO device_34002900 VALUES ('15', '2017-05-28 10:59:39', '34002900', '1_1495859418548', '1', '27.83', '66.67');
+INSERT INTO device_34002900 VALUES ('16', '2017-05-28 11:04:39', '34002900', '1_1495859418548', '1', '27.81', '66.47');
+INSERT INTO device_34002900 VALUES ('17', '2017-05-28 11:09:40', '34002900', '1_1495859418548', '1', '27.82', '66.64');
+INSERT INTO device_34002900 VALUES ('18', '2017-05-28 11:14:40', '34002900', '1_1495859418548', '1', '27.81', '66.59');
+INSERT INTO device_34002900 VALUES ('19', '2017-05-28 11:19:41', '34002900', '1_1495859418548', '1', '27.85', '66.64');
+INSERT INTO device_34002900 VALUES ('20', '2017-05-28 11:24:41', '34002900', '1_1495859418548', '1', '27.9', '66.4');
+INSERT INTO device_34002900 VALUES ('21', '2017-05-28 11:29:42', '34002900', '1_1495859418548', '1', '27.93', '66.76');
+INSERT INTO device_34002900 VALUES ('22', '2017-05-28 11:34:42', '34002900', '1_1495859418548', '1', '27.95', '67.14');
+INSERT INTO device_34002900 VALUES ('23', '2017-05-28 11:39:42', '34002900', '1_1495859418548', '1', '28.05', '67.14');
 
 -- ----------------------------
--- Table structure for device_10
+-- Table structure for `device_34003000`
 -- ----------------------------
-DROP TABLE IF EXISTS `device_10`;
-CREATE TABLE `device_10` (
+DROP TABLE IF EXISTS `device_34003000`;
+CREATE TABLE `device_34003000` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
-  `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float DEFAULT NULL,
+  `SN_NO` text,
+  `REPORT_NO` text,
   `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
   `HUMIDITY` float DEFAULT NULL,
-  `DEVICE_ID` text,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of device_10
+-- Records of device_34003000
 -- ----------------------------
-INSERT INTO `device_10` VALUES ('1', '2017-04-24 16:15:54', '10', '26', '1', '20', '10');
-INSERT INTO `device_10` VALUES ('2', '2017-04-24 3:33:34', '2', '27', '2', '21', '10');
-INSERT INTO `device_10` VALUES ('3', '2017-04-24 16:29:58', '2', '23', '3', '20', '10');
-INSERT INTO `device_10` VALUES ('4', '2017-04-24 19:14:9', '6', '28', '3', '26', '10');
-INSERT INTO `device_10` VALUES ('5', '2017-04-24 19:48:59', '5', '24', '2', '20', '10');
-INSERT INTO `device_10` VALUES ('6', '2017-04-24 16:22:50', '6', '26', '3', '24', '10');
-INSERT INTO `device_10` VALUES ('7', '2017-04-24 13:45:40', '3', '24', '2', '26', '10');
-INSERT INTO `device_10` VALUES ('8', '2017-04-24 3:24:43', '6', '23', '1', '20', '10');
-INSERT INTO `device_10` VALUES ('9', '2017-04-24 16:34:41', '10', '25', '1', '20', '10');
-INSERT INTO `device_10` VALUES ('10', '2017-04-24 17:59:12', '5', '25', '3', '23', '10');
-INSERT INTO `device_10` VALUES ('11', '2017-04-24 19:12:40', '9', '23', '1', '27', '10');
-INSERT INTO `device_10` VALUES ('12', '2017-04-24 12:53:9', '7', '22', '3', '27', '10');
-INSERT INTO `device_10` VALUES ('13', '2017-04-24 14:44:41', '5', '24', '2', '24', '10');
-INSERT INTO `device_10` VALUES ('14', '2017-04-24 7:25:35', '5', '22', '1', '27', '10');
-INSERT INTO `device_10` VALUES ('15', '2017-04-24 18:20:23', '5', '22', '2', '25', '10');
-INSERT INTO `device_10` VALUES ('16', '2017-04-24 17:59:16', '10', '27', '2', '20', '10');
-INSERT INTO `device_10` VALUES ('17', '2017-04-24 4:45:24', '4', '27', '1', '26', '10');
-INSERT INTO `device_10` VALUES ('18', '2017-04-24 17:38:8', '9', '26', '1', '22', '10');
-INSERT INTO `device_10` VALUES ('19', '2017-04-24 12:18:50', '4', '26', '2', '21', '10');
-INSERT INTO `device_10` VALUES ('20', '2017-04-24 13:2:49', '4', '26', '3', '20', '10');
-INSERT INTO `device_10` VALUES ('21', '2017-04-24 5:52:17', '5', '27', '3', '24', '10');
-INSERT INTO `device_10` VALUES ('22', '2017-04-24 2:38:43', '3', '23', '1', '26', '10');
-INSERT INTO `device_10` VALUES ('23', '2017-04-24 11:45:22', '10', '21', '3', '20', '10');
-INSERT INTO `device_10` VALUES ('24', '2017-04-24 2:44:44', '9', '28', '3', '27', '10');
-INSERT INTO `device_10` VALUES ('25', '2017-04-24 3:23:21', '7', '21', '2', '21', '10');
-INSERT INTO `device_10` VALUES ('26', '2017-04-24 16:14:59', '8', '21', '2', '25', '10');
-INSERT INTO `device_10` VALUES ('27', '2017-04-24 23:3:8', '3', '25', '3', '24', '10');
-INSERT INTO `device_10` VALUES ('28', '2017-04-24 15:37:4', '1', '23', '2', '28', '10');
-INSERT INTO `device_10` VALUES ('29', '2017-04-24 17:52:23', '9', '23', '2', '24', '10');
-INSERT INTO `device_10` VALUES ('30', '2017-04-24 21:59:19', '2', '26', '1', '28', '10');
-INSERT INTO `device_10` VALUES ('31', '2017-04-24 13:20:50', '9', '25', '3', '25', '10');
-INSERT INTO `device_10` VALUES ('32', '2017-04-24 6:9:11', '4', '23', '3', '22', '10');
-INSERT INTO `device_10` VALUES ('33', '2017-04-24 3:28:16', '5', '24', '3', '24', '10');
-INSERT INTO `device_10` VALUES ('34', '2017-04-24 8:32:49', '7', '27', '3', '23', '10');
-INSERT INTO `device_10` VALUES ('35', '2017-04-24 10:52:13', '3', '20', '3', '23', '10');
-INSERT INTO `device_10` VALUES ('36', '2017-04-24 1:47:50', '3', '25', '1', '23', '10');
-INSERT INTO `device_10` VALUES ('37', '2017-04-24 17:43:16', '2', '24', '1', '24', '10');
-INSERT INTO `device_10` VALUES ('38', '2017-04-24 18:53:57', '8', '23', '3', '21', '10');
-INSERT INTO `device_10` VALUES ('39', '2017-04-24 11:39:51', '1', '20', '2', '20', '10');
-INSERT INTO `device_10` VALUES ('40', '2017-04-24 13:23:53', '2', '22', '2', '23', '10');
-INSERT INTO `device_10` VALUES ('41', '2017-04-24 18:17:55', '6', '26', '1', '28', '10');
-INSERT INTO `device_10` VALUES ('42', '2017-04-24 21:41:38', '5', '20', '3', '21', '10');
-INSERT INTO `device_10` VALUES ('43', '2017-04-24 14:40:56', '10', '22', '3', '28', '10');
-INSERT INTO `device_10` VALUES ('44', '2017-04-24 19:46:55', '6', '24', '3', '21', '10');
-INSERT INTO `device_10` VALUES ('45', '2017-04-24 23:3:12', '1', '24', '3', '26', '10');
-INSERT INTO `device_10` VALUES ('46', '2017-04-24 17:12:21', '4', '25', '1', '23', '10');
-INSERT INTO `device_10` VALUES ('47', '2017-04-24 13:47:6', '9', '20', '3', '28', '10');
-INSERT INTO `device_10` VALUES ('48', '2017-04-24 7:42:46', '6', '23', '3', '22', '10');
-INSERT INTO `device_10` VALUES ('49', '2017-04-24 20:15:32', '9', '27', '2', '25', '10');
-INSERT INTO `device_10` VALUES ('50', '2017-04-24 20:5:44', '5', '21', '3', '23', '10');
-INSERT INTO `device_10` VALUES ('51', '2017-04-24 10:20:18', '8', '20', '3', '21', '10');
-INSERT INTO `device_10` VALUES ('52', '2017-04-24 7:52:20', '5', '28', '2', '27', '10');
-INSERT INTO `device_10` VALUES ('53', '2017-04-24 19:27:41', '7', '26', '3', '27', '10');
-INSERT INTO `device_10` VALUES ('54', '2017-04-24 2:59:31', '9', '26', '1', '28', '10');
-INSERT INTO `device_10` VALUES ('55', '2017-04-24 8:4:5', '3', '20', '3', '25', '10');
-INSERT INTO `device_10` VALUES ('56', '2017-04-24 5:12:41', '7', '25', '1', '25', '10');
-INSERT INTO `device_10` VALUES ('57', '2017-04-24 13:11:39', '4', '20', '1', '26', '10');
-INSERT INTO `device_10` VALUES ('58', '2017-04-24 9:30:14', '9', '28', '2', '25', '10');
-INSERT INTO `device_10` VALUES ('59', '2017-04-24 21:44:19', '7', '25', '1', '20', '10');
-INSERT INTO `device_10` VALUES ('60', '2017-04-24 12:18:43', '8', '27', '2', '25', '10');
-INSERT INTO `device_10` VALUES ('61', '2017-04-24 19:44:30', '10', '27', '3', '23', '10');
-INSERT INTO `device_10` VALUES ('62', '2017-04-24 22:30:53', '7', '28', '1', '26', '10');
+INSERT INTO device_34003000 VALUES ('1', '2017-05-28 06:25:22', '34003000', '1_1495859418548', '1', '27.06', '60.64');
+INSERT INTO device_34003000 VALUES ('2', '2017-05-28 06:25:22', '34003000', '1_1495859418548', '1', '27.06', '60.64');
+INSERT INTO device_34003000 VALUES ('3', '2017-05-28 06:25:22', '34003000', '1_1495859418548', '1', '27.06', '60.64');
+INSERT INTO device_34003000 VALUES ('4', '2017-05-28 06:25:22', '34003000', '1_1495859418548', '1', '27.06', '60.64');
+INSERT INTO device_34003000 VALUES ('5', '2017-05-28 10:04:15', '34003000', '1_1495859418548', '1', '27.56', '65.54');
+INSERT INTO device_34003000 VALUES ('6', '2017-05-28 10:14:16', '34003000', '1_1495859418548', '1', '27.64', '65.92');
+INSERT INTO device_34003000 VALUES ('7', '2017-05-28 10:19:17', '34003000', '1_1495859418548', '1', '27.67', '66.02');
+INSERT INTO device_34003000 VALUES ('8', '2017-05-28 10:24:18', '34003000', '1_1495859418548', '1', '27.72', '66.01');
+INSERT INTO device_34003000 VALUES ('9', '2017-05-28 10:29:18', '34003000', '1_1495859418548', '1', '27.76', '66.31');
+INSERT INTO device_34003000 VALUES ('10', '2017-05-28 10:34:19', '34003000', '1_1495859418548', '1', '27.74', '66.84');
+INSERT INTO device_34003000 VALUES ('11', '2017-05-28 10:39:19', '34003000', '1_1495859418548', '1', '27.81', '66.54');
+INSERT INTO device_34003000 VALUES ('12', '2017-05-28 10:44:20', '34003000', '1_1495859418548', '1', '27.83', '66.54');
+INSERT INTO device_34003000 VALUES ('13', '2017-05-28 10:49:20', '34003000', '1_1495859418548', '1', '27.83', '66.34');
+INSERT INTO device_34003000 VALUES ('14', '2017-05-28 10:54:21', '34003000', '1_1495859418548', '1', '27.78', '66.24');
+INSERT INTO device_34003000 VALUES ('15', '2017-05-28 10:59:21', '34003000', '1_1495859418548', '1', '27.76', '66.13');
+INSERT INTO device_34003000 VALUES ('16', '2017-05-28 11:04:22', '34003000', '1_1495859418548', '1', '27.76', '65.8');
+INSERT INTO device_34003000 VALUES ('17', '2017-05-28 11:09:22', '34003000', '1_1495859418548', '1', '27.75', '65.98');
+INSERT INTO device_34003000 VALUES ('18', '2017-05-28 11:14:23', '34003000', '1_1495859418548', '1', '27.75', '66.04');
+INSERT INTO device_34003000 VALUES ('19', '2017-05-28 11:19:23', '34003000', '1_1495859418548', '1', '27.78', '66.16');
+INSERT INTO device_34003000 VALUES ('20', '2017-05-28 11:24:24', '34003000', '1_1495859418548', '1', '27.82', '65.47');
+INSERT INTO device_34003000 VALUES ('21', '2017-05-28 11:29:24', '34003000', '1_1495859418548', '1', '27.83', '65.95');
+INSERT INTO device_34003000 VALUES ('22', '2017-05-28 11:34:25', '34003000', '1_1495859418548', '1', '27.87', '66.42');
+INSERT INTO device_34003000 VALUES ('23', '2017-05-28 11:39:25', '34003000', '1_1495859418548', '1', '27.93', '66.04');
 
 -- ----------------------------
--- Table structure for device_2
+-- Table structure for `device_34003100`
 -- ----------------------------
-DROP TABLE IF EXISTS `device_2`;
-CREATE TABLE `device_2` (
+DROP TABLE IF EXISTS `device_34003100`;
+CREATE TABLE `device_34003100` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
-  `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float DEFAULT NULL,
+  `SN_NO` text,
+  `REPORT_NO` text,
   `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
   `HUMIDITY` float DEFAULT NULL,
-  `DEVICE_ID` text,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of device_2
+-- Records of device_34003100
 -- ----------------------------
-INSERT INTO `device_2` VALUES ('1', '2017-04-24 18:56:7', '4', '24', '3', '25', '2');
-INSERT INTO `device_2` VALUES ('2', '2017-04-24 7:38:52', '2', '24', '3', '25', '2');
-INSERT INTO `device_2` VALUES ('3', '2017-04-24 2:37:21', '1', '24', '3', '25', '2');
-INSERT INTO `device_2` VALUES ('4', '2017-04-24 5:54:14', '10', '20', '1', '21', '2');
-INSERT INTO `device_2` VALUES ('5', '2017-04-24 20:46:45', '3', '22', '2', '24', '2');
-INSERT INTO `device_2` VALUES ('6', '2017-04-24 17:49:17', '8', '20', '3', '22', '2');
-INSERT INTO `device_2` VALUES ('7', '2017-04-24 11:33:41', '1', '25', '1', '26', '2');
-INSERT INTO `device_2` VALUES ('8', '2017-04-24 21:25:58', '4', '22', '1', '22', '2');
-INSERT INTO `device_2` VALUES ('9', '2017-04-24 4:45:9', '10', '25', '2', '24', '2');
-INSERT INTO `device_2` VALUES ('10', '2017-04-24 7:20:22', '7', '26', '2', '20', '2');
-INSERT INTO `device_2` VALUES ('11', '2017-04-24 6:54:42', '4', '20', '1', '26', '2');
-INSERT INTO `device_2` VALUES ('12', '2017-04-24 1:33:49', '2', '28', '1', '22', '2');
-INSERT INTO `device_2` VALUES ('13', '2017-04-24 4:24:51', '9', '27', '3', '22', '2');
-INSERT INTO `device_2` VALUES ('14', '2017-04-24 17:34:44', '4', '28', '1', '26', '2');
-INSERT INTO `device_2` VALUES ('15', '2017-04-24 8:24:31', '8', '22', '1', '28', '2');
-INSERT INTO `device_2` VALUES ('16', '2017-04-24 21:57:12', '5', '27', '3', '23', '2');
-INSERT INTO `device_2` VALUES ('17', '2017-04-24 20:26:21', '9', '28', '1', '28', '2');
-INSERT INTO `device_2` VALUES ('18', '2017-04-24 16:38:22', '4', '27', '1', '23', '2');
-INSERT INTO `device_2` VALUES ('19', '2017-04-24 10:28:2', '7', '20', '2', '22', '2');
-INSERT INTO `device_2` VALUES ('20', '2017-04-24 2:45:49', '5', '25', '1', '26', '2');
-INSERT INTO `device_2` VALUES ('21', '2017-04-24 10:15:42', '1', '22', '3', '22', '2');
-INSERT INTO `device_2` VALUES ('22', '2017-04-24 22:21:37', '3', '28', '2', '24', '2');
-INSERT INTO `device_2` VALUES ('23', '2017-04-24 20:51:27', '3', '25', '2', '27', '2');
-INSERT INTO `device_2` VALUES ('24', '2017-04-24 8:47:38', '8', '21', '1', '27', '2');
-INSERT INTO `device_2` VALUES ('25', '2017-04-24 9:59:12', '1', '27', '1', '20', '2');
-INSERT INTO `device_2` VALUES ('26', '2017-04-24 4:4:49', '5', '26', '3', '28', '2');
-INSERT INTO `device_2` VALUES ('27', '2017-04-24 13:4:15', '2', '21', '1', '25', '2');
-INSERT INTO `device_2` VALUES ('28', '2017-04-24 8:42:3', '4', '28', '3', '24', '2');
-INSERT INTO `device_2` VALUES ('29', '2017-04-24 22:27:9', '7', '27', '3', '22', '2');
-INSERT INTO `device_2` VALUES ('30', '2017-04-24 10:31:47', '3', '26', '3', '22', '2');
-INSERT INTO `device_2` VALUES ('31', '2017-04-24 10:36:9', '10', '22', '2', '20', '2');
-INSERT INTO `device_2` VALUES ('32', '2017-04-24 4:59:49', '2', '26', '2', '21', '2');
-INSERT INTO `device_2` VALUES ('33', '2017-04-24 11:19:12', '6', '23', '1', '28', '2');
-INSERT INTO `device_2` VALUES ('34', '2017-04-24 15:22:14', '3', '27', '3', '25', '2');
-INSERT INTO `device_2` VALUES ('35', '2017-04-24 13:12:26', '10', '21', '3', '24', '2');
-INSERT INTO `device_2` VALUES ('36', '2017-04-24 15:9:42', '3', '25', '3', '26', '2');
-INSERT INTO `device_2` VALUES ('37', '2017-04-24 20:46:18', '8', '20', '2', '21', '2');
-INSERT INTO `device_2` VALUES ('38', '2017-04-24 17:22:48', '3', '24', '3', '23', '2');
-INSERT INTO `device_2` VALUES ('39', '2017-04-24 20:18:20', '9', '25', '1', '20', '2');
-INSERT INTO `device_2` VALUES ('40', '2017-04-24 23:52:5', '2', '23', '3', '28', '2');
-INSERT INTO `device_2` VALUES ('41', '2017-04-24 17:20:8', '10', '27', '3', '25', '2');
-INSERT INTO `device_2` VALUES ('42', '2017-04-24 14:35:41', '9', '28', '1', '21', '2');
-INSERT INTO `device_2` VALUES ('43', '2017-04-24 10:42:30', '3', '28', '1', '22', '2');
-INSERT INTO `device_2` VALUES ('44', '2017-04-24 23:24:12', '5', '23', '2', '23', '2');
-INSERT INTO `device_2` VALUES ('45', '2017-04-24 10:48:58', '10', '26', '2', '27', '2');
-INSERT INTO `device_2` VALUES ('46', '2017-04-24 23:10:36', '6', '23', '3', '20', '2');
-INSERT INTO `device_2` VALUES ('47', '2017-04-24 21:5:24', '1', '28', '1', '21', '2');
-INSERT INTO `device_2` VALUES ('48', '2017-04-24 17:22:27', '2', '21', '3', '24', '2');
-INSERT INTO `device_2` VALUES ('49', '2017-04-24 11:46:40', '10', '23', '3', '28', '2');
-INSERT INTO `device_2` VALUES ('50', '2017-04-24 10:30:33', '3', '24', '3', '25', '2');
-INSERT INTO `device_2` VALUES ('51', '2017-04-24 17:2:39', '5', '25', '1', '27', '2');
-INSERT INTO `device_2` VALUES ('52', '2017-04-24 11:49:31', '2', '26', '2', '26', '2');
-INSERT INTO `device_2` VALUES ('53', '2017-04-24 2:14:46', '2', '24', '2', '27', '2');
-INSERT INTO `device_2` VALUES ('54', '2017-04-24 6:42:11', '9', '20', '1', '24', '2');
-INSERT INTO `device_2` VALUES ('55', '2017-04-24 16:11:39', '10', '22', '1', '22', '2');
-INSERT INTO `device_2` VALUES ('56', '2017-04-24 8:6:33', '8', '23', '3', '25', '2');
-INSERT INTO `device_2` VALUES ('57', '2017-04-24 18:41:4', '5', '21', '3', '20', '2');
-INSERT INTO `device_2` VALUES ('58', '2017-04-24 3:12:1', '2', '20', '1', '20', '2');
-INSERT INTO `device_2` VALUES ('59', '2017-04-24 5:36:35', '7', '25', '3', '20', '2');
-INSERT INTO `device_2` VALUES ('60', '2017-04-24 18:16:36', '7', '25', '1', '28', '2');
-INSERT INTO `device_2` VALUES ('61', '2017-04-24 6:43:5', '8', '21', '1', '21', '2');
-INSERT INTO `device_2` VALUES ('62', '2017-04-24 11:57:39', '9', '28', '1', '28', '2');
-INSERT INTO `device_2` VALUES ('63', '2017-04-24 4:13:32', '9', '23', '2', '23', '2');
-INSERT INTO `device_2` VALUES ('64', '2017-04-24 15:3:43', '3', '20', '1', '28', '2');
-INSERT INTO `device_2` VALUES ('65', '2017-04-24 2:49:31', '5', '21', '2', '24', '2');
-INSERT INTO `device_2` VALUES ('66', '2017-04-24 9:34:43', '2', '23', '2', '21', '2');
+INSERT INTO device_34003100 VALUES ('1', '2017-05-28 06:25:18', '34003100', '1_1495859418548', '1', '27.08', '61.29');
+INSERT INTO device_34003100 VALUES ('2', '2017-05-28 06:25:18', '34003100', '1_1495859418548', '1', '27.08', '61.29');
+INSERT INTO device_34003100 VALUES ('3', '2017-05-28 06:25:18', '34003100', '1_1495859418548', '1', '27.08', '61.29');
+INSERT INTO device_34003100 VALUES ('4', '2017-05-28 06:25:18', '34003100', '1_1495859418548', '1', '27.08', '61.29');
+INSERT INTO device_34003100 VALUES ('5', '2017-05-28 10:04:30', '34003100', '1_1495859418548', '1', '27.79', '66.82');
+INSERT INTO device_34003100 VALUES ('6', '2017-05-28 10:14:31', '34003100', '1_1495859418548', '1', '27.89', '66.89');
+INSERT INTO device_34003100 VALUES ('7', '2017-05-28 10:19:32', '34003100', '1_1495859418548', '1', '27.98', '67.09');
+INSERT INTO device_34003100 VALUES ('8', '2017-05-28 10:24:32', '34003100', '1_1495859418548', '1', '28.06', '67.44');
+INSERT INTO device_34003100 VALUES ('9', '2017-05-28 10:29:33', '34003100', '1_1495859418548', '1', '28.06', '67.56');
+INSERT INTO device_34003100 VALUES ('10', '2017-05-28 10:34:33', '34003100', '1_1495859418548', '1', '28.01', '67.95');
+INSERT INTO device_34003100 VALUES ('11', '2017-05-28 10:39:34', '34003100', '1_1495859418548', '1', '28.1', '67.92');
+INSERT INTO device_34003100 VALUES ('12', '2017-05-28 10:44:34', '34003100', '1_1495859418548', '1', '28.16', '67.98');
+INSERT INTO device_34003100 VALUES ('13', '2017-05-28 10:49:35', '34003100', '1_1495859418548', '1', '28.15', '67.75');
+INSERT INTO device_34003100 VALUES ('14', '2017-05-28 10:54:35', '34003100', '1_1495859418548', '1', '28.06', '67.63');
+INSERT INTO device_34003100 VALUES ('15', '2017-05-28 10:59:36', '34003100', '1_1495859418548', '1', '28', '67.36');
+INSERT INTO device_34003100 VALUES ('16', '2017-05-28 11:04:36', '34003100', '1_1495859418548', '1', '27.98', '67.03');
+INSERT INTO device_34003100 VALUES ('17', '2017-05-28 11:09:37', '34003100', '1_1495859418548', '1', '27.98', '67.09');
+INSERT INTO device_34003100 VALUES ('18', '2017-05-28 11:14:37', '34003100', '1_1495859418548', '1', '27.94', '67.12');
+INSERT INTO device_34003100 VALUES ('19', '2017-05-28 11:19:38', '34003100', '1_1495859418548', '1', '27.98', '67.15');
+INSERT INTO device_34003100 VALUES ('20', '2017-05-28 11:24:38', '34003100', '1_1495859418548', '1', '27.98', '66.71');
+INSERT INTO device_34003100 VALUES ('21', '2017-05-28 11:29:39', '34003100', '1_1495859418548', '1', '28.01', '66.89');
+INSERT INTO device_34003100 VALUES ('22', '2017-05-28 11:34:39', '34003100', '1_1495859418548', '1', '28.05', '67.59');
+INSERT INTO device_34003100 VALUES ('23', '2017-05-28 11:39:40', '34003100', '1_1495859418548', '1', '28.16', '67.42');
 
 -- ----------------------------
--- Table structure for device_3
+-- Table structure for `device_34003300`
 -- ----------------------------
-DROP TABLE IF EXISTS `device_3`;
-CREATE TABLE `device_3` (
+DROP TABLE IF EXISTS `device_34003300`;
+CREATE TABLE `device_34003300` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
-  `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float DEFAULT NULL,
+  `SN_NO` text,
+  `REPORT_NO` text,
   `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
   `HUMIDITY` float DEFAULT NULL,
-  `DEVICE_ID` text,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of device_3
+-- Records of device_34003300
 -- ----------------------------
-INSERT INTO `device_3` VALUES ('1', '2017-04-24 4:21:20', '2', '26', '1', '24', '3');
-INSERT INTO `device_3` VALUES ('2', '2017-04-24 9:16:3', '7', '23', '3', '20', '3');
-INSERT INTO `device_3` VALUES ('3', '2017-04-24 7:58:22', '10', '20', '1', '20', '3');
-INSERT INTO `device_3` VALUES ('4', '2017-04-24 13:4:41', '10', '27', '1', '28', '3');
-INSERT INTO `device_3` VALUES ('5', '2017-04-24 13:11:35', '1', '28', '3', '28', '3');
-INSERT INTO `device_3` VALUES ('6', '2017-04-24 16:59:29', '6', '20', '2', '21', '3');
-INSERT INTO `device_3` VALUES ('7', '2017-04-24 10:35:49', '4', '26', '1', '22', '3');
-INSERT INTO `device_3` VALUES ('8', '2017-04-24 14:25:37', '5', '21', '2', '21', '3');
-INSERT INTO `device_3` VALUES ('9', '2017-04-24 20:30:19', '2', '20', '2', '26', '3');
-INSERT INTO `device_3` VALUES ('10', '2017-04-24 8:51:32', '7', '21', '2', '28', '3');
-INSERT INTO `device_3` VALUES ('11', '2017-04-24 21:59:40', '7', '25', '1', '20', '3');
-INSERT INTO `device_3` VALUES ('12', '2017-04-24 17:27:18', '3', '24', '1', '22', '3');
-INSERT INTO `device_3` VALUES ('13', '2017-04-24 12:39:56', '3', '20', '2', '28', '3');
-INSERT INTO `device_3` VALUES ('14', '2017-04-24 9:43:41', '8', '21', '2', '21', '3');
-INSERT INTO `device_3` VALUES ('15', '2017-04-24 21:6:13', '9', '20', '1', '23', '3');
-INSERT INTO `device_3` VALUES ('16', '2017-04-24 12:10:48', '2', '25', '3', '25', '3');
-INSERT INTO `device_3` VALUES ('17', '2017-04-24 18:37:36', '10', '22', '3', '28', '3');
-INSERT INTO `device_3` VALUES ('18', '2017-04-24 7:39:55', '4', '27', '3', '20', '3');
-INSERT INTO `device_3` VALUES ('19', '2017-04-24 19:13:29', '10', '26', '1', '21', '3');
-INSERT INTO `device_3` VALUES ('20', '2017-04-24 17:38:58', '9', '21', '1', '28', '3');
-INSERT INTO `device_3` VALUES ('21', '2017-04-24 8:46:13', '5', '23', '3', '20', '3');
-INSERT INTO `device_3` VALUES ('22', '2017-04-24 3:26:8', '10', '28', '1', '20', '3');
-INSERT INTO `device_3` VALUES ('23', '2017-04-24 16:35:3', '9', '21', '1', '26', '3');
-INSERT INTO `device_3` VALUES ('24', '2017-04-24 13:1:47', '8', '25', '2', '28', '3');
-INSERT INTO `device_3` VALUES ('25', '2017-04-24 16:23:33', '2', '24', '2', '28', '3');
-INSERT INTO `device_3` VALUES ('26', '2017-04-24 9:34:35', '6', '27', '1', '28', '3');
-INSERT INTO `device_3` VALUES ('27', '2017-04-24 22:23:9', '3', '20', '2', '21', '3');
-INSERT INTO `device_3` VALUES ('28', '2017-04-24 9:24:32', '10', '24', '3', '26', '3');
-INSERT INTO `device_3` VALUES ('29', '2017-04-24 7:25:46', '6', '27', '3', '22', '3');
-INSERT INTO `device_3` VALUES ('30', '2017-04-24 3:12:19', '6', '21', '1', '26', '3');
-INSERT INTO `device_3` VALUES ('31', '2017-04-24 8:42:20', '9', '26', '1', '20', '3');
-INSERT INTO `device_3` VALUES ('32', '2017-04-24 6:49:46', '1', '21', '2', '20', '3');
-INSERT INTO `device_3` VALUES ('33', '2017-04-24 6:38:10', '5', '20', '2', '28', '3');
-INSERT INTO `device_3` VALUES ('34', '2017-04-24 17:33:8', '5', '26', '2', '21', '3');
-INSERT INTO `device_3` VALUES ('35', '2017-04-24 14:42:10', '3', '24', '3', '21', '3');
-INSERT INTO `device_3` VALUES ('36', '2017-04-24 7:10:49', '5', '28', '1', '27', '3');
-INSERT INTO `device_3` VALUES ('37', '2017-04-24 22:3:30', '7', '21', '2', '24', '3');
-INSERT INTO `device_3` VALUES ('38', '2017-04-24 8:59:28', '1', '27', '2', '23', '3');
-INSERT INTO `device_3` VALUES ('39', '2017-04-24 20:55:12', '8', '25', '1', '24', '3');
-INSERT INTO `device_3` VALUES ('40', '2017-04-24 11:11:23', '7', '25', '2', '28', '3');
-INSERT INTO `device_3` VALUES ('41', '2017-04-24 17:13:20', '7', '27', '3', '28', '3');
-INSERT INTO `device_3` VALUES ('42', '2017-04-24 16:6:16', '9', '20', '1', '25', '3');
-INSERT INTO `device_3` VALUES ('43', '2017-04-24 19:29:34', '9', '26', '2', '20', '3');
-INSERT INTO `device_3` VALUES ('44', '2017-04-24 6:8:26', '4', '25', '2', '25', '3');
-INSERT INTO `device_3` VALUES ('45', '2017-04-24 5:26:12', '5', '24', '2', '22', '3');
-INSERT INTO `device_3` VALUES ('46', '2017-04-24 16:27:45', '1', '23', '3', '27', '3');
-INSERT INTO `device_3` VALUES ('47', '2017-04-24 20:2:30', '3', '20', '2', '22', '3');
-INSERT INTO `device_3` VALUES ('48', '2017-04-24 8:3:9', '6', '27', '2', '28', '3');
-INSERT INTO `device_3` VALUES ('49', '2017-04-24 13:20:38', '9', '20', '3', '24', '3');
-INSERT INTO `device_3` VALUES ('50', '2017-04-24 9:48:35', '8', '25', '1', '25', '3');
-INSERT INTO `device_3` VALUES ('51', '2017-04-24 3:22:28', '9', '20', '1', '21', '3');
-INSERT INTO `device_3` VALUES ('52', '2017-04-24 7:55:34', '7', '28', '3', '27', '3');
-INSERT INTO `device_3` VALUES ('53', '2017-04-24 22:6:58', '10', '27', '1', '26', '3');
-INSERT INTO `device_3` VALUES ('54', '2017-04-24 1:59:26', '1', '26', '1', '20', '3');
-INSERT INTO `device_3` VALUES ('55', '2017-04-24 10:40:51', '9', '22', '1', '27', '3');
-INSERT INTO `device_3` VALUES ('56', '2017-04-24 8:29:53', '7', '22', '2', '27', '3');
-INSERT INTO `device_3` VALUES ('57', '2017-04-24 15:39:14', '9', '25', '3', '27', '3');
-INSERT INTO `device_3` VALUES ('58', '2017-04-24 1:27:35', '5', '28', '1', '26', '3');
-INSERT INTO `device_3` VALUES ('59', '2017-04-24 23:52:47', '10', '21', '3', '20', '3');
-INSERT INTO `device_3` VALUES ('60', '2017-04-24 2:47:45', '9', '28', '1', '21', '3');
-INSERT INTO `device_3` VALUES ('61', '2017-04-24 23:43:8', '5', '20', '2', '27', '3');
-INSERT INTO `device_3` VALUES ('62', '2017-04-24 13:7:58', '4', '24', '3', '24', '3');
-INSERT INTO `device_3` VALUES ('63', '2017-04-24 22:10:58', '7', '27', '2', '21', '3');
+INSERT INTO device_34003300 VALUES ('1', '2017-05-28 05:56:35', '34003300', '1_1495859418548', '1', '27.17', '60.29');
+INSERT INTO device_34003300 VALUES ('2', '2017-05-28 05:56:35', '34003300', '1_1495859418548', '1', '27.17', '60.29');
+INSERT INTO device_34003300 VALUES ('3', '2017-05-28 05:56:35', '34003300', '1_1495859418548', '1', '27.17', '60.29');
+INSERT INTO device_34003300 VALUES ('4', '2017-05-28 05:56:35', '34003300', '1_1495859418548', '1', '27.17', '60.29');
+INSERT INTO device_34003300 VALUES ('5', '2017-05-28 10:04:03', '34003300', '1_1495859418548', '1', '27.59', '64.8');
+INSERT INTO device_34003300 VALUES ('6', '2017-05-28 10:14:04', '34003300', '1_1495859418548', '1', '27.66', '65.48');
+INSERT INTO device_34003300 VALUES ('7', '2017-05-28 10:19:05', '34003300', '1_1495859418548', '1', '27.66', '65.69');
+INSERT INTO device_34003300 VALUES ('8', '2017-05-28 10:24:06', '34003300', '1_1495859418548', '1', '27.7', '65.31');
+INSERT INTO device_34003300 VALUES ('9', '2017-05-28 10:29:06', '34003300', '1_1495859418548', '1', '27.73', '65.57');
+INSERT INTO device_34003300 VALUES ('10', '2017-05-28 10:34:07', '34003300', '1_1495859418548', '1', '27.73', '66.07');
+INSERT INTO device_34003300 VALUES ('11', '2017-05-28 10:39:07', '34003300', '1_1495859418548', '1', '27.77', '65.77');
+INSERT INTO device_34003300 VALUES ('12', '2017-05-28 10:44:08', '34003300', '1_1495859418548', '1', '27.8', '65.66');
+INSERT INTO device_34003300 VALUES ('13', '2017-05-28 10:49:08', '34003300', '1_1495859418548', '1', '27.8', '65.53');
+INSERT INTO device_34003300 VALUES ('14', '2017-05-28 10:54:09', '34003300', '1_1495859418548', '1', '27.76', '65.45');
+INSERT INTO device_34003300 VALUES ('15', '2017-05-28 10:59:09', '34003300', '1_1495859418548', '1', '27.76', '65.33');
+INSERT INTO device_34003300 VALUES ('16', '2017-05-28 11:04:10', '34003300', '1_1495859418548', '1', '27.75', '65.18');
+INSERT INTO device_34003300 VALUES ('17', '2017-05-28 11:09:10', '34003300', '1_1495859418548', '1', '27.75', '65.28');
+INSERT INTO device_34003300 VALUES ('18', '2017-05-28 11:14:11', '34003300', '1_1495859418548', '1', '27.79', '65.45');
+INSERT INTO device_34003300 VALUES ('19', '2017-05-28 11:19:11', '34003300', '1_1495859418548', '1', '27.83', '65.42');
+INSERT INTO device_34003300 VALUES ('20', '2017-05-28 11:24:12', '34003300', '1_1495859418548', '1', '27.86', '65.33');
+INSERT INTO device_34003300 VALUES ('21', '2017-05-28 11:29:12', '34003300', '1_1495859418548', '1', '27.89', '65.63');
+INSERT INTO device_34003300 VALUES ('22', '2017-05-28 11:34:13', '34003300', '1_1495859418548', '1', '27.9', '65.89');
+INSERT INTO device_34003300 VALUES ('23', '2017-05-28 11:39:13', '34003300', '1_1495859418548', '1', '27.95', '65.89');
 
 -- ----------------------------
--- Table structure for device_4
+-- Table structure for `device_34003600`
 -- ----------------------------
-DROP TABLE IF EXISTS `device_4`;
-CREATE TABLE `device_4` (
+DROP TABLE IF EXISTS `device_34003600`;
+CREATE TABLE `device_34003600` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
-  `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float DEFAULT NULL,
+  `SN_NO` text,
+  `REPORT_NO` text,
   `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
   `HUMIDITY` float DEFAULT NULL,
-  `DEVICE_ID` text,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of device_4
+-- Records of device_34003600
 -- ----------------------------
-INSERT INTO `device_4` VALUES ('1', '2017-04-24 8:28:16', '1', '21', '1', '27', '4');
-INSERT INTO `device_4` VALUES ('2', '2017-04-24 23:59:7', '4', '21', '1', '27', '4');
-INSERT INTO `device_4` VALUES ('3', '2017-04-24 2:21:13', '1', '28', '3', '23', '4');
-INSERT INTO `device_4` VALUES ('4', '2017-04-24 12:45:12', '2', '20', '1', '25', '4');
-INSERT INTO `device_4` VALUES ('5', '2017-04-24 23:15:38', '1', '21', '3', '22', '4');
-INSERT INTO `device_4` VALUES ('6', '2017-04-24 19:4:42', '6', '28', '3', '21', '4');
-INSERT INTO `device_4` VALUES ('7', '2017-04-24 18:24:3', '4', '26', '3', '28', '4');
-INSERT INTO `device_4` VALUES ('8', '2017-04-24 11:36:52', '7', '27', '3', '27', '4');
-INSERT INTO `device_4` VALUES ('9', '2017-04-24 1:41:48', '10', '21', '1', '27', '4');
-INSERT INTO `device_4` VALUES ('10', '2017-04-24 4:17:14', '1', '24', '3', '27', '4');
-INSERT INTO `device_4` VALUES ('11', '2017-04-24 8:37:1', '7', '21', '3', '20', '4');
-INSERT INTO `device_4` VALUES ('12', '2017-04-24 2:7:16', '9', '28', '2', '27', '4');
-INSERT INTO `device_4` VALUES ('13', '2017-04-24 20:57:12', '10', '20', '2', '25', '4');
-INSERT INTO `device_4` VALUES ('14', '2017-04-24 16:38:9', '3', '28', '1', '27', '4');
-INSERT INTO `device_4` VALUES ('15', '2017-04-24 19:49:47', '3', '28', '1', '23', '4');
-INSERT INTO `device_4` VALUES ('16', '2017-04-24 14:3:27', '8', '24', '1', '21', '4');
-INSERT INTO `device_4` VALUES ('17', '2017-04-24 10:4:49', '4', '27', '1', '27', '4');
-INSERT INTO `device_4` VALUES ('18', '2017-04-24 21:36:18', '7', '28', '2', '27', '4');
-INSERT INTO `device_4` VALUES ('19', '2017-04-24 15:45:55', '2', '24', '3', '22', '4');
-INSERT INTO `device_4` VALUES ('20', '2017-04-24 9:24:55', '4', '23', '3', '23', '4');
-INSERT INTO `device_4` VALUES ('21', '2017-04-24 2:8:53', '8', '26', '2', '26', '4');
-INSERT INTO `device_4` VALUES ('22', '2017-04-24 16:47:51', '1', '20', '3', '22', '4');
-INSERT INTO `device_4` VALUES ('23', '2017-04-24 20:31:11', '5', '27', '2', '22', '4');
-INSERT INTO `device_4` VALUES ('24', '2017-04-24 6:5:18', '3', '25', '3', '28', '4');
-INSERT INTO `device_4` VALUES ('25', '2017-04-24 8:26:5', '8', '20', '2', '25', '4');
-INSERT INTO `device_4` VALUES ('26', '2017-04-24 21:40:42', '3', '21', '3', '27', '4');
-INSERT INTO `device_4` VALUES ('27', '2017-04-24 3:38:44', '7', '20', '3', '21', '4');
-INSERT INTO `device_4` VALUES ('28', '2017-04-24 10:56:8', '4', '28', '3', '26', '4');
-INSERT INTO `device_4` VALUES ('29', '2017-04-24 16:38:1', '5', '27', '1', '23', '4');
-INSERT INTO `device_4` VALUES ('30', '2017-04-24 13:31:4', '9', '22', '2', '25', '4');
-INSERT INTO `device_4` VALUES ('31', '2017-04-24 13:42:23', '8', '20', '3', '28', '4');
-INSERT INTO `device_4` VALUES ('32', '2017-04-24 22:9:30', '8', '24', '3', '25', '4');
-INSERT INTO `device_4` VALUES ('33', '2017-04-24 5:47:6', '2', '25', '3', '21', '4');
-INSERT INTO `device_4` VALUES ('34', '2017-04-24 2:56:40', '7', '27', '2', '24', '4');
-INSERT INTO `device_4` VALUES ('35', '2017-04-24 17:15:29', '9', '27', '3', '25', '4');
-INSERT INTO `device_4` VALUES ('36', '2017-04-24 15:10:54', '9', '27', '3', '24', '4');
-INSERT INTO `device_4` VALUES ('37', '2017-04-24 9:44:21', '10', '20', '1', '26', '4');
-INSERT INTO `device_4` VALUES ('38', '2017-04-24 23:7:18', '2', '24', '1', '26', '4');
-INSERT INTO `device_4` VALUES ('39', '2017-04-24 15:7:24', '1', '24', '2', '24', '4');
-INSERT INTO `device_4` VALUES ('40', '2017-04-24 22:5:53', '4', '28', '3', '24', '4');
-INSERT INTO `device_4` VALUES ('41', '2017-04-24 1:16:4', '10', '24', '3', '25', '4');
-INSERT INTO `device_4` VALUES ('42', '2017-04-24 10:35:19', '6', '28', '1', '21', '4');
-INSERT INTO `device_4` VALUES ('43', '2017-04-24 9:28:2', '9', '26', '1', '22', '4');
-INSERT INTO `device_4` VALUES ('44', '2017-04-24 9:39:7', '8', '28', '3', '22', '4');
-INSERT INTO `device_4` VALUES ('45', '2017-04-24 23:52:36', '5', '27', '1', '23', '4');
-INSERT INTO `device_4` VALUES ('46', '2017-04-24 21:20:3', '10', '26', '2', '20', '4');
-INSERT INTO `device_4` VALUES ('47', '2017-04-24 13:3:47', '7', '26', '1', '27', '4');
-INSERT INTO `device_4` VALUES ('48', '2017-04-24 4:20:34', '7', '28', '3', '27', '4');
-INSERT INTO `device_4` VALUES ('49', '2017-04-24 11:13:34', '8', '22', '3', '28', '4');
-INSERT INTO `device_4` VALUES ('50', '2017-04-24 7:17:27', '9', '21', '1', '20', '4');
-INSERT INTO `device_4` VALUES ('51', '2017-04-24 3:57:26', '7', '25', '1', '25', '4');
-INSERT INTO `device_4` VALUES ('52', '2017-04-24 7:58:55', '2', '21', '3', '24', '4');
-INSERT INTO `device_4` VALUES ('53', '2017-04-24 3:59:16', '9', '22', '2', '26', '4');
-INSERT INTO `device_4` VALUES ('54', '2017-04-24 11:44:8', '1', '28', '1', '22', '4');
-INSERT INTO `device_4` VALUES ('55', '2017-04-24 7:17:40', '7', '27', '1', '20', '4');
-INSERT INTO `device_4` VALUES ('56', '2017-04-24 12:22:38', '8', '20', '3', '27', '4');
-INSERT INTO `device_4` VALUES ('57', '2017-04-24 10:4:35', '3', '22', '2', '21', '4');
-INSERT INTO `device_4` VALUES ('58', '2017-04-24 22:40:55', '2', '25', '3', '27', '4');
-INSERT INTO `device_4` VALUES ('59', '2017-04-24 3:2:40', '3', '24', '1', '28', '4');
-INSERT INTO `device_4` VALUES ('60', '2017-04-24 9:4:36', '8', '21', '2', '20', '4');
-INSERT INTO `device_4` VALUES ('61', '2017-04-24 18:50:56', '9', '23', '3', '22', '4');
-INSERT INTO `device_4` VALUES ('62', '2017-04-24 8:57:3', '9', '26', '2', '24', '4');
-INSERT INTO `device_4` VALUES ('63', '2017-04-24 23:25:11', '4', '27', '3', '23', '4');
-INSERT INTO `device_4` VALUES ('64', '2017-04-24 16:49:22', '1', '23', '1', '20', '4');
-INSERT INTO `device_4` VALUES ('65', '2017-04-24 5:49:2', '10', '26', '1', '26', '4');
+INSERT INTO device_34003600 VALUES ('1', '2017-05-28 05:57:27', '34003600', '1_1495859418548', '1', '27.01', '60.65');
+INSERT INTO device_34003600 VALUES ('2', '2017-05-28 05:57:27', '34003600', '1_1495859418548', '1', '27.01', '60.65');
+INSERT INTO device_34003600 VALUES ('3', '2017-05-28 05:57:27', '34003600', '1_1495859418548', '1', '27.01', '60.65');
+INSERT INTO device_34003600 VALUES ('4', '2017-05-28 05:57:27', '34003600', '1_1495859418548', '1', '27.01', '60.65');
+INSERT INTO device_34003600 VALUES ('5', '2017-05-28 10:04:39', '34003600', '1_1495859418548', '1', '27.41', '65.28');
+INSERT INTO device_34003600 VALUES ('6', '2017-05-28 10:14:40', '34003600', '1_1495859418548', '1', '27.48', '65.63');
+INSERT INTO device_34003600 VALUES ('7', '2017-05-28 10:19:41', '34003600', '1_1495859418548', '1', '27.49', '65.75');
+INSERT INTO device_34003600 VALUES ('8', '2017-05-28 10:24:41', '34003600', '1_1495859418548', '1', '27.53', '65.84');
+INSERT INTO device_34003600 VALUES ('9', '2017-05-28 10:29:42', '34003600', '1_1495859418548', '1', '27.56', '65.95');
+INSERT INTO device_34003600 VALUES ('10', '2017-05-28 10:34:42', '34003600', '1_1495859418548', '1', '27.56', '66.14');
+INSERT INTO device_34003600 VALUES ('11', '2017-05-28 10:39:43', '34003600', '1_1495859418548', '1', '27.61', '66.16');
+INSERT INTO device_34003600 VALUES ('12', '2017-05-28 10:44:43', '34003600', '1_1495859418548', '1', '27.63', '65.9');
+INSERT INTO device_34003600 VALUES ('13', '2017-05-28 10:49:44', '34003600', '1_1495859418548', '1', '27.65', '65.78');
+INSERT INTO device_34003600 VALUES ('14', '2017-05-28 10:54:44', '34003600', '1_1495859418548', '1', '27.59', '65.72');
+INSERT INTO device_34003600 VALUES ('15', '2017-05-28 10:59:45', '34003600', '1_1495859418548', '1', '27.59', '65.63');
+INSERT INTO device_34003600 VALUES ('16', '2017-05-28 11:04:45', '34003600', '1_1495859418548', '1', '27.58', '65.4');
+INSERT INTO device_34003600 VALUES ('17', '2017-05-28 11:09:46', '34003600', '1_1495859418548', '1', '27.6', '65.66');
+INSERT INTO device_34003600 VALUES ('18', '2017-05-28 11:14:46', '34003600', '1_1495859418548', '1', '27.6', '65.63');
+INSERT INTO device_34003600 VALUES ('19', '2017-05-28 11:19:47', '34003600', '1_1495859418548', '1', '27.65', '65.78');
+INSERT INTO device_34003600 VALUES ('20', '2017-05-28 11:24:47', '34003600', '1_1495859418548', '1', '27.68', '65.63');
+INSERT INTO device_34003600 VALUES ('21', '2017-05-28 11:29:48', '34003600', '1_1495859418548', '1', '27.71', '65.87');
+INSERT INTO device_34003600 VALUES ('22', '2017-05-28 11:34:48', '34003600', '1_1495859418548', '1', '27.71', '66.16');
+INSERT INTO device_34003600 VALUES ('23', '2017-05-28 11:39:49', '34003600', '1_1495859418548', '1', '27.78', '66.1');
 
 -- ----------------------------
--- Table structure for device_5
+-- Table structure for `device_34003a00`
 -- ----------------------------
-DROP TABLE IF EXISTS `device_5`;
-CREATE TABLE `device_5` (
+DROP TABLE IF EXISTS `device_34003a00`;
+CREATE TABLE `device_34003a00` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
-  `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float DEFAULT NULL,
+  `SN_NO` text,
+  `REPORT_NO` text,
   `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
   `HUMIDITY` float DEFAULT NULL,
-  `DEVICE_ID` text,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of device_5
+-- Records of device_34003a00
 -- ----------------------------
-INSERT INTO `device_5` VALUES ('1', '2017-04-24 7:55:39', '5', '23', '3', '24', '5');
-INSERT INTO `device_5` VALUES ('2', '2017-04-24 15:9:33', '4', '23', '1', '28', '5');
-INSERT INTO `device_5` VALUES ('3', '2017-04-24 5:38:52', '2', '21', '1', '25', '5');
-INSERT INTO `device_5` VALUES ('4', '2017-04-24 22:35:6', '2', '20', '2', '23', '5');
-INSERT INTO `device_5` VALUES ('5', '2017-04-24 2:24:20', '5', '25', '1', '25', '5');
-INSERT INTO `device_5` VALUES ('6', '2017-04-24 4:16:38', '6', '26', '1', '27', '5');
-INSERT INTO `device_5` VALUES ('7', '2017-04-24 1:41:28', '4', '24', '1', '25', '5');
-INSERT INTO `device_5` VALUES ('8', '2017-04-24 6:18:21', '2', '25', '1', '21', '5');
-INSERT INTO `device_5` VALUES ('9', '2017-04-24 15:31:28', '10', '26', '3', '23', '5');
-INSERT INTO `device_5` VALUES ('10', '2017-04-24 13:32:49', '6', '22', '3', '21', '5');
-INSERT INTO `device_5` VALUES ('11', '2017-04-24 3:17:40', '5', '21', '1', '20', '5');
-INSERT INTO `device_5` VALUES ('12', '2017-04-24 4:43:43', '6', '27', '3', '22', '5');
-INSERT INTO `device_5` VALUES ('13', '2017-04-24 3:29:15', '6', '21', '1', '28', '5');
-INSERT INTO `device_5` VALUES ('14', '2017-04-24 17:2:5', '3', '25', '3', '25', '5');
-INSERT INTO `device_5` VALUES ('15', '2017-04-24 16:37:30', '7', '24', '1', '25', '5');
-INSERT INTO `device_5` VALUES ('16', '2017-04-24 11:42:7', '10', '21', '2', '25', '5');
-INSERT INTO `device_5` VALUES ('17', '2017-04-24 19:59:30', '1', '20', '1', '21', '5');
-INSERT INTO `device_5` VALUES ('18', '2017-04-24 16:49:19', '2', '20', '1', '26', '5');
-INSERT INTO `device_5` VALUES ('19', '2017-04-24 20:26:23', '5', '27', '3', '28', '5');
-INSERT INTO `device_5` VALUES ('20', '2017-04-24 17:44:24', '10', '20', '3', '28', '5');
-INSERT INTO `device_5` VALUES ('21', '2017-04-24 4:38:27', '10', '24', '2', '20', '5');
-INSERT INTO `device_5` VALUES ('22', '2017-04-24 10:35:27', '1', '28', '3', '27', '5');
-INSERT INTO `device_5` VALUES ('23', '2017-04-24 4:57:6', '1', '20', '2', '25', '5');
-INSERT INTO `device_5` VALUES ('24', '2017-04-24 20:59:6', '7', '27', '1', '24', '5');
-INSERT INTO `device_5` VALUES ('25', '2017-04-24 23:37:1', '7', '23', '1', '21', '5');
-INSERT INTO `device_5` VALUES ('26', '2017-04-24 4:59:55', '7', '23', '3', '25', '5');
-INSERT INTO `device_5` VALUES ('27', '2017-04-24 18:53:43', '1', '21', '2', '25', '5');
-INSERT INTO `device_5` VALUES ('28', '2017-04-24 5:20:15', '4', '28', '3', '28', '5');
-INSERT INTO `device_5` VALUES ('29', '2017-04-24 8:56:55', '10', '24', '2', '24', '5');
-INSERT INTO `device_5` VALUES ('30', '2017-04-24 11:16:55', '3', '24', '1', '26', '5');
-INSERT INTO `device_5` VALUES ('31', '2017-04-24 7:47:10', '1', '25', '3', '23', '5');
-INSERT INTO `device_5` VALUES ('32', '2017-04-24 9:6:22', '10', '22', '3', '21', '5');
-INSERT INTO `device_5` VALUES ('33', '2017-04-24 18:47:15', '10', '21', '3', '24', '5');
-INSERT INTO `device_5` VALUES ('34', '2017-04-24 10:14:5', '5', '26', '1', '28', '5');
-INSERT INTO `device_5` VALUES ('35', '2017-04-24 6:2:57', '4', '22', '3', '21', '5');
-INSERT INTO `device_5` VALUES ('36', '2017-04-24 16:35:51', '3', '23', '3', '23', '5');
-INSERT INTO `device_5` VALUES ('37', '2017-04-24 14:45:35', '2', '23', '2', '23', '5');
-INSERT INTO `device_5` VALUES ('38', '2017-04-24 23:17:53', '9', '21', '2', '24', '5');
-INSERT INTO `device_5` VALUES ('39', '2017-04-24 18:2:25', '1', '27', '1', '23', '5');
-INSERT INTO `device_5` VALUES ('40', '2017-04-24 14:1:22', '8', '21', '2', '24', '5');
-INSERT INTO `device_5` VALUES ('41', '2017-04-24 14:51:11', '9', '20', '1', '23', '5');
-INSERT INTO `device_5` VALUES ('42', '2017-04-24 15:46:30', '6', '25', '3', '22', '5');
-INSERT INTO `device_5` VALUES ('43', '2017-04-24 8:57:11', '7', '27', '3', '20', '5');
-INSERT INTO `device_5` VALUES ('44', '2017-04-24 12:14:6', '5', '22', '1', '26', '5');
-INSERT INTO `device_5` VALUES ('45', '2017-04-24 14:1:19', '1', '20', '3', '25', '5');
-INSERT INTO `device_5` VALUES ('46', '2017-04-24 20:3:41', '5', '27', '1', '26', '5');
-INSERT INTO `device_5` VALUES ('47', '2017-04-24 9:55:48', '8', '23', '3', '23', '5');
-INSERT INTO `device_5` VALUES ('48', '2017-04-24 2:19:9', '6', '26', '3', '26', '5');
-INSERT INTO `device_5` VALUES ('49', '2017-04-24 11:13:48', '4', '22', '1', '27', '5');
-INSERT INTO `device_5` VALUES ('50', '2017-04-24 16:52:14', '1', '26', '3', '25', '5');
-INSERT INTO `device_5` VALUES ('51', '2017-04-24 15:8:11', '6', '21', '1', '27', '5');
-INSERT INTO `device_5` VALUES ('52', '2017-04-24 22:56:47', '3', '24', '2', '26', '5');
-INSERT INTO `device_5` VALUES ('53', '2017-04-24 13:16:40', '7', '20', '2', '24', '5');
-INSERT INTO `device_5` VALUES ('54', '2017-04-24 16:6:3', '3', '20', '3', '25', '5');
+INSERT INTO device_34003a00 VALUES ('1', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('2', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('3', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('4', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('5', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('6', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('7', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('8', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('9', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('10', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('11', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('12', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('13', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('14', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('15', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('16', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('17', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('18', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('19', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('20', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('21', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('22', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
+INSERT INTO device_34003a00 VALUES ('23', '2017-05-27 22:54:10', '34003A00', '1_1495859418548', '1', '27.38', '66.35');
 
 -- ----------------------------
--- Table structure for device_6
+-- Table structure for `device_54004300`
 -- ----------------------------
-DROP TABLE IF EXISTS `device_6`;
-CREATE TABLE `device_6` (
+DROP TABLE IF EXISTS `device_54004300`;
+CREATE TABLE `device_54004300` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
-  `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float DEFAULT NULL,
+  `SN_NO` text,
+  `REPORT_NO` text,
   `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
   `HUMIDITY` float DEFAULT NULL,
-  `DEVICE_ID` text,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of device_6
+-- Records of device_54004300
 -- ----------------------------
-INSERT INTO `device_6` VALUES ('1', '2017-04-24 1:32:44', '1_1493045541961', '26', '1', '20', '6');
-INSERT INTO `device_6` VALUES ('2', '2017-04-24 3:10:19', '1_1493045541961', '21', '2', '26', '6');
-INSERT INTO `device_6` VALUES ('3', '2017-04-24 16:54:3', '1_1493045541961', '24', '3', '20', '6');
-INSERT INTO `device_6` VALUES ('4', '2017-04-24 20:29:23', '1_1493045541961', '20', '1', '28', '6');
-INSERT INTO `device_6` VALUES ('5', '2017-04-24 6:24:45', '1_1493045541961', '25', '3', '25', '6');
-INSERT INTO `device_6` VALUES ('6', '2017-04-24 6:35:53', '1_1493045541961', '27', '3', '27', '6');
-INSERT INTO `device_6` VALUES ('7', '2017-04-24 6:23:37', '1_1493045541961', '23', '1', '27', '6');
-INSERT INTO `device_6` VALUES ('8', '2017-04-24 9:33:26', '1_1493045541961', '23', '2', '22', '6');
-INSERT INTO `device_6` VALUES ('9', '2017-04-24 23:32:23', '1_1493045541961', '24', '3', '26', '6');
-INSERT INTO `device_6` VALUES ('10', '2017-04-24 8:7:36', '1_1493045541961', '28', '3', '20', '6');
-INSERT INTO `device_6` VALUES ('11', '2017-04-24 3:4:10', '1_1493045541961', '24', '3', '24', '6');
-INSERT INTO `device_6` VALUES ('12', '2017-04-24 18:42:25', '1_1493045541961', '27', '1', '25', '6');
-INSERT INTO `device_6` VALUES ('13', '2017-04-24 3:47:14', '1_1493045541961', '23', '1', '27', '6');
-INSERT INTO `device_6` VALUES ('14', '2017-04-24 15:56:12', '1_1493045541961', '24', '2', '24', '6');
-INSERT INTO `device_6` VALUES ('15', '2017-04-24 20:38:5', '1_1493045541961', '22', '2', '24', '6');
-INSERT INTO `device_6` VALUES ('16', '2017-04-24 14:35:29', '1_1493045541961', '26', '2', '25', '6');
-INSERT INTO `device_6` VALUES ('17', '2017-04-24 2:6:5', '1_1493045541961', '26', '1', '25', '6');
-INSERT INTO `device_6` VALUES ('18', '2017-04-24 2:35:9', '1_1493045541961', '27', '3', '24', '6');
-INSERT INTO `device_6` VALUES ('19', '2017-04-24 23:43:49', '1_1493045541961', '22', '1', '24', '6');
-INSERT INTO `device_6` VALUES ('20', '2017-04-24 13:30:15', '1_1493045541961', '24', '2', '25', '6');
-INSERT INTO `device_6` VALUES ('21', '2017-04-24 11:41:48', '1_1493045541961', '24', '3', '20', '6');
-INSERT INTO `device_6` VALUES ('22', '2017-04-24 22:47:45', '1_1493045541961', '22', '1', '26', '6');
-INSERT INTO `device_6` VALUES ('23', '2017-04-24 23:8:15', '1_1493045541961', '20', '1', '26', '6');
-INSERT INTO `device_6` VALUES ('24', '2017-04-24 8:10:33', '1_1493045541961', '28', '2', '23', '6');
-INSERT INTO `device_6` VALUES ('25', '2017-04-24 3:43:28', '1_1493045541961', '20', '1', '21', '6');
-INSERT INTO `device_6` VALUES ('26', '2017-04-24 2:11:55', '1_1493045541961', '20', '2', '21', '6');
-INSERT INTO `device_6` VALUES ('27', '2017-04-24 20:11:18', '1_1493045541961', '27', '1', '25', '6');
-INSERT INTO `device_6` VALUES ('28', '2017-04-24 19:37:53', '1_1493045541961', '22', '2', '23', '6');
-INSERT INTO `device_6` VALUES ('29', '2017-04-24 23:14:2', '1_1493045541961', '27', '3', '22', '6');
-INSERT INTO `device_6` VALUES ('30', '2017-04-24 16:55:55', '1_1493045541961', '22', '3', '24', '6');
-INSERT INTO `device_6` VALUES ('31', '2017-04-24 11:38:10', '1_1493045541961', '28', '2', '26', '6');
-INSERT INTO `device_6` VALUES ('32', '2017-04-24 22:34:33', '1_1493045541961', '26', '1', '27', '6');
-INSERT INTO `device_6` VALUES ('33', '2017-04-24 22:54:39', '1_1493045541961', '22', '2', '22', '6');
-INSERT INTO `device_6` VALUES ('34', '2017-04-24 20:16:26', '1_1493045541961', '20', '2', '23', '6');
-INSERT INTO `device_6` VALUES ('35', '2017-04-24 14:42:8', '1_1493045541961', '27', '1', '26', '6');
-INSERT INTO `device_6` VALUES ('36', '2017-04-24 2:46:23', '1_1493045541961', '25', '3', '23', '6');
-INSERT INTO `device_6` VALUES ('37', '2017-04-24 14:9:43', '1_1493045541961', '27', '2', '25', '6');
-INSERT INTO `device_6` VALUES ('38', '2017-04-24 5:22:7', '1_1493045541961', '23', '3', '25', '6');
-INSERT INTO `device_6` VALUES ('39', '2017-04-24 17:59:38', '1_1493045541961', '20', '1', '26', '6');
-INSERT INTO `device_6` VALUES ('40', '2017-04-24 1:59:2', '1_1493045541961', '28', '2', '27', '6');
-INSERT INTO `device_6` VALUES ('41', '2017-04-24 23:11:21', '1_1493045541961', '24', '1', '27', '6');
-INSERT INTO `device_6` VALUES ('42', '2017-04-24 12:58:29', '1_1493045541961', '24', '1', '27', '6');
-INSERT INTO `device_6` VALUES ('43', '2017-04-24 8:10:8', '1_1493045541961', '25', '1', '20', '6');
-INSERT INTO `device_6` VALUES ('44', '2017-04-24 19:6:57', '1_1493045541961', '27', '2', '25', '6');
-INSERT INTO `device_6` VALUES ('45', '2017-04-24 20:2:4', '1_1493045541961', '26', '1', '22', '6');
-INSERT INTO `device_6` VALUES ('46', '2017-04-24 4:57:58', '1_1493045541961', '20', '1', '28', '6');
-INSERT INTO `device_6` VALUES ('47', '2017-04-24 13:42:15', '1_1493045541961', '20', '1', '24', '6');
-INSERT INTO `device_6` VALUES ('48', '2017-04-24 10:21:35', '1_1493045541961', '21', '2', '26', '6');
-INSERT INTO `device_6` VALUES ('49', '2017-04-24 9:14:13', '1_1493045541961', '27', '2', '20', '6');
-INSERT INTO `device_6` VALUES ('50', '2017-04-24 23:7:17', '1_1493045541961', '26', '3', '26', '6');
-INSERT INTO `device_6` VALUES ('51', '2017-04-24 6:10:36', '1_1493045541961', '28', '2', '22', '6');
-INSERT INTO `device_6` VALUES ('52', '2017-04-24 11:56:22', '1_1493045541961', '24', '3', '20', '6');
-INSERT INTO `device_6` VALUES ('53', '2017-04-24 5:58:29', '1_1493045541961', '25', '2', '22', '6');
-INSERT INTO `device_6` VALUES ('54', '2017-04-24 5:39:5', '1_1493045541961', '20', '1', '21', '6');
+INSERT INTO device_54004300 VALUES ('1', '2017-05-28 05:40:19', '54004300', '1_1495859418548', '1', '27.05', '60.87');
+INSERT INTO device_54004300 VALUES ('2', '2017-05-28 05:40:19', '54004300', '1_1495859418548', '1', '27.05', '60.87');
+INSERT INTO device_54004300 VALUES ('3', '2017-05-28 05:40:19', '54004300', '1_1495859418548', '1', '27.05', '60.87');
+INSERT INTO device_54004300 VALUES ('4', '2017-05-28 05:40:19', '54004300', '1_1495859418548', '1', '27.05', '60.87');
+INSERT INTO device_54004300 VALUES ('5', '2017-05-28 10:04:00', '54004300', '1_1495859418548', '1', '27.47', '65.29');
+INSERT INTO device_54004300 VALUES ('6', '2017-05-28 10:14:01', '54004300', '1_1495859418548', '1', '27.56', '66');
+INSERT INTO device_54004300 VALUES ('7', '2017-05-28 10:19:02', '54004300', '1_1495859418548', '1', '27.57', '66.21');
+INSERT INTO device_54004300 VALUES ('8', '2017-05-28 10:24:02', '54004300', '1_1495859418548', '1', '27.6', '65.76');
+INSERT INTO device_54004300 VALUES ('9', '2017-05-28 10:29:02', '54004300', '1_1495859418548', '1', '27.61', '66.15');
+INSERT INTO device_54004300 VALUES ('10', '2017-05-28 10:34:03', '54004300', '1_1495859418548', '1', '27.6', '66.71');
+INSERT INTO device_54004300 VALUES ('11', '2017-05-28 10:39:03', '54004300', '1_1495859418548', '1', '27.67', '66.41');
+INSERT INTO device_54004300 VALUES ('12', '2017-05-28 10:44:04', '54004300', '1_1495859418548', '1', '27.71', '66.26');
+INSERT INTO device_54004300 VALUES ('13', '2017-05-28 10:49:05', '54004300', '1_1495859418548', '1', '27.71', '66.18');
+INSERT INTO device_54004300 VALUES ('14', '2017-05-28 10:54:05', '54004300', '1_1495859418548', '1', '27.67', '66');
+INSERT INTO device_54004300 VALUES ('15', '2017-05-28 10:59:06', '54004300', '1_1495859418548', '1', '27.65', '65.94');
+INSERT INTO device_54004300 VALUES ('16', '2017-05-28 11:04:06', '54004300', '1_1495859418548', '1', '27.64', '65.79');
+INSERT INTO device_54004300 VALUES ('17', '2017-05-28 11:09:07', '54004300', '1_1495859418548', '1', '27.65', '65.91');
+INSERT INTO device_54004300 VALUES ('18', '2017-05-28 11:14:07', '54004300', '1_1495859418548', '1', '27.65', '65.97');
+INSERT INTO device_54004300 VALUES ('19', '2017-05-28 11:19:08', '54004300', '1_1495859418548', '1', '27.7', '65.97');
+INSERT INTO device_54004300 VALUES ('20', '2017-05-28 11:24:08', '54004300', '1_1495859418548', '1', '27.74', '65.79');
+INSERT INTO device_54004300 VALUES ('21', '2017-05-28 11:29:09', '54004300', '1_1495859418548', '1', '27.77', '66.18');
+INSERT INTO device_54004300 VALUES ('22', '2017-05-28 11:34:09', '54004300', '1_1495859418548', '1', '27.78', '66.53');
+INSERT INTO device_54004300 VALUES ('23', '2017-05-28 11:39:09', '54004300', '1_1495859418548', '1', '27.85', '66.41');
 
 -- ----------------------------
--- Table structure for device_7
+-- Table structure for `device_54004600`
 -- ----------------------------
-DROP TABLE IF EXISTS `device_7`;
-CREATE TABLE `device_7` (
+DROP TABLE IF EXISTS `device_54004600`;
+CREATE TABLE `device_54004600` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
-  `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float DEFAULT NULL,
+  `SN_NO` text,
+  `REPORT_NO` text,
   `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
   `HUMIDITY` float DEFAULT NULL,
-  `DEVICE_ID` text,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of device_7
+-- Records of device_54004600
 -- ----------------------------
-INSERT INTO `device_7` VALUES ('1', '2017-04-24 12:50:55', '3', '24', '1', '24', '7');
-INSERT INTO `device_7` VALUES ('2', '2017-04-24 21:10:18', '3', '25', '2', '23', '7');
-INSERT INTO `device_7` VALUES ('3', '2017-04-24 20:5:10', '6', '22', '2', '20', '7');
-INSERT INTO `device_7` VALUES ('4', '2017-04-24 16:18:48', '7', '24', '1', '26', '7');
-INSERT INTO `device_7` VALUES ('5', '2017-04-24 9:59:45', '3', '25', '3', '23', '7');
-INSERT INTO `device_7` VALUES ('6', '2017-04-24 18:23:17', '10', '20', '3', '20', '7');
-INSERT INTO `device_7` VALUES ('7', '2017-04-24 7:2:43', '3', '24', '3', '20', '7');
-INSERT INTO `device_7` VALUES ('8', '2017-04-24 16:24:25', '9', '27', '3', '25', '7');
-INSERT INTO `device_7` VALUES ('9', '2017-04-24 21:11:16', '5', '21', '2', '27', '7');
-INSERT INTO `device_7` VALUES ('10', '2017-04-24 12:35:30', '2', '28', '2', '24', '7');
-INSERT INTO `device_7` VALUES ('11', '2017-04-24 7:14:21', '6', '23', '3', '21', '7');
-INSERT INTO `device_7` VALUES ('12', '2017-04-24 18:23:43', '9', '27', '3', '26', '7');
-INSERT INTO `device_7` VALUES ('13', '2017-04-24 17:33:27', '7', '20', '2', '21', '7');
-INSERT INTO `device_7` VALUES ('14', '2017-04-24 3:44:13', '10', '23', '1', '27', '7');
-INSERT INTO `device_7` VALUES ('15', '2017-04-24 8:5:1', '10', '27', '3', '28', '7');
-INSERT INTO `device_7` VALUES ('16', '2017-04-24 6:56:17', '4', '22', '2', '23', '7');
-INSERT INTO `device_7` VALUES ('17', '2017-04-24 13:4:57', '3', '21', '2', '22', '7');
-INSERT INTO `device_7` VALUES ('18', '2017-04-24 6:45:13', '3', '26', '1', '26', '7');
-INSERT INTO `device_7` VALUES ('19', '2017-04-24 19:15:40', '5', '26', '3', '23', '7');
-INSERT INTO `device_7` VALUES ('20', '2017-04-24 23:3:41', '7', '28', '3', '27', '7');
-INSERT INTO `device_7` VALUES ('21', '2017-04-24 23:19:24', '10', '28', '1', '24', '7');
-INSERT INTO `device_7` VALUES ('22', '2017-04-24 17:36:32', '3', '28', '3', '25', '7');
-INSERT INTO `device_7` VALUES ('23', '2017-04-24 13:8:16', '3', '26', '2', '27', '7');
-INSERT INTO `device_7` VALUES ('24', '2017-04-24 20:34:33', '1', '24', '1', '21', '7');
-INSERT INTO `device_7` VALUES ('25', '2017-04-24 11:47:36', '6', '20', '2', '23', '7');
-INSERT INTO `device_7` VALUES ('26', '2017-04-24 9:51:28', '1', '22', '3', '24', '7');
-INSERT INTO `device_7` VALUES ('27', '2017-04-24 5:11:9', '9', '24', '1', '27', '7');
-INSERT INTO `device_7` VALUES ('28', '2017-04-24 7:57:53', '9', '26', '3', '23', '7');
-INSERT INTO `device_7` VALUES ('29', '2017-04-24 6:58:12', '10', '25', '2', '26', '7');
-INSERT INTO `device_7` VALUES ('30', '2017-04-24 11:26:33', '10', '24', '1', '20', '7');
-INSERT INTO `device_7` VALUES ('31', '2017-04-24 16:11:47', '3', '22', '3', '20', '7');
-INSERT INTO `device_7` VALUES ('32', '2017-04-24 13:37:4', '2', '27', '2', '25', '7');
-INSERT INTO `device_7` VALUES ('33', '2017-04-24 3:57:10', '3', '20', '3', '23', '7');
-INSERT INTO `device_7` VALUES ('34', '2017-04-24 22:59:18', '9', '26', '3', '20', '7');
-INSERT INTO `device_7` VALUES ('35', '2017-04-24 2:13:53', '3', '20', '1', '28', '7');
-INSERT INTO `device_7` VALUES ('36', '2017-04-24 7:6:5', '4', '27', '3', '27', '7');
-INSERT INTO `device_7` VALUES ('37', '2017-04-24 9:11:44', '9', '21', '2', '21', '7');
-INSERT INTO `device_7` VALUES ('38', '2017-04-24 4:46:57', '10', '20', '1', '20', '7');
-INSERT INTO `device_7` VALUES ('39', '2017-04-24 23:32:12', '8', '27', '1', '28', '7');
-INSERT INTO `device_7` VALUES ('40', '2017-04-24 5:29:37', '9', '20', '3', '23', '7');
-INSERT INTO `device_7` VALUES ('41', '2017-04-24 7:21:11', '4', '22', '1', '24', '7');
-INSERT INTO `device_7` VALUES ('42', '2017-04-24 2:39:28', '2', '21', '3', '22', '7');
-INSERT INTO `device_7` VALUES ('43', '2017-04-24 7:46:6', '10', '28', '2', '28', '7');
-INSERT INTO `device_7` VALUES ('44', '2017-04-24 4:51:40', '6', '26', '2', '22', '7');
-INSERT INTO `device_7` VALUES ('45', '2017-04-24 13:34:14', '2', '20', '2', '24', '7');
-INSERT INTO `device_7` VALUES ('46', '2017-04-24 10:9:32', '1', '22', '2', '23', '7');
-INSERT INTO `device_7` VALUES ('47', '2017-04-24 1:40:34', '5', '21', '1', '24', '7');
-INSERT INTO `device_7` VALUES ('48', '2017-04-24 9:20:13', '4', '20', '1', '25', '7');
-INSERT INTO `device_7` VALUES ('49', '2017-04-24 15:27:52', '5', '24', '3', '21', '7');
-INSERT INTO `device_7` VALUES ('50', '2017-04-24 16:10:32', '2', '21', '3', '27', '7');
-INSERT INTO `device_7` VALUES ('51', '2017-04-24 9:59:39', '10', '28', '3', '22', '7');
-INSERT INTO `device_7` VALUES ('52', '2017-04-24 7:12:51', '6', '21', '1', '21', '7');
-INSERT INTO `device_7` VALUES ('53', '2017-04-24 6:55:52', '5', '22', '3', '24', '7');
-INSERT INTO `device_7` VALUES ('54', '2017-04-24 23:38:48', '2', '21', '1', '28', '7');
-INSERT INTO `device_7` VALUES ('55', '2017-04-24 5:58:25', '3', '20', '1', '25', '7');
-INSERT INTO `device_7` VALUES ('56', '2017-04-24 16:47:17', '4', '22', '1', '27', '7');
-INSERT INTO `device_7` VALUES ('57', '2017-04-24 19:59:47', '5', '27', '2', '25', '7');
-INSERT INTO `device_7` VALUES ('58', '2017-04-24 8:34:55', '8', '24', '1', '28', '7');
-INSERT INTO `device_7` VALUES ('59', '2017-04-24 22:2:21', '8', '27', '3', '24', '7');
-INSERT INTO `device_7` VALUES ('60', '2017-04-24 20:12:43', '8', '24', '1', '24', '7');
-INSERT INTO `device_7` VALUES ('61', '2017-04-24 14:28:42', '7', '27', '2', '21', '7');
-INSERT INTO `device_7` VALUES ('62', '2017-04-24 20:23:35', '8', '24', '3', '25', '7');
-INSERT INTO `device_7` VALUES ('63', '2017-04-24 17:54:54', '2', '27', '1', '24', '7');
+INSERT INTO device_54004600 VALUES ('1', '2017-05-28 06:25:03', '54004600', '1_1495859418548', '1', '27.13', '60.29');
+INSERT INTO device_54004600 VALUES ('2', '2017-05-28 06:25:03', '54004600', '1_1495859418548', '1', '27.13', '60.29');
+INSERT INTO device_54004600 VALUES ('3', '2017-05-28 06:25:03', '54004600', '1_1495859418548', '1', '27.13', '60.29');
+INSERT INTO device_54004600 VALUES ('4', '2017-05-28 06:25:03', '54004600', '1_1495859418548', '1', '27.13', '60.29');
+INSERT INTO device_54004600 VALUES ('5', '2017-05-28 10:04:21', '54004600', '1_1495859418548', '1', '27.59', '65.18');
+INSERT INTO device_54004600 VALUES ('6', '2017-05-28 10:14:22', '54004600', '1_1495859418548', '1', '27.67', '65.57');
+INSERT INTO device_54004600 VALUES ('7', '2017-05-28 10:19:23', '54004600', '1_1495859418548', '1', '27.68', '65.53');
+INSERT INTO device_54004600 VALUES ('8', '2017-05-28 10:24:23', '54004600', '1_1495859418548', '1', '27.72', '65.33');
+INSERT INTO device_54004600 VALUES ('9', '2017-05-28 10:29:24', '54004600', '1_1495859418548', '1', '27.74', '66.01');
+INSERT INTO device_54004600 VALUES ('10', '2017-05-28 10:34:24', '54004600', '1_1495859418548', '1', '27.74', '66.27');
+INSERT INTO device_54004600 VALUES ('11', '2017-05-28 10:39:25', '54004600', '1_1495859418548', '1', '27.8', '66.1');
+INSERT INTO device_54004600 VALUES ('12', '2017-05-28 10:44:25', '54004600', '1_1495859418548', '1', '27.82', '66.04');
+INSERT INTO device_54004600 VALUES ('13', '2017-05-28 10:49:26', '54004600', '1_1495859418548', '1', '27.87', '65.8');
+INSERT INTO device_54004600 VALUES ('14', '2017-05-28 10:54:26', '54004600', '1_1495859418548', '1', '27.78', '65.8');
+INSERT INTO device_54004600 VALUES ('15', '2017-05-28 10:59:27', '54004600', '1_1495859418548', '1', '27.77', '65.71');
+INSERT INTO device_54004600 VALUES ('16', '2017-05-28 11:04:27', '54004600', '1_1495859418548', '1', '27.76', '65.41');
+INSERT INTO device_54004600 VALUES ('17', '2017-05-28 11:09:28', '54004600', '1_1495859418548', '1', '27.77', '65.53');
+INSERT INTO device_54004600 VALUES ('18', '2017-05-28 11:14:28', '54004600', '1_1495859418548', '1', '27.76', '65.63');
+INSERT INTO device_54004600 VALUES ('19', '2017-05-28 11:19:29', '54004600', '1_1495859418548', '1', '27.82', '65.74');
+INSERT INTO device_54004600 VALUES ('20', '2017-05-28 11:24:29', '54004600', '1_1495859418548', '1', '27.87', '65.6');
+INSERT INTO device_54004600 VALUES ('21', '2017-05-28 11:29:30', '54004600', '1_1495859418548', '1', '27.89', '65.89');
+INSERT INTO device_54004600 VALUES ('22', '2017-05-28 11:34:30', '54004600', '1_1495859418548', '1', '27.91', '66.21');
+INSERT INTO device_54004600 VALUES ('23', '2017-05-28 11:39:31', '54004600', '1_1495859418548', '1', '27.98', '66.21');
 
 -- ----------------------------
--- Table structure for device_8
+-- Table structure for `device_54004700`
 -- ----------------------------
-DROP TABLE IF EXISTS `device_8`;
-CREATE TABLE `device_8` (
+DROP TABLE IF EXISTS `device_54004700`;
+CREATE TABLE `device_54004700` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
-  `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float DEFAULT NULL,
+  `SN_NO` text,
+  `REPORT_NO` text,
   `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
   `HUMIDITY` float DEFAULT NULL,
-  `DEVICE_ID` text,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of device_8
+-- Records of device_54004700
 -- ----------------------------
-INSERT INTO `device_8` VALUES ('1', '2017-04-24 21:12:52', '3', '27', '1', '22', '8');
-INSERT INTO `device_8` VALUES ('2', '2017-04-24 8:49:59', '6', '25', '1', '25', '8');
-INSERT INTO `device_8` VALUES ('3', '2017-04-24 1:19:27', '8', '28', '1', '28', '8');
-INSERT INTO `device_8` VALUES ('4', '2017-04-24 13:34:21', '3', '22', '3', '20', '8');
-INSERT INTO `device_8` VALUES ('5', '2017-04-24 9:31:54', '9', '20', '1', '21', '8');
-INSERT INTO `device_8` VALUES ('6', '2017-04-24 21:17:2', '1', '24', '2', '28', '8');
-INSERT INTO `device_8` VALUES ('7', '2017-04-24 1:10:41', '7', '27', '2', '25', '8');
-INSERT INTO `device_8` VALUES ('8', '2017-04-24 8:9:11', '5', '25', '2', '22', '8');
-INSERT INTO `device_8` VALUES ('9', '2017-04-24 13:9:33', '8', '26', '2', '28', '8');
-INSERT INTO `device_8` VALUES ('10', '2017-04-24 20:44:49', '1', '21', '1', '27', '8');
-INSERT INTO `device_8` VALUES ('11', '2017-04-24 1:48:40', '4', '27', '3', '26', '8');
-INSERT INTO `device_8` VALUES ('12', '2017-04-24 15:26:25', '1', '27', '3', '27', '8');
-INSERT INTO `device_8` VALUES ('13', '2017-04-24 22:45:15', '5', '23', '1', '26', '8');
-INSERT INTO `device_8` VALUES ('14', '2017-04-24 3:11:28', '4', '26', '2', '27', '8');
-INSERT INTO `device_8` VALUES ('15', '2017-04-24 10:46:39', '9', '27', '1', '22', '8');
-INSERT INTO `device_8` VALUES ('16', '2017-04-24 9:34:13', '1', '20', '1', '21', '8');
-INSERT INTO `device_8` VALUES ('17', '2017-04-24 9:4:28', '1', '25', '2', '23', '8');
-INSERT INTO `device_8` VALUES ('18', '2017-04-24 9:40:22', '7', '22', '3', '21', '8');
-INSERT INTO `device_8` VALUES ('19', '2017-04-24 13:29:43', '10', '21', '2', '22', '8');
-INSERT INTO `device_8` VALUES ('20', '2017-04-24 17:35:35', '8', '24', '1', '23', '8');
-INSERT INTO `device_8` VALUES ('21', '2017-04-24 4:30:24', '5', '28', '1', '21', '8');
-INSERT INTO `device_8` VALUES ('22', '2017-04-24 11:39:54', '10', '20', '2', '20', '8');
-INSERT INTO `device_8` VALUES ('23', '2017-04-24 23:27:15', '5', '21', '3', '26', '8');
-INSERT INTO `device_8` VALUES ('24', '2017-04-24 16:16:58', '2', '25', '3', '22', '8');
-INSERT INTO `device_8` VALUES ('25', '2017-04-24 8:29:47', '9', '26', '2', '21', '8');
-INSERT INTO `device_8` VALUES ('26', '2017-04-24 8:36:40', '10', '24', '3', '28', '8');
-INSERT INTO `device_8` VALUES ('27', '2017-04-24 9:40:56', '10', '24', '3', '26', '8');
-INSERT INTO `device_8` VALUES ('28', '2017-04-24 17:16:25', '2', '21', '3', '20', '8');
-INSERT INTO `device_8` VALUES ('29', '2017-04-24 16:26:35', '6', '26', '3', '23', '8');
-INSERT INTO `device_8` VALUES ('30', '2017-04-24 21:15:51', '10', '25', '2', '20', '8');
-INSERT INTO `device_8` VALUES ('31', '2017-04-24 16:55:11', '2', '28', '2', '27', '8');
-INSERT INTO `device_8` VALUES ('32', '2017-04-24 17:30:32', '3', '24', '2', '24', '8');
-INSERT INTO `device_8` VALUES ('33', '2017-04-24 18:19:27', '10', '21', '1', '25', '8');
-INSERT INTO `device_8` VALUES ('34', '2017-04-24 23:6:2', '9', '23', '3', '28', '8');
-INSERT INTO `device_8` VALUES ('35', '2017-04-24 23:55:14', '7', '28', '3', '24', '8');
-INSERT INTO `device_8` VALUES ('36', '2017-04-24 21:7:47', '9', '24', '1', '24', '8');
-INSERT INTO `device_8` VALUES ('37', '2017-04-24 1:51:19', '1', '28', '2', '21', '8');
-INSERT INTO `device_8` VALUES ('38', '2017-04-24 14:2:23', '1', '20', '1', '22', '8');
-INSERT INTO `device_8` VALUES ('39', '2017-04-24 11:45:52', '5', '21', '2', '20', '8');
-INSERT INTO `device_8` VALUES ('40', '2017-04-24 9:42:9', '7', '26', '3', '24', '8');
-INSERT INTO `device_8` VALUES ('41', '2017-04-24 16:53:20', '7', '28', '3', '27', '8');
-INSERT INTO `device_8` VALUES ('42', '2017-04-24 15:6:40', '8', '22', '1', '24', '8');
-INSERT INTO `device_8` VALUES ('43', '2017-04-24 9:8:39', '10', '21', '3', '21', '8');
-INSERT INTO `device_8` VALUES ('44', '2017-04-24 6:20:34', '1', '21', '3', '26', '8');
-INSERT INTO `device_8` VALUES ('45', '2017-04-24 8:47:16', '3', '26', '1', '21', '8');
-INSERT INTO `device_8` VALUES ('46', '2017-04-24 6:59:35', '10', '24', '2', '22', '8');
-INSERT INTO `device_8` VALUES ('47', '2017-04-24 4:52:47', '7', '25', '2', '24', '8');
+INSERT INTO device_54004700 VALUES ('1', '2017-05-28 06:25:30', '54004700', '1_1495859418548', '1', '27.12', '60.14');
+INSERT INTO device_54004700 VALUES ('2', '2017-05-28 06:25:30', '54004700', '1_1495859418548', '1', '27.12', '60.14');
+INSERT INTO device_54004700 VALUES ('3', '2017-05-28 06:25:30', '54004700', '1_1495859418548', '1', '27.12', '60.14');
+INSERT INTO device_54004700 VALUES ('4', '2017-05-28 06:25:30', '54004700', '1_1495859418548', '1', '27.12', '60.14');
+INSERT INTO device_54004700 VALUES ('5', '2017-05-28 10:04:27', '54004700', '1_1495859418548', '1', '27.85', '66.07');
+INSERT INTO device_54004700 VALUES ('6', '2017-05-28 10:14:28', '54004700', '1_1495859418548', '1', '27.95', '65.98');
+INSERT INTO device_54004700 VALUES ('7', '2017-05-28 10:19:29', '54004700', '1_1495859418548', '1', '28.05', '66.01');
+INSERT INTO device_54004700 VALUES ('8', '2017-05-28 10:24:30', '54004700', '1_1495859418548', '1', '28.26', '66.69');
+INSERT INTO device_54004700 VALUES ('9', '2017-05-28 10:29:31', '54004700', '1_1495859418548', '1', '28.82', '56.37');
+INSERT INTO device_54004700 VALUES ('10', '2017-05-28 10:34:30', '54004700', '1_1495859418548', '1', '28.68', '56.14');
+INSERT INTO device_54004700 VALUES ('11', '2017-05-28 10:39:31', '54004700', '1_1495859418548', '1', '28.38', '67.55');
+INSERT INTO device_54004700 VALUES ('12', '2017-05-28 10:44:31', '54004700', '1_1495859418548', '1', '28.42', '67.66');
+INSERT INTO device_54004700 VALUES ('13', '2017-05-28 10:49:32', '54004700', '1_1495859418548', '1', '28.39', '67.52');
+INSERT INTO device_54004700 VALUES ('14', '2017-05-28 10:54:32', '54004700', '1_1495859418548', '1', '28.27', '67.28');
+INSERT INTO device_54004700 VALUES ('15', '2017-05-28 10:59:33', '54004700', '1_1495859418548', '1', '28.19', '66.9');
+INSERT INTO device_54004700 VALUES ('16', '2017-05-28 11:04:33', '54004700', '1_1495859418548', '1', '28.12', '66.46');
+INSERT INTO device_54004700 VALUES ('17', '2017-05-28 11:09:34', '54004700', '1_1495859418548', '1', '28.1', '66.51');
+INSERT INTO device_54004700 VALUES ('18', '2017-05-28 11:14:34', '54004700', '1_1495859418548', '1', '28.07', '66.45');
+INSERT INTO device_54004700 VALUES ('19', '2017-05-28 11:19:35', '54004700', '1_1495859418548', '1', '28.1', '66.48');
+INSERT INTO device_54004700 VALUES ('20', '2017-05-28 11:24:35', '54004700', '1_1495859418548', '1', '28.08', '65.86');
+INSERT INTO device_54004700 VALUES ('21', '2017-05-28 11:29:36', '54004700', '1_1495859418548', '1', '28.08', '65.89');
+INSERT INTO device_54004700 VALUES ('22', '2017-05-28 11:34:36', '54004700', '1_1495859418548', '1', '28.09', '66.69');
+INSERT INTO device_54004700 VALUES ('23', '2017-05-28 11:39:37', '54004700', '1_1495859418548', '1', '28.21', '66.43');
 
 -- ----------------------------
--- Table structure for device_9
+-- Table structure for `device_54004900`
 -- ----------------------------
-DROP TABLE IF EXISTS `device_9`;
-CREATE TABLE `device_9` (
+DROP TABLE IF EXISTS `device_54004900`;
+CREATE TABLE `device_54004900` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` text,
-  `VERIFY_REPORT_ID` text,
-  `TEMPERATURE` float DEFAULT NULL,
+  `SN_NO` text,
+  `REPORT_NO` text,
   `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
   `HUMIDITY` float DEFAULT NULL,
-  `DEVICE_ID` text,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of device_9
+-- Records of device_54004900
 -- ----------------------------
-INSERT INTO `device_9` VALUES ('1', '2017-04-24 7:40:19', '10', '21', '1', '28', '9');
-INSERT INTO `device_9` VALUES ('2', '2017-04-24 15:54:16', '4', '25', '1', '26', '9');
-INSERT INTO `device_9` VALUES ('3', '2017-04-24 5:33:43', '3', '27', '1', '23', '9');
-INSERT INTO `device_9` VALUES ('4', '2017-04-24 20:7:34', '10', '24', '3', '23', '9');
-INSERT INTO `device_9` VALUES ('5', '2017-04-24 19:8:3', '9', '23', '1', '26', '9');
-INSERT INTO `device_9` VALUES ('6', '2017-04-24 21:57:32', '10', '24', '3', '28', '9');
-INSERT INTO `device_9` VALUES ('7', '2017-04-24 10:18:33', '8', '26', '1', '26', '9');
-INSERT INTO `device_9` VALUES ('8', '2017-04-24 7:29:6', '4', '24', '3', '24', '9');
-INSERT INTO `device_9` VALUES ('9', '2017-04-24 12:22:20', '2', '28', '2', '20', '9');
-INSERT INTO `device_9` VALUES ('10', '2017-04-24 5:34:43', '5', '26', '1', '20', '9');
-INSERT INTO `device_9` VALUES ('11', '2017-04-24 15:37:1', '3', '25', '3', '20', '9');
-INSERT INTO `device_9` VALUES ('12', '2017-04-24 20:21:13', '2', '25', '1', '25', '9');
-INSERT INTO `device_9` VALUES ('13', '2017-04-24 2:32:12', '8', '22', '2', '27', '9');
-INSERT INTO `device_9` VALUES ('14', '2017-04-24 13:5:27', '2', '20', '1', '26', '9');
-INSERT INTO `device_9` VALUES ('15', '2017-04-24 18:35:41', '6', '26', '1', '28', '9');
-INSERT INTO `device_9` VALUES ('16', '2017-04-24 17:34:28', '8', '28', '3', '23', '9');
-INSERT INTO `device_9` VALUES ('17', '2017-04-24 12:13:38', '10', '21', '2', '21', '9');
-INSERT INTO `device_9` VALUES ('18', '2017-04-24 17:22:30', '5', '20', '2', '20', '9');
-INSERT INTO `device_9` VALUES ('19', '2017-04-24 23:24:1', '6', '23', '1', '25', '9');
-INSERT INTO `device_9` VALUES ('20', '2017-04-24 10:33:29', '6', '25', '1', '23', '9');
-INSERT INTO `device_9` VALUES ('21', '2017-04-24 19:29:28', '8', '26', '3', '28', '9');
-INSERT INTO `device_9` VALUES ('22', '2017-04-24 22:29:56', '3', '26', '1', '20', '9');
-INSERT INTO `device_9` VALUES ('23', '2017-04-24 3:4:36', '1', '22', '1', '24', '9');
-INSERT INTO `device_9` VALUES ('24', '2017-04-24 5:41:58', '4', '23', '2', '27', '9');
-INSERT INTO `device_9` VALUES ('25', '2017-04-24 13:19:29', '4', '21', '3', '25', '9');
-INSERT INTO `device_9` VALUES ('26', '2017-04-24 20:23:57', '9', '22', '2', '23', '9');
-INSERT INTO `device_9` VALUES ('27', '2017-04-24 22:26:38', '4', '27', '2', '20', '9');
-INSERT INTO `device_9` VALUES ('28', '2017-04-24 5:25:4', '8', '21', '2', '24', '9');
-INSERT INTO `device_9` VALUES ('29', '2017-04-24 6:45:5', '7', '28', '2', '27', '9');
-INSERT INTO `device_9` VALUES ('30', '2017-04-24 19:55:43', '5', '28', '3', '20', '9');
-INSERT INTO `device_9` VALUES ('31', '2017-04-24 2:3:47', '2', '25', '1', '24', '9');
-INSERT INTO `device_9` VALUES ('32', '2017-04-24 9:41:36', '10', '20', '2', '20', '9');
-INSERT INTO `device_9` VALUES ('33', '2017-04-24 10:51:16', '8', '21', '3', '23', '9');
-INSERT INTO `device_9` VALUES ('34', '2017-04-24 18:17:14', '9', '24', '2', '21', '9');
-INSERT INTO `device_9` VALUES ('35', '2017-04-24 11:32:18', '2', '21', '1', '23', '9');
-INSERT INTO `device_9` VALUES ('36', '2017-04-24 4:43:35', '8', '24', '2', '26', '9');
-INSERT INTO `device_9` VALUES ('37', '2017-04-24 14:29:11', '3', '21', '1', '27', '9');
-INSERT INTO `device_9` VALUES ('38', '2017-04-24 19:30:27', '7', '20', '1', '23', '9');
-INSERT INTO `device_9` VALUES ('39', '2017-04-24 4:37:4', '5', '20', '2', '22', '9');
-INSERT INTO `device_9` VALUES ('40', '2017-04-24 5:54:36', '5', '20', '3', '20', '9');
-INSERT INTO `device_9` VALUES ('41', '2017-04-24 5:8:58', '6', '25', '2', '25', '9');
-INSERT INTO `device_9` VALUES ('42', '2017-04-24 20:43:59', '5', '26', '3', '23', '9');
-INSERT INTO `device_9` VALUES ('43', '2017-04-24 9:55:44', '7', '22', '1', '21', '9');
-INSERT INTO `device_9` VALUES ('44', '2017-04-24 7:34:11', '3', '24', '1', '23', '9');
-INSERT INTO `device_9` VALUES ('45', '2017-04-24 21:55:26', '9', '27', '2', '23', '9');
-INSERT INTO `device_9` VALUES ('46', '2017-04-24 16:32:10', '1', '28', '1', '20', '9');
-INSERT INTO `device_9` VALUES ('47', '2017-04-24 9:56:56', '9', '26', '3', '23', '9');
-INSERT INTO `device_9` VALUES ('48', '2017-04-24 15:37:12', '9', '21', '2', '21', '9');
-INSERT INTO `device_9` VALUES ('49', '2017-04-24 9:23:51', '4', '26', '1', '22', '9');
-INSERT INTO `device_9` VALUES ('50', '2017-04-24 11:45:42', '8', '20', '2', '27', '9');
-INSERT INTO `device_9` VALUES ('51', '2017-04-24 17:12:59', '6', '26', '3', '26', '9');
-INSERT INTO `device_9` VALUES ('52', '2017-04-24 13:34:46', '9', '27', '2', '25', '9');
-INSERT INTO `device_9` VALUES ('53', '2017-04-24 22:58:38', '8', '28', '3', '21', '9');
-INSERT INTO `device_9` VALUES ('54', '2017-04-24 2:42:20', '2', '28', '1', '20', '9');
-INSERT INTO `device_9` VALUES ('55', '2017-04-24 18:15:48', '6', '21', '3', '22', '9');
-INSERT INTO `device_9` VALUES ('56', '2017-04-24 18:3:20', '8', '26', '1', '24', '9');
-INSERT INTO `device_9` VALUES ('57', '2017-04-24 4:17:45', '1', '26', '3', '20', '9');
-INSERT INTO `device_9` VALUES ('58', '2017-04-24 18:54:3', '10', '28', '1', '21', '9');
-INSERT INTO `device_9` VALUES ('59', '2017-04-24 6:14:15', '5', '22', '3', '20', '9');
-INSERT INTO `device_9` VALUES ('60', '2017-04-24 1:21:30', '7', '20', '2', '20', '9');
-INSERT INTO `device_9` VALUES ('61', '2017-04-24 18:59:42', '9', '25', '2', '27', '9');
-INSERT INTO `device_9` VALUES ('62', '2017-04-24 16:1:1', '10', '26', '1', '21', '9');
-INSERT INTO `device_9` VALUES ('63', '2017-04-24 2:28:55', '6', '28', '2', '26', '9');
-INSERT INTO `device_9` VALUES ('64', '2017-04-24 10:57:35', '2', '23', '1', '21', '9');
+INSERT INTO device_54004900 VALUES ('1', '2017-05-28 05:57:07', '54004900', '1_1495859418548', '1', '27.11', '60.64');
+INSERT INTO device_54004900 VALUES ('2', '2017-05-28 05:57:07', '54004900', '1_1495859418548', '1', '27.11', '60.64');
+INSERT INTO device_54004900 VALUES ('3', '2017-05-28 05:57:07', '54004900', '1_1495859418548', '1', '27.11', '60.64');
+INSERT INTO device_54004900 VALUES ('4', '2017-05-28 05:57:07', '54004900', '1_1495859418548', '1', '27.11', '60.64');
+INSERT INTO device_54004900 VALUES ('5', '2017-05-28 10:04:24', '54004900', '1_1495859418548', '1', '27.51', '65.28');
+INSERT INTO device_54004900 VALUES ('6', '2017-05-28 10:14:25', '54004900', '1_1495859418548', '1', '27.6', '65.66');
+INSERT INTO device_54004900 VALUES ('7', '2017-05-28 10:19:26', '54004900', '1_1495859418548', '1', '27.62', '65.6');
+INSERT INTO device_54004900 VALUES ('8', '2017-05-28 10:24:26', '54004900', '1_1495859418548', '1', '27.65', '65.42');
+INSERT INTO device_54004900 VALUES ('9', '2017-05-28 10:29:27', '54004900', '1_1495859418548', '1', '27.67', '66.07');
+INSERT INTO device_54004900 VALUES ('10', '2017-05-28 10:34:27', '54004900', '1_1495859418548', '1', '27.67', '66.24');
+INSERT INTO device_54004900 VALUES ('11', '2017-05-28 10:39:28', '54004900', '1_1495859418548', '1', '27.73', '66.13');
+INSERT INTO device_54004900 VALUES ('12', '2017-05-28 10:44:29', '54004900', '1_1495859418548', '1', '27.75', '66.04');
+INSERT INTO device_54004900 VALUES ('13', '2017-05-28 10:49:29', '54004900', '1_1495859418548', '1', '27.77', '65.89');
+INSERT INTO device_54004900 VALUES ('14', '2017-05-28 10:54:30', '54004900', '1_1495859418548', '1', '27.72', '65.92');
+INSERT INTO device_54004900 VALUES ('15', '2017-05-28 10:59:30', '54004900', '1_1495859418548', '1', '27.71', '65.77');
+INSERT INTO device_54004900 VALUES ('16', '2017-05-28 11:04:31', '54004900', '1_1495859418548', '1', '27.71', '65.53');
+INSERT INTO device_54004900 VALUES ('17', '2017-05-28 11:09:31', '54004900', '1_1495859418548', '1', '27.72', '65.53');
+INSERT INTO device_54004900 VALUES ('18', '2017-05-28 11:14:32', '54004900', '1_1495859418548', '1', '27.71', '65.72');
+INSERT INTO device_54004900 VALUES ('19', '2017-05-28 11:19:32', '54004900', '1_1495859418548', '1', '27.76', '65.8');
+INSERT INTO device_54004900 VALUES ('20', '2017-05-28 11:24:33', '54004900', '1_1495859418548', '1', '27.79', '65.68');
+INSERT INTO device_54004900 VALUES ('21', '2017-05-28 11:29:33', '54004900', '1_1495859418548', '1', '27.82', '65.8');
+INSERT INTO device_54004900 VALUES ('22', '2017-05-28 11:34:33', '54004900', '1_1495859418548', '1', '27.83', '66.21');
+INSERT INTO device_54004900 VALUES ('23', '2017-05-28 11:39:34', '54004900', '1_1495859418548', '1', '27.9', '66.18');
 
 -- ----------------------------
--- Table structure for host_info
+-- Table structure for `device_54004f00`
+-- ----------------------------
+DROP TABLE IF EXISTS `device_54004f00`;
+CREATE TABLE `device_54004f00` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `DATE` text,
+  `SN_NO` text,
+  `REPORT_NO` text,
+  `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of device_54004f00
+-- ----------------------------
+INSERT INTO device_54004f00 VALUES ('1', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('2', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('3', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('4', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('5', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('6', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('7', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('8', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('9', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('10', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('11', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('12', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('13', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('14', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('15', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('16', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('17', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('18', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('19', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('20', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('21', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('22', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+INSERT INTO device_54004f00 VALUES ('23', '2017-05-27 23:09:46', '54004F00', '1_1495859418548', '1', '28.05', '67.75');
+
+-- ----------------------------
+-- Table structure for `device_54005000`
+-- ----------------------------
+DROP TABLE IF EXISTS `device_54005000`;
+CREATE TABLE `device_54005000` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `DATE` text,
+  `SN_NO` text,
+  `REPORT_NO` text,
+  `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of device_54005000
+-- ----------------------------
+INSERT INTO device_54005000 VALUES ('1', '2017-05-28 05:56:51', '54005000', '1_1495859418548', '1', '27.07', '60.85');
+INSERT INTO device_54005000 VALUES ('2', '2017-05-28 05:56:51', '54005000', '1_1495859418548', '1', '27.07', '60.85');
+INSERT INTO device_54005000 VALUES ('3', '2017-05-28 05:56:51', '54005000', '1_1495859418548', '1', '27.07', '60.85');
+INSERT INTO device_54005000 VALUES ('4', '2017-05-28 05:56:51', '54005000', '1_1495859418548', '1', '27.07', '60.85');
+INSERT INTO device_54005000 VALUES ('5', '2017-05-28 10:04:09', '54005000', '1_1495859418548', '1', '27.63', '65.66');
+INSERT INTO device_54005000 VALUES ('6', '2017-05-28 10:14:10', '54005000', '1_1495859418548', '1', '27.7', '65.98');
+INSERT INTO device_54005000 VALUES ('7', '2017-05-28 10:19:11', '54005000', '1_1495859418548', '1', '27.74', '66.4');
+INSERT INTO device_54005000 VALUES ('8', '2017-05-28 10:24:11', '54005000', '1_1495859418548', '1', '27.8', '66.37');
+INSERT INTO device_54005000 VALUES ('9', '2017-05-28 10:29:12', '54005000', '1_1495859418548', '1', '27.82', '66.45');
+INSERT INTO device_54005000 VALUES ('10', '2017-05-28 10:34:13', '54005000', '1_1495859418548', '1', '27.81', '67.16');
+INSERT INTO device_54005000 VALUES ('11', '2017-05-28 10:39:13', '54005000', '1_1495859418548', '1', '27.9', '66.78');
+INSERT INTO device_54005000 VALUES ('12', '2017-05-28 10:44:14', '54005000', '1_1495859418548', '1', '27.93', '66.69');
+INSERT INTO device_54005000 VALUES ('13', '2017-05-28 10:49:14', '54005000', '1_1495859418548', '1', '27.91', '66.54');
+INSERT INTO device_54005000 VALUES ('14', '2017-05-28 10:54:15', '54005000', '1_1495859418548', '1', '27.87', '66.6');
+INSERT INTO device_54005000 VALUES ('15', '2017-05-28 10:59:15', '54005000', '1_1495859418548', '1', '27.82', '66.37');
+INSERT INTO device_54005000 VALUES ('16', '2017-05-28 11:04:16', '54005000', '1_1495859418548', '1', '27.8', '66.1');
+INSERT INTO device_54005000 VALUES ('17', '2017-05-28 11:09:16', '54005000', '1_1495859418548', '1', '27.8', '66.24');
+INSERT INTO device_54005000 VALUES ('18', '2017-05-28 11:14:17', '54005000', '1_1495859418548', '1', '27.8', '66.24');
+INSERT INTO device_54005000 VALUES ('19', '2017-05-28 11:19:17', '54005000', '1_1495859418548', '1', '27.83', '66.37');
+INSERT INTO device_54005000 VALUES ('20', '2017-05-28 11:24:18', '54005000', '1_1495859418548', '1', '27.88', '66.1');
+INSERT INTO device_54005000 VALUES ('21', '2017-05-28 11:29:18', '54005000', '1_1495859418548', '1', '27.91', '66.34');
+INSERT INTO device_54005000 VALUES ('22', '2017-05-28 11:34:18', '54005000', '1_1495859418548', '1', '27.94', '66.84');
+INSERT INTO device_54005000 VALUES ('23', '2017-05-28 11:39:19', '54005000', '1_1495859418548', '1', '28.02', '66.78');
+
+-- ----------------------------
+-- Table structure for `device_6a004300`
+-- ----------------------------
+DROP TABLE IF EXISTS `device_6a004300`;
+CREATE TABLE `device_6a004300` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `DATE` text,
+  `SN_NO` text,
+  `REPORT_NO` text,
+  `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of device_6a004300
+-- ----------------------------
+INSERT INTO device_6a004300 VALUES ('1', '2017-05-28 05:56:18', '6A004300', '1_1495859418548', '1', '27.06', '60.32');
+INSERT INTO device_6a004300 VALUES ('2', '2017-05-28 05:56:18', '6A004300', '1_1495859418548', '1', '27.06', '60.32');
+INSERT INTO device_6a004300 VALUES ('3', '2017-05-28 05:56:18', '6A004300', '1_1495859418548', '1', '27.06', '60.32');
+INSERT INTO device_6a004300 VALUES ('4', '2017-05-28 05:56:18', '6A004300', '1_1495859418548', '1', '27.06', '60.32');
+INSERT INTO device_6a004300 VALUES ('5', '2017-05-28 10:04:18', '6A004300', '1_1495859418548', '1', '27.52', '64.99');
+INSERT INTO device_6a004300 VALUES ('6', '2017-05-28 10:14:19', '6A004300', '1_1495859418548', '1', '27.59', '65.46');
+INSERT INTO device_6a004300 VALUES ('7', '2017-05-28 10:19:20', '6A004300', '1_1495859418548', '1', '27.62', '65.49');
+INSERT INTO device_6a004300 VALUES ('8', '2017-05-28 10:24:20', '6A004300', '1_1495859418548', '1', '27.66', '65.49');
+INSERT INTO device_6a004300 VALUES ('9', '2017-05-28 10:29:21', '6A004300', '1_1495859418548', '1', '27.68', '65.79');
+INSERT INTO device_6a004300 VALUES ('10', '2017-05-28 10:34:21', '6A004300', '1_1495859418548', '1', '27.67', '66.25');
+INSERT INTO device_6a004300 VALUES ('11', '2017-05-28 10:39:22', '6A004300', '1_1495859418548', '1', '27.75', '65.98');
+INSERT INTO device_6a004300 VALUES ('12', '2017-05-28 10:44:22', '6A004300', '1_1495859418548', '1', '27.76', '65.93');
+INSERT INTO device_6a004300 VALUES ('13', '2017-05-28 10:49:23', '6A004300', '1_1495859418548', '1', '27.77', '65.72');
+INSERT INTO device_6a004300 VALUES ('14', '2017-05-28 10:54:23', '6A004300', '1_1495859418548', '1', '27.72', '65.63');
+INSERT INTO device_6a004300 VALUES ('15', '2017-05-28 10:59:24', '6A004300', '1_1495859418548', '1', '27.7', '65.57');
+INSERT INTO device_6a004300 VALUES ('16', '2017-05-28 11:04:24', '6A004300', '1_1495859418548', '1', '27.68', '65.22');
+INSERT INTO device_6a004300 VALUES ('17', '2017-05-28 11:09:25', '6A004300', '1_1495859418548', '1', '27.68', '65.46');
+INSERT INTO device_6a004300 VALUES ('18', '2017-05-28 11:14:25', '6A004300', '1_1495859418548', '1', '27.68', '65.48');
+INSERT INTO device_6a004300 VALUES ('19', '2017-05-28 11:19:26', '6A004300', '1_1495859418548', '1', '27.74', '65.6');
+INSERT INTO device_6a004300 VALUES ('20', '2017-05-28 11:24:26', '6A004300', '1_1495859418548', '1', '27.78', '65.43');
+INSERT INTO device_6a004300 VALUES ('21', '2017-05-28 11:29:27', '6A004300', '1_1495859418548', '1', '27.8', '65.66');
+INSERT INTO device_6a004300 VALUES ('22', '2017-05-28 11:34:27', '6A004300', '1_1495859418548', '1', '27.82', '66.14');
+INSERT INTO device_6a004300 VALUES ('23', '2017-05-28 11:39:28', '6A004300', '1_1495859418548', '1', '27.91', '65.95');
+
+-- ----------------------------
+-- Table structure for `device_6b004d00`
+-- ----------------------------
+DROP TABLE IF EXISTS `device_6b004d00`;
+CREATE TABLE `device_6b004d00` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `DATE` text,
+  `SN_NO` text,
+  `REPORT_NO` text,
+  `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of device_6b004d00
+-- ----------------------------
+INSERT INTO device_6b004d00 VALUES ('1', '2017-05-28 06:25:36', '6B004D00', '1_1495859418548', '1', '27.03', '60.61');
+INSERT INTO device_6b004d00 VALUES ('2', '2017-05-28 06:25:36', '6B004D00', '1_1495859418548', '1', '27.03', '60.61');
+INSERT INTO device_6b004d00 VALUES ('3', '2017-05-28 06:25:36', '6B004D00', '1_1495859418548', '1', '27.03', '60.61');
+INSERT INTO device_6b004d00 VALUES ('4', '2017-05-28 06:25:36', '6B004D00', '1_1495859418548', '1', '27.03', '60.61');
+INSERT INTO device_6b004d00 VALUES ('5', '2017-05-28 10:04:36', '6B004D00', '1_1495859418548', '1', '27.55', '65.72');
+INSERT INTO device_6b004d00 VALUES ('6', '2017-05-28 10:14:38', '6B004D00', '1_1495859418548', '1', '27.64', '66.02');
+INSERT INTO device_6b004d00 VALUES ('7', '2017-05-28 10:19:38', '6B004D00', '1_1495859418548', '1', '27.66', '66.24');
+INSERT INTO device_6b004d00 VALUES ('8', '2017-05-28 10:24:39', '6B004D00', '1_1495859418548', '1', '27.71', '66.43');
+INSERT INTO device_6b004d00 VALUES ('9', '2017-05-28 10:29:39', '6B004D00', '1_1495859418548', '1', '27.73', '66.34');
+INSERT INTO device_6b004d00 VALUES ('10', '2017-05-28 10:34:40', '6B004D00', '1_1495859418548', '1', '27.71', '66.63');
+INSERT INTO device_6b004d00 VALUES ('11', '2017-05-28 10:39:40', '6B004D00', '1_1495859418548', '1', '27.78', '66.84');
+INSERT INTO device_6b004d00 VALUES ('12', '2017-05-28 10:44:41', '6B004D00', '1_1495859418548', '1', '27.81', '66.51');
+INSERT INTO device_6b004d00 VALUES ('13', '2017-05-28 10:49:40', '6B004D00', '1_1495859418548', '1', '27.82', '66.34');
+INSERT INTO device_6b004d00 VALUES ('14', '2017-05-28 10:54:41', '6B004D00', '1_1495859418548', '1', '27.74', '66.27');
+INSERT INTO device_6b004d00 VALUES ('15', '2017-05-28 10:59:41', '6B004D00', '1_1495859418548', '1', '27.72', '66.1');
+INSERT INTO device_6b004d00 VALUES ('16', '2017-05-28 11:04:42', '6B004D00', '1_1495859418548', '1', '27.71', '65.89');
+INSERT INTO device_6b004d00 VALUES ('17', '2017-05-28 11:09:42', '6B004D00', '1_1495859418548', '1', '27.72', '66.1');
+INSERT INTO device_6b004d00 VALUES ('18', '2017-05-28 11:14:43', '6B004D00', '1_1495859418548', '1', '27.71', '66.07');
+INSERT INTO device_6b004d00 VALUES ('19', '2017-05-28 11:19:43', '6B004D00', '1_1495859418548', '1', '27.75', '66.16');
+INSERT INTO device_6b004d00 VALUES ('20', '2017-05-28 11:24:44', '6B004D00', '1_1495859418548', '1', '27.8', '66.01');
+INSERT INTO device_6b004d00 VALUES ('21', '2017-05-28 11:29:44', '6B004D00', '1_1495859418548', '1', '27.85', '66.31');
+INSERT INTO device_6b004d00 VALUES ('22', '2017-05-28 11:34:45', '6B004D00', '1_1495859418548', '1', '27.85', '66.66');
+INSERT INTO device_6b004d00 VALUES ('23', '2017-05-28 11:39:45', '6B004D00', '1_1495859418548', '1', '27.94', '66.66');
+
+-- ----------------------------
+-- Table structure for `device_6b004f00`
+-- ----------------------------
+DROP TABLE IF EXISTS `device_6b004f00`;
+CREATE TABLE `device_6b004f00` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `DATE` text,
+  `SN_NO` text,
+  `REPORT_NO` text,
+  `STYLE` int(11) DEFAULT NULL,
+  `TEMPERATURE` float DEFAULT NULL,
+  `HUMIDITY` float DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of device_6b004f00
+-- ----------------------------
+INSERT INTO device_6b004f00 VALUES ('1', '2017-05-28 06:24:11', '6B004F00', '1_1495859418548', '1', '27.12', '60.74');
+INSERT INTO device_6b004f00 VALUES ('2', '2017-05-28 06:24:11', '6B004F00', '1_1495859418548', '1', '27.12', '60.74');
+INSERT INTO device_6b004f00 VALUES ('3', '2017-05-28 06:24:11', '6B004F00', '1_1495859418548', '1', '27.12', '60.74');
+INSERT INTO device_6b004f00 VALUES ('4', '2017-05-28 06:24:11', '6B004F00', '1_1495859418548', '1', '27.12', '60.74');
+INSERT INTO device_6b004f00 VALUES ('5', '2017-05-28 10:04:12', '6B004F00', '1_1495859418548', '1', '27.65', '65.58');
+INSERT INTO device_6b004f00 VALUES ('6', '2017-05-28 10:14:13', '6B004F00', '1_1495859418548', '1', '27.74', '65.9');
+INSERT INTO device_6b004f00 VALUES ('7', '2017-05-28 10:19:14', '6B004F00', '1_1495859418548', '1', '27.78', '66.28');
+INSERT INTO device_6b004f00 VALUES ('8', '2017-05-28 10:24:14', '6B004F00', '1_1495859418548', '1', '27.83', '66.14');
+INSERT INTO device_6b004f00 VALUES ('9', '2017-05-28 10:29:15', '6B004F00', '1_1495859418548', '1', '27.85', '66.44');
+INSERT INTO device_6b004f00 VALUES ('10', '2017-05-28 10:34:16', '6B004F00', '1_1495859418548', '1', '27.83', '67.02');
+INSERT INTO device_6b004f00 VALUES ('11', '2017-05-28 10:39:16', '6B004F00', '1_1495859418548', '1', '27.91', '66.79');
+INSERT INTO device_6b004f00 VALUES ('12', '2017-05-28 10:44:17', '6B004F00', '1_1495859418548', '1', '27.94', '66.58');
+INSERT INTO device_6b004f00 VALUES ('13', '2017-05-28 10:49:17', '6B004F00', '1_1495859418548', '1', '27.93', '66.47');
+INSERT INTO device_6b004f00 VALUES ('14', '2017-05-28 10:54:18', '6B004F00', '1_1495859418548', '1', '27.88', '66.4');
+INSERT INTO device_6b004f00 VALUES ('15', '2017-05-28 10:59:18', '6B004F00', '1_1495859418548', '1', '27.86', '66.23');
+INSERT INTO device_6b004f00 VALUES ('16', '2017-05-28 11:04:19', '6B004F00', '1_1495859418548', '1', '27.83', '65.96');
+INSERT INTO device_6b004f00 VALUES ('17', '2017-05-28 11:09:19', '6B004F00', '1_1495859418548', '1', '27.83', '66.11');
+INSERT INTO device_6b004f00 VALUES ('18', '2017-05-28 11:14:20', '6B004F00', '1_1495859418548', '1', '27.82', '66.17');
+INSERT INTO device_6b004f00 VALUES ('19', '2017-05-28 11:19:20', '6B004F00', '1_1495859418548', '1', '27.88', '66.28');
+INSERT INTO device_6b004f00 VALUES ('20', '2017-05-28 11:24:21', '6B004F00', '1_1495859418548', '1', '27.88', '64.89');
+INSERT INTO device_6b004f00 VALUES ('21', '2017-05-28 11:29:21', '6B004F00', '1_1495859418548', '1', '27.89', '65.28');
+INSERT INTO device_6b004f00 VALUES ('22', '2017-05-28 11:34:22', '6B004F00', '1_1495859418548', '1', '27.93', '65.98');
+INSERT INTO device_6b004f00 VALUES ('23', '2017-05-28 11:39:22', '6B004F00', '1_1495859418548', '1', '27.96', '65.54');
+
+-- ----------------------------
+-- Table structure for `host_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `host_info`;
 CREATE TABLE `host_info` (
@@ -1006,15 +878,16 @@ CREATE TABLE `host_info` (
   `REMARK` varchar(100) DEFAULT NULL,
   `STATUS` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of host_info
 -- ----------------------------
-INSERT INTO `host_info` VALUES ('1', '真的主机', 'TEST.HOST.1', 'SN-HOST-1', '2017-04-15 00:00:00', '.', '1');
+INSERT INTO host_info VALUES ('1', '真的主机', 'TEST.HOST.1', 'SN-HOST-1', '2017-04-15 00:00:00', '.', '1');
+INSERT INTO host_info VALUES ('2', '深圳测试主机', 'SZ_TEST.1', '00082267A660', '2017-05-27 00:00:00', '深圳测试使用', '1');
 
 -- ----------------------------
--- Table structure for insulation_can_info
+-- Table structure for `insulation_can_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `insulation_can_info`;
 CREATE TABLE `insulation_can_info` (
@@ -1044,10 +917,10 @@ CREATE TABLE `insulation_can_info` (
 -- ----------------------------
 -- Records of insulation_can_info
 -- ----------------------------
-INSERT INTO `insulation_can_info` VALUES ('1', '箱子', '1', '123', '900', null, null, null, '12', null, null, null, null, null, null, null, null, 'adsffadfa', null, '1');
+INSERT INTO insulation_can_info VALUES ('1', '箱子', '1', '123', '900', null, null, null, '12', null, null, null, null, null, null, null, null, 'adsffadfa', null, '1');
 
 -- ----------------------------
--- Table structure for personnel_duties_info
+-- Table structure for `personnel_duties_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `personnel_duties_info`;
 CREATE TABLE `personnel_duties_info` (
@@ -1063,11 +936,11 @@ CREATE TABLE `personnel_duties_info` (
 -- ----------------------------
 -- Records of personnel_duties_info
 -- ----------------------------
-INSERT INTO `personnel_duties_info` VALUES ('1', '黑海', '3', '1', null, '1');
-INSERT INTO `personnel_duties_info` VALUES ('6', 'dd', '3', '0', null, '1');
+INSERT INTO personnel_duties_info VALUES ('1', '黑海', '3', '1', null, '1');
+INSERT INTO personnel_duties_info VALUES ('6', 'dd', '3', '0', null, '1');
 
 -- ----------------------------
--- Table structure for personnel_post_info
+-- Table structure for `personnel_post_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `personnel_post_info`;
 CREATE TABLE `personnel_post_info` (
@@ -1083,13 +956,13 @@ CREATE TABLE `personnel_post_info` (
 -- ----------------------------
 -- Records of personnel_post_info
 -- ----------------------------
-INSERT INTO `personnel_post_info` VALUES ('1', '黑海', '1', '1', '1', '1');
-INSERT INTO `personnel_post_info` VALUES ('2', '红海', '2', '1', '1', '1');
-INSERT INTO `personnel_post_info` VALUES ('3', '率还', '3', '1', '1', '1');
-INSERT INTO `personnel_post_info` VALUES ('5', 'dddd', '3', '1', 'a', '1');
+INSERT INTO personnel_post_info VALUES ('1', '黑海', '1', '1', '1', '1');
+INSERT INTO personnel_post_info VALUES ('2', '红海', '2', '1', '1', '1');
+INSERT INTO personnel_post_info VALUES ('3', '率还', '3', '1', '1', '1');
+INSERT INTO personnel_post_info VALUES ('5', 'dddd', '3', '1', 'a', '1');
 
 -- ----------------------------
--- Table structure for point_info
+-- Table structure for `point_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `point_info`;
 CREATE TABLE `point_info` (
@@ -1103,18 +976,48 @@ CREATE TABLE `point_info` (
   `REMARK` varchar(100) DEFAULT NULL,
   `STATUS` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='point';
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COMMENT='point';
 
 -- ----------------------------
 -- Records of point_info
 -- ----------------------------
-INSERT INTO `point_info` VALUES ('5', '1001', 'SN-01', 'TEST.1', '自测', '911', '2017-04-15 20:29:14', '1001', '1');
-INSERT INTO `point_info` VALUES ('6', '1002', 'SN-02', 'TEST.1', '自测', '911', '2017-04-15 20:30:20', '1002', '1');
-INSERT INTO `point_info` VALUES ('7', '1003', 'SN-03', 'TEST.1', '自测', '911', '2017-05-05 15:33:21', '的', '1');
-INSERT INTO `point_info` VALUES ('8', '1004', 'SN-04', 'TEST.1', '自测', '911', '2017-05-05 16:26:39', null, '1');
+INSERT INTO point_info VALUES ('5', '1001', 'SN-01', 'TEST.1', '自测', '911', '2017-04-15 20:29:14', '1001', '1');
+INSERT INTO point_info VALUES ('6', '1002', 'SN-02', 'TEST.1', '自测', '911', '2017-04-15 20:30:20', '1002', '1');
+INSERT INTO point_info VALUES ('7', '1003', 'SN-03', 'TEST.1', '自测', '911', '2017-05-05 15:33:21', '的', '1');
+INSERT INTO point_info VALUES ('8', '1004', 'SN-04', 'TEST.1', '自测', '911', '2017-05-05 16:26:39', null, '1');
+INSERT INTO point_info VALUES ('9', '1', '34002B00', '1', '1', '1', '2017-05-27 12:21:25', null, '1');
+INSERT INTO point_info VALUES ('10', '2', '6B005100', '1', '1', '1', '2017-05-27 12:21:38', null, '1');
+INSERT INTO point_info VALUES ('11', '3', '54004A00', '1', '1', '1', '2017-05-27 12:21:53', null, '1');
+INSERT INTO point_info VALUES ('12', '4', '6A004600', '1', '1', '1', '2017-05-27 12:22:09', null, '1');
+INSERT INTO point_info VALUES ('13', '5', '54003E00', '1', '1', '1', '2017-05-27 12:22:24', null, '1');
+INSERT INTO point_info VALUES ('14', '6', '6B004C00', '1', '1', '1', '2017-05-27 12:22:37', null, '1');
+INSERT INTO point_info VALUES ('15', '7', '54003D00', '1', '1', '1', '2017-05-27 12:22:52', null, '1');
+INSERT INTO point_info VALUES ('16', '8', '6A004A00', '1', '1', '1', '2017-05-27 12:23:06', null, '1');
+INSERT INTO point_info VALUES ('17', '9', '54005200', '1', '1', '1', '2017-05-27 12:23:17', null, '1');
+INSERT INTO point_info VALUES ('18', '10', '6B004B00', '1', '1', '1', '2017-05-27 12:23:32', null, '1');
+INSERT INTO point_info VALUES ('19', '11', '54004400', '1', '1', '1', '2017-05-27 12:23:45', null, '1');
+INSERT INTO point_info VALUES ('20', '12', '34002E00', '1', '1', '1', '2017-05-27 12:23:55', null, '1');
+INSERT INTO point_info VALUES ('21', '13', '54004E00', '1', '1', '1', '2017-05-27 12:24:06', null, '1');
+INSERT INTO point_info VALUES ('22', '14', '54003C00', '1', '1', '1', '2017-05-27 12:24:18', null, '1');
+INSERT INTO point_info VALUES ('23', '15', '54004300', '1', '1', '1', '2017-05-27 12:24:36', null, '1');
+INSERT INTO point_info VALUES ('24', '16', '54004900', '1', '1', '1', '2017-05-27 12:24:49', null, '1');
+INSERT INTO point_info VALUES ('25', '17', '34003A00', '1', '1', '1', '2017-05-27 12:25:02', null, '1');
+INSERT INTO point_info VALUES ('26', '18', '6B004F00', '1', '1', '1', '2017-05-27 12:25:16', null, '1');
+INSERT INTO point_info VALUES ('27', '19', '54005000', '1', '1', '1', '2017-05-27 12:25:31', null, '1');
+INSERT INTO point_info VALUES ('28', '20', '54004700', '1', '1', '1', '2017-05-27 12:25:44', null, '1');
+INSERT INTO point_info VALUES ('29', '21', '34003100', '1', '1', '1', '2017-05-27 12:25:54', null, '1');
+INSERT INTO point_info VALUES ('30', '22', '34003300', '1', '1', '1', '2017-05-27 12:26:05', null, '1');
+INSERT INTO point_info VALUES ('31', '23', '34002900', '1', '1', '1', '2017-05-27 12:26:16', null, '1');
+INSERT INTO point_info VALUES ('32', '24', '54004C00', '1', '1', '1', '2017-05-27 12:26:26', null, '1');
+INSERT INTO point_info VALUES ('33', '25', '6B004D00', '1', '1', '1', '2017-05-27 12:26:40', null, '1');
+INSERT INTO point_info VALUES ('34', '26', '54004F00', '1', '1', '1', '2017-05-27 12:26:56', null, '1');
+INSERT INTO point_info VALUES ('35', '27', '34003000', '1', '1', '1', '2017-05-27 12:27:11', null, '1');
+INSERT INTO point_info VALUES ('36', '28', '34003600', '1', '1', '1', '2017-05-27 12:27:23', null, '1');
+INSERT INTO point_info VALUES ('37', '29', '6A004300', '1', '1', '1', '2017-05-27 12:27:35', null, '1');
+INSERT INTO point_info VALUES ('38', '30', '54004600', '1', '1', '1', '2017-05-27 12:27:48', null, '1');
 
 -- ----------------------------
--- Table structure for report_describe
+-- Table structure for `report_describe`
 -- ----------------------------
 DROP TABLE IF EXISTS `report_describe`;
 CREATE TABLE `report_describe` (
@@ -1140,10 +1043,10 @@ CREATE TABLE `report_describe` (
 -- ----------------------------
 -- Records of report_describe
 -- ----------------------------
-INSERT INTO `report_describe` VALUES ('jjkk123', '牛逼的东西', '21', '22', '33', '4555', '3', '2', '大公司', '20°C', '1', '1', '76', '11', '11', '112');
+INSERT INTO report_describe VALUES ('jjkk123', '牛逼的东西', '21', '22', '33', '4555', '3', '2', '大公司', '20°C', '1', '1', '76', '11', '11', '112');
 
 -- ----------------------------
--- Table structure for report_image_info
+-- Table structure for `report_image_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `report_image_info`;
 CREATE TABLE `report_image_info` (
@@ -1175,10 +1078,10 @@ CREATE TABLE `report_image_info` (
 -- ----------------------------
 -- Records of report_image_info
 -- ----------------------------
-INSERT INTO `report_image_info` VALUES ('1_1493045541961', null, null, null, '/cws/sds_file/1_1493045541961_2_1.png', '/cws/sds_file/1_1493045541961_2_2.png', '/cws/sds_file/1_1493045541961_2_3.png', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO report_image_info VALUES ('1_1493045541961', null, null, null, '/cws/sds_file/1_1493045541961_2_1.png', '/cws/sds_file/1_1493045541961_2_2.png', '/cws/sds_file/1_1493045541961_2_3.png', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
--- Table structure for report_info
+-- Table structure for `report_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `report_info`;
 CREATE TABLE `report_info` (
@@ -1201,10 +1104,11 @@ CREATE TABLE `report_info` (
 -- ----------------------------
 -- Records of report_info
 -- ----------------------------
-INSERT INTO `report_info` VALUES ('1_1493045541961', '1.0', '救济测试', '家里', '1', null, '阿苏大', '测试报告', '0', '1', '极高温验证', 'C:\\Users\\rioze\\Desktop\\《冷库》生成样例.word', '1');
+INSERT INTO report_info VALUES ('1_1493045541961', '1.0', '救济测试', '家里', '1', null, '阿苏大', '测试报告', '0', '1', '极高温验证', 'C:\\Users\\rioze\\Desktop\\《冷库》生成样例.word', '1');
+INSERT INTO report_info VALUES ('1_1495859418548', null, null, null, '2', null, null, '深圳冷库验证报告', '1', '1', '极高温验证', null, '0');
 
 -- ----------------------------
--- Table structure for report_worker
+-- Table structure for `report_worker`
 -- ----------------------------
 DROP TABLE IF EXISTS `report_worker`;
 CREATE TABLE `report_worker` (
@@ -1221,17 +1125,17 @@ CREATE TABLE `report_worker` (
 -- ----------------------------
 -- Records of report_worker
 -- ----------------------------
-INSERT INTO `report_worker` VALUES ('jjkk123', '奶子公司', '2', '0', '0', '0', '1');
-INSERT INTO `report_worker` VALUES ('jjkk123', '吕马三', '1', '射鸡师', '设计，还是设计，还能干什么', '1', '2');
-INSERT INTO `report_worker` VALUES ('jjkk123', '迟永四', '1', '爪哇师', '爪哇，专业爪哇', '4', '3');
-INSERT INTO `report_worker` VALUES ('jjkk123', '鸡子公司', '3', '0', '0', '0', '4');
-INSERT INTO `report_worker` VALUES ('jjkk123', '张二嘎', '1', '射鸡师', '设计，还是设计，还能干什么', '1', '5');
-INSERT INTO `report_worker` VALUES ('jjkk123', '张桑啊', '1', '射鸡师', '设计，还是设计，还能干什么', '1', '6');
-INSERT INTO `report_worker` VALUES ('jjkk123', '吕步三', '1', '爪哇师', '爪哇，专业爪哇', '4', '7');
-INSERT INTO `report_worker` VALUES ('jjkk123', '吕步思', '1', '爪哇师', '爪哇，专业爪哇', '4', '8');
+INSERT INTO report_worker VALUES ('jjkk123', '奶子公司', '2', '0', '0', '0', '1');
+INSERT INTO report_worker VALUES ('jjkk123', '吕马三', '1', '射鸡师', '设计，还是设计，还能干什么', '1', '2');
+INSERT INTO report_worker VALUES ('jjkk123', '迟永四', '1', '爪哇师', '爪哇，专业爪哇', '4', '3');
+INSERT INTO report_worker VALUES ('jjkk123', '鸡子公司', '3', '0', '0', '0', '4');
+INSERT INTO report_worker VALUES ('jjkk123', '张二嘎', '1', '射鸡师', '设计，还是设计，还能干什么', '1', '5');
+INSERT INTO report_worker VALUES ('jjkk123', '张桑啊', '1', '射鸡师', '设计，还是设计，还能干什么', '1', '6');
+INSERT INTO report_worker VALUES ('jjkk123', '吕步三', '1', '爪哇师', '爪哇，专业爪哇', '4', '7');
+INSERT INTO report_worker VALUES ('jjkk123', '吕步思', '1', '爪哇师', '爪哇，专业爪哇', '4', '8');
 
 -- ----------------------------
--- Table structure for validation_report_info
+-- Table structure for `validation_report_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `validation_report_info`;
 CREATE TABLE `validation_report_info` (
@@ -1251,7 +1155,7 @@ CREATE TABLE `validation_report_info` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for verify_info
+-- Table structure for `verify_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `verify_info`;
 CREATE TABLE `verify_info` (
@@ -1263,17 +1167,18 @@ CREATE TABLE `verify_info` (
   `REMARK` varchar(100) DEFAULT NULL,
   `STATUS` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8 COMMENT='验证对象表';
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8 COMMENT='验证对象表';
 
 -- ----------------------------
 -- Records of verify_info
 -- ----------------------------
-INSERT INTO `verify_info` VALUES ('99', '1', '冷库名称', '1', '2017-03-29 23:00:38', '测试2个', '1');
-INSERT INTO `verify_info` VALUES ('107', '5', '大汽车', '2', '2017-05-03 23:35:54', '2', '1');
-INSERT INTO `verify_info` VALUES ('108', '1', '箱子', '3', '2017-05-05 16:26:03', '的', '1');
+INSERT INTO verify_info VALUES ('99', '1', '冷库名称', '1', '2017-03-29 23:00:38', '测试2个', '1');
+INSERT INTO verify_info VALUES ('107', '5', '大汽车', '2', '2017-05-03 23:35:54', '2', '1');
+INSERT INTO verify_info VALUES ('108', '1', '箱子', '3', '2017-05-05 16:26:03', '的', '1');
+INSERT INTO verify_info VALUES ('109', '2', '深圳冷库测试', '1', '2017-05-27 12:29:55', null, '1');
 
 -- ----------------------------
--- Table structure for verify_point_rel
+-- Table structure for `verify_point_rel`
 -- ----------------------------
 DROP TABLE IF EXISTS `verify_point_rel`;
 CREATE TABLE `verify_point_rel` (
@@ -1288,12 +1193,42 @@ CREATE TABLE `verify_point_rel` (
   `REMARK` varchar(100) DEFAULT NULL,
   `STATUS` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='VERIFY是方涛起名的';
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COMMENT='VERIFY是方涛起名的';
 
 -- ----------------------------
 -- Records of verify_point_rel
 -- ----------------------------
-INSERT INTO `verify_point_rel` VALUES ('3', '1', '1', '6', 'SN-02', '2', '2', '2017-04-15 22:16:30', '3', '1');
-INSERT INTO `verify_point_rel` VALUES ('4', '1', '1', '5', 'SN-01', '1', '3', '2017-04-21 22:59:24', null, '1');
-INSERT INTO `verify_point_rel` VALUES ('5', '5', '2', '7', 'SN-03', '1', '5', '2017-05-05 15:33:39', null, '1');
-INSERT INTO `verify_point_rel` VALUES ('6', '1', '3', '8', 'SN-04', '1', '4', '2017-05-05 16:26:57', null, '1');
+INSERT INTO verify_point_rel VALUES ('3', '1', '1', '6', 'SN-02', '2', '2', '2017-04-15 22:16:30', '3', '1');
+INSERT INTO verify_point_rel VALUES ('4', '1', '1', '5', 'SN-01', '1', '3', '2017-04-21 22:59:24', null, '1');
+INSERT INTO verify_point_rel VALUES ('5', '5', '2', '7', 'SN-03', '1', '5', '2017-05-05 15:33:39', null, '1');
+INSERT INTO verify_point_rel VALUES ('6', '1', '3', '8', 'SN-04', '1', '4', '2017-05-05 16:26:57', null, '1');
+INSERT INTO verify_point_rel VALUES ('7', '2', '1', '9', '34002B00', '1', '1', '2017-05-27 12:34:12', null, '1');
+INSERT INTO verify_point_rel VALUES ('8', '2', '1', '10', '6B005100', '2', '2', '2017-05-27 12:34:23', null, '1');
+INSERT INTO verify_point_rel VALUES ('9', '2', '1', '11', '54004A00', '3', '3', '2017-05-27 12:34:32', null, '1');
+INSERT INTO verify_point_rel VALUES ('10', '2', '1', '12', '6A004600', '4', '4', '2017-05-27 12:35:05', null, '1');
+INSERT INTO verify_point_rel VALUES ('11', '2', '1', '13', '54003E00', '5', '1', '2017-05-27 12:35:51', null, '1');
+INSERT INTO verify_point_rel VALUES ('12', '2', '1', '14', '6B004C00', '6', '1', '2017-05-27 12:35:59', null, '1');
+INSERT INTO verify_point_rel VALUES ('13', '2', '1', '15', '54003D00', '7', '1', '2017-05-27 12:40:56', null, '1');
+INSERT INTO verify_point_rel VALUES ('14', '2', '1', '17', '54005200', '8', '1', '2017-05-27 12:41:04', null, '1');
+INSERT INTO verify_point_rel VALUES ('15', '2', '1', '18', '6B004B00', '9', '3', '2017-05-27 12:41:12', null, '1');
+INSERT INTO verify_point_rel VALUES ('16', '2', '1', '19', '54004400', '10', '1', '2017-05-27 12:41:19', null, '1');
+INSERT INTO verify_point_rel VALUES ('17', '2', '1', '16', '6A004A00', '11', '5', '2017-05-27 12:41:28', null, '1');
+INSERT INTO verify_point_rel VALUES ('18', '2', '1', '22', '54003C00', '12', '1', '2017-05-27 12:41:35', null, '1');
+INSERT INTO verify_point_rel VALUES ('19', '2', '1', '20', '34002E00', '13', '5', '2017-05-27 12:41:42', null, '1');
+INSERT INTO verify_point_rel VALUES ('20', '2', '1', '25', '34003A00', '14', '1', '2017-05-27 12:41:59', null, '1');
+INSERT INTO verify_point_rel VALUES ('21', '2', '1', '37', '6A004300', '15', '3', '2017-05-27 12:42:08', null, '1');
+INSERT INTO verify_point_rel VALUES ('22', '2', '1', '21', '54004E00', '16', '7', '2017-05-27 12:42:17', null, '1');
+INSERT INTO verify_point_rel VALUES ('23', '2', '1', '23', '54004300', '17', '6', '2017-05-27 12:42:35', null, '1');
+INSERT INTO verify_point_rel VALUES ('24', '2', '1', '24', '54004900', '18', '1', '2017-05-27 12:42:42', null, '1');
+INSERT INTO verify_point_rel VALUES ('25', '2', '1', '26', '6B004F00', '19', '2', '2017-05-27 12:42:50', null, '1');
+INSERT INTO verify_point_rel VALUES ('26', '2', '1', '27', '54005000', '20', '1', '2017-05-27 12:42:57', null, '1');
+INSERT INTO verify_point_rel VALUES ('27', '2', '1', '28', '54004700', '21', '6', '2017-05-27 12:43:05', null, '1');
+INSERT INTO verify_point_rel VALUES ('28', '2', '1', '30', '34003300', '22', '1', '2017-05-27 12:43:12', null, '1');
+INSERT INTO verify_point_rel VALUES ('29', '2', '1', '32', '54004C00', '23', '1', '2017-05-27 12:43:19', null, '1');
+INSERT INTO verify_point_rel VALUES ('30', '2', '1', '31', '34002900', '24', '3', '2017-05-27 12:43:26', null, '1');
+INSERT INTO verify_point_rel VALUES ('31', '2', '1', '33', '6B004D00', '25', '4', '2017-05-27 12:43:33', null, '1');
+INSERT INTO verify_point_rel VALUES ('32', '2', '1', '29', '34003100', '26', '4', '2017-05-27 12:43:46', null, '1');
+INSERT INTO verify_point_rel VALUES ('33', '2', '1', '34', '54004F00', '27', '1', '2017-05-27 12:43:53', null, '1');
+INSERT INTO verify_point_rel VALUES ('34', '2', '1', '36', '34003600', '28', '1', '2017-05-27 12:44:04', null, '1');
+INSERT INTO verify_point_rel VALUES ('35', '2', '1', '35', '34003000', '29', '2', '2017-05-27 12:44:12', null, '1');
+INSERT INTO verify_point_rel VALUES ('36', '2', '1', '38', '54004600', '30', '3', '2017-05-27 12:44:19', null, '1');
