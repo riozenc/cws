@@ -6,6 +6,7 @@
 	<script src="../miniUI/scripts/boot.js" type="text/javascript"></script>
 	<script src="../echarts/echarts.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="../resource/css/reportSeek.css">
+	<script type="text/javascript" src="../resource/script/miniui_register.js"></script>
 	<!--<link rel="stylesheet" type="text/css" href="../resource/css/miniUI_dataGrid.css">-->
 </head>
 <body>

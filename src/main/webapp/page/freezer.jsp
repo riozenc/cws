@@ -7,6 +7,7 @@
 	<!--<script src="../miniUI/fileupload/swfupload/swfupload.js" type="text/javascript"></script>-->
 	<link rel="stylesheet" type="text/css" href="../resource/css/freezer.css">
 	<link rel="stylesheet" type="text/css" href="../resource/css/miniUI_dataGrid.css">
+	<script type="text/javascript" src="../resource/script/miniui_register.js"></script>
 </head>
 <body>
 	<div id="mainCanvans">

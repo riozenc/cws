@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<script src="../miniUI/scripts/boot.js" type="text/javascript"></script>
+	<script type="text/javascript" src="../resource/script/miniui_register.js"></script>
 	<style type="text/css">
 		body{
 			padding: 0;

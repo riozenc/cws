@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript" src="../resource/script/miniui_register.js"></script>
 	<style type="text/css">
 		html{
 			width: 100%;
