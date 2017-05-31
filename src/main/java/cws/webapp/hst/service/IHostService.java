@@ -17,4 +17,5 @@ public interface IHostService extends BaseService<HostDomain>{
 
 	public List<HostDomain> findHostByCompany(HostDomain hostDomain);
 	
+	public HostDomain findHostBySn(HostDomain hostDomain);
 }

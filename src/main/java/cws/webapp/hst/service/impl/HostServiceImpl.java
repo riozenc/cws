@@ -72,4 +72,10 @@ public class HostServiceImpl implements IHostService {
 		return hostDAO.findHostByCompany(hostDomain);
 	}
 
+	@Override
+	public HostDomain findHostBySn(HostDomain hostDomain) {
+		// TODO Auto-generated method stub
+		return hostDAO.findHostBySn(hostDomain);
+	}
+
 }

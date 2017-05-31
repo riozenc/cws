@@ -53,8 +53,8 @@ public class HostDAO extends AbstractTransactionDAOSupport implements BaseDAO<Ho
 	public int insertHostCompanyRel(CompanyHostDomain hostCompanyDomain) {
 		return getPersistanceManager().insert(getNamespace() + ".insertHostCompanyRel", hostCompanyDomain);
 	}
-	
-	public int deleteHostCompanyRel(CompanyHostDomain hostCompanyDomain){
+
+	public int deleteHostCompanyRel(CompanyHostDomain hostCompanyDomain) {
 		return getPersistanceManager().delete(getNamespace() + ".deleteHostCompanyRel", hostCompanyDomain);
 	}
 
@@ -63,5 +63,9 @@ public class HostDAO extends AbstractTransactionDAOSupport implements BaseDAO<Ho
 		// TODO Auto-generated method stub
 		return getPersistanceManager().find(getNamespace() + ".findHostByCompany", t);
 	}
-	
+
+	public HostDomain findHostBySn(HostDomain hostDomain) {
+		return getPersistanceManager().load(getNamespace() + ".findHostBySn", hostDomain);
+	}
+
 }

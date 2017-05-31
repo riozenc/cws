@@ -149,6 +149,7 @@ public class ReportAction {
 				DeviceDomain deviceDomain = new DeviceDomain();
 				deviceDomain.setDeviceId(domain.getPointId() + "");
 				deviceDomain.setPointId(domain.getPointId());
+				deviceDomain.setPointSn(domain.getPointSn());
 				deviceDomain.setVerifyReportId(reportNo);
 				deviceDomain.setStyle(measureType == 0 ? null : measureType);
 				deviceDomains.add(deviceDomain);

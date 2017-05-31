@@ -78,11 +78,12 @@
 
 		</where>
 	</delete>
-	
+
 	<select id="getDeviceDate" parameterType="DeviceDomain"
 		resultType="DeviceDomain" useCache="true">
 		select ID,DATE,VERIFY_REPORT_ID,TEMPERATURE,HUMIDITY,STYLE,DEVICE_ID
-		from device_${pointId}
+		<!-- from device_${pointId} -->
+		from device_${pointSn}
 		<where>
 			<if test="id !=null">
 				and ID = #{id}
