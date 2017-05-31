@@ -317,7 +317,7 @@ $(document).ready(function(){
 		    url: "page/equipmentWin.jsp",
 		    title: "过期设备", 
 		    width: 890, 
-		    height: 530,
+		    height: 280,
 		    allowResize: true,
 		    onload: function () {
 		    },
