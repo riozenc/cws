@@ -11,7 +11,7 @@ import com.riozenc.quicktool.annotation.ReflectionIgnore;
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
 import com.riozenc.quicktool.mybatis.MybatisEntity;
 
-public class DeviceDomain implements MybatisEntity{
+public class DeviceDomain implements MybatisEntity {
 	@TablePrimaryKey
 	private Integer id;// `ID` int(11) NOT NULL auto_increment,
 	private String date;// `DATE` text,
@@ -20,7 +20,8 @@ public class DeviceDomain implements MybatisEntity{
 	private Double humidity;// `HUMIDITY` float default NULL,
 	private Integer style;// `STYLE` int(11) default NULL,
 	private String deviceId;// `DEVICE_ID` text,
-
+	@ReflectionIgnore
+	private String pointSn;
 	@ReflectionIgnore
 	private Integer pointId;//
 	@ReflectionIgnore
@@ -98,5 +99,12 @@ public class DeviceDomain implements MybatisEntity{
 		this.pointType = pointType;
 	}
 
-	
+	public String getPointSn() {
+		return pointSn;
+	}
+
+	public void setPointSn(String pointSn) {
+		this.pointSn = pointSn;
+	}
+
 }

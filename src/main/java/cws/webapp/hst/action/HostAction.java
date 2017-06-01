@@ -35,6 +35,9 @@ public class HostAction extends BaseAction {
 	@ResponseBody
 	@RequestMapping(params = "type=insert")
 	public String insert(HostDomain hostDomain, @RequestParam(name = "enterpriseId") int companyId) {
+		if (hostService.findHostBySn(hostDomain) != null) {
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "重复的Sn号."));
+		}
 		hostDomain.setCompanyId(companyId);
 		hostDomain.setStatus(1);
 		int i = hostService.insert(hostDomain);

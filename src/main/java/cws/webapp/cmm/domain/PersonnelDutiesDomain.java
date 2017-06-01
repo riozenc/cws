@@ -9,7 +9,7 @@ package cws.webapp.cmm.domain;
 
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
 import com.riozenc.quicktool.mybatis.MybatisEntity;
-import com.riozenc.quicktool.mybatis.persistence.Page;
+import cws.common.mybatis.plus.Page;
 
 /**
  * PERSONNEL_DUTIES_INFO

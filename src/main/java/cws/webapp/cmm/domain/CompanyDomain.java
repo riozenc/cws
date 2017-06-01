@@ -11,7 +11,8 @@ import java.util.Date;
 
 import com.riozenc.quicktool.annotation.TablePrimaryKey;
 import com.riozenc.quicktool.mybatis.MybatisEntity;
-import com.riozenc.quicktool.mybatis.persistence.Page;
+
+import cws.common.mybatis.plus.Page;
 
 /**
  * 企业

@@ -149,6 +149,7 @@ public class ReportAction {
 				DeviceDomain deviceDomain = new DeviceDomain();
 				deviceDomain.setDeviceId(domain.getPointId() + "");
 				deviceDomain.setPointId(domain.getPointId());
+				deviceDomain.setPointSn(domain.getPointSn());
 				deviceDomain.setVerifyReportId(reportNo);
 				deviceDomain.setStyle(measureType == 0 ? null : measureType);
 				deviceDomains.add(deviceDomain);
@@ -164,10 +165,14 @@ public class ReportAction {
 
 		for (int i = 0; i < dataSize; i++) {
 			maps[i] = new HashMap<String, String>();
-			List<DeviceDomain> list = deviceService.getDeviceDate(deviceDomains.get(i));// 日期排序
-			for (DeviceDomain temp : list) {
-				x.add(temp.getDate());
-				maps[i].put(temp.getDate(), temp.getTemperature().toString());
+			try {
+				List<DeviceDomain> list = deviceService.getDeviceDate(deviceDomains.get(i));// 日期排序
+				for (DeviceDomain temp : list) {
+					x.add(temp.getDate());
+					maps[i].put(temp.getDate(), temp.getTemperature().toString());
+				}
+			} catch (Exception e) {
+				//可能出现 表不存在的异常，跳过继续查询
 			}
 		}
 

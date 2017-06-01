@@ -36,8 +36,10 @@
 			</if>
 		</where>
 	</select>
-	<insert id="insert" parameterType="HostDomain" flushCache="true" useGeneratedKeys="true" keyProperty="id">
-		insert into HOST_INFO(ID,NAME,TYPES,SN_NO,CREATE_DATE,REMARK,STATUS)
+	<insert id="insert" parameterType="HostDomain" flushCache="true"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into
+		HOST_INFO(ID,NAME,TYPES,SN_NO,CREATE_DATE,REMARK,STATUS)
 		values
 		(#{id},#{name},#{types},#{snNo},#{createDate},#{remark},#{status})
 	</insert>
@@ -102,5 +104,13 @@
 			and HOST_ID = #{hostId}
 		</where>
 	</delete>
-	
+
+	<select id="findHostBySn" parameterType="HostDomain" resultType="HostDomain"
+		useCache="true">
+		select ID,NAME,TYPES,SN_NO,CREATE_DATE,REMARK,STATUS from HOST_INFO
+		<where>
+			and SN_NO = #{snNo}
+		</where>
+	</select>
+
 </mapper>
