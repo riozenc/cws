@@ -30,12 +30,12 @@
 			                        </a>            
 			                    </td>
 			                    <td style="white-space:nowrap;">
-			                        <!--<input id="key" class="mini-textbox" emptyText="请输入企业名称" 
+			                        <input id="key" class="mini-textbox" emptyText="请输入企业名称" 
 			                        	style="width:250px;" onenter="onKeyEnter"/>   
 			                        <a class="mini-button" onclick="search()" 
 			                        	style="background:#FFF;border-color: #BBB;">
 			                        	查询
-			                        </a>-->
+			                        </a>
 			                    </td>
 			                </tr>
 			            </table>           

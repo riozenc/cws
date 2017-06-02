@@ -11,7 +11,8 @@ $(document).ready(function(){
 	                    + '<a href="javascript:del(\'' + e.record.id + '\')">删除</a>&nbsp; ';
 	    }
 	});
-	grid.load();
+	var companyName = mini.get("key").getValue();
+	grid.load({companyName:companyName});
 });
 //键入回车查询
 function onKeyEnter(){
@@ -35,7 +36,8 @@ function addRow(){
 	    },
 	    ondestroy: function (action) {
 	    	if(action===true){
-	    		grid.reload();
+	    		var companyName = mini.get("key").getValue();
+	    		grid.load({companyName:companyName});
 	    	}  
 	    }
 	});
@@ -98,7 +100,8 @@ function edit(recodeID){
 	    },
 	    ondestroy: function (action) {
 	        if(action===true){
-	    		grid.reload();
+	        	var companyName = mini.get("key").getValue();
+	        	grid.load({companyName:companyName});
 	    	} 
 	    }
 	});
@@ -128,7 +131,8 @@ function del(recode){
             		dataType : 'json',
                     success: function (text) {
                     	alert(text.message);
-                        grid.reload();
+                    	var companyName = mini.get("key").getValue();
+                    	grid.load({companyName:companyName});
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                     	alert(jqXHR.responseText);
