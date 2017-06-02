@@ -155,11 +155,14 @@
 					    <div id="datagrid2" class="mini-datagrid" style="width:100%;height:218px;" pageIndexField="pageCurrent"
 					    	url="../personnelDuties.do?type=findPersonnelDutiesByCompany" pageSize="20" allowCellEdit="false" allowCellSelect="true" multiSelect="false" idField="id">
 					        <div property="columns">          
-					            <div type="comboboxcolumn" name="name" field="name" width="80" headerAlign="center" 
-					            	autoShowPopup="true">姓名
-									<input property="editor" class="mini-combobox" style="width:100%;" 
-										valueField="value" textField="name" data="dutyNameDrop"/>
-								</div>
+<!-- 					            <div type="comboboxcolumn" name="name" field="name" width="80" headerAlign="center"  -->
+<!-- 					            	autoShowPopup="true">姓名 -->
+<!-- 									<input property="editor" class="mini-combobox" style="width:100%;"  -->
+<!-- 										valueField="value" textField="name" data="dutyNameDrop"/> -->
+<!-- 								</div> -->
+<div field="name" width="80" headerAlign="center" allowSort="false">姓名
+					                <input property="editor" class="mini-textbox" style="width:200px;" minWidth="80" />
+					            </div>
 					            <div type="comboboxcolumn" name="duty" field="dutiesId" width="150" headerAlign="center" 
 					            	autoShowPopup="true">验证职责
 									<input property="editor" class="mini-combobox" style="width:100%;" 
