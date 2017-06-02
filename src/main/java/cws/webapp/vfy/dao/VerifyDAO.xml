@@ -115,7 +115,7 @@
 		delete from company_verify_rel
 		<where>
 			and COMPANY_ID = #{companyId}
-			and VERIFY_ID = #{verifyId}
+			and VERIFY_ID = #{id}
 		</where>
 	</delete>
 </mapper>
