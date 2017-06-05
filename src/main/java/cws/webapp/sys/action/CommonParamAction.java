@@ -77,16 +77,16 @@ public class CommonParamAction extends BaseAction {
 		String[] ss = rootPath.split("/");
 		StringBuffer sb = new StringBuffer();
 
-		//开头是/所以从1开始.路径class的位置,需要向上3层到项目路径
+		// 开头是/所以从1开始.路径class的位置,需要向上3层到项目路径
 		for (int i = 1; i < ss.length - 3; i++) {
 			sb.append(ss[i]).append("/");
 		}
 
 		sb.deleteCharAt(sb.length() - 1);
 		MAP.get("PATH_TYPE").get("TOMCAT_PATH").setValue(sb.toString());
-		
+
 		CommonParamDomain commonParamDomain = new CommonParamDomain();
-		
+
 		commonParamDomain.setId(MAP.get("PATH_TYPE").get("TOMCAT_PATH").getId());
 		commonParamDomain.setType("PATH_TYPE");
 		commonParamDomain.setName("TOMCAT_PATH");
@@ -151,7 +151,7 @@ public class CommonParamAction extends BaseAction {
 		// 项目部署的路径
 		// String path =
 		// httpServletRequest.getSession().getServletContext().getRealPath("/");
-		String path = MAP.get("PATH_TYPE").get("TOMCAT_PATH").getValue();
+		String path = MAP.get("PATH_TYPE").get("TOMCAT_PATH").getValue() + File.separator + "cws";
 
 		File dic = new File(path + Global.getConfig("file.doc.path"));
 		if (!dic.exists()) {
@@ -190,7 +190,7 @@ public class CommonParamAction extends BaseAction {
 		// 项目部署的路径
 		// String path =
 		// httpServletRequest.getSession().getServletContext().getRealPath("/");
-		String path = MAP.get("PATH_TYPE").get("TOMCAT_PATH").getValue();
+		String path = MAP.get("PATH_TYPE").get("TOMCAT_PATH").getValue() + File.separator + "cws";
 
 		try {
 			File file = FileUtil.uploadPictureByBase64(base64data, path + Global.getConfig("file.doc.path"),
