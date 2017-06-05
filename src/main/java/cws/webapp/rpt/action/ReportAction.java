@@ -317,8 +317,8 @@ public class ReportAction {
 
 			// process.destroy();
 
-			String path = exePath.substring(0,exePath.lastIndexOf("/")) + reportDomain.getReportNo() + ".doc";
-			System.out.println(path);
+			String path = exePath.substring(0,exePath.lastIndexOf("/"))+File.separator + reportDomain.getReportNo() + ".doc";
+			reportDomain.setReportPath(path);
 			reportDomain.setReportStatus(1);
 			reportService.update(reportDomain);// 更新
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
@@ -338,7 +338,7 @@ public class ReportAction {
 
 	}
 
-	@ResponseBody
+	
 	@RequestMapping(params = "type=download")
 	public void download(ReportDomain reportDomain, HttpServletResponse httpServletResponse) throws IOException {
 		reportDomain = reportService.findByKey(reportDomain);
@@ -347,13 +347,13 @@ public class ReportAction {
 			httpServletResponse.getWriter().print("文件丢失..");
 			httpServletResponse.getWriter().flush();
 			httpServletResponse.getWriter().close();
+			return;
 		}
 
 		File file = new File(reportDomain.getReportPath());
+		httpServletResponse.setContentType("application/force-download");// 设置强制下载不打开
+		httpServletResponse.addHeader("Content-Disposition","attachment;fileName=" + new String(file.getName()));// 设置文件名
 
-		httpServletResponse.setHeader("Content-Disposition",
-				"attachment;filename=\"" + new String(file.getName().getBytes(), "ISO8859-1") + "\"");
-		httpServletResponse.setContentLength((int) file.length());
 		byte[] buffer = new byte[4096];// 缓冲区
 		BufferedOutputStream output = null;
 		BufferedInputStream input = null;
@@ -362,7 +362,7 @@ public class ReportAction {
 			input = new BufferedInputStream(new FileInputStream(file));
 			int n = -1;
 			// 遍历，开始下载
-			while ((n = input.read(buffer, 0, 4096)) > -1) {
+			while ((n = input.read(buffer)) > -1) {
 				output.write(buffer, 0, n);
 			}
 			output.flush(); // 不可少

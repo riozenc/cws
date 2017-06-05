@@ -92,7 +92,7 @@
 				TEMPERATURE = #{temperature},
 			</if>
 			<if test="reportPath != null">
-				REPORT_PATH = #{reportPath}
+				REPORT_PATH = #{reportPath},
 			</if>
 			<if test="reportStatus !=null">
 				REPORT_STATUS = #{reportStatus},

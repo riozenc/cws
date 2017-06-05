@@ -1,0 +1,7 @@
+<db>
+	<id>root</id>
+	<pass>1234</pass>
+	<dsn>cws</dsn>
+	<ip>127.0.0.1</ip>
+	<port>3306</port>
+</db>
