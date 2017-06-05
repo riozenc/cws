@@ -172,7 +172,7 @@ public class ReportAction {
 					maps[i].put(temp.getDate(), temp.getTemperature().toString());
 				}
 			} catch (Exception e) {
-				//可能出现 表不存在的异常，跳过继续查询
+				// 可能出现 表不存在的异常，跳过继续查询
 			}
 		}
 
@@ -260,7 +260,7 @@ public class ReportAction {
 		reportImageDomain.setReportNo(reportDomain.getReportNo());
 
 		// 全部
-		reportImageDomain.setAll(request.getParameter("imagePath_0_0"));
+		reportImageDomain.setAllAll(request.getParameter("imagePath_0_0"));
 		reportImageDomain.setDd(request.getParameter("imagePath_0_1"));
 		reportImageDomain.setKm(request.getParameter("imagePath_0_2"));
 		reportImageDomain.setHj(request.getParameter("imagePath_0_3"));
@@ -307,16 +307,17 @@ public class ReportAction {
 
 		String exePath = Global.getConfig("exe.path");
 
+		Process process = null;
 		try {
 
-			Process process = Runtime.getRuntime().exec(exePath + " /c %" + reportDomain.getReportNo() + "%"
+			process = Runtime.getRuntime().exec(exePath + "  %" + reportDomain.getReportNo() + "%"
 					+ reportDomain.getReportNo() + ".doc%" + reportDomain.getVerifyObject());
 
 			int i = process.waitFor();
 
 			// process.destroy();
 
-			String path = exePath.substring(exePath.lastIndexOf("/")) + reportDomain.getReportNo() + ".doc";
+			String path = exePath.substring(0,exePath.lastIndexOf("/")) + reportDomain.getReportNo() + ".doc";
 			System.out.println(path);
 			reportDomain.setReportStatus(1);
 			reportService.update(reportDomain);// 更新
@@ -329,6 +330,10 @@ public class ReportAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
+		} finally {
+			if (process != null) {
+				process.destroy();
+			}
 		}
 
 	}

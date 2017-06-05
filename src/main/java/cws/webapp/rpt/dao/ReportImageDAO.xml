@@ -4,7 +4,7 @@
 	<select id="findByKey" parameterType="ReportImageDomain"
 		resultType="ReportImageDomain" useCache="true">
 		select
-		REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,JYX_ALL,FJ_DD,FJ_KM,FJ_HJ,FJ_ALL,CRK_DD,CRK_KM,CRK_HJ,CRK_ALL,SJ_DD,SJ_KM,SJ_HJ,SJ_ALL,HUOJIA_DD,HUOJIA_KM,HUOJIA_HJ,HUOJIA_ALL,WSD_DD,WSD_KM,WSD_HJ,WSD_ALL,HUANJING_DD,HUANJING_KM,HUANJING_HJ,HUANJING_ALL,DD,KM,HJ,ALL
+		REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,JYX_ALL,FJ_DD,FJ_KM,FJ_HJ,FJ_ALL,CRK_DD,CRK_KM,CRK_HJ,CRK_ALL,SJ_DD,SJ_KM,SJ_HJ,SJ_ALL,HUOJIA_DD,HUOJIA_KM,HUOJIA_HJ,HUOJIA_ALL,WSD_DD,WSD_KM,WSD_HJ,WSD_ALL,HUANJING_DD,HUANJING_KM,HUANJING_HJ,HUANJING_ALL,DD,KM,HJ,ALL_ALL
 		from REPORT_IMAGE_INFO
 		<where>
 			and REPORT_NO = #{reportNo}
@@ -14,7 +14,7 @@
 	<select id="findByWhere" parameterType="ReportImageDomain"
 		resultType="ReportImageDomain" useCache="true">
 		select
-		REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,JYX_ALL,FJ_DD,FJ_KM,FJ_HJ,FJ_ALL,CRK_DD,CRK_KM,CRK_HJ,CRK_ALL,SJ_DD,SJ_KM,SJ_HJ,SJ_ALL,HUOJIA_DD,HUOJIA_KM,HUOJIA_HJ,HUOJIA_ALL,WSD_DD,WSD_KM,WSD_HJ,WSD_ALL,HUANJING_DD,HUANJING_KM,HUANJING_HJ,HUANJING_ALL,DD,KM,HJ,ALL
+		REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,JYX_ALL,FJ_DD,FJ_KM,FJ_HJ,FJ_ALL,CRK_DD,CRK_KM,CRK_HJ,CRK_ALL,SJ_DD,SJ_KM,SJ_HJ,SJ_ALL,HUOJIA_DD,HUOJIA_KM,HUOJIA_HJ,HUOJIA_ALL,WSD_DD,WSD_KM,WSD_HJ,WSD_ALL,HUANJING_DD,HUANJING_KM,HUANJING_HJ,HUANJING_ALL,DD,KM,HJ,ALL_ALL
 		from REPORT_IMAGE_INFO
 		<where>
 			<if test="reportNo !=null">
@@ -113,17 +113,17 @@
 			<if test="hj !=null">
 				and HJ = #{hj}
 			</if>
-			<if test="all !=null">
-				and ALL = #{all}
+			<if test="allAll !=null">
+				and ALL_ALL = #{allAll}
 			</if>
 		</where>
 	</select>
 	<insert id="insert" parameterType="ReportImageDomain"
 		flushCache="true">
 		insert into
-		REPORT_IMAGE_INFO(REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,JYX_ALL,FJ_DD,FJ_KM,FJ_HJ,FJ_ALL,CRK_DD,CRK_KM,CRK_HJ,CRK_ALL,SJ_DD,SJ_KM,SJ_HJ,SJ_ALL,HUOJIA_DD,HUOJIA_KM,HUOJIA_HJ,HUOJIA_ALL,WSD_DD,WSD_KM,WSD_HJ,WSD_ALL,HUANJING_DD,HUANJING_KM,HUANJING_HJ,HUANJING_ALL,DD,KM,HJ,ALL)
+		REPORT_IMAGE_INFO(REPORT_NO,JYX_DD,JYX_KM,JYX_HJ,JYX_ALL,FJ_DD,FJ_KM,FJ_HJ,FJ_ALL,CRK_DD,CRK_KM,CRK_HJ,CRK_ALL,SJ_DD,SJ_KM,SJ_HJ,SJ_ALL,HUOJIA_DD,HUOJIA_KM,HUOJIA_HJ,HUOJIA_ALL,WSD_DD,WSD_KM,WSD_HJ,WSD_ALL,HUANJING_DD,HUANJING_KM,HUANJING_HJ,HUANJING_ALL,DD,KM,HJ,ALL_ALL)
 		values
-		(#{reportNo},#{jyxDd},#{jyxKm},#{jyxHj},#{jyxAll},#{fjDd},#{fjKm},#{fjHj},#{fjAll},#{crkDd},#{crkKm},#{crkHj},#{crkAll},#{sjDd},#{sjKm},#{sjHj},#{sjAll},#{huojiaDd},#{huojiaKm},#{huojiaHj},#{huojiaAll},#{wsdDd},#{wsdKm},#{wsdHj},#{wsdAll},#{huanjingDd},#{huanjingKm},#{huanjingHj},#{huanjingAll},#{dd},#{km},#{hj},#{all})
+		(#{reportNo},#{jyxDd},#{jyxKm},#{jyxHj},#{jyxAll},#{fjDd},#{fjKm},#{fjHj},#{fjAll},#{crkDd},#{crkKm},#{crkHj},#{crkAll},#{sjDd},#{sjKm},#{sjHj},#{sjAll},#{huojiaDd},#{huojiaKm},#{huojiaHj},#{huojiaAll},#{wsdDd},#{wsdKm},#{wsdHj},#{wsdAll},#{huanjingDd},#{huanjingKm},#{huanjingHj},#{huanjingAll},#{dd},#{km},#{hj},#{allAll})
 	</insert>
 	<update id="update" parameterType="ReportImageDomain"
 		flushCache="true">
@@ -222,8 +222,8 @@
 			<if test="hj !=null">
 				HJ = #{hj},
 			</if>
-			<if test="all !=null">
-				ALL = #{all},
+			<if test="allAll !=null">
+				ALL_ALL = #{allAll},
 			</if>
 		</set>
 		<where>

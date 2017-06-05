@@ -19,7 +19,8 @@
 				and ID = #{id}
 			</if>
 			<if test="name !=null">
-				and NAME = #{name}
+				and NAME like '%${name}%'
+				
 			</if>
 			<if test="linkman !=null">
 				and LINKMAN = #{linkman}

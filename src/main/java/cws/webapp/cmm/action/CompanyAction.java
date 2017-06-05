@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.riozenc.quicktool.common.util.json.JSONUtil;
@@ -53,6 +54,32 @@ public class CompanyAction extends BaseAction {
 	@ResponseBody
 	@RequestMapping(params = "type=delete")
 	public String delete(CompanyDomain companyDomain) {
+
+		companyDomain = companyService.findByKey(companyDomain);
+
+		// 获取企业相关测点总数
+		List<PointDomain> pointdomaians = companyService.getPointByCompany(companyDomain);
+
+		if (pointdomaians.size() > 0) {
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "该企业关联的测点未清理,无法删除!."));
+		}
+
+		// 获取企业相关主机总数
+		List<HostDomain> hostDomains = companyService.getHostByCompany(companyDomain);
+
+		if (hostDomains.size() > 0) {
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "该企业关联的主机未清理,无法删除!."));
+		}
+		// 获取企业相关验证对象
+		List<VerifyDomain> verifyDomains = companyService.getVerifyByCompany(companyDomain);
+		if (verifyDomains.size() > 0) {
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "该企业关联的验证对象未清理,无法删除!."));
+		}
+		// 获取企业相关验证报告
+		List<ReportDomain> reportDomains = companyService.getReportByCompany(companyDomain);
+		if (reportDomains.size() > 0) {
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "该企业关联的验证报告未清理,无法删除!."));
+		}
 		int i = companyService.delete(companyDomain);
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
@@ -81,7 +108,8 @@ public class CompanyAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=findCompanyByWhere")
-	public String findCompanyByWhere(CompanyDomain companyDomain) {
+	public String findCompanyByWhere(CompanyDomain companyDomain, String companyName) {
+		companyDomain.setName(companyName);
 		companyDomain.setStatus(1);
 		List<CompanyDomain> list = companyService.findByWhere(companyDomain);
 		return JSONUtil.toJsonString(new JsonGrid(companyDomain, list));

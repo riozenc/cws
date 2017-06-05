@@ -51,7 +51,7 @@ public class ReportImageDomain implements MybatisEntity {
 	private String dd;//
 	private String km;//
 	private String hj;//
-	private String all;//
+	private String allAll;//
 
 	public String getReportNo() {
 		return reportNo;
@@ -309,12 +309,12 @@ public class ReportImageDomain implements MybatisEntity {
 		this.hj = hj;
 	}
 
-	public String getAll() {
-		return all;
+	public String getAllAll() {
+		return allAll;
 	}
 
-	public void setAll(String all) {
-		this.all = all;
+	public void setAllAll(String allAll) {
+		this.allAll = allAll;
 	}
 
 }
