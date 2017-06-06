@@ -188,7 +188,12 @@ function download(recordId){
 	form.attr("target","");
 	form.attr("method","post");
 	form.attr("action","../report.do?type=download");
+	var input1=$("<input>");
+	input1.attr("type","hidden");
+	input1.attr("name","reportNo");
+	input1.attr("value",recordId);
 	$("body").append(form);
+	form.append(input1);
 	form.submit();
 	form.remove();
 }
