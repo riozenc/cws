@@ -158,7 +158,9 @@ public class CommonParamAction extends BaseAction {
 			dic.mkdirs();
 		}
 
-		File dest = new File(path + Global.getConfig("file.doc.path") + File.separator + file.getOriginalFilename());
+		String fileName = httpServletRequest.getParameter("enterpriseId") + "_" + System.currentTimeMillis() + "."
+				+ file.getContentType().substring(file.getContentType().indexOf("/") + 1);
+		File dest = new File(path + Global.getConfig("file.doc.path") + File.separator + fileName);
 
 		try {
 			if (!dest.exists()) {
@@ -167,8 +169,8 @@ public class CommonParamAction extends BaseAction {
 
 			file.transferTo(dest);
 
-			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS,
-					Global.getConfig("file.doc.path") + "/" + file.getOriginalFilename()));
+			return JSONUtil.toJsonString(
+					new JsonResult(JsonResult.SUCCESS, Global.getConfig("file.doc.path") + "/" + fileName));
 		} catch (
 
 		IllegalStateException e) {
