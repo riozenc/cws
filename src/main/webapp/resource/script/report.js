@@ -171,18 +171,31 @@ function del(recodeID){
 
 //下载
 function download(recordId){
-	$.ajax({
-		url : '../report.do?type=download',
-		data : {reportNo:recordId},
-		dataType : "json",
-		type : "get",
-		success : function(data) {
-			alert(data.message);
-		},
-		error : function(e) {
-			mini.alert("请求数据失败！status："+e.status);
-		}
-	});
+//	$.ajax({
+//		url : '../report.do?type=download',
+//		data : {reportNo:recordId},
+//		dataType : "json",
+//		type : "get",
+//		success : function(data) {
+//			alert(data.message);
+//		},
+//		error : function(e) {
+//			mini.alert("请求数据失败！status："+e.status);
+//		}
+//	});
+	var form=$("<form>");
+	form.attr("style","display:none");
+	form.attr("target","");
+	form.attr("method","post");
+	form.attr("action","../report.do?type=download");
+	var input1=$("<input>");
+	input1.attr("type","hidden");
+	input1.attr("name","reportNo");
+	input1.attr("value",recordId);
+	$("body").append(form);
+	form.append(input1);
+	form.submit();
+	form.remove();
 }
 //查看
 function seek(recordId,object,temperature){
