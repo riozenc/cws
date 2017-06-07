@@ -311,17 +311,23 @@ public class ReportAction {
 		try {
 
 			process = Runtime.getRuntime().exec(exePath + "  %" + reportDomain.getReportNo() + "%"
-					+ reportDomain.getReportNo() + ".doc%" + reportDomain.getVerifyObject());
+					+ reportDomain.getReportNo() + ".doc%" + reportDomain.getReportType());
 
 			int i = process.waitFor();
 
-			// process.destroy();
+			if (i == 1) {
+				// 成功
+				String path = exePath.substring(0, exePath.lastIndexOf("/")) + File.separator
+						+ reportDomain.getReportNo() + ".doc";
+				reportDomain.setReportPath(path);
+				reportDomain.setReportStatus(1);
+				reportService.update(reportDomain);// 更新
+				return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
+			}
 
-			String path = exePath.substring(0,exePath.lastIndexOf("/"))+File.separator + reportDomain.getReportNo() + ".doc";
-			reportDomain.setReportPath(path);
-			reportDomain.setReportStatus(1);
-			reportService.update(reportDomain);// 更新
-			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
+			// process.destroy();
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "失败."));
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -338,7 +344,6 @@ public class ReportAction {
 
 	}
 
-	
 	@RequestMapping(params = "type=download")
 	public void download(ReportDomain reportDomain, HttpServletResponse httpServletResponse) throws IOException {
 		reportDomain = reportService.findByKey(reportDomain);
@@ -351,8 +356,16 @@ public class ReportAction {
 		}
 
 		File file = new File(reportDomain.getReportPath());
+
+		if (!file.exists()) {
+			httpServletResponse.getWriter().print("文件丢失..");
+			httpServletResponse.getWriter().flush();
+			httpServletResponse.getWriter().close();
+			return;
+		}
+
 		httpServletResponse.setContentType("application/force-download");// 设置强制下载不打开
-		httpServletResponse.addHeader("Content-Disposition","attachment;fileName=" + new String(file.getName()));// 设置文件名
+		httpServletResponse.addHeader("Content-Disposition", "attachment;fileName=" + new String(file.getName()));// 设置文件名
 
 		byte[] buffer = new byte[4096];// 缓冲区
 		BufferedOutputStream output = null;
