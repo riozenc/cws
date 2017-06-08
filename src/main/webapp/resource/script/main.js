@@ -326,4 +326,8 @@ $(document).ready(function(){
 		    }
 		});
 	});
+	
+	//页面初始化展示企业列表
+	$("#listFirst1").trigger("click");
+	enterprise_list.trigger('click');
 });
