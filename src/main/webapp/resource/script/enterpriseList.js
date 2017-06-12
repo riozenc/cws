@@ -13,6 +13,10 @@ $(document).ready(function(){
 	});
 	var companyName = mini.get("key").getValue();
 	grid.load({companyName:companyName});
+	//防止浏览器点击后退查询条件出现1
+	setTimeout(function(){
+		$(".mini-textbox-input").val("");
+	}, 100);
 });
 //键入回车查询
 function onKeyEnter(){

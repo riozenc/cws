@@ -63,6 +63,10 @@ $(document).ready(function(){
 			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
+	
+	setTimeout(function(){
+		$(".mini-textbox-input").val("");
+	}, 100);
 });
 
 //键入回车查询
