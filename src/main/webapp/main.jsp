@@ -86,6 +86,8 @@
 	    <div id="mainSplit_right" style="border: 0 solid #000;">
 	        <div class="mini-splitter" vertical="true" style="width:100%;height:100%;" handlerSize="0" allowResize="false">
 			    <div size="50" id="rightSplit_top" style="border: 0 solid #000;">
+			    	<div id="enterpriseNameDiv">
+			    	</div>
 			        <!--<div id="topMenu">			        	
 			        </div> 
 			        <div id="topSetting">			        	
@@ -94,6 +96,7 @@
 			        	<!--<div id="userImage">
 			        	</div>-->
 			        	<div id="userName">
+			        		Guide-tech
 			        		<!--main.js中通过ajax读取数据如下,使用时必须部署到服务器下-->
 			        		<!--Alexander Pierce-->
 			        	</div>

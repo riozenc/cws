@@ -6,7 +6,7 @@ $(document).ready(function(){
 		//operate列，超连接操作按钮
 	    if (e.column.name == "operate") {
 	        e.cellStyle = "text-align:center";
-	        e.cellHtml = '<a href="javascript:seek(\'' + e.record.id + '\')">查看</a>&nbsp; '
+	        e.cellHtml = '<a href="javascript:seek(\'' + e.record.id + '\',\''+ e.record.name +'\')">查看</a>&nbsp; '
 	                    + '<a href="javascript:edit(\'' + e.record.id + '\')">编辑</a>&nbsp; '
 	                    + '<a href="javascript:del(\'' + e.record.id + '\')">删除</a>&nbsp; ';
 	    }
@@ -43,9 +43,12 @@ function addRow(){
 	});
 }
 //查看
-function seek(recode){
-	//切换菜单
+function seek(recode,enterpriseName){
 	var win=window.parent;
+	//头部信息修改
+	var $enterpriseName=$(win.document.getElementById("enterpriseNameDiv"));
+	$enterpriseName.text(enterpriseName);
+	//切换菜单
 	var $menuCan=$(win.document.getElementById("bottomSplit_top"));
 	var $allMenu=$($menuCan[0].children);	
 	$allMenu.each(function(index){

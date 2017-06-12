@@ -103,6 +103,7 @@ $(document).ready(function(){
 	切换选中菜单颜色
 	*/
 	function switchMenuColor(e){
+		$("#enterpriseNameDiv").text("");
 		var id=e.currentTarget.id;
 		var listCanvans=e.currentTarget.parentNode.parentNode.parentNode;
 		for(var i=0;i<listCanvans.children.length;i++){
@@ -255,6 +256,7 @@ $(document).ready(function(){
 	*/
 	var $return_button=$("#return_button");
 	$return_button.click(function(e){
+		$("#enterpriseNameDiv").text("");
 		var $preMenu=$("#enterprise_list_detail_menu_can");
 		var $curMenu=$("#enterprise_list_menu_can");
 		$preMenu.css('display', 'none');
@@ -293,7 +295,7 @@ $(document).ready(function(){
 	});
 
 	//读取用户信息
-	$.ajax({
+	/*$.ajax({
 		url : "resource/data/userInfo.txt",
 		data : {},
 		dataType : "json",
@@ -301,15 +303,15 @@ $(document).ready(function(){
 		success : function(e){
 			var $userName=$("#userName");
 			$userName.text(e.name);
-			/*var $userImage=$("#userImage");
+			var $userImage=$("#userImage");
 			$userImage.css('background-image', 'url('+e.imageUrl+')');
 			$userImage.css('background-size', '100%');
-			$userImage.css('background-repeat', 'no-repeat');*/
+			$userImage.css('background-repeat', 'no-repeat');
 		},
 		error : function(e){
 			alert("请求数据失败！status："+e.status);
 		}
-	});
+	});*/
 	
 	//后台获取设备
 	$("#topNotice").click(function(){
