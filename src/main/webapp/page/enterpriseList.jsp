@@ -44,20 +44,26 @@
 			    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:92%;min-height:359px;" pageIndexField="pageCurrent" 
 			    	url="../company.do?type=findCompanyByWhere" pageSize="20" allowCellEdit="false" allowCellSelect="true" multiSelect="false" >
 			        <div property="columns">
-			            <div field="id" headerAlign="center" allowSort="true" width="80">序号
-			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="80" />
+			            <div field="id" headerAlign="center" allowSort="true" width="40">序号
+			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="40" />
 			            </div>           
 			            <div field="name" width="200" headerAlign="center" allowSort="false">企业名称
-			                <input property="editor" class="mini-textarea" style="width:200px;" minWidth="200" 
+			                <input property="editor" class="mini-textarea" style="width:200px;" minWidth="150" 
 			                	minHeight="50"/>
+			            </div>
+			            <div field="contact" headerAlign="center" align="left" allowSort="false" width="80" >联系人
+			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="60" />
 			            </div>
 			            <div field="phone" headerAlign="center" allowSort="false" width="100" 
 			            	cellStyle="text-align:center">电话
 			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="100" />
 			            </div>
 			            <div field="address" width="200" headerAlign="center" allowSort="false">地址
-			                <input property="editor" class="mini-textarea" style="width:200px;" minWidth="200" 
+			                <input property="editor" class="mini-textarea" style="width:200px;" minWidth="150" 
 			                	minHeight="50"/>
+			            </div>
+			            <div field="remark" headerAlign="center" align="left" allowSort="false" width="120">备注
+			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="80" />
 			            </div>
 			            <div name="operate" headerAlign="center" allowSort="false" width="80">操作
 			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="80" />
