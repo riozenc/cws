@@ -14,6 +14,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -32,6 +33,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.riozenc.quicktool.common.util.StringUtils;
+import com.riozenc.quicktool.common.util.date.DateUtil;
 import com.riozenc.quicktool.common.util.json.JSONUtil;
 import com.riozenc.quicktool.config.Global;
 
@@ -69,10 +71,10 @@ public class ReportAction {
 		reportDomain.setCompanyId(companyId);
 		reportDomain.setReportStatus(0);
 		// 初始化
-		reportDomain.setReportNo(reportDomain.getReportType() + "_" + System.currentTimeMillis());
-		// reportDomain.setReportVersion("1.0");
-
-		// ({"type":["insert"],"id":[""],"enterpriseId":["1"],"name":["123"],"object":["55"],"propertyType":["01"],"temperatureType":["01"],"remark":["000"]})
+		reportDomain.setReportNo("GD-" + DateUtil.getYYYYMMDD(new Date()).substring(2) + "0"
+				+ reportDomain.getReportType() + "-" + Math.round(Math.random() * 1000));
+		reportDomain.setReportVersion("1.0.0");
+		reportDomain.setCreateDate(new Date());
 
 		int i = reportService.insert(reportDomain);
 		if (i > 0) {
