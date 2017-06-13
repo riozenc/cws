@@ -51,7 +51,7 @@
 			                <input property="editor" class="mini-textarea" style="width:200px;" minWidth="150" 
 			                	minHeight="50"/>
 			            </div>
-			            <div field="contact" headerAlign="center" align="left" allowSort="false" width="80" >联系人
+			            <div field="linkman" headerAlign="center" align="left" allowSort="false" width="80" >联系人
 			                <input property="editor" class="mini-textbox" style="width:100%;" minWidth="60" />
 			            </div>
 			            <div field="phone" headerAlign="center" allowSort="false" width="100" 
