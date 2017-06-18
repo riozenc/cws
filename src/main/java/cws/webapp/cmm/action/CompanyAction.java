@@ -149,7 +149,7 @@ public class CompanyAction extends BaseAction {
 		companyDomain = companyService.findByKey(companyDomain);
 		Map<String, String> map = new HashMap<>();
 		map.put("companyNameLeft", companyDomain.getName());
-		map.put("companyNameRight", "山东贝格新能源技术有限公司");
+		map.put("companyNameRight", "山东贵德信息科技有限公司");
 		return JSONUtil.toJsonString(map);
 	}
 }

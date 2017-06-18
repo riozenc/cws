@@ -185,7 +185,7 @@
 			        		Copyright©2014-2017
 			        	</div>
 			        	<div id="companyInfo">
-			        		&nbsp;山东贝格新能源技术有限公司
+			        		&nbsp;山东贵德信息科技有限公司
 			        	</div>
 			        	<div id="descriptionInfo">
 			        		. All rights reserved
