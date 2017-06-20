@@ -282,7 +282,7 @@
 										</td>
 										<td class="baseInfo_cellTitle">型号</td>
 										<td class="baseInfo_cellValue" colspan="2">
-											<input name="model" class="mini-textbox context3_input" allowInput="false" />
+											<input name="types" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 									</tr>
 									<tr>
@@ -300,11 +300,11 @@
 									<tr>
 										<td class="baseInfo_cellTitle">外部尺寸</td>
 										<td class="baseInfo_cellValue" colspan="2">
-											<input name="outsideSize" class="mini-textbox context3_input" allowInput="false" />
+											<input name="outSize" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 										<td class="baseInfo_cellTitle">内部尺寸</td>
 										<td class="baseInfo_cellValue" colspan="2">
-											<input name="insideSize" class="mini-textbox context3_input" allowInput="false" />
+											<input name="inSize" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 									</tr>
 									<tr>
@@ -314,41 +314,41 @@
 										</td>
 										<td class="baseInfo_cellTitle">壁厚</td>
 										<td class="baseInfo_cellValue" colspan="2">
-											<input name="wallThickness" class="mini-textbox context3_input" allowInput="false" />
+											<input name="thickness" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 									</tr>
 									<tr>
 										<td class="baseInfo_cellTitle">外部材料</td>
 										<td class="baseInfo_cellValue" colspan="2">
-											<input name="outsideMaterial" class="mini-textbox context3_input" allowInput="false" />
+											<input name="outMaterial" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 										<td class="baseInfo_cellTitle">内部材料</td>
 										<td class="baseInfo_cellValue" colspan="2">
-											<input name="insideMaterial" class="mini-textbox context3_input" allowInput="false" />
+											<input name="inMaterial" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 									</tr>
 									<tr>
 										<td class="baseInfo_cellTitle">蓄冷剂品牌</td>
 										<td class="baseInfo_cellValue_d">
-											<input name="coldLogo" class="mini-textbox context3_input" allowInput="false" />
+											<input name="cryogenBrand" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 										<td class="baseInfo_cellTitle">型号</td>
 										<td class="baseInfo_cellValue">
-											<input name="coldModel" class="mini-textbox context3_input" allowInput="false" />
+											<input name="cryogenTypes" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 										<td class="baseInfo_cellTitle">数量</td>
 										<td class="baseInfo_cellValue">
-											<input name="coldQuantity" class="mini-textbox context3_input" allowInput="false" />
+											<input name="cryogenCount" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 									</tr>
 									<tr>
 										<td class="baseInfo_cellTitle">监控系统探头</td>
 										<td class="baseInfo_cellValue_d">
-											<input name="monitor" class="mini-textbox context3_input" allowInput="false" />
+											<input name="probeNum" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 										<td class="baseInfo_cellTitle">厂家</td>
 										<td class="baseInfo_cellValue" colspan="3">
-											<input name="manufacturer" class="mini-textbox context3_input" allowInput="false" />
+											<input name="manufactor" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 									</tr>
 								</tbody>
