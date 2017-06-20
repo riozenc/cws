@@ -174,7 +174,7 @@
 
 	<select id="findPointByReport" parameterType="ReportDomain"
 		resultType="PointDomain" useCache="true">
-		SELECT c.* FROM report_info a LEFT JOIN verify_point_rel b ON
+		SELECT c.* FROM report_info a RIGHT JOIN verify_point_rel b ON
 		a.VERIFY_OBJECT = b.VERIFY_ID AND a.REPORT_TYPE = b.VERIFY_TYPE LEFT
 		JOIN point_info c ON b.POINT_ID = c.ID
 		<where>
