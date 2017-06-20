@@ -129,7 +129,7 @@
 		b.*
 		FROM
 		report_info a
-		LEFT JOIN verify_point_rel b ON
+		RIGHT JOIN verify_point_rel b ON
 		a.VERIFY_OBJECT = b.VERIFY_ID
 		AND a.REPORT_TYPE = b.VERIFY_TYPE
 		<where>
