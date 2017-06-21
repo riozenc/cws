@@ -496,6 +496,12 @@ $(document).ready(function(){
 	//生成报告按钮
 	var $download=$("#download");
 	$download.click(function(event) {
+		//等待提示蒙版
+		mini.mask({
+            el: document.body,
+            cls: 'mini-mask-loading',
+            html: '正在生成，请等待...'
+        });
 		//存储所有表单数据
 		var allFormData={};
 		//获取第一步表单数据
@@ -544,7 +550,11 @@ $(document).ready(function(){
             data: allFormData,
             dataType : 'json',
             success: function (success) {
+            	//隐藏模板
+            	mini.unmask(document.body);
             	if(success.statusCode==200){
+            		//成功跳转到列表页面
+            		$returnButton.trigger("click");
                     alert(success.message);
                 }else{
                 	alert(success.message);
