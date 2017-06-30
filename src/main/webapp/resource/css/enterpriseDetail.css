@@ -33,6 +33,7 @@ body{
 	color: #FFF;
 	float: left;
 	padding: 8px;
+	cursor: pointer;
 	/*防止padding和margin影响高度*/
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;

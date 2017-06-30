@@ -141,6 +141,20 @@ $(document).ready(function(){
 			mini.alert("请求数据失败！status："+e.status);
 		}
 	});
+	
+	var $parentWin=$(window.parent.document);
+	//设备总数点击跳转
+	$("#equipmentNumCan").click(function(){
+		$parentWin.find("#equipment_manage_menu").trigger("click");
+	});
+	//验证对象点击跳转
+	$("#objectNumCan").click(function(){
+		$parentWin.find("#plan_menu").trigger("click");
+	});
+	//验证报告点击跳转
+	$("#reportNumCan").click(function(){
+		$parentWin.find("#report_menu").trigger("click");
+	});
 });
 
 /*
