@@ -53,6 +53,10 @@ public class PointServiceImpl implements IPointService {
 	@Override
 	public int update(PointDomain t) {
 		// TODO Auto-generated method stub
+		CompanyPointDomain companyPointDomain = new CompanyPointDomain();
+		companyPointDomain.setPointId(t.getId());
+		companyPointDomain.setValidDate(t.getValidDate());
+		pointDAO.updateCompanyPointRel(companyPointDomain);
 		return pointDAO.update(t);
 	}
 
