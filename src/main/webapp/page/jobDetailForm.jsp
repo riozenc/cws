@@ -53,7 +53,7 @@
                 <tr>
                     <td class="colTitle">职务：</td>
                     <td class="colData">    
-                        <input id="job" name="postName" class="mini-combobox" showNullItem="false" required="true" 
+                        <input id="job" name="postId" class="mini-combobox" showNullItem="false" required="true" 
                         popupHeight="150" emptyText="职务不能为空" valueField="value" textField="name"/>
                     </td>
                 </tr>
