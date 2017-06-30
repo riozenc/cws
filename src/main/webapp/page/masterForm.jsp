@@ -47,25 +47,25 @@
                 <tr>
                     <td class="colTitle">名称：</td>
                     <td class="colData">    
-                        <input name="name" class="mini-textbox" />
+                        <input name="name" class="mini-textbox" required="true" emptyText="名称不能为空" />
                     </td>
                 </tr>
                 <tr>
                     <td class="colTitle">型号：</td>
                     <td class="colData">    
-                        <input name="types" class="mini-textbox" />
+                        <input name="types" class="mini-textbox" required="true" emptyText="型号不能为空" />
                     </td>
                 </tr>
                 <tr>
                     <td class="colTitle">SN号：</td>
                     <td class="colData">    
-                        <input name="snNo" class="mini-textbox" />
+                        <input name="snNo" class="mini-textbox" required="true" emptyText="SN号不能为空" />
                     </td>
                 </tr>
                 <tr>
                     <td class="colTitle">添加日期：</td>
                     <td class="colData">    
-                        <input id="addDate" name="createDate" class="mini-datepicker" />
+                        <input id="addDate" name="createDate" class="mini-datepicker" required="true" emptyText="添加日期不能为空" />
                     </td>
                 </tr>
                 <tr>

@@ -50,37 +50,37 @@
                 <tr>
                     <td class="colTitle">编号：</td>
                     <td class="colData">    
-                        <input name="no" class="mini-textbox" />
+                        <input name="no" class="mini-textbox" required="true" emptyText="编号不能为空" />
                     </td>
                 </tr>
                 <tr>
                     <td class="colTitle">SN号：</td>
                     <td class="colData">    
-                        <input name="snNo" class="mini-textbox" />
+                        <input name="snNo" class="mini-textbox" required="true" emptyText="SN号不能为空" />
                     </td>
                 </tr>
                 <tr>
                     <td class="colTitle">型号：</td>
                     <td class="colData">    
-                        <input name="types" class="mini-textbox" />
+                        <input name="types" class="mini-textbox" required="true" emptyText="型号不能为空" />
                     </td>
                 </tr>
                 <tr>
                     <td class="colTitle">校验单位：</td>
                     <td class="colData">    
-                        <input name="checkUnit" class="mini-textbox" />
+                        <input name="checkUnit" class="mini-textbox" required="true" emptyText="校验单位不能为空" />
                     </td>
                 </tr>
                 <tr>
                     <td class="colTitle">证书编号：</td>
                     <td class="colData">    
-                        <input name="certificateNo" class="mini-textbox" />
+                        <input name="certificateNo" class="mini-textbox" required="true" emptyText="证书编号不能为空" />
                     </td>
                 </tr>  
                 <tr>
                     <td class="colTitle">有效期：</td>
                     <td class="colData">    
-                        <input id="deadline" name="validDate" class="mini-datepicker" />
+                        <input id="deadline" name="validDate" class="mini-datepicker" required="true" emptyText="有效期不能为空" />
                     </td>
                 </tr>
                 <tr>
