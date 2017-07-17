@@ -110,11 +110,11 @@ public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<P
 		return getPersistanceManager().find(getNamespace() + ".findPointByReport", reportDomain);
 	}
 
-	public int getOverduePointCount(Map<String, String> map) {
-		return getPersistanceManager().load(getNamespace() + ".getOverduePointCount", map);
+	public int getOverduePointCount(PointDomain pointDomain) {
+		return getPersistanceManager().load(getNamespace() + ".getOverduePointCount", pointDomain);
 	}
-	
-	public List<PointDomain> getOverduePoint(Map<String, String> map){
-		return getPersistanceManager().find(getNamespace() + ".getOverduePoint", map);
+	@PaginationSupport
+	public List<PointDomain> getOverduePoint(PointDomain pointDomain){
+		return getPersistanceManager().find(getNamespace() + ".getOverduePoint", pointDomain);
 	}
 }

@@ -141,7 +141,7 @@ public class PointAction extends BaseAction {
 	@ResponseBody
 	@RequestMapping(params = "type=getOverduePoint")
 	public String getOverduePoint(PointDomain pointDomain){
-		List<PointDomain> list = pointService.getOverduePoint(null);// 目前没用参数
+		List<PointDomain> list = pointService.getOverduePoint(pointDomain);// 目前没用参数
 		return JSONUtil.toJsonString(new JsonGrid(pointDomain,list));
 	} 
 	
