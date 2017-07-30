@@ -8,7 +8,6 @@
 package cws.webapp.pnt.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import com.riozenc.quicktool.annotation.PaginationSupport;
 import com.riozenc.quicktool.annotation.TransactionDAO;
@@ -113,8 +112,17 @@ public class PointDAO extends AbstractTransactionDAOSupport implements BaseDAO<P
 	public int getOverduePointCount(PointDomain pointDomain) {
 		return getPersistanceManager().load(getNamespace() + ".getOverduePointCount", pointDomain);
 	}
+
 	@PaginationSupport
-	public List<PointDomain> getOverduePoint(PointDomain pointDomain){
+	public List<PointDomain> getOverduePoint(PointDomain pointDomain) {
 		return getPersistanceManager().find(getNamespace() + ".getOverduePoint", pointDomain);
+	}
+
+	public PointDomain snCheckToCompany(PointDomain pointDomain) {
+		return getPersistanceManager().load(getNamespace() + ".snCheckToCompany", pointDomain);
+	}
+	
+	public int snCheckToVerify(PointDomain pointDomain) {
+		return getPersistanceManager().load(getNamespace() + ".snCheckToVerify", pointDomain);
 	}
 }

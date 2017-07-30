@@ -48,7 +48,7 @@
 	</div>
 	<script type="text/javascript">
 		//企业列表点击查看时传过来的id
-		//var enterpriseId=${param.enterpriseId};
+		var enterpriseId=${param.enterpriseId};
 	</script>
 	<script type="text/javascript" src="../resource/script/equipmentWin.js"></script>
 </body>

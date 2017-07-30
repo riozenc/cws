@@ -107,4 +107,16 @@ public class PointServiceImpl implements IPointService {
 		return pointDAO.getOverduePoint(pointDomain);
 	}
 
+	@Override
+	public PointDomain snCheckToCompany(PointDomain pointDomain) {
+		// TODO Auto-generated method stub
+		return pointDAO.snCheckToCompany(pointDomain);
+	}
+
+	@Override
+	public int snCheckToVerify(PointDomain pointDomain) {
+		// TODO Auto-generated method stub
+		return pointDAO.snCheckToVerify(pointDomain);
+	}
+
 }

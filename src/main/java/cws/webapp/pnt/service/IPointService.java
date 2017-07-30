@@ -26,4 +26,7 @@ public interface IPointService extends BaseService<PointDomain> {
 	public int getOverduePointCount(PointDomain pointDomain);
 	
 	public List<PointDomain> getOverduePoint(PointDomain pointDomain);
+	
+	public PointDomain snCheckToCompany(PointDomain pointDomain);
+	public int snCheckToVerify(PointDomain pointDomain);
 }

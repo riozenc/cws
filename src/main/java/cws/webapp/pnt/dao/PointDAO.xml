@@ -118,7 +118,8 @@
 
 	<select id="findPointByCompany" parameterType="PointDomain"
 		resultType="PointDomain" useCache="true">
-		SELECT b.*,a.VALID_DATE FROM company_point_rel a LEFT JOIN point_info b ON
+		SELECT b.*,a.VALID_DATE FROM company_point_rel a LEFT JOIN point_info
+		b ON
 		a.POINT_ID = b.ID
 		<where>
 			a.COMPANY_ID = #{companyId}
@@ -191,6 +192,9 @@
 		SELECT count(1) FROM company_point_rel a
 		<where>
 			TO_DAYS(NOW()) - TO_DAYS(a.VALID_DATE)>0
+			<if test="companyId != null">
+				AND COMPANY_ID = #{companyId}
+			</if>
 		</where>
 	</select>
 
@@ -211,7 +215,31 @@
 		LEFT JOIN point_info b ON a.POINT_ID = b.ID
 		<where>
 			TO_DAYS(NOW()) - TO_DAYS(a.VALID_DATE)>0
+
+			<if test="companyId != null">
+				AND COMPANY_ID = #{companyId}
+			</if>
 		</where>
 	</select>
+
+	<select id="snCheckToCompany" parameterType="PointDomain" resultType="PointDomain"
+		useCache="true">
+		select
+		ID,NO,SN_NO,TYPES,CHECK_UNIT,CERTIFICATE_NO,CREATE_DATE,REMARK,STATUS
+		from POINT_INFO
+		<where>
+			and SN_NO = #{snNo}
+		</where>
+	</select>
+
+	<select id="snCheckToVerify" parameterType="PointDomain" resultType="int"
+		useCache="true">
+		select count(1) from verify_point_rel
+		<where>
+			and POINT_ID = #{id}
+		</where>
+	</select>
+
+
 
 </mapper>

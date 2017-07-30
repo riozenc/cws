@@ -9,9 +9,7 @@ package cws.webapp.pnt.action;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -44,6 +42,10 @@ public class PointAction extends BaseAction {
 		pointDomain.setCompanyId(companyId);
 		pointDomain.setCreateDate(new Date());
 		pointDomain.setStatus(1);
+
+		// 判断sn重复
+		if (null != pointService.snCheckToCompany(pointDomain))
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "SN号已存在."));
 		int i = pointService.insert(pointDomain);
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
@@ -55,6 +57,12 @@ public class PointAction extends BaseAction {
 	@ResponseBody
 	@RequestMapping(params = "type=delete")
 	public String delete(PointDomain pointDomain, @RequestParam(name = "enterpriseId") int companyId) {
+
+		// 删除企业下的设备时,需要判断是否邦定了验证对象
+		if (pointService.snCheckToVerify(pointDomain) != 0) {
+			return JSONUtil.toJsonString(new JsonResult(JsonResult.ERROR, "请先解除验证对象的绑定关系."));
+		}
+
 		pointDomain.setCompanyId(companyId);
 		int i = pointService.delete(pointDomain);
 		if (i > 0) {
@@ -129,20 +137,17 @@ public class PointAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(params = "type=getOverduePointCount")
-	public String getOverduePointCount(String other) {
-		int i = pointService.getOverduePointCount(null);// 目前没用参数
-		
-		Map<String,Integer> map = new HashMap<>();
-		map.put("message", i);
-//		return JSONUtil.toJsonString(map);
-		return "{\"message\":"+i+"}";
+	public String getOverduePointCount(PointDomain pointDomain, @RequestParam(name = "enterpriseId") int companyId) {
+		pointDomain.setCompanyId(companyId);
+		int i = pointService.getOverduePointCount(pointDomain);// 目前没用参数
+		return "{\"message\":" + i + "}";
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(params = "type=getOverduePoint")
-	public String getOverduePoint(PointDomain pointDomain){
+	public String getOverduePoint(PointDomain pointDomain) {
 		List<PointDomain> list = pointService.getOverduePoint(pointDomain);// 目前没用参数
-		return JSONUtil.toJsonString(new JsonGrid(pointDomain,list));
-	} 
-	
+		return JSONUtil.toJsonString(new JsonGrid(pointDomain, list));
+	}
+
 }

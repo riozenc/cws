@@ -10,7 +10,7 @@ $(document).ready(function(){
 	                    + '<a href="javascript:delPoint(\'' + e.record.id + '\')">删除</a>&nbsp; ';
 	    }
 	});
-	gridPoint.load();
+	gridPoint.load({companyId:enterpriseId});
 });
 //格式化日期
 function dateRenderer(e) {
@@ -25,7 +25,7 @@ function dateRenderer(e) {
 /*-----------设备测点----------*/
 //键入回车查询
 function onKeyEnterPoint(){
-	searchPoint();
+	searchPoint({companyId:enterpriseId});
 }
 //查询
 function searchPoint(){
@@ -71,7 +71,7 @@ function editPoint(recodeID){
 		        recode.validDate=mini.formatDate(value, 'yyyy-MM-dd');
 			}
 	    	//向表单传参
-//	    	recode.enterpriseId=enterpriseId;
+	    	recode.companyId=enterpriseId;
 	    	var iframe = this.getIFrameEl();
 	        iframe.contentWindow.setData(recode);
 	    },
@@ -103,7 +103,7 @@ function delPoint(recode){
                 $.ajax({
                     url: "../point.do?type=delete",
                     type: 'post',
-            		data: { id: recode },
+            		data: { id: recode,enterpriseId:enterpriseId },
             		dataType : 'json',
                     success: function (text) {
                     	alert(text.message);

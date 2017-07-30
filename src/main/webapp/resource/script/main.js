@@ -265,34 +265,34 @@ $(document).ready(function(){
 		pageContextCan.location.href="page/enterpriseList.jsp";
 	});
 
-	//读取提示消息数量
-	$.ajax({
-//		url : "resource/data/message.txt",
-		url : "point.do?type=getOverduePointCount",
-		data : {other:1},
-		dataType : "json",
-		type : "get",
-		success : function(e){
-			/*if(e.message1>0){
-				var $topMessage_num=$("#topMessage_num");
-				$topMessage_num.text(e.message1);
-				$topMessage_num.css('visibility', 'visible');
-			}*/
-			if(e.message>0){
-				var $topNotice_num=$("#topNotice_num");
-				$topNotice_num.text(e.message);
-				$topNotice_num.css('visibility', 'visible');
-			}
-			/*if(e.message3>0){
-				var $topInform_num=$("#topInform_num");
-				$topInform_num.text(e.message3);
-				$topInform_num.css('visibility', 'visible');
-			}*/
-		},
-		error : function(e){
-			alert("请求数据失败！status："+e.status);
-		}
-	});
+//	//读取提示消息数量
+//	$.ajax({
+////		url : "resource/data/message.txt",
+//		url : "point.do?type=getOverduePointCount",
+//		data : {other:1},
+//		dataType : "json",
+//		type : "get",
+//		success : function(e){
+//			/*if(e.message1>0){
+//				var $topMessage_num=$("#topMessage_num");
+//				$topMessage_num.text(e.message1);
+//				$topMessage_num.css('visibility', 'visible');
+//			}*/
+//			if(e.message>0){
+//				var $topNotice_num=$("#topNotice_num");
+//				$topNotice_num.text(e.message);
+//				$topNotice_num.css('visibility', 'visible');
+//			}
+//			/*if(e.message3>0){
+//				var $topInform_num=$("#topInform_num");
+//				$topInform_num.text(e.message3);
+//				$topInform_num.css('visibility', 'visible');
+//			}*/
+//		},
+//		error : function(e){
+//			alert("请求数据失败！status："+e.status);
+//		}
+//	});
 
 	//读取用户信息
 	/*$.ajax({
@@ -313,21 +313,21 @@ $(document).ready(function(){
 		}
 	});*/
 	
-	//后台获取设备
-	$("#topNotice").click(function(){
-		mini.open({
-		    url: "page/equipmentWin.jsp",
-		    title: "过期设备", 
-		    width: 890, 
-		    height: 280,
-		    allowResize: true,
-		    onload: function () {
-		    },
-		    ondestroy: function (action) {
-		        
-		    }
-		});
-	});
+//	//后台获取设备
+//	$("#topNotice").click(function(){
+//		mini.open({
+//		    url: "page/equipmentWin.jsp",
+//		    title: "过期设备", 
+//		    width: 890, 
+//		    height: 280,
+//		    allowResize: true,
+//		    onload: function () {
+//		    },
+//		    ondestroy: function (action) {
+//		        
+//		    }
+//		});
+//	});
 	
 	//页面初始化展示企业列表
 	$("#listFirst1").trigger("click");

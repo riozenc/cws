@@ -49,7 +49,7 @@
                 <tr>
                     <td class="colTitle">位置：</td>
                     <td class="colData">    
-                        <input name="pointPosition" class="mini-textbox" />
+                        <input name="pointPosition" class="mini-textbox"  emptyText="位置不能为空" required="true" />
                     </td>
                 </tr>
                 <tr>
