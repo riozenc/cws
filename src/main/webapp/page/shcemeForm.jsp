@@ -62,9 +62,10 @@
                 </tr>
                 <tr>
                     <td class="colTitle">SN号：</td>
-                    <td class="colData">    
-                        <input id="SNType" name="pointSn" class="mini-combobox" showNullItem="false" required="true" 
-                        popupHeight="112" emptyText="SN不能为空" valueField="value" textField="name"/> 
+                    <td class="colData">
+                    <input name="pointSn" class="mini-textbox"   required="true" readonly="readonly" />
+<!--                         <input id="SNType" name="pointSn" class="mini-combobox" showNullItem="false" required="true"  -->
+<!--                         popupHeight="112" emptyText="SN不能为空" valueField="value" textField="name"/>  -->
                     </td>
                 </tr>
                 <tr>
