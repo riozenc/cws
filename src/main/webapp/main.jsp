@@ -10,6 +10,15 @@
 	<link rel="stylesheet" type="text/css" href="resource/css/main.css">
 	<script type="text/javascript" src="resource/script/main.js"></script>
 	<script type="text/javascript" src="resource/script/miniui_register.js"></script>
+	
+	
+	<script type="text/javascript">
+	
+	
+	var $topNotice_num=$("#topNotice_num");
+	$topNotice_num.css('visibility', 'hidden');
+	
+	</script>
 </head>
 <body>
 	<div id="mainSplit" class="mini-splitter" style="width:100%;height:100%;" handlerSize="0">

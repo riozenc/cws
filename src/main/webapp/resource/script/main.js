@@ -6,6 +6,7 @@ $(document).ready(function(){
 		alert("search");
 	});*/
 	
+	
 	/*
 		左侧下拉列表
 	*/
@@ -67,6 +68,8 @@ $(document).ready(function(){
 		//加载页面
 		var pageContextCan=window.frames["pageContextCan"];
 		pageContextCan.location.href="page/enterpriseList.jsp";
+		var $topNotice_num=$("#topNotice_num");
+		$topNotice_num.css('visibility', 'hidden');
 	});
 	/*
 	验证对象类型管理子菜单点击事件
@@ -263,7 +266,12 @@ $(document).ready(function(){
 		$curMenu.css('display', 'block');
 		var pageContextCan=window.frames["pageContextCan"];
 		pageContextCan.location.href="page/enterpriseList.jsp";
+		var $topNotice_num=$("#topNotice_num");
+		$topNotice_num.css('visibility', 'hidden');
+		
+		
 	});
+	
 
 //	//读取提示消息数量
 //	$.ajax({
