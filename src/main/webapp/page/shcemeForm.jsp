@@ -63,9 +63,9 @@
                 <tr>
                     <td class="colTitle">SN号：</td>
                     <td class="colData">
-                    <input name="pointSn" class="mini-textbox"   required="true" readonly="readonly" />
-<!--                         <input id="SNType" name="pointSn" class="mini-combobox" showNullItem="false" required="true"  -->
-<!--                         popupHeight="112" emptyText="SN不能为空" valueField="value" textField="name"/>  -->
+<!--                     <input name="pointSn" class="mini-textbox"   required="true" readonly="readonly" /> -->
+                        <input id="SNType" name="pointSn" class="mini-combobox" showNullItem="false" required="true" 
+                        popupHeight="112" emptyText="SN不能为空" valueField="value" textField="name"/> 
                     </td>
                 </tr>
                 <tr>
@@ -92,8 +92,17 @@
             var verifyType=$("input[name='verifyType']").val();
             var verifyId=$("input[name='verifyId']").val();
             var snDrop = mini.get("SNType");
-            snDrop.load("../point.do?type=findPointByCompanyToDrop&enterpriseId="+enterpriseId+"&verifyType="+verifyType+"&verifyId="+verifyId+"&status=1");
+            
             //snDrop.load("../resource/data/SNDrop.txt?enterpriseId="+enterpriseId+"&verifyType="+verifyType+"&verifyId="+verifyId);
+            
+            var o = form.getData();
+            //根据id是否存在判断是修改还是新增操作。
+            if(o.id){
+            	//snDrop.load("3");
+            }else{
+            	snDrop.load("../point.do?type=findPointByCompanyToDrop&enterpriseId="+enterpriseId+"&verifyType="+verifyType+"&verifyId="+verifyId+"&status=1");
+            	$("#SNType").removeAttr("disabled");
+            }
         }
 		//确定
 		function onOk(e) {
@@ -139,6 +148,7 @@
         function CloseWindow(action) {
         	return window.CloseOwnerWindow(action);       
         }
+        
 	</script>
 </body>
 </html>

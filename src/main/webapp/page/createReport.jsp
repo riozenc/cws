@@ -294,7 +294,7 @@
 									<tr>
 										<td class="baseInfo_cellTitle">生产日期</td>
 										<td class="baseInfo_cellValue" colspan="5">
-											<input name="productionDate" class="mini-textbox context3_input" allowInput="false" />
+											<input name="date" class="mini-textbox context3_input" allowInput="false" />
 										</td>
 									</tr>
 									<tr>
