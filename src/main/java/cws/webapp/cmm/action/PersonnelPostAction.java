@@ -38,7 +38,7 @@ public class PersonnelPostAction extends BaseAction {
 	@RequestMapping(params = "type=insert")
 	public String insert(PersonnelPostDomain personnelPostDomain, @RequestParam(name = "enterpriseId") int companyId) {
 		personnelPostDomain.setCompanyId(companyId);
-		personnelPostDomain.setPostId(Integer.parseInt(personnelPostDomain.getPostName()));
+//		personnelPostDomain.setPostId(Integer.parseInt(personnelPostDomain.getPostName()));
 		personnelPostDomain.setStatus(1);
 		if (personnelPostService.insert(personnelPostDomain) > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
@@ -61,7 +61,7 @@ public class PersonnelPostAction extends BaseAction {
 	@ResponseBody
 	@RequestMapping(params = "type=update")
 	public String update(PersonnelPostDomain personnelPostDomain, String postName) {
-		personnelPostDomain.setPostId(Integer.parseInt(postName));
+//		personnelPostDomain.setPostId(Integer.parseInt(postName));
 		int i = personnelPostService.update(personnelPostDomain);
 		if (i > 0) {
 			return JSONUtil.toJsonString(new JsonResult(JsonResult.SUCCESS, "成功."));
