@@ -20,6 +20,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import javax.servlet.http.HttpServletRequest;
@@ -152,6 +153,7 @@ public class ReportAction {
 				deviceDomain.setDeviceId(domain.getPointId() + "");
 				deviceDomain.setPointId(domain.getPointId());
 				deviceDomain.setPointSn(domain.getPointSn());
+				deviceDomain.setPointPosition(domain.getPointPosition());
 				deviceDomain.setVerifyReportId(reportNo);
 				deviceDomain.setStyle(measureType == 0 ? null : measureType);
 				deviceDomains.add(deviceDomain);
@@ -160,7 +162,7 @@ public class ReportAction {
 
 		int dataSize = deviceDomains.size();
 
-		Map<String, Collection<String>> map = new HashMap<>();
+		Map<String, Collection<String>> map = new TreeMap<>();
 
 		@SuppressWarnings("unchecked")
 		Map<String, String>[] maps = new Map[dataSize];
@@ -179,14 +181,13 @@ public class ReportAction {
 		}
 
 		// 组合
-
 		for (int i = 0; i < dataSize; i++) {
 			List<String> y = new ArrayList<>();
 			for (String temp : x) {
 				y.add(maps[i].get(temp) == null ? "0" : maps[i].get(temp));
 				// y.add(maps[i].get(temp));
 			}
-			map.put(deviceDomains.get(i).getDeviceId(), y);
+			map.put(deviceDomains.get(i).getPointPosition()+"测点", y);
 		}
 
 		if (x.size() == 0) {
@@ -394,4 +395,5 @@ public class ReportAction {
 		}
 
 	}
+
 }

@@ -26,6 +26,8 @@ public class DeviceDomain implements MybatisEntity {
 	private Integer pointId;//
 	@ReflectionIgnore
 	private Integer pointType;//
+	@ReflectionIgnore
+	private Integer pointPosition;
 
 	public Integer getId() {
 		return id;
@@ -105,6 +107,14 @@ public class DeviceDomain implements MybatisEntity {
 
 	public void setPointSn(String pointSn) {
 		this.pointSn = pointSn;
+	}
+
+	public Integer getPointPosition() {
+		return pointPosition;
+	}
+
+	public void setPointPosition(Integer pointPosition) {
+		this.pointPosition = pointPosition;
 	}
 
 }

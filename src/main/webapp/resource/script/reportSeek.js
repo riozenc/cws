@@ -9,12 +9,12 @@ $(document).ready(function() {
 		$childCanvans.css('display', 'none');
 		$mainCanvans.css('display', 'block');
 	});
-	loadChart();
+	loadChart1();
 });
 
 // 下拉切换事件
 function dropChanged(event) {
-	loadChart();
+	loadChart1();
 }
 
 // echarts图形加载
@@ -184,7 +184,7 @@ function loadChart() {
 				// 设置各属性及参数
 				myChart.setOption({
 					title : {
-						text : '温度变化曲线图',
+						text : '温度变化曲线图1',
 						x : 'center',
 						y : 'top'
 					},
